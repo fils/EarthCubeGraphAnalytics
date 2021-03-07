@@ -1,4 +1,4 @@
-# ECO Graph Analytics  
+# EarthCube Graph Analytics  
 
 ## About
 
@@ -32,3 +32,8 @@ explore it.
 If do something cool with all this (which I have NOT), please let me know.  I'd
 enjoying hearing and learning.  
 
+
+## References
+
+* https://towardsdatascience.com/how-to-get-started-with-social-network-analysis-6d527685d374
+* https://towardsdatascience.com/visualizing-networks-in-python-d70f4cbeb259
