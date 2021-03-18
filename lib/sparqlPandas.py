@@ -1,4 +1,3 @@
-#@title
 def get_sparql_dataframe(service, query):
     """
     Helper function to convert SPARQL results into a Pandas data frame.
