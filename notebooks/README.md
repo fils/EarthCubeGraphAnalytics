@@ -12,7 +12,7 @@ semantic clustering to develop a set of initial node sets (V) that I can use.
 
 * [SciKit-Learn](https://scikit-learn.org/stable/) testing
 * [txtai](https://github.com/neuml/txtai) testing
-*Exploring [Gensim](https://radimrehurek.com/gensim/index.html) a bit but in the end this notebook exits
+* Exploring [Gensim](https://radimrehurek.com/gensim/index.html) a bit but in the end this notebook exits
 with an error.  So if anyone can get it working, let me know!
 
 
