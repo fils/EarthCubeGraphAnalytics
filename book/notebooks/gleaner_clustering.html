@@ -1,0 +1,788 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SciKit K-means Clustering &#8212; My sample book</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Test part file" href="../partfile.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">My sample book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to your Jupyter Book
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../content.html">
+   Content in Jupyter Book
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../markdown.html">
+     Markdown Files
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../notebooks.html">
+     Content with notebooks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../analysis.html">
+     Data Unit Testing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../partfile.html">
+     Test part file
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     SciKit K-means Clustering
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/gleaner_clustering.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/gleaner_clustering.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/notebooks/gleaner_clustering.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#notes">
+   Notes:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#imports-and-inits">
+   Imports and Inits
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gleaner-data">
+   Gleaner Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#feature-extraction">
+   Feature extraction
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#kmeans-clusters">
+     Kmeans clusters
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nearest-neighbor-testing">
+   Nearest Neighbor testing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#search-testing">
+   Search testing
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="scikit-k-means-clustering">
+<h1>SciKit K-means Clustering<a class="headerlink" href="#scikit-k-means-clustering" title="Permalink to this headline">¶</a></h1>
+<p>Exploring SciKit-Learn (<a class="reference external" href="https://scikit-learn.org/stable/">https://scikit-learn.org/stable/</a>) for semantic search.  Here I am looking at the k-means approach (<a class="reference external" href="https://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_assumptions.html#sphx-glr-auto-examples-cluster-plot-kmeans-assumptions-py">https://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_assumptions.html#sphx-glr-auto-examples-cluster-plot-kmeans-assumptions-py</a>).  Specifically the Mini-Batch K-Means clustering (<a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.MiniBatchKMeans.html">https://scikit-learn.org/stable/modules/generated/sklearn.cluster.MiniBatchKMeans.html</a>).</p>
+<p>There are MANY approaches (<a class="reference external" href="https://scikit-learn.org/stable/auto_examples/index.html#cluster-examples">https://scikit-learn.org/stable/auto_examples/index.html#cluster-examples</a>) and it would be nice to get some guidance on what might make a good approach for building a similarity matrix of descriptive abstracts for datasets.</p>
+<div class="section" id="notes">
+<h2>Notes:<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
+<p>Some search concepts are:</p>
+<ul class="simple">
+<li><p>Geolocation: “Gulf of Mexico”, “Bay of Fundy”, “Georges Bank”</p></li>
+<li><p>Parameter: “chlorophyll”, “abundance”, “dissolved organic carbon”</p></li>
+<li><p>Species: “calanus finmarchicus”</p></li>
+<li><p>Instrument”: “CTD”, “bongo net”</p></li>
+<li><p>Project: “C-DEBI”</p></li>
+</ul>
+<p>The worry is these by themselves just become “frequncy searches”.   What we want are search phrases that we can pull semantics from.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!apt-get install libproj-dev proj-data proj-bin -qq
+!apt-get install libgeos-dev -qq
+</pre></div>
+</div>
+</div>
+<div class="section" id="imports-and-inits">
+<h2>Imports and Inits<a class="headerlink" href="#imports-and-inits" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%capture
+!pip install -q PyLD
+!pip install -q boto3
+!pip install -q minio
+!pip install -q rdflib==4.2.2
+!pip install -q cython
+!pip install -q cartopy
+!pip install -q SPARQLWrapper
+!pip install -q geopandas
+!pip install -q contextily==1.0rc2
+!pip install -q rdflib-jsonld==0.5.0
+!pip install -q sklearn
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">rdflib</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">pandas.io.json</span> <span class="kn">import</span> <span class="n">json_normalize</span> 
+<span class="kn">import</span> <span class="nn">concurrent.futures</span>
+<span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="kn">import</span> <span class="nn">dask</span><span class="o">,</span> <span class="nn">boto3</span>
+<span class="kn">from</span> <span class="nn">SPARQLWrapper</span> <span class="kn">import</span> <span class="n">SPARQLWrapper</span><span class="p">,</span> <span class="n">JSON</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">geopandas</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">shapely</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">MiniBatchKMeans</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+ 
+
+<span class="n">dbsparql</span> <span class="o">=</span> <span class="s2">&quot;http://dbpedia.org/sparql&quot;</span>
+<span class="n">okn</span> <span class="o">=</span> <span class="s2">&quot;http://graph.openknowledge.network/blazegraph/namespace/samplesearth/sparql&quot;</span>
+<span class="n">whoi</span> <span class="o">=</span> <span class="s2">&quot;https://lod.bco-dmo.org/sparql&quot;</span>    
+    
+<span class="c1"># Pandas options</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.width&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_colwidth&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="gleaner-data">
+<h2>Gleaner Data<a class="headerlink" href="#gleaner-data" title="Permalink to this headline">¶</a></h2>
+<p>First lets load up some of the data Gleaner has collected.  This is just simple data graph objects and not any graphs or other processed products from Gleaner.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up our S3FileSystem object</span>
+<span class="kn">import</span> <span class="nn">s3fs</span> 
+<span class="n">oss</span> <span class="o">=</span> <span class="n">s3fs</span><span class="o">.</span><span class="n">S3FileSystem</span><span class="p">(</span>
+      <span class="n">anon</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+      <span class="n">client_kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;endpoint_url&quot;</span><span class="p">:</span><span class="s2">&quot;https://oss.geodex.org&quot;</span><span class="p">}</span>
+   <span class="p">)</span>
+<span class="c1"># oss.ls(&#39;gleaner/summoned&#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># # A simple example of grabbing one item...  </span>
+<span class="c1"># import json </span>
+
+<span class="c1"># jld = &quot;&quot;</span>
+<span class="c1"># with oss.open(&#39;gleaner/summoned/opentopo/231f7fa996be8bd5c28b64ed42907b65cca5ee30.jsonld&#39;, &#39;rb&#39;) as f:</span>
+<span class="c1">#   #print(f.read())</span>
+<span class="c1">#    jld = f.read().decode(&quot;utf-8&quot;, &quot;ignore&quot;).replace(&#39;\n&#39;,&#39; &#39;)</span>
+<span class="c1">#    json = json.loads(jld)</span>
+
+<span class="c1"># document = json[&#39;description&#39;]</span>
+<span class="c1"># print(document)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+
+<span class="nd">@dask</span><span class="o">.</span><span class="n">delayed</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">read_a_file</span><span class="p">(</span><span class="n">fn</span><span class="p">):</span>
+    <span class="c1"># or preferably open in text mode and json.load from the file</span>
+    <span class="k">with</span> <span class="n">oss</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="c1">#return json.loads(f.read().replace(&#39;\n&#39;,&#39; &#39;))</span>
+        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span> <span class="s2">&quot;ignore&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="s1">&#39; &#39;</span><span class="p">))</span>
+
+<span class="c1"># buckets = [&#39;gleaner/summoned/dataucaredu&#39;, &#39;gleaner/summoned/getiedadataorg&#39;, &#39;gleaner/summoned/iris&#39;, &#39;gleaner/summoned/opentopo&#39;, &#39;gleaner/summoned/ssdb&#39;, &#39;gleaner/summoned/wikilinkedearth&#39;, &#39;gleaner/summoned/wwwbco-dmoorg&#39;, &#39;gleaner/summoned/wwwhydroshareorg&#39;, &#39;gleaner/summoned/wwwunavcoorg&#39;]</span>
+
+<span class="n">buckets</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;gleaner/summoned/opentopo&#39;</span><span class="p">]</span>
+
+<span class="n">filenames</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">buckets</span><span class="p">)):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;indexing </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">buckets</span><span class="p">[</span><span class="n">d</span><span class="p">]))</span>
+  <span class="n">f</span> <span class="o">=</span> <span class="n">oss</span><span class="o">.</span><span class="n">ls</span><span class="p">(</span><span class="n">buckets</span><span class="p">[</span><span class="n">d</span><span class="p">])</span>
+  <span class="n">filenames</span> <span class="o">+=</span> <span class="n">f</span>
+
+<span class="c1">#filenames = oss.cat(&#39;gleaner/summoned/opentopo&#39;, recursive=True)</span>
+<span class="n">output</span> <span class="o">=</span> <span class="p">[</span><span class="n">read_a_file</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">filenames</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">filenames</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>indexing gleaner/summoned/opentopo
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>654
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+
+<span class="n">gldf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;url&#39;</span><span class="p">,</span> <span class="s2">&quot;keywords&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;object&quot;</span><span class="p">])</span>
+
+<span class="c1">#for key in filenames:</span>
+
+<span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">output</span><span class="p">)):</span>
+<span class="c1">#for doc in range(10):</span>
+<span class="c1">#for key in filenames:</span>
+  <span class="c1">#if &quot;.jsonld&quot; in key:</span>
+  <span class="k">if</span> <span class="s2">&quot;/.jsonld&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">filenames</span><span class="p">[</span><span class="n">doc</span><span class="p">]</span> <span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+      <span class="n">jld</span> <span class="o">=</span> <span class="n">output</span><span class="p">[</span><span class="n">doc</span><span class="p">]</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+    <span class="k">except</span><span class="p">:</span>
+      <span class="nb">print</span><span class="p">(</span><span class="n">filenames</span><span class="p">[</span><span class="n">doc</span><span class="p">])</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Doc has bad encoding&quot;</span><span class="p">)</span>
+
+    <span class="c1"># TODO  Really need to flatten and or frame this</span>
+    <span class="k">try</span><span class="p">:</span>
+      <span class="n">desc</span> <span class="o">=</span> <span class="n">jld</span><span class="p">[</span><span class="s2">&quot;description&quot;</span><span class="p">]</span>
+    <span class="k">except</span><span class="p">:</span>
+      <span class="n">desc</span> <span class="o">=</span> <span class="s2">&quot;NA&quot;</span>
+      <span class="k">continue</span>
+    <span class="n">kws</span> <span class="o">=</span> <span class="s2">&quot;keywords&quot;</span> <span class="c1">#jld[&quot;keywords&quot;]</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">jld</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;NA&quot;</span> <span class="c1">#jld[&quot;url&quot;]</span>
+    <span class="nb">object</span> <span class="o">=</span> <span class="n">filenames</span><span class="p">[</span><span class="n">doc</span><span class="p">]</span>
+
+    <span class="n">gldf</span> <span class="o">=</span> <span class="n">gldf</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;url&#39;</span><span class="p">:</span><span class="n">url</span><span class="p">,</span> <span class="s1">&#39;keywords&#39;</span><span class="p">:</span><span class="n">kws</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="n">desc</span><span class="p">,</span> <span class="s1">&#39;object&#39;</span><span class="p">:</span> <span class="nb">object</span><span class="p">},</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>gleaner/summoned/opentopo/96cd0d0ef0ece75057a91e2704179bc40ab313fd.jsonld
+Doc has bad encoding
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gldf</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<span class="c1"># gldf.to_parquet(&#39;index.parquet.gzip&#39;,  compression=&#39;gzip&#39;) # optional save state here ...  one master parquet for Geodex? </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 654 entries, 0 to 653
+Data columns (total 5 columns):
+ #   Column       Non-Null Count  Dtype 
+---  ------       --------------  ----- 
+ 0   name         654 non-null    object
+ 1   url          654 non-null    object
+ 2   keywords     654 non-null    object
+ 3   description  654 non-null    object
+ 4   object       654 non-null    object
+dtypes: object(5)
+memory usage: 25.7+ KB
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="feature-extraction">
+<h2>Feature extraction<a class="headerlink" href="#feature-extraction" title="Permalink to this headline">¶</a></h2>
+<p>Let’s just worry about the description section for now.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vec</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">stop_words</span><span class="o">=</span><span class="s2">&quot;english&quot;</span><span class="p">)</span>
+<span class="n">vec</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">gldf</span><span class="o">.</span><span class="n">description</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="n">features</span> <span class="o">=</span> <span class="n">vec</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">gldf</span><span class="o">.</span><span class="n">description</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="kmeans-clusters">
+<h3>Kmeans clusters<a class="headerlink" href="#kmeans-clusters" title="Permalink to this headline">¶</a></h3>
+<p>Guess at the number a few times since we don’t have a prior idea who many natural clusterings we might expect</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random_state</span> <span class="o">=</span> <span class="mi">0</span> 
+
+<span class="bp">cls</span> <span class="o">=</span> <span class="n">MiniBatchKMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">)</span>
+<span class="bp">cls</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MiniBatchKMeans(n_clusters=20, random_state=0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># predict cluster labels for new dataset</span>
+<span class="bp">cls</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+
+<span class="c1"># to get cluster labels for the dataset used while</span>
+<span class="c1"># training the model (used for models that does not</span>
+<span class="c1"># support prediction on new dataset).</span>
+<span class="bp">cls</span><span class="o">.</span><span class="n">labels_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([18,  9, 18, 18, 18,  5, 18, 12, 18, 12, 15, 16,  0,  0, 15, 18, 15,
+        1,  0,  5, 18, 12, 18,  0, 14,  8, 18, 13, 18, 12,  8, 18, 12, 18,
+       16, 12,  2, 18,  0,  0, 17, 18,  6,  0,  0,  5,  2, 12,  2, 18, 12,
+       15,  2, 17,  9, 11,  0, 12,  9,  1,  2,  0, 18,  2,  5, 12, 13, 15,
+       17,  2,  2, 18, 18, 16,  0,  2, 18,  0, 13,  5, 18,  2,  0, 11, 18,
+        0, 12, 14,  0,  0,  9,  8,  9, 11,  5,  9, 12, 17,  1, 12,  7,  0,
+        9,  5,  2, 12, 13, 18, 18, 12,  2,  0,  0, 18, 18,  0,  0, 18, 18,
+        8,  2,  2,  0, 18, 13,  1,  2,  9, 13,  0,  8, 18, 13, 12,  1,  2,
+        2,  0, 16,  5,  0,  9,  0, 12,  0, 13, 12, 18, 18,  1,  2,  8, 13,
+        1,  9,  0,  0,  2, 13, 15,  4,  0,  2, 12,  2, 18,  9,  1, 13,  5,
+        0,  0, 18, 18,  0,  9, 15, 14, 18, 19,  3, 18, 15, 18,  2, 18,  0,
+        8, 16, 18, 18,  0,  9, 13, 18, 17,  2,  2,  2, 18, 18, 17,  5, 11,
+       18, 18, 18, 18, 13,  2, 18, 18, 18, 18, 18, 18, 19,  0, 18,  5,  2,
+        5,  2,  0,  0,  2,  9,  4,  1, 18,  0,  4,  3,  9, 16,  1, 16,  0,
+        5, 13, 12,  9,  2, 11, 12, 12,  2, 18, 18,  2,  9, 12,  3, 12, 18,
+        2, 18,  7, 18,  0,  3,  0,  2,  0,  5,  9,  1,  2, 16,  3, 18, 13,
+        9, 14, 18, 12, 15, 11,  2, 18,  5,  9,  0,  0,  9,  5, 18,  2,  2,
+       18, 10,  2, 12,  8, 12, 15,  0, 18,  2, 18, 10,  2,  9, 18, 16,  0,
+       16,  8,  5, 11, 11,  2,  5, 12,  3, 18, 16,  5,  2,  0, 18,  8,  8,
+        0, 15, 17, 12, 15,  2,  0,  2, 12, 18, 15, 12,  5, 18,  5, 18,  5,
+       11,  8, 18, 14, 18, 15,  5,  0, 12, 18, 18,  2,  0,  9,  1,  0,  4,
+       17, 17,  0,  5, 18,  2, 12,  5, 17,  2, 18, 15,  4, 12, 12, 12,  3,
+       18,  2, 17, 18,  0,  5, 18, 12,  2, 15, 18, 18,  2,  5,  0, 16,  0,
+       15,  0,  5, 18, 18, 12, 11,  3,  2, 18,  8,  5,  0,  1,  8,  8,  5,
+        2,  0,  2, 18, 18, 12, 18, 12, 12,  4,  1,  1, 15,  8, 18,  8,  5,
+        6, 18,  2,  0, 18, 17, 14,  2,  9, 18, 18, 18, 12,  0,  2,  4,  0,
+       18,  0,  9,  0,  2,  3, 13, 18,  8,  4, 13, 18, 18,  0, 18,  0,  6,
+       16, 13, 18,  7,  2, 17,  0,  5, 17,  2,  6,  1,  2, 18, 13,  9, 18,
+       18, 12,  8,  4, 18, 13,  2, 12, 18, 16,  5, 18, 13,  0,  9,  0, 18,
+        2, 13, 16, 11, 12,  3, 13, 18, 18,  5, 18, 12, 18,  2,  9, 18,  0,
+        2, 18,  9,  0, 18, 19, 18, 18,  0, 19, 18, 16, 18,  1,  7, 12,  2,
+       18,  9, 11, 18, 18,  2,  5, 15,  2,  4,  3,  2, 13,  0, 13, 18,  0,
+        0,  0, 11, 18, 18,  9, 12, 13,  7,  0,  0,  2, 15,  5,  5,  9,  8,
+        0, 13, 18, 15, 18, 12, 18,  7,  2,  0, 18, 18, 12,  4,  3, 16,  0,
+       18, 12, 12, 18, 18,  5,  1, 11, 13,  9, 13,  0, 18, 18,  0, 18, 18,
+        0, 18, 12, 15, 18, 18,  0,  2, 12,  0,  0, 17, 13, 12, 16,  2,  4,
+       13, 12, 18, 18, 18, 18, 18, 18, 11, 12, 11, 11,  2, 12,  2, 12, 12,
+        9, 18, 16, 13,  2,  2, 12, 11, 12, 15, 17, 12, 18, 16, 18, 18,  0,
+       18, 18,  1,  2,  0,  5,  0,  2], dtype=int32)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># reduce the features to 2D</span>
+<span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">)</span>
+<span class="n">reduced_features</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">features</span><span class="o">.</span><span class="n">toarray</span><span class="p">())</span>
+
+<span class="c1"># reduce the cluster centers to 2D</span>
+<span class="n">reduced_cluster_centers</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">cluster_centers_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">reduced_features</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">reduced_features</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="bp">cls</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">features</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">reduced_cluster_centers</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">reduced_cluster_centers</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f4cbaa66340&gt;
+</pre></div>
+</div>
+<img alt="../_images/gleaner_clustering_17_1.svg" src="../_images/gleaner_clustering_17_1.svg" /></div>
+</div>
+</div>
+</div>
+<div class="section" id="nearest-neighbor-testing">
+<h2>Nearest Neighbor testing<a class="headerlink" href="#nearest-neighbor-testing" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">NearestNeighbors</span>
+<span class="n">knn</span> <span class="o">=</span> <span class="n">NearestNeighbors</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;cosine&#39;</span><span class="p">)</span>
+<span class="n">knn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NearestNeighbors(metric=&#39;cosine&#39;, n_neighbors=10)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">knn</span><span class="o">.</span><span class="n">kneighbors</span><span class="p">(</span><span class="n">features</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">],</span> <span class="n">return_distance</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[  0, 520, 395, 248, 355, 276, 176, 327, 598, 638]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">knn</span><span class="o">.</span><span class="n">kneighbors</span><span class="p">(</span><span class="n">features</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">],</span> <span class="n">return_distance</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([[0.        , 0.05126516, 0.37921939, 0.4165376 , 0.6984332 ,
+         0.87318168, 0.87318168, 0.87318168, 0.87318168, 0.88349159]]),
+ array([[  0, 520, 395, 248, 355, 276, 176, 327, 598, 638]]))
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="search-testing">
+<h2>Search testing<a class="headerlink" href="#search-testing" title="Permalink to this headline">¶</a></h2>
+<p>run a few test searches and then plot the first n (4) results</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">input_texts</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;New Zeland lidar data&quot;</span><span class="p">,</span> <span class="s2">&quot;California housing&quot;</span><span class="p">,</span> <span class="s2">&quot;new madrid seismic zone&quot;</span><span class="p">]</span>
+<span class="n">input_features</span> <span class="o">=</span> <span class="n">vec</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">input_texts</span><span class="p">)</span>
+
+<span class="n">D</span><span class="p">,</span> <span class="n">N</span> <span class="o">=</span> <span class="n">knn</span><span class="o">.</span><span class="n">kneighbors</span><span class="p">(</span><span class="n">input_features</span><span class="p">,</span> <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">return_distance</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">input_text</span><span class="p">,</span> <span class="n">distances</span><span class="p">,</span> <span class="n">neighbors</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">input_texts</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Input text = &quot;</span><span class="p">,</span> <span class="n">input_text</span><span class="p">[:</span><span class="mi">200</span><span class="p">],</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">dist</span><span class="p">,</span> <span class="n">neighbor_idx</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">distances</span><span class="p">,</span> <span class="n">neighbors</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Distance = &quot;</span><span class="p">,</span> <span class="n">dist</span><span class="p">,</span> <span class="s2">&quot;Neighbor idx = &quot;</span><span class="p">,</span> <span class="n">neighbor_idx</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">gldf</span><span class="o">.</span><span class="n">name</span><span class="p">[</span><span class="n">neighbor_idx</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">gldf</span><span class="o">.</span><span class="n">description</span><span class="p">[</span><span class="n">neighbor_idx</span><span class="p">][:</span><span class="mi">400</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">200</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">200</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Input text =  New Zeland lidar data 
+
+Distance =  0.6759095922425897 Neighbor idx =  59
+Bay of Plenty, New Zealand 2018-2019
+Lidar was captured for BOPLASS Limited by AAM New Zealand between December 2018 and April 2019. The dataset was generated by AAM New Zealand and their subcontractors. The survey area includes Tauranga, Rotorua and Whakatane and the surrounding area. Data management and distribution is by Land Information New Zealand.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Distance =  0.6833093201645597 Neighbor idx =  470
+Auckland South, New Zealand 2016-2017
+Lidar was captured for Auckland Council by AAM New Zealand between September 2016 through to June 2017. The original dataset was generated by AAM New Zealand and their subcontractors. The survey area covers the southern Auckland suburbs and regions. Data management and distribution is by Land Information New Zealand.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Distance =  0.7069674707157929 Neighbor idx =  125
+Marsden Point, Northland, New Zealand 2016
+Lidar was captured for Land Information New Zealand by Aerial Surveys in November 2016. The dataset was generated by Aerial Surveys and their subcontractors. The survey area includes Marsden Point and the surrounding area. Data management and distribution is by Land Information New Zealand.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Distance =  0.7311078986510137 Neighbor idx =  134
+Canterbury, New Zealand 2018-2019
+Lidar was captured for Environment Canterbury Regional Council by Aerial Surveys New Zealand in March 2018 through to May 2019. The dataset was generated by Aerial Surveys New Zealand and their subcontractors. The survey area includes Amuri Plain, Ashburton, Fairlie Foothills, Pegasus, Motunau, Selwyn North, Selwyn South and Waimate. Data management and distribution is by Land Information New Zeal
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+========================================================================================================================================================================================================
+
+Input text =  California housing 
+
+Distance =  0.7222151549783433 Neighbor idx =  129
+Merced, CA: Origin and Evolution of the Mima Mounds
+NCALM Seed Project. PI: Sarah Reed, University of California, Berkeley. This lidar survey was conducted on Sunday, September 17, 2006 on a 33 square kilometer polygon northeast of Merced in Merced County, California.  These data were collected to investigate the origin and evolution of Mima mounds in California&#39;s Central Valley.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Distance =  0.7222151549783433 Neighbor idx =  359
+Merced, CA: Origin and Evolution of the Mima Mounds
+NCALM Seed Project. PI: Sarah Reed, University of California, Berkeley. This lidar survey was conducted on Sunday, September 17, 2006 on a 33 square kilometer polygon northeast of Merced in Merced County, California.  These data were collected to investigate the origin and evolution of Mima mounds in California&#39;s Central Valley.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Distance =  0.7804319924949502 Neighbor idx =  314
+South Fork Eel River, CA Watershed Morphology
+NCALM Project. Mary Power, University of California Berkeley. The survey area consisted of a polygon located 20 kilometers east of Dos Rios, California. The survey took place over eight flights from 6/27/2004 to 6/30/2004.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Distance =  0.7804319924949502 Neighbor idx =  232
+South Fork Eel River, CA Watershed Morphology
+NCALM Project. Mary Power, University of California Berkeley. The survey area consisted of a polygon located 20 kilometers east of Dos Rios, California. The survey took place over eight flights from 6/27/2004 to 6/30/2004.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+========================================================================================================================================================================================================
+
+Input text =  new madrid seismic zone 
+
+Distance =  0.6004996071077049 Neighbor idx =  286
+Central U.S. ARRA Lidar, New Madrid Seismic Zone
+This dataset is intended for researchers interested in active tectonics and earthquake hazards research in the New Madrid Seismic Zone. The target areas were developed and defined by USGS scientists in collaboration with colleagues working in this region. The target areas are: the Blytheville Arch, the Meeman-Shelby lineament, the Reelfoot scarp and the northern New Madrid area. The data collectio
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Distance =  0.6004996071077049 Neighbor idx =  400
+Central U.S. ARRA Lidar, New Madrid Seismic Zone
+This dataset is intended for researchers interested in active tectonics and earthquake hazards research in the New Madrid Seismic Zone. The target areas were developed and defined by USGS scientists in collaboration with colleagues working in this region. The target areas are: the Blytheville Arch, the Meeman-Shelby lineament, the Reelfoot scarp and the northern New Madrid area. The data collectio
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Distance =  0.8295725353504988 Neighbor idx =  487
+New Madrid Seismic Zone
+The New Madrid Seismic Zone (NMSZ) has been responsible for producing some of the largest intraplate earthquakes on record (Tuttle et al., 2002). Paleoseismologic studies of sand blows and the Reelfoot fault show that earthquakes occurred in the last 4000 years at intervals of approximately 400-600 years (Kelson et al., 1995; Tuttle et al., 2002; Holbrook et al., 2006). The 1811-1812 NMSZ sequence
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Distance =  0.8766571303555153 Neighbor idx =  550
+Durham, NH: Hyporheic Zone Extent and Exchange in a Coastal Stream
+NCALM Seed Project PI: Danna Truslow, University of New Hampshire. The survey area is an irregular polygon approximately 16 km West of Portsmouth, NH and enclosing 42.5 square kilometers. The data were collected to study hyporheic zone extent and exchange in a coastal New Hampshire stream using heat as a tracer.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+========================================================================================================================================================================================================
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="../partfile.html" title="previous page">Test part file</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book Community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
