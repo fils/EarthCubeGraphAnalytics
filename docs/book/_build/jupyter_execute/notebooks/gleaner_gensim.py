@@ -5,7 +5,7 @@
 # 
 # This is an exploration of Gensim as a potential to create the "node set", V,  results from a semantic search.  That would wouild be fed into a graph database and used to start the path searches and or analysis to create the desired results set for an interface.
 # 
-# This V_semsearch might be intersected with a V_spatial and or others to form a node set for the graph.  This is essentially a search "preprocessor". Another potential set might be V_text that usses more calssical full text index approaches.  
+# This V_semsearch might be intersected with a V_spatial and or others to form a node set for the graph.  This is essentially a search "preprocessor". Another potential set might be V_text that usses more classical full text index approaches.  
 # 
 # ## References
 # 

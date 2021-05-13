@@ -240,6 +240,28 @@
   <a class="reference internal nav-link" href="#about">
    About
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#scikit-k-means-clustering">
+     SciKit K-means Clustering
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gensim">
+     Gensim
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#txtai">
+     TXTAI
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#earthcube-graph-analytics-exploration">
+     EarthCube Graph Analytics Exploration
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -256,8 +278,38 @@
 <h1>Notebooks<a class="headerlink" href="#notebooks" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="about">
 <h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
-<p>all about the notebokks</p>
+<p>The following notebooks are exploring both document store access but
+also approaches to semantic search, clustering and semantic similarity.</p>
+<div class="tip admonition">
+<p class="admonition-title">Note to the reader</p>
+<p>The following are not good notebooks to learn from..  as I am learning too.  ;)</p>
+</div>
+<div class="section" id="scikit-k-means-clustering">
+<h3>SciKit K-means Clustering<a class="headerlink" href="#scikit-k-means-clustering" title="Permalink to this headline">¶</a></h3>
+<p>Exploring SciKit-Learn (<a class="reference external" href="https://scikit-learn.org/stable/">https://scikit-learn.org/stable/</a>) for semantic search. Here I am looking at the k-means approach (<a class="reference external" href="https://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_assumptions.html#sphx-glr-auto-examples-cluster-plot-kmeans-assumptions-py">https://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_assumptions.html#sphx-glr-auto-examples-cluster-plot-kmeans-assumptions-py</a>). Specifically the Mini-Batch K-Means clustering (<a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.MiniBatchKMeans.html">https://scikit-learn.org/stable/modules/generated/sklearn.cluster.MiniBatchKMeans.html</a>).</p>
+<p>There are MANY approaches (<a class="reference external" href="https://scikit-learn.org/stable/auto_examples/index.html#cluster-examples">https://scikit-learn.org/stable/auto_examples/index.html#cluster-examples</a>) and it would be nice to get some guidance on what might make a good approach for building a similarity matrix of descriptive abstracts for datasets.</p>
+</div>
+<div class="section" id="gensim">
+<h3>Gensim<a class="headerlink" href="#gensim" title="Permalink to this headline">¶</a></h3>
+<p>This is an exploration of Gensim as a potential to create the “node set”, V, results from a semantic search. That would would be fed into a graph database and used to start the path searches and or analysis to create the desired results set for an interface.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>I’ve not been able to get Gensim to produce the final output I expect due to a error
+from one of the library dependencies.  I’ve tried clean environments and even a clean VM
+and not been able to get 64 bit linux to work.</p>
+</div>
+<p>This V_semsearch might be intersected with a V_spatial and or others to form a node set for the graph. This is essentially a search “preprocessor”. Another potential set might be V_text that uses a more classical full text index approaches.</p>
+</div>
+<div class="section" id="txtai">
+<h3>TXTAI<a class="headerlink" href="#txtai" title="Permalink to this headline">¶</a></h3>
+<p>Exploring TXTAI (<a class="reference external" href="https://github.com/neuml/txtai">https://github.com/neuml/txtai</a>) as yet another candidate in generating a set of nodes (V) that could be fed into a graph as the initial node set. Essentially looking at semantic search for the initial full text index search and then moving on to a graph database (triplestore in my case) fort he graph search / analysis portion.</p>
+<p>This is the “search broker” concept I’ve been trying to resolve.</p>
+</div>
+<div class="section" id="earthcube-graph-analytics-exploration">
+<h3>EarthCube Graph Analytics Exploration<a class="headerlink" href="#earthcube-graph-analytics-exploration" title="Permalink to this headline">¶</a></h3>
+<p>This is the start of learning a bit about leveraging graph analytics to assess the EarthCube graph and explore both the relationships but also look for methods to better search the graph for relevant connections.</p>
 <div class="toctree-wrapper compound">
+</div>
 </div>
 </div>
 </div>

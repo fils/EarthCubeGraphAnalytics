@@ -5,7 +5,7 @@
 # 
 # ## About
 # 
-# Exploring TXTAI (https://github.com/neuml/txtai) as yet another canidate in generating a set of nodes (V) that could be fed into a graph as the initial node set.  Essentially looking at semantic search for the initial full text index search and then moving on to a graph database (triplestore in my case) fort he graph search / ananlysis portion.
+# Exploring TXTAI (https://github.com/neuml/txtai) as yet another canidate in generating a set of nodes (V) that could be fed into a graph as the initial node set.  Essentially looking at semantic search for the initial full text index search and then moving on to a graph database (triplestore in my case) fort he graph search / analysis portion.
 # 
 # This is the "search broker" concept I've been trying to resolve. 
 # 
