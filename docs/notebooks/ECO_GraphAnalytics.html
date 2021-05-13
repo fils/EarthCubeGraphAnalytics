@@ -111,7 +111,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../analysis.html">
-     Data Unit Testing
+     Data Unit Testing, ranking, clustering
     </a>
    </li>
   </ul>
@@ -394,7 +394,7 @@ remove the unwanted triples?  Filter on only IRI to IRI.</p>
 
 <span class=" -Color -Color-Red">We recommend you use --use-feature=2020-resolver to test your packages with the new resolver before it becomes the default.</span>
 
-<span class=" -Color -Color-Red">aiobotocore 1.2.2 requires botocore&lt;1.19.53,&gt;=1.19.52, but you&#39;ll have botocore 1.20.71 which is incompatible.</span>
+<span class=" -Color -Color-Red">aiobotocore 1.2.2 requires botocore&lt;1.19.53,&gt;=1.19.52, but you&#39;ll have botocore 1.20.72 which is incompatible.</span>
 </pre></div>
 </div>
 </div>
@@ -638,46 +638,25 @@ Rather, we want to see connections between various types.  More specidically, ty
 <span class="g g-Whitespace">     </span><span class="mi">70</span> 
 
 <span class="nn">~/.local/lib/python3.9/site-packages/rdflib/plugins/sparql/evaluate.py</span> in <span class="ni">evalBGP</span><span class="nt">(ctx, bgp)</span>
+<span class="g g-Whitespace">     </span><span class="mi">66</span>             <span class="k">continue</span>
+<span class="g g-Whitespace">     </span><span class="mi">67</span> 
+<span class="ne">---&gt; </span><span class="mi">68</span>         <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">evalBGP</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">bgp</span><span class="p">[</span><span class="mi">1</span><span class="p">:]):</span>
+<span class="g g-Whitespace">     </span><span class="mi">69</span>             <span class="k">yield</span> <span class="n">x</span>
+<span class="g g-Whitespace">     </span><span class="mi">70</span> 
+
+<span class="nn">~/.local/lib/python3.9/site-packages/rdflib/plugins/sparql/evaluate.py</span> in <span class="ni">evalBGP</span><span class="nt">(ctx, bgp)</span>
+<span class="g g-Whitespace">     </span><span class="mi">43</span>     <span class="n">_s</span> <span class="o">=</span> <span class="n">ctx</span><span class="p">[</span><span class="n">s</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">44</span>     <span class="n">_p</span> <span class="o">=</span> <span class="n">ctx</span><span class="p">[</span><span class="n">p</span><span class="p">]</span>
+<span class="ne">---&gt; </span><span class="mi">45</span>     <span class="n">_o</span> <span class="o">=</span> <span class="n">ctx</span><span class="p">[</span><span class="n">o</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">46</span> 
 <span class="g g-Whitespace">     </span><span class="mi">47</span>     <span class="k">for</span> <span class="n">ss</span><span class="p">,</span> <span class="n">sp</span><span class="p">,</span> <span class="n">so</span> <span class="ow">in</span> <span class="n">ctx</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">triples</span><span class="p">((</span><span class="n">_s</span><span class="p">,</span> <span class="n">_p</span><span class="p">,</span> <span class="n">_o</span><span class="p">)):</span>
-<span class="g g-Whitespace">     </span><span class="mi">48</span>         <span class="k">if</span> <span class="kc">None</span> <span class="ow">in</span> <span class="p">(</span><span class="n">_s</span><span class="p">,</span> <span class="n">_p</span><span class="p">,</span> <span class="n">_o</span><span class="p">):</span>
-<span class="ne">---&gt; </span><span class="mi">49</span>             <span class="n">c</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">push</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">50</span>         <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">51</span>             <span class="n">c</span> <span class="o">=</span> <span class="n">ctx</span>
 
-<span class="nn">~/.local/lib/python3.9/site-packages/rdflib/plugins/sparql/sparql.py</span> in <span class="ni">push</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">321</span> 
-<span class="g g-Whitespace">    </span><span class="mi">322</span>     <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">323</span>         <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">clone</span><span class="p">(</span><span class="n">Bindings</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bindings</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">324</span>         <span class="k">return</span> <span class="n">r</span>
-<span class="g g-Whitespace">    </span><span class="mi">325</span> 
-
-<span class="nn">~/.local/lib/python3.9/site-packages/rdflib/plugins/sparql/sparql.py</span> in <span class="ni">clone</span><span class="nt">(self, bindings)</span>
-<span class="g g-Whitespace">    </span><span class="mi">235</span> 
-<span class="g g-Whitespace">    </span><span class="mi">236</span>     <span class="k">def</span> <span class="nf">clone</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bindings</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">237</span>         <span class="n">r</span> <span class="o">=</span> <span class="n">QueryContext</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">238</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_dataset</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dataset</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">graph</span><span class="p">,</span> <span class="n">bindings</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">bindings</span><span class="p">,</span> <span class="n">initBindings</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">initBindings</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">239</span>         <span class="n">r</span><span class="o">.</span><span class="n">prologue</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">prologue</span>
-
-<span class="nn">~/.local/lib/python3.9/site-packages/rdflib/plugins/sparql/sparql.py</span> in <span class="ni">__init__</span><span class="nt">(self, graph, bindings, initBindings)</span>
-<span class="g g-Whitespace">    </span><span class="mi">216</span>     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graph</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bindings</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">initBindings</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">217</span>         <span class="bp">self</span><span class="o">.</span><span class="n">initBindings</span> <span class="o">=</span> <span class="n">initBindings</span>
-<span class="ne">--&gt; </span><span class="mi">218</span>         <span class="bp">self</span><span class="o">.</span><span class="n">bindings</span> <span class="o">=</span> <span class="n">Bindings</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="n">bindings</span> <span class="ow">or</span> <span class="p">[])</span>
-<span class="g g-Whitespace">    </span><span class="mi">219</span>         <span class="k">if</span> <span class="n">initBindings</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">bindings</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">initBindings</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">220</span> 
-
-<span class="nn">~/.local/lib/python3.9/site-packages/rdflib/plugins/sparql/sparql.py</span> in <span class="ni">__len__</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">     </span><span class="mi">72</span>     <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">73</span>         <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="ne">---&gt; </span><span class="mi">74</span>         <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">75</span>             <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="g g-Whitespace">     </span><span class="mi">76</span>         <span class="k">return</span> <span class="n">i</span>
-
-<span class="nn">~/.local/lib/python3.9/site-packages/rdflib/plugins/sparql/sparql.py</span> in <span class="ni">__iter__</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">     </span><span class="mi">79</span>         <span class="n">d</span> <span class="o">=</span> <span class="bp">self</span>
-<span class="g g-Whitespace">     </span><span class="mi">80</span>         <span class="k">while</span> <span class="n">d</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">81</span>             <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">dict</span><span class="o">.</span><span class="fm">__iter__</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">_d</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">82</span>                 <span class="k">yield</span> <span class="n">i</span>
-<span class="g g-Whitespace">     </span><span class="mi">83</span>             <span class="n">d</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">outer</span>
+<span class="nn">~/.local/lib/python3.9/site-packages/rdflib/plugins/sparql/sparql.py</span> in <span class="ni">__getitem__</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">    </span><span class="mi">282</span>                 <span class="n">_load</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">,</span> <span class="n">source</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">283</span> 
+<span class="ne">--&gt; </span><span class="mi">284</span>     <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">285</span>         <span class="c1"># in SPARQL BNodes are just labels</span>
+<span class="g g-Whitespace">    </span><span class="mi">286</span>         <span class="k">if</span> <span class="ow">not</span> <span class="nb">type</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="ow">in</span> <span class="p">(</span><span class="n">BNode</span><span class="p">,</span> <span class="n">Variable</span><span class="p">):</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
