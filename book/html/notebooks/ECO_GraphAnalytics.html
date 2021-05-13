@@ -1,0 +1,3052 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EarthCube Graph Analytics Exploration &#8212; EarthCube GeoCODES Exploration</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Gleaner &amp; txtai" href="gleaner_txtai.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/logo.webp" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">EarthCube GeoCODES Exploration</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Exploring GeoCODES
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../content.html">
+   Content in Jupyter Book
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../markdown.html">
+     Markdown Files
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../notebooks.html">
+     Content with notebooks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../analysis.html">
+     Data Unit Testing
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../partfile.html">
+   Notebooks
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="gleaner_clustering.html">
+     SciKit K-means Clustering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="gleaner_gensim.html">
+     Gensim
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="gleaner_txtai.html">
+     Gleaner &amp; txtai
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     EarthCube Graph Analytics Exploration
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/ECO_GraphAnalytics.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/ECO_GraphAnalytics.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/notebooks/ECO_GraphAnalytics.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#about">
+   About
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#thoughts">
+   Thoughts
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installs">
+   Installs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#imports">
+   Imports
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#code-inits">
+   Code inits
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#helper-function-s">
+     Helper function(s)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#set-up-some-pandas-dataframe-options">
+     Set up some Pandas Dataframe options
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#set-up-the-connection-to-the-object-store-to-access-the-graph-objects-from">
+     Set up the connection to the object store to access the graph objects from
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pull-a-graph-and-load">
+   Pull a graph and load
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#note">
+   Note
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#convert-to-networkx">
+   Convert to NetworkX
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pagerank">
+     Pagerank
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#networkx-hits">
+     NetworkX hits
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="earthcube-graph-analytics-exploration">
+<h1>EarthCube Graph Analytics Exploration<a class="headerlink" href="#earthcube-graph-analytics-exploration" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="about">
+<h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
+<p>This is the start of learning a bit about leveraging graph analytics to assess the
+EarthCube graph and explore both the relationships but also look for methods to
+better search the graph for relevant connections.</p>
+</div>
+<div class="section" id="thoughts">
+<h2>Thoughts<a class="headerlink" href="#thoughts" title="Permalink to this headline">¶</a></h2>
+<p>It seems we don’t care about the triples with literal objects.  Only the triples
+that represent connections between types.   Could we use a CONSTRUCT call to
+remove the unwanted triples?  Filter on only IRI to IRI.</p>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/RDFLib/rdflib">RDFLib</a></p></li>
+<li><p><a class="reference external" href="https://networkx.org/">NetworkX</a></p></li>
+<li><p><a class="reference external" href="https://igraph.org/">iGraph</a></p></li>
+<li><p><a class="reference external" href="https://networkx.org/documentation/latest/reference/algorithms/link_analysis.html?highlight=page%20rank">NetworkX link analysis</a></p></li>
+<li><p><a class="reference external" href="https://faculty.math.illinois.edu/~riveraq2/teaching/simcamp16/PageRankwithPython.html">https://faculty.math.illinois.edu/~riveraq2/teaching/simcamp16/PageRankwithPython.html</a></p></li>
+<li><p><a class="reference external" href="https://docs.dask.org/en/latest/">https://docs.dask.org/en/latest/</a></p></li>
+<li><p><a class="reference external" href="https://examples.dask.org/bag.html">https://examples.dask.org/bag.html</a></p></li>
+<li><p><a class="reference external" href="https://s3fs.readthedocs.io/en/latest/">https://s3fs.readthedocs.io/en/latest/</a></p></li>
+<li><p><a class="reference external" href="https://docs.dask.org/en/latest/remote-data-services.html">https://docs.dask.org/en/latest/remote-data-services.html</a></p></li>
+</ul>
+</div>
+<div class="section" id="installs">
+<h2>Installs<a class="headerlink" href="#installs" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip -q install mimesis
+<span class="o">!</span>pip -q install minio 
+<span class="o">!</span>pip -q install s3fs
+<span class="o">!</span>pip -q install SPARQLWrapper
+<span class="o">!</span>pip -q install boto3
+<span class="o">!</span>pip -q install <span class="s1">&#39;fsspec&gt;=0.3.3&#39;</span>
+<span class="o">!</span>pip -q install rdflib
+<span class="o">!</span>pip -q install rdflib-jsonld
+<span class="o">!</span>pip -q install <span class="nv">PyLD</span><span class="o">==</span><span class="m">2</span>.0.2
+<span class="o">!</span>pip -q install networkx
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">ERROR: After October 2020 you may experience errors when installing or updating packages. This is because pip will change the way that it resolves dependency conflicts.</span>
+
+<span class=" -Color -Color-Red">We recommend you use --use-feature=2020-resolver to test your packages with the new resolver before it becomes the default.</span>
+
+<span class=" -Color -Color-Red">boto3 1.17.46 requires botocore&lt;1.21.0,&gt;=1.20.46, but you&#39;ll have botocore 1.19.52 which is incompatible.</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">ERROR: After October 2020 you may experience errors when installing or updating packages. This is because pip will change the way that it resolves dependency conflicts.</span>
+
+<span class=" -Color -Color-Red">We recommend you use --use-feature=2020-resolver to test your packages with the new resolver before it becomes the default.</span>
+
+<span class=" -Color -Color-Red">aiobotocore 1.2.2 requires botocore&lt;1.19.53,&gt;=1.19.52, but you&#39;ll have botocore 1.20.71 which is incompatible.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;../lib/&quot;</span><span class="p">)</span>  <span class="c1"># path contains python_file.py</span>
+
+<span class="kn">import</span> <span class="nn">sparqlPandas</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="imports">
+<h2>Imports<a class="headerlink" href="#imports" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dask</span><span class="o">,</span> <span class="nn">boto3</span>
+<span class="kn">import</span> <span class="nn">dask.dataframe</span> <span class="k">as</span> <span class="nn">dd</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="kn">from</span> <span class="nn">SPARQLWrapper</span> <span class="kn">import</span> <span class="n">SPARQLWrapper</span><span class="p">,</span> <span class="n">JSON</span>
+
+<span class="n">sweet</span> <span class="o">=</span> <span class="s2">&quot;http://cor.esipfed.org/sparql&quot;</span>
+<span class="n">dbsparql</span> <span class="o">=</span> <span class="s2">&quot;http://dbpedia.org/sparql&quot;</span>
+<span class="n">ufokn</span> <span class="o">=</span> <span class="s2">&quot;http://graph.ufokn.org/blazegraph/namespace/ufokn-dev/sparql&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="code-inits">
+<h2>Code inits<a class="headerlink" href="#code-inits" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="helper-function-s">
+<h3>Helper function(s)<a class="headerlink" href="#helper-function-s" title="Permalink to this headline">¶</a></h3>
+<p>The following block is a SPARQL to Pandas feature.  You may need to run it to load the function per standard notebook actions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title</span>
+<span class="k">def</span> <span class="nf">get_sparql_dataframe</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">query</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Helper function to convert SPARQL results into a Pandas data frame.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">sparql</span> <span class="o">=</span> <span class="n">SPARQLWrapper</span><span class="p">(</span><span class="n">service</span><span class="p">)</span>
+    <span class="n">sparql</span><span class="o">.</span><span class="n">setQuery</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+    <span class="n">sparql</span><span class="o">.</span><span class="n">setReturnFormat</span><span class="p">(</span><span class="n">JSON</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">sparql</span><span class="o">.</span><span class="n">query</span><span class="p">()</span>
+
+    <span class="n">processed_results</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">response</span><span class="p">)</span>
+    <span class="n">cols</span> <span class="o">=</span> <span class="n">processed_results</span><span class="p">[</span><span class="s1">&#39;head&#39;</span><span class="p">][</span><span class="s1">&#39;vars&#39;</span><span class="p">]</span>
+
+    <span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">processed_results</span><span class="p">[</span><span class="s1">&#39;results&#39;</span><span class="p">][</span><span class="s1">&#39;bindings&#39;</span><span class="p">]:</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cols</span><span class="p">:</span>
+            <span class="n">item</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">))</span>
+        <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">cols</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="set-up-some-pandas-dataframe-options">
+<h3>Set up some Pandas Dataframe options<a class="headerlink" href="#set-up-some-pandas-dataframe-options" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.width&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_colwidth&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="set-up-the-connection-to-the-object-store-to-access-the-graph-objects-from">
+<h3>Set up the connection to the object store to access the graph objects from<a class="headerlink" href="#set-up-the-connection-to-the-object-store-to-access-the-graph-objects-from" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">s3fs</span> 
+
+<span class="n">oss</span> <span class="o">=</span> <span class="n">s3fs</span><span class="o">.</span><span class="n">S3FileSystem</span><span class="p">(</span>
+      <span class="n">anon</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+      <span class="n">key</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+      <span class="n">secret</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+      <span class="n">client_kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;endpoint_url&quot;</span><span class="p">:</span><span class="s2">&quot;https://oss.geodex.org&quot;</span><span class="p">}</span>
+   <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simple command to list objects in the current results bucket prefix</span>
+<span class="n">oss</span><span class="o">.</span><span class="n">ls</span><span class="p">(</span><span class="s1">&#39;gleaner/results/cdfv3&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;gleaner/results/cdfv3/bcodmo_graph.nq&#39;,
+ &#39;gleaner/results/cdfv3/cchdo_graph.nq&#39;,
+ &#39;gleaner/results/cdfv3/earthchem_graph.nq&#39;,
+ &#39;gleaner/results/cdfv3/hydroshare_graph.nq&#39;,
+ &#39;gleaner/results/cdfv3/ieda_graph.nq&#39;,
+ &#39;gleaner/results/cdfv3/iris_graph.nq&#39;,
+ &#39;gleaner/results/cdfv3/lipdverse_graph.nq&#39;,
+ &#39;gleaner/results/cdfv3/ocd_graph.nq&#39;,
+ &#39;gleaner/results/cdfv3/opentopo_graph.nq&#39;,
+ &#39;gleaner/results/cdfv3/ssdb_graph.nq&#39;,
+ &#39;gleaner/results/cdfv3/unavco_graph.nq&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="pull-a-graph-and-load">
+<h2>Pull a graph and load<a class="headerlink" href="#pull-a-graph-and-load" title="Permalink to this headline">¶</a></h2>
+<p>Let’s pull back an example graph and load it up into an RDFLib graph so we can test out a SPARQL call on it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rdflib</span>
+<span class="kn">import</span> <span class="nn">gzip</span>
+
+<span class="k">with</span> <span class="n">oss</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;gleaner/results/cdfv3/opentopo_graph.nq&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+  <span class="c1">#print(f.read())</span>
+  <span class="n">file_content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>  <span class="c1">#.decode(&quot;utf-8&quot;, &quot;ignore&quot;).replace(&#39;\n&#39;,&#39; &#39;)</span>
+
+<span class="c1"># print(file_content)    </span>
+<span class="c1"># with gzip.open(&#39;./oceanexperts_graph.nq.gz&#39;, &#39;rb&#39;) as f:</span>
+<span class="c1">#     file_content = f.read()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">rdflib</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+<span class="n">parsed</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">file_content</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;nquads&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="note">
+<h2>Note<a class="headerlink" href="#note" title="Permalink to this headline">¶</a></h2>
+<p>When we start to do the network analysis we don’t really care about the links to literal strings.
+Rather, we want to see connections between various types.  More specidically, types connecting to types.</p>
+<p>Note, the isIRI filter removes the blank nodes since the rdf:type can point to both IRI and blank nodes.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>       BIND(&quot;Nca34627a4b6d4272be7e2d22bab3becd&quot; as ?s)
+</pre></div>
+</div>
+<div class="highlight-SPARQL notranslate"><div class="highlight"><pre><span></span>    <span class="k">prefix</span> <span class="nn">schema</span><span class="p">:</span> <span class="nl">&lt;http://schema.org/&gt;</span>
+    <span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="nv">?s</span> <span class="nv">?o</span> 
+       <span class="k">WHERE</span> <span class="p">{</span>
+           <span class="nv">?s</span>  <span class="k">a</span> <span class="nn">schema</span><span class="p">:</span><span class="nt">Dataset</span><span class="p">.</span> 
+           <span class="nv">?s</span> <span class="nv">?p</span> <span class="nv">?o</span> <span class="p">.</span>
+           <span class="nv">?o</span> <span class="k">a</span> <span class="nv">?type</span>
+           <span class="k">FILTER</span> <span class="nf">isIRI</span><span class="p">(</span><span class="nv">?o</span><span class="p">)</span>
+       <span class="p">}</span>
+     <span class="k">LIMIT</span> <span class="mi">1000</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qres</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">query</span><span class="p">(</span>
+    <span class="sd">&quot;&quot;&quot;prefix schema: &lt;https://schema.org/&gt;</span>
+<span class="sd">    SELECT DISTINCT ?s ?o </span>
+<span class="sd">       WHERE {</span>
+<span class="sd">           ?s  a schema:Dataset. </span>
+<span class="sd">           ?s ?p ?o .</span>
+<span class="sd">           ?o a ?type  </span>
+<span class="sd">           FILTER isIRI(?o)</span>
+<span class="sd">       }</span>
+<span class="sd">       LIMIT 1000</span>
+<span class="sd">       &quot;&quot;&quot;</span><span class="p">)</span>
+
+<span class="n">qrdf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">])</span>
+
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">qres</span><span class="p">:</span>
+    <span class="n">qrdf</span> <span class="o">=</span> <span class="n">qrdf</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;s&#39;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;o&#39;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]},</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1">#     print(&quot;%s : %s &quot; % row)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">1138</span><span class="n">f4d110c3</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="n">qrdf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">])</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> 
+<span class="ne">---&gt; </span><span class="mi">15</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">qres</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span>     <span class="n">qrdf</span> <span class="o">=</span> <span class="n">qrdf</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;s&#39;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;o&#39;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]},</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="c1">#     print(&quot;%s : %s &quot; % row)</span>
+
+<span class="nn">~/.local/lib/python3.9/site-packages/rdflib/query.py</span> in <span class="ni">__iter__</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">256</span> 
+<span class="g g-Whitespace">    </span><span class="mi">257</span>             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_genbindings</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">258</span>                 <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_genbindings</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">259</span>                     <span class="k">if</span> <span class="n">b</span><span class="p">:</span>  <span class="c1"># don&#39;t add a result row in case of empty binding {}</span>
+<span class="g g-Whitespace">    </span><span class="mi">260</span>                         <span class="bp">self</span><span class="o">.</span><span class="n">_bindings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+
+<span class="nn">~/.local/lib/python3.9/site-packages/rdflib/plugins/sparql/evaluate.py</span> in <span class="ni">evalSlice</span><span class="nt">(ctx, slice)</span>
+<span class="g g-Whitespace">    </span><span class="mi">331</span>         <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="g g-Whitespace">    </span><span class="mi">332</span>     <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="ne">--&gt; </span><span class="mi">333</span>     <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">res</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">334</span>         <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="g g-Whitespace">    </span><span class="mi">335</span>         <span class="k">if</span> <span class="nb">slice</span><span class="o">.</span><span class="n">length</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="nn">~/.local/lib/python3.9/site-packages/rdflib/plugins/sparql/evaluate.py</span> in <span class="ni">evalDistinct</span><span class="nt">(ctx, part)</span>
+<span class="g g-Whitespace">    </span><span class="mi">384</span> 
+<span class="g g-Whitespace">    </span><span class="mi">385</span>     <span class="n">done</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="ne">--&gt; </span><span class="mi">386</span>     <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">res</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">387</span>         <span class="k">if</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">done</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">388</span>             <span class="k">yield</span> <span class="n">x</span>
+
+<span class="nn">~/.local/lib/python3.9/site-packages/rdflib/plugins/sparql/evaluate.py</span> in <span class="ni">&lt;genexpr&gt;</span><span class="nt">(.0)</span>
+<span class="g g-Whitespace">    </span><span class="mi">393</span>     <span class="n">res</span> <span class="o">=</span> <span class="n">evalPart</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">project</span><span class="o">.</span><span class="n">p</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">394</span> 
+<span class="ne">--&gt; </span><span class="mi">395</span>     <span class="k">return</span> <span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">project</span><span class="p">(</span><span class="n">project</span><span class="o">.</span><span class="n">PV</span><span class="p">)</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">res</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">396</span> 
+<span class="g g-Whitespace">    </span><span class="mi">397</span> 
+
+<span class="nn">~/.local/lib/python3.9/site-packages/rdflib/plugins/sparql/evaluate.py</span> in <span class="ni">evalFilter</span><span class="nt">(ctx, part)</span>
+<span class="g g-Whitespace">    </span><span class="mi">152</span> <span class="k">def</span> <span class="nf">evalFilter</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">part</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">153</span>     <span class="c1"># TODO: Deal with dict returned from evalPart!</span>
+<span class="ne">--&gt; </span><span class="mi">154</span>     <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">evalPart</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">part</span><span class="o">.</span><span class="n">p</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">155</span>         <span class="k">if</span> <span class="n">_ebv</span><span class="p">(</span><span class="n">part</span><span class="o">.</span><span class="n">expr</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">forget</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">_except</span><span class="o">=</span><span class="n">part</span><span class="o">.</span><span class="n">_vars</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">part</span><span class="o">.</span><span class="n">no_isolated_scope</span> <span class="k">else</span> <span class="n">c</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">156</span>             <span class="k">yield</span> <span class="n">c</span>
+
+<span class="nn">~/.local/lib/python3.9/site-packages/rdflib/plugins/sparql/evaluate.py</span> in <span class="ni">evalBGP</span><span class="nt">(ctx, bgp)</span>
+<span class="g g-Whitespace">     </span><span class="mi">66</span>             <span class="k">continue</span>
+<span class="g g-Whitespace">     </span><span class="mi">67</span> 
+<span class="ne">---&gt; </span><span class="mi">68</span>         <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">evalBGP</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">bgp</span><span class="p">[</span><span class="mi">1</span><span class="p">:]):</span>
+<span class="g g-Whitespace">     </span><span class="mi">69</span>             <span class="k">yield</span> <span class="n">x</span>
+<span class="g g-Whitespace">     </span><span class="mi">70</span> 
+
+<span class="nn">~/.local/lib/python3.9/site-packages/rdflib/plugins/sparql/evaluate.py</span> in <span class="ni">evalBGP</span><span class="nt">(ctx, bgp)</span>
+<span class="g g-Whitespace">     </span><span class="mi">47</span>     <span class="k">for</span> <span class="n">ss</span><span class="p">,</span> <span class="n">sp</span><span class="p">,</span> <span class="n">so</span> <span class="ow">in</span> <span class="n">ctx</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">triples</span><span class="p">((</span><span class="n">_s</span><span class="p">,</span> <span class="n">_p</span><span class="p">,</span> <span class="n">_o</span><span class="p">)):</span>
+<span class="g g-Whitespace">     </span><span class="mi">48</span>         <span class="k">if</span> <span class="kc">None</span> <span class="ow">in</span> <span class="p">(</span><span class="n">_s</span><span class="p">,</span> <span class="n">_p</span><span class="p">,</span> <span class="n">_o</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">49</span>             <span class="n">c</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">push</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">50</span>         <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">51</span>             <span class="n">c</span> <span class="o">=</span> <span class="n">ctx</span>
+
+<span class="nn">~/.local/lib/python3.9/site-packages/rdflib/plugins/sparql/sparql.py</span> in <span class="ni">push</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">321</span> 
+<span class="g g-Whitespace">    </span><span class="mi">322</span>     <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">323</span>         <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">clone</span><span class="p">(</span><span class="n">Bindings</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bindings</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">324</span>         <span class="k">return</span> <span class="n">r</span>
+<span class="g g-Whitespace">    </span><span class="mi">325</span> 
+
+<span class="nn">~/.local/lib/python3.9/site-packages/rdflib/plugins/sparql/sparql.py</span> in <span class="ni">clone</span><span class="nt">(self, bindings)</span>
+<span class="g g-Whitespace">    </span><span class="mi">235</span> 
+<span class="g g-Whitespace">    </span><span class="mi">236</span>     <span class="k">def</span> <span class="nf">clone</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bindings</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">237</span>         <span class="n">r</span> <span class="o">=</span> <span class="n">QueryContext</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">238</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_dataset</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dataset</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">graph</span><span class="p">,</span> <span class="n">bindings</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">bindings</span><span class="p">,</span> <span class="n">initBindings</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">initBindings</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">239</span>         <span class="n">r</span><span class="o">.</span><span class="n">prologue</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">prologue</span>
+
+<span class="nn">~/.local/lib/python3.9/site-packages/rdflib/plugins/sparql/sparql.py</span> in <span class="ni">__init__</span><span class="nt">(self, graph, bindings, initBindings)</span>
+<span class="g g-Whitespace">    </span><span class="mi">216</span>     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graph</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bindings</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">initBindings</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">217</span>         <span class="bp">self</span><span class="o">.</span><span class="n">initBindings</span> <span class="o">=</span> <span class="n">initBindings</span>
+<span class="ne">--&gt; </span><span class="mi">218</span>         <span class="bp">self</span><span class="o">.</span><span class="n">bindings</span> <span class="o">=</span> <span class="n">Bindings</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="n">bindings</span> <span class="ow">or</span> <span class="p">[])</span>
+<span class="g g-Whitespace">    </span><span class="mi">219</span>         <span class="k">if</span> <span class="n">initBindings</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">bindings</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">initBindings</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">220</span> 
+
+<span class="nn">~/.local/lib/python3.9/site-packages/rdflib/plugins/sparql/sparql.py</span> in <span class="ni">__len__</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span>     <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">73</span>         <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="ne">---&gt; </span><span class="mi">74</span>         <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">75</span>             <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="g g-Whitespace">     </span><span class="mi">76</span>         <span class="k">return</span> <span class="n">i</span>
+
+<span class="nn">~/.local/lib/python3.9/site-packages/rdflib/plugins/sparql/sparql.py</span> in <span class="ni">__iter__</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">     </span><span class="mi">79</span>         <span class="n">d</span> <span class="o">=</span> <span class="bp">self</span>
+<span class="g g-Whitespace">     </span><span class="mi">80</span>         <span class="k">while</span> <span class="n">d</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">81</span>             <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">dict</span><span class="o">.</span><span class="fm">__iter__</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">_d</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">82</span>                 <span class="k">yield</span> <span class="n">i</span>
+<span class="g g-Whitespace">     </span><span class="mi">83</span>             <span class="n">d</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">outer</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qrdf</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>s</th>
+      <th>o</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.072018.6340.1</td>
+      <td>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.072018.6340.1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052018.2444.2</td>
+      <td>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052018.2444.2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.122016.2193.6</td>
+      <td>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.122016.2193.6</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>https://portal.opentopography.org/raster?opentopoID=OTSDEM.082019.26912.1</td>
+      <td>https://portal.opentopography.org/raster?opentopoID=OTSDEM.082019.26912.1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>https://portal.opentopography.org/raster?opentopoID=OTSDEM.012012.26915.1</td>
+      <td>https://portal.opentopography.org/raster?opentopoID=OTSDEM.012012.26915.1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="convert-to-networkx">
+<h2>Convert to NetworkX<a class="headerlink" href="#convert-to-networkx" title="Permalink to this headline">¶</a></h2>
+<p>Convert this to a networkx graph so we can explore some analytics calls</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rdflib</span>
+<span class="kn">from</span> <span class="nn">rdflib.extras.external_graph_libs</span> <span class="kn">import</span> <span class="n">rdflib_to_networkx_multidigraph</span>
+<span class="kn">from</span> <span class="nn">rdflib.extras.external_graph_libs</span> <span class="kn">import</span> <span class="n">rdflib_to_networkx_digraph</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">G</span> <span class="o">=</span> <span class="n">rdflib_to_networkx_digraph</span><span class="p">(</span><span class="n">parsed</span><span class="p">)</span>
+<span class="n">G</span><span class="o">=</span><span class="n">nx</span><span class="o">.</span><span class="n">from_pandas_edgelist</span><span class="p">(</span><span class="n">qrdf</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pointless to draw for a graph this big..   just a black ball</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_circular</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">with_labels</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1"># display</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ECO_GraphAnalytics_22_0.svg" src="../_images/ECO_GraphAnalytics_22_0.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">([</span><span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">nx</span><span class="o">.</span><span class="n">degree</span><span class="p">(</span><span class="n">G</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([  0.,   0.,   0.,   0.,   0., 654.,   0.,   0.,   0.,   0.]),
+ array([1.5, 1.6, 1.7, 1.8, 1.9, 2. , 2.1, 2.2, 2.3, 2.4, 2.5]),
+ &lt;BarContainer object of 10 artists&gt;)
+</pre></div>
+</div>
+<img alt="../_images/ECO_GraphAnalytics_23_1.svg" src="../_images/ECO_GraphAnalytics_23_1.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">centrality</span><span class="o">.</span><span class="n">betweenness_centrality</span><span class="p">(</span><span class="n">G</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([  0.,   0.,   0.,   0.,   0., 654.,   0.,   0.,   0.,   0.]),
+ array([-0.5, -0.4, -0.3, -0.2, -0.1,  0. ,  0.1,  0.2,  0.3,  0.4,  0.5]),
+ &lt;BarContainer object of 10 artists&gt;)
+</pre></div>
+</div>
+<img alt="../_images/ECO_GraphAnalytics_24_1.svg" src="../_images/ECO_GraphAnalytics_24_1.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#  nx.diameter(G)  # found infinite  </span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nx</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">average_clustering</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="pagerank">
+<h3>Pagerank<a class="headerlink" href="#pagerank" title="Permalink to this headline">¶</a></h3>
+<p>Test a page rank call and see if we can load the results into Pandas and sort.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">pr</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">pagerank</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
+
+<span class="n">prdf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">pr</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>
+<span class="n">prdf</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,)</span>
+<span class="n">prdf</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.072018.6340.1</th>
+      <td>0.001529</td>
+    </tr>
+    <tr>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.122019.4326.5</th>
+      <td>0.001529</td>
+    </tr>
+    <tr>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.022019.32637.5</th>
+      <td>0.001529</td>
+    </tr>
+    <tr>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.102012.26916.1</th>
+      <td>0.001529</td>
+    </tr>
+    <tr>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.022012.26910.2</th>
+      <td>0.001529</td>
+    </tr>
+    <tr>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.072013.2965.1</th>
+      <td>0.001529</td>
+    </tr>
+    <tr>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.112018.32635.1</th>
+      <td>0.001529</td>
+    </tr>
+    <tr>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.062017.26910.1</th>
+      <td>0.001529</td>
+    </tr>
+    <tr>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.032013.26910.2</th>
+      <td>0.001529</td>
+    </tr>
+    <tr>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.042020.32632.1</th>
+      <td>0.001529</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="networkx-hits">
+<h3>NetworkX hits<a class="headerlink" href="#networkx-hits" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hits</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">hits</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>  <span class="c1"># can also be done with a nodelist (which is interesting.   provide with SPARQL call?)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hitsdf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">hits</span><span class="p">)</span>
+<span class="n">hitsdf</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.072018.6340.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052018.2444.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.122016.2193.6</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.082019.26912.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.012012.26915.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.032013.26918.3</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052016.26911.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.052016.26912.3</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.032012.26913.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.122016.26910.1b</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.072017.26910.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.112019.32618.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.122016.26915.1b</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.102011.26918.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.062019.32633.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.032011.26910.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.062018.26911.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.092019.26911.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.072020.6339.2</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.042020.32611.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.042012.26911.5</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.072017.26912.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.092016.26911.2</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.092019.4326.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.072019.6339.2</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.102016.26916.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.102018.32637.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.022017.26910.3</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.112012.26911.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.012019.26911.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.112015.26912.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.082020.2193.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.092020.32715.4</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.102012.26912.4</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.092019.26910.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.042012.26911.4</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.082020.6343.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.052019.32616.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.082011.26910.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.022014.32610.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.062012.26916.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.042017.2193.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.012013.26910.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.092012.26910.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.022021.32719.2</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.052016.26912.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.102012.26916.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.042018.2193.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.092015.32611.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.062012.26913.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.032012.26913.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.032019.2193.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.042018.2193.3</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.072016.26917.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.092014.26911.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.102009.32607.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.022013.26910.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.012013.26913.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.072018.6635.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSRTM.082015.4326.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.072016.32611.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.122016.26915.1b</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.102010.26912.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.012013.26912.2</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.022021.32643.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.102012.26912.3</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.062012.4326.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.052012.26917.2</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.042020.6339.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.122019.2193.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.022020.2193.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.092014.26913.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.032012.32605.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.042013.26918.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.062017.26913.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.072020.32611.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.092018.6341.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.122019.32643.4</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.092012.26910.3</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.112011.26919.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.092020.32715.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.032019.4326.4</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.032012.26910.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.102012.32611.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.032019.32610.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052014.26910.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.072016.32759.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.092012.26910.2</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.102019.6339.2</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.112011.26913.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.022015.26911.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.022013.26910.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.022012.26910.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.032013.26910.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.062018.6635.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.042020.26910.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.082013.26917.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.072017.26912.2</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.112011.26911.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.072020.6340.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.102020.26913.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.082019.32633.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.112012.26910.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.122020.6340.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.032019.32610.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.042013.26913.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.022012.26910.3</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052013.26912.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.072016.26917.2</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.112018.26910.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.092020.2193.2</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.052018.32612.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.082016.26913.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.012013.26912.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.022019.32637.6</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.062019.32633.3</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.092012.26910.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.012021.26911.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.112012.26917.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.042012.26911.2</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.042019.6342.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.032012.26916.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.112018.26910.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.082018.2193.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.082020.6341.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.102016.32615.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052010.26910.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.082012.26911.3</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.082012.26912.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.122014.26910.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.072020.2193.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.092012.26913.2</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.062017.26913.3</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.032018.32611.4</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052016.26912.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.112020.6341.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.072011.32611.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.082020.32610.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.042016.26913.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.032013.32722.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.122016.26910.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.022019.4326.2</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.102020.4326.4</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.062018.26912.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.102018.32611.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTALOS.112016.4326.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.082020.6343.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.102016.26911.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.062020.2193.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.022020.32616.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052009.32612.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.122019.2193.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.112016.3294.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.102018.32633.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.022020.32643.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.032013.32611.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.032013.32611.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.062011.26912.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.022019.32616.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.042013.26918.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.032012.26911.2</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.022019.32616.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052018.28355.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.072019.6339.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.042012.26911.7</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.112011.26919.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.052013.26910.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052019.6341.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.122020.6340.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.022018.26915.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.042019.32647.4</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.072020.6339.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.072016.32611.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.042020.26910.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.022020.4326.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.062005.2926.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.022015.26911.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.082020.26911.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.062012.26911.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.072020.6340.2</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.062012.26917.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.042019.32647.3</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.092012.26911.3</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.102012.26910.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.092012.26911.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.052016.26911.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.122016.2193.2</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.102016.26914.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.102016.26910.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.032017.2193.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.092012.26911.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.062012.26918.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.092019.32616.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.072010.32618.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.042020.26911.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.072011.26911.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.042013.26918.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.042020.6339.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.032021.4326.2</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.052015.26910.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.042019.6342.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.092012.32612.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.122019.4326.8</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.022014.32610.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.122019.4326.6</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.082013.26910.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.072019.6339.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.012020.32611.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.122019.32643.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.092014.2871.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.062012.26911.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.112020.6341.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.122014.26910.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.032013.26918.3</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.072020.2193.5</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.012020.26916.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.012020.4326.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.102016.26915.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.032012.26916.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.102016.26915.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.032013.26912.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.062019.32736.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.082012.26914.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.072020.6339.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.022013.26910.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.012014.26904.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.012019.32611.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.072017.26912.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.112012.26913.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052019.2193.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.082016.32611.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.072020.32612.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.092020.32715.3</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.112011.26912.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.112018.32641.2</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.122019.2229.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.112019.2193.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.012019.2193.2</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.092020.32715.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.072020.6341.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.062020.6340.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.022013.26910.3</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052013.26913.2</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.112009.32610.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.112011.26912.3</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.072017.26911.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.102016.26914.1b</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.102019.32611.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052012.32611.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.042013.26911.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.022012.26913.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.102012.26911.4</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.012013.26986.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.032017.26911.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.012013.26986.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.042019.6342.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052012.32604.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.022017.26910.3</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.112011.26911.3</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.072018.6340.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.082012.26913.2</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.102011.26918.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052014.26912.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.042013.26912.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.072019.6339.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.062020.32611.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.082012.26915.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.072019.4326.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.082019.32616.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.022013.26911.2</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.082019.32723.2</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSRTM.042013.4326.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.072020.6341.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.032012.26912.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.122019.4326.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052013.26910.2</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.102016.2039.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.022013.26910.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.122016.2193.5</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.122016.26916.1b</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.112011.26912.2</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.122010.32611.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052014.26910.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.042013.26918.3</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.022019.4326.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.092018.6341.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.052020.32632.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.072020.2193.2</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.062017.26913.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.012012.26911.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052016.26912.2b</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.062020.26911.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.012019.32633.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.042012.26911.3</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.052013.26910.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052012.26917.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.112012.26911.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.022013.32145.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052012.32611.2</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.072020.6340.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.072020.2193.4</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.122009.32611.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.022018.26915.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.092016.26912.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.102011.26918.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.102019.6339.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.012013.26911.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.012020.32611.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.022014.32616.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.112019.32631.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.082011.26910.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.072020.6339.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.022020.2193.3</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.082020.26911.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.102020.4326.7</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.102019.32611.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.042017.2193.2</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.052012.26917.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.012013.26912.3</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.112011.26911.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.032018.32611.3</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.112018.32641.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.062020.32645.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.022020.32616.4</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.042012.32611.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.122019.2229.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052017.32611.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.102012.26912.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.062018.26912.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.052012.26910.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSRTM.082016.4326.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.012013.26910.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.022015.26913.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.022013.26911.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.012013.26906.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.072016.32759.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.102011.26918.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.102020.4326.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.022021.32719.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.012021.26912.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.062017.26913.3</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.022012.26910.3</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.062012.26913.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.092020.26912.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.112011.26911.2</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.052009.32612.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.112019.32616.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.022013.26911.2</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.012013.26912.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.122016.26916.1b</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.082020.32610.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.102012.26912.2</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.082019.32749.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.092012.26913.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.102019.32616.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.082012.26911.2</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.032017.26910.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.082016.26913.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.022013.26918.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.042020.26911.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.022013.26911.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052012.26910.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.022013.26910.3</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.022021.32643.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.072016.26917.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052013.26912.2</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.042013.26911.2</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.112011.26912.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.032012.26911.2</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.082020.6343.1b</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.052013.26913.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.032013.26910.2</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.102012.26911.4</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.082019.32723.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.092016.26912.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.062016.32648.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052015.26910.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.112016.3294.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.102019.6339.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052018.2444.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.102010.26910.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.122010.26912.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.102016.26916.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052012.26911.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.022012.26911.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.012012.26919.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.102016.32615.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.072018.2193.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052008.32610.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.122010.32611.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.102016.2039.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.102012.26911.3</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.022019.32637.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.012013.26910.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.062018.26912.3</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.042012.32611.2</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.032021.28354.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSRTM.122019.4326.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.062017.26913.2</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.072020.32612.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.012012.26919.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052014.26910.4</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.042020.4326.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.022012.26910.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.042016.26911.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.032012.26911.3</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.022021.32643.3</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052020.6341.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.052020.6341.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052017.2193.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.022020.32616.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.082012.26912.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.042018.3500.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.022019.32637.4</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.032017.26910.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.122016.26916.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.062019.32633.2</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.042016.26913.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.032012.26913.2</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.062018.26912.3</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.092020.26912.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.012012.26911.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.112011.26913.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.052012.26911.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.062016.2193.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.102012.26911.2</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.102012.26911.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.042013.26918.2</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.092019.26911.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.022019.32637.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.082012.26911.2</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.022019.32637.5</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.102012.26916.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.022012.26910.2</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.072013.2965.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.112018.32635.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.062017.26910.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.032013.26910.2</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.042020.32632.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.062017.26911.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.012018.32641.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.102016.26914.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.122009.32611.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.072017.26910.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052013.26913.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.052015.32611.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.052019.6340.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.072013.2966.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.122016.26910.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.122019.4326.5</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.062006.32611.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.092011.2875.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.072017.26911.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.102020.4326.5</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.082016.26913.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.122019.32643.3</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.062017.26911.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.082016.26913.3</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.062018.26912.2</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.022017.26910.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.102012.26920.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.102012.26911.3</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.032013.26911.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.112012.26910.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.042013.26919.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.082012.26913.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.112009.32610.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.122019.2229.2</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.122019.4326.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.062020.32611.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.062020.32648.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.092019.6340.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.072020.2193.3</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.072018.6635.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.032017.26911.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.042020.6339.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.032013.26918.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.122014.26912.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.072019.32611.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.072020.26911.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.012013.26912.3</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.062012.26917.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.012019.2193.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.042020.6416.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.122015.26917.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.062012.26913.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.092014.26913.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTGMRT.112016.4326.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.082018.2193.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.042012.26911.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.052017.26913.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.082012.26911.3</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052016.26912.3b</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.032019.4326.3</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.012012.26915.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.022020.32616.5</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.062005.2871.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.092012.26910.4</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.042019.6342.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052013.26910.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.032019.4326.2</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.072020.32611.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.022020.21781.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052019.6340.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.022012.26910.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.012013.26906.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.032018.32611.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.062018.26911.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.122016.26915.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052014.26912.2</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.062020.32616.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.022019.32633.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.022015.26912.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.032018.32611.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.072017.26912.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.032021.4326.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTALOS.082017.4326.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.072011.32611.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052018.32612.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.112012.26913.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.102009.32607.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.032019.4326.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.112011.26911.3</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.092016.26911.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.072018.2193.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.092019.6340.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.102016.26911.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.112011.26916.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.062012.26913.2</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.102018.32611.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052014.26910.3</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.122016.26916.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.052017.32611.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.112018.2193.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.032018.32611.2</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.102019.32722.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.042013.26911.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.052008.32610.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.052013.26911.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.022017.26910.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052016.26912.3</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.092020.4269.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.092014.2871.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.042013.26919.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.112011.26912.3</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.022014.32616.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.032018.32611.2</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.122019.4326.4</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.092016.26911.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.012013.26913.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.102019.6339.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.102020.4326.6</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.082019.26912.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.012014.26904.2</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.102012.26913.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.062011.26912.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.022020.2193.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.072017.26914.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.122016.2193.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.032014.26916.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.102019.6341.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.082016.26913.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.062013.28354.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.072017.26914.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.072019.2193.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.042012.2243.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.102012.26911.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.102020.4326.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.102016.26910.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.082020.6341.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.022012.26914.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.022015.26911.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.092012.26910.4</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.012019.26911.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.062019.32736.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.092012.26912.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.032018.32611.3</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.032017.26910.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.112019.2193.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.112011.26912.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.092019.26910.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.122016.2193.3</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.032013.26918.2</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.052013.26913.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.022013.26918.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.062012.26916.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.102012.26910.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.092016.26911.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.082016.26913.3</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.042012.26911.6</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.042019.32647.2</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.032012.32605.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.022012.26911.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.052016.26912.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.012013.26910.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.112011.26913.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.022012.26917.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.122015.26917.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.082019.32633.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.062018.6635.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.052019.6341.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.022019.32637.3</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.072019.32722.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.082019.32616.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052012.26917.2</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.122019.32643.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052016.26912.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.032017.26910.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.102012.26913.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.062017.26910.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.102020.4326.3</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052013.26911.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.122014.26912.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.032006.32611.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.122016.26915.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.022011.2994.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.062020.26911.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.042019.32647.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.062017.26913.2</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.012021.32733.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.112015.26912.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.112011.26911.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.082012.26911.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.062018.26912.2</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.102019.6341.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.022020.32616.3</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.122019.4326.7</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.122016.26910.2</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.042016.26911.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.112011.26916.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.032012.26911.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.122016.2193.4</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.112011.26913.2</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.082020.26912.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.072020.26911.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.032013.26910.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.072016.26917.2</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.062020.32611.1</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.092019.4326.2</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.072020.6340.2</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.032018.32611.4</th>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.122019.4326.3</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052017.26913.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.042013.26911.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.032011.26910.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.032011.26912.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.042020.6339.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052015.32611.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.092015.32611.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.122016.26910.2</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.092012.26917.1</th>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.062020.6340.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.092020.2193.1</th>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.022012.26910.4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+      <td>0.001529</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bc</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">betweenness_centrality</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bcdf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">bc</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>
+<span class="n">bcdf</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,)</span>
+<span class="n">bcdf</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.072018.6340.1</th>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.122019.4326.5</th>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.022019.32637.5</th>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.102012.26916.1</th>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.022012.26910.2</th>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.072013.2965.1</th>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.112018.32635.1</th>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.062017.26910.1</th>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>https://portal.opentopography.org/raster?opentopoID=OTSDEM.032013.26910.2</th>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>https://portal.opentopography.org/dataspace/dataset?opentopoID=OTDS.042020.32632.1</th>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="gleaner_txtai.html" title="previous page">Gleaner &amp; txtai</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By EarthCube Office<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
