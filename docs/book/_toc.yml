@@ -7,5 +7,9 @@
     - file: markdown
     - file: notebooks
     - file: analysis
-    - file: partfile
+- file: partfile
+  sections:
     - file: notebooks/gleaner_clustering.ipynb
+    - file: notebooks/gleaner_gensim.ipynb
+    - file: notebooks/gleaner_txtai.ipynb
+    - file: notebooks/ECO_GraphAnalytics.ipynb

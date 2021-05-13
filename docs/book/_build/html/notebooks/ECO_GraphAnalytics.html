@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EarthCube Graph Analytics Exploration &#8212; My sample book</title>
+    <title>EarthCube Graph Analytics Exploration &#8212; EarthCube GeoCODES Exploration</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,6 +51,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Gleaner &amp; txtai" href="gleaner_txtai.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -69,10 +70,10 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
-      <img src="../_static/logo.png" class="logo" alt="logo">
+      <img src="../_static/logo.webp" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">My sample book</h1>
+      <h1 class="site-logo" id="site-title">EarthCube GeoCODES Exploration</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -83,11 +84,11 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../intro.html">
-   Welcome to your Jupyter Book
+   Exploring GeoCODES
   </a>
  </li>
 </ul>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../content.html">
    Content in Jupyter Book
@@ -113,14 +114,36 @@
      Data Unit Testing
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../partfile.html">
-     Test part file
-    </a>
-   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../partfile.html">
+   Notebooks
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="gleaner_clustering.html">
      SciKit K-means Clustering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="gleaner_gensim.html">
+     Gensim
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="gleaner_txtai.html">
+     Gleaner &amp; txtai
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     EarthCube Graph Analytics Exploration
     </a>
    </li>
   </ul>
@@ -587,25 +610,74 @@ Rather, we want to see connections between various types.  More specidically, ty
 <span class="g g-Whitespace">    </span><span class="mi">335</span>         <span class="k">if</span> <span class="nb">slice</span><span class="o">.</span><span class="n">length</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
 
 <span class="nn">~/.local/lib/python3.9/site-packages/rdflib/plugins/sparql/evaluate.py</span> in <span class="ni">evalDistinct</span><span class="nt">(ctx, part)</span>
+<span class="g g-Whitespace">    </span><span class="mi">384</span> 
 <span class="g g-Whitespace">    </span><span class="mi">385</span>     <span class="n">done</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">386</span>     <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">res</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">387</span>         <span class="k">if</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">done</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">386</span>     <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">res</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">387</span>         <span class="k">if</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">done</span><span class="p">:</span>
 <span class="g g-Whitespace">    </span><span class="mi">388</span>             <span class="k">yield</span> <span class="n">x</span>
-<span class="g g-Whitespace">    </span><span class="mi">389</span>             <span class="n">done</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-<span class="nn">/usr/lib64/python3.9/_collections_abc.py</span> in <span class="ni">__eq__</span><span class="nt">(self, other)</span>
-<span class="g g-Whitespace">    </span><span class="mi">787</span>         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Mapping</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">788</span>             <span class="k">return</span> <span class="bp">NotImplemented</span>
-<span class="ne">--&gt; </span><span class="mi">789</span>         <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">())</span> <span class="o">==</span> <span class="nb">dict</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
-<span class="g g-Whitespace">    </span><span class="mi">790</span> 
-<span class="g g-Whitespace">    </span><span class="mi">791</span>     <span class="fm">__reversed__</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="nn">~/.local/lib/python3.9/site-packages/rdflib/plugins/sparql/evaluate.py</span> in <span class="ni">&lt;genexpr&gt;</span><span class="nt">(.0)</span>
+<span class="g g-Whitespace">    </span><span class="mi">393</span>     <span class="n">res</span> <span class="o">=</span> <span class="n">evalPart</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">project</span><span class="o">.</span><span class="n">p</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">394</span> 
+<span class="ne">--&gt; </span><span class="mi">395</span>     <span class="k">return</span> <span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">project</span><span class="p">(</span><span class="n">project</span><span class="o">.</span><span class="n">PV</span><span class="p">)</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">res</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">396</span> 
+<span class="g g-Whitespace">    </span><span class="mi">397</span> 
 
-<span class="nn">~/.local/lib/python3.9/site-packages/rdflib/term.py</span> in <span class="ni">__eq__</span><span class="nt">(self, other)</span>
-<span class="g g-Whitespace">    </span><span class="mi">133</span>         <span class="k">return</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__eq__</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">134</span> 
-<span class="ne">--&gt; </span><span class="mi">135</span>     <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">136</span>         <span class="s2">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">137</span><span class="s2">         Equality for Nodes.</span>
+<span class="nn">~/.local/lib/python3.9/site-packages/rdflib/plugins/sparql/evaluate.py</span> in <span class="ni">evalFilter</span><span class="nt">(ctx, part)</span>
+<span class="g g-Whitespace">    </span><span class="mi">152</span> <span class="k">def</span> <span class="nf">evalFilter</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">part</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">153</span>     <span class="c1"># TODO: Deal with dict returned from evalPart!</span>
+<span class="ne">--&gt; </span><span class="mi">154</span>     <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">evalPart</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">part</span><span class="o">.</span><span class="n">p</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">155</span>         <span class="k">if</span> <span class="n">_ebv</span><span class="p">(</span><span class="n">part</span><span class="o">.</span><span class="n">expr</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">forget</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">_except</span><span class="o">=</span><span class="n">part</span><span class="o">.</span><span class="n">_vars</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">part</span><span class="o">.</span><span class="n">no_isolated_scope</span> <span class="k">else</span> <span class="n">c</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">156</span>             <span class="k">yield</span> <span class="n">c</span>
+
+<span class="nn">~/.local/lib/python3.9/site-packages/rdflib/plugins/sparql/evaluate.py</span> in <span class="ni">evalBGP</span><span class="nt">(ctx, bgp)</span>
+<span class="g g-Whitespace">     </span><span class="mi">66</span>             <span class="k">continue</span>
+<span class="g g-Whitespace">     </span><span class="mi">67</span> 
+<span class="ne">---&gt; </span><span class="mi">68</span>         <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">evalBGP</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">bgp</span><span class="p">[</span><span class="mi">1</span><span class="p">:]):</span>
+<span class="g g-Whitespace">     </span><span class="mi">69</span>             <span class="k">yield</span> <span class="n">x</span>
+<span class="g g-Whitespace">     </span><span class="mi">70</span> 
+
+<span class="nn">~/.local/lib/python3.9/site-packages/rdflib/plugins/sparql/evaluate.py</span> in <span class="ni">evalBGP</span><span class="nt">(ctx, bgp)</span>
+<span class="g g-Whitespace">     </span><span class="mi">47</span>     <span class="k">for</span> <span class="n">ss</span><span class="p">,</span> <span class="n">sp</span><span class="p">,</span> <span class="n">so</span> <span class="ow">in</span> <span class="n">ctx</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">triples</span><span class="p">((</span><span class="n">_s</span><span class="p">,</span> <span class="n">_p</span><span class="p">,</span> <span class="n">_o</span><span class="p">)):</span>
+<span class="g g-Whitespace">     </span><span class="mi">48</span>         <span class="k">if</span> <span class="kc">None</span> <span class="ow">in</span> <span class="p">(</span><span class="n">_s</span><span class="p">,</span> <span class="n">_p</span><span class="p">,</span> <span class="n">_o</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">49</span>             <span class="n">c</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">push</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">50</span>         <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">51</span>             <span class="n">c</span> <span class="o">=</span> <span class="n">ctx</span>
+
+<span class="nn">~/.local/lib/python3.9/site-packages/rdflib/plugins/sparql/sparql.py</span> in <span class="ni">push</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">321</span> 
+<span class="g g-Whitespace">    </span><span class="mi">322</span>     <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">323</span>         <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">clone</span><span class="p">(</span><span class="n">Bindings</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bindings</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">324</span>         <span class="k">return</span> <span class="n">r</span>
+<span class="g g-Whitespace">    </span><span class="mi">325</span> 
+
+<span class="nn">~/.local/lib/python3.9/site-packages/rdflib/plugins/sparql/sparql.py</span> in <span class="ni">clone</span><span class="nt">(self, bindings)</span>
+<span class="g g-Whitespace">    </span><span class="mi">235</span> 
+<span class="g g-Whitespace">    </span><span class="mi">236</span>     <span class="k">def</span> <span class="nf">clone</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bindings</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">237</span>         <span class="n">r</span> <span class="o">=</span> <span class="n">QueryContext</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">238</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_dataset</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dataset</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">graph</span><span class="p">,</span> <span class="n">bindings</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">bindings</span><span class="p">,</span> <span class="n">initBindings</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">initBindings</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">239</span>         <span class="n">r</span><span class="o">.</span><span class="n">prologue</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">prologue</span>
+
+<span class="nn">~/.local/lib/python3.9/site-packages/rdflib/plugins/sparql/sparql.py</span> in <span class="ni">__init__</span><span class="nt">(self, graph, bindings, initBindings)</span>
+<span class="g g-Whitespace">    </span><span class="mi">216</span>     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graph</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bindings</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">initBindings</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">217</span>         <span class="bp">self</span><span class="o">.</span><span class="n">initBindings</span> <span class="o">=</span> <span class="n">initBindings</span>
+<span class="ne">--&gt; </span><span class="mi">218</span>         <span class="bp">self</span><span class="o">.</span><span class="n">bindings</span> <span class="o">=</span> <span class="n">Bindings</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="n">bindings</span> <span class="ow">or</span> <span class="p">[])</span>
+<span class="g g-Whitespace">    </span><span class="mi">219</span>         <span class="k">if</span> <span class="n">initBindings</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">bindings</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">initBindings</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">220</span> 
+
+<span class="nn">~/.local/lib/python3.9/site-packages/rdflib/plugins/sparql/sparql.py</span> in <span class="ni">__len__</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span>     <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">73</span>         <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="ne">---&gt; </span><span class="mi">74</span>         <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">75</span>             <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="g g-Whitespace">     </span><span class="mi">76</span>         <span class="k">return</span> <span class="n">i</span>
+
+<span class="nn">~/.local/lib/python3.9/site-packages/rdflib/plugins/sparql/sparql.py</span> in <span class="ni">__iter__</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">     </span><span class="mi">79</span>         <span class="n">d</span> <span class="o">=</span> <span class="bp">self</span>
+<span class="g g-Whitespace">     </span><span class="mi">80</span>         <span class="k">while</span> <span class="n">d</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">81</span>             <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">dict</span><span class="o">.</span><span class="fm">__iter__</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">_d</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">82</span>                 <span class="k">yield</span> <span class="n">i</span>
+<span class="g g-Whitespace">     </span><span class="mi">83</span>             <span class="n">d</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">outer</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
@@ -2951,6 +3023,7 @@ Rather, we want to see connections between various types.  More specidically, ty
         
         <div class='prev-next-bottom'>
             
+    <a class='left-prev' id="prev-link" href="gleaner_txtai.html" title="previous page">Gleaner &amp; txtai</a>
 
         </div>
         
@@ -2960,7 +3033,7 @@ Rather, we want to see connections between various types.  More specidically, ty
     <div class="container">
       <p>
         
-          By The Jupyter Book Community<br/>
+          By EarthCube Office<br/>
         
             &copy; Copyright 2020.<br/>
       </p>
