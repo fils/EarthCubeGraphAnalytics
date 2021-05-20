@@ -11,7 +11,11 @@ This is just the start of learning what we might
 be able to do with some analytics approaches to this 
 graph.
 
-## Try it.
+## References
+
+* https://derwen.ai/docs/kgl/
+
+## Try it
 
 The easiest way to use this notebook is likely to load it into 
 Google Colab.
@@ -19,7 +23,7 @@ Google Colab.
 Go to [Google Colab](https://colab.research.google.com/) and then 
 use the option to load from a github link.  Use:
 
-```
+```bash
 https://github.com/fils/EarthCubeGraphAnalytics/blob/master/notebooks/ECO_GraphAnalytics.ipynb
 ```
 
@@ -31,7 +35,6 @@ explore it.
 
 If do something cool with all this (which I have NOT), please let me know.  I'd
 enjoying hearing and learning.  
-
 
 ## References
 
