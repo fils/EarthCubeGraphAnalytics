@@ -1,0 +1,1694 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Intake / Pangeo Catalog: Making It Easier To Consume Earth’s Climate and Weather Data &#8212; EarthCube GeoCODES Exploration</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="CMIP6 without the interpolation: Grid-native analysis with Pangeo in the cloud" href="../ec20_busecke_etal/busecke_abernathey_earthcube2020.html" />
+    <link rel="prev" title="Processing digital elevation data for deep learning models using Keras Spatial" href="../ec20_soliman_etal/ks-preprocess-dem.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/logo.webp" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">EarthCube GeoCODES Exploration</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Exploring GeoCODES
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../content.html">
+   Content in Jupyter Book
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../markdown.html">
+     Markdown Files
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks.html">
+     Content with notebooks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../analysis.html">
+     Data Unit Testing, ranking, clustering
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../partfile.html">
+   Notebooks
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks/gleaner_clustering.html">
+     SciKit K-means Clustering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks/gleaner_gensim.html">
+     Gensim
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks/gleaner_txtai.html">
+     Gleaner &amp; txtai
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks/ECO_GraphAnalytics.html">
+     EarthCube Graph Analytics Exploration
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../index.html">
+   EC2020 examples
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ec20_soliman_etal/ks-preprocess-dem.html">
+     Processing digital elevation data for deep learning models using Keras Spatial
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Intake / Pangeo Catalog: Making It Easier To Consume Earth’s Climate and Weather Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ec20_busecke_etal/busecke_abernathey_earthcube2020.html">
+     CMIP6 without the interpolation: Grid-native analysis with Pangeo in the cloud
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ec20_hamman_etal/2020ECAHM-scikit-downscale.html">
+     Scikit-downscale: an open source Python package for scalable climate downscaling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ec20_havlin_etal/notebook/ec20_havlin_etal.html">
+     3D volume rendering of geophysical data using the yt platform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ec20_peckham_etal/BALTO_GUI_v2.html">
+     BALTO Graphical User Interface (A Prototype)
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/ec2020/ec20_banihirwe_etal/intake-pangeo-catalog.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/fils/EarthCubeGraphAnalytics"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/fils/EarthCubeGraphAnalytics/issues/new?title=Issue%20on%20page%20%2Fec2020/ec20_banihirwe_etal/intake-pangeo-catalog.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/fils/EarthCubeGraphAnalytics/master?urlpath=lab/tree/book/ec2020/ec20_banihirwe_etal/intake-pangeo-catalog.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="your-hub-url/hub/user-redirect/git-pull?repo=https://github.com/fils/EarthCubeGraphAnalytics&urlpath=lab/tree/EarthCubeGraphAnalytics/book/ec2020/ec20_banihirwe_etal/intake-pangeo-catalog.ipynb&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/fils/EarthCubeGraphAnalytics/blob/master/book/ec2020/ec20_banihirwe_etal/intake-pangeo-catalog.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#esm-collection-specification">
+   ESM Collection Specification
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#use-case-cmip6-hosted-on-google-cloud">
+   Use Case: CMIP6 hosted on Google Cloud
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#loading-an-esm-data-catalog">
+     Loading an ESM data catalog
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#searching-for-datasets">
+     Searching for datasets
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#loading-datasets">
+     Loading datasets
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pangeo-catalog">
+   Pangeo Catalog
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#accessing-catalogs-using-python">
+     Accessing catalogs using Python
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#accessing-catalogs-using-catalog-pangeo-io">
+     Accessing catalogs using catalog.pangeo.io
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="intake-pangeo-catalog-making-it-easier-to-consume-earths-climate-and-weather-data">
+<h1>Intake / Pangeo Catalog: Making It Easier To Consume Earth’s Climate and Weather Data<a class="headerlink" href="#intake-pangeo-catalog-making-it-easier-to-consume-earths-climate-and-weather-data" title="Permalink to this headline">¶</a></h1>
+<p>Anderson Banihirwe (<a class="reference external" href="mailto:abanihi&#37;&#52;&#48;ucar&#46;edu">abanihi<span>&#64;</span>ucar<span>&#46;</span>edu</a>), Charles Blackmon-Luca (<a class="reference external" href="mailto:blackmon&#37;&#52;&#48;ldeo&#46;columbia&#46;edu">blackmon<span>&#64;</span>ldeo<span>&#46;</span>columbia<span>&#46;</span>edu</a>), Ryan Abernathey (<a class="reference external" href="mailto:rpa&#37;&#52;&#48;ldeo&#46;columbia&#46;edu">rpa<span>&#64;</span>ldeo<span>&#46;</span>columbia<span>&#46;</span>edu</a>), Joseph Hamman (<a class="reference external" href="mailto:jhamman&#37;&#52;&#48;ucar&#46;edu">jhamman<span>&#64;</span>ucar<span>&#46;</span>edu</a>)</p>
+<ul class="simple">
+<li><p>NCAR, Boulder, CO, USA</p></li>
+<li><p>Columbia University, Palisades, NY, USA</p></li>
+</ul>
+<p><a class="reference external" href="https://www.earthcube.org/EC2020">2020 EarthCube Annual Meeting</a> ID: 133</p>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Computer simulations of the Earth’s climate and weather generate huge amounts of data. These data are often persisted on high-performance computing (HPC) systems or in the cloud across multiple data assets in a variety of formats (netCDF, Zarr, etc.).
+Finding, investigating, and loading these data assets into compute-ready data containers costs time and effort.
+The user should know what data are available and their associated metadata, preferably before loading a specific data asset and analyzing it.</p>
+<p>In this notebook, we demonstrate <a class="reference external" href="https://github.com/NCAR/intake-esm">intake-esm</a>, a Python package and an <a class="reference external" href="https://github.com/intake/intake">intake</a> plugin with aims of facilitating:</p>
+<ul class="simple">
+<li><p>the discovery of earth’s climate and weather datasets.</p></li>
+<li><p>the ingestion of these datasets into <a class="reference external" href="https://github.com/pydata/xarray">xarray</a> dataset containers.</p></li>
+</ul>
+<p>The common/popular starting point for finding and investigating large datasets is with a data catalog.
+A <em>data catalog</em> is a collection of metadata, combined with search tools, that helps data analysts and other users to find the data they need.
+For a user to take full advantage of intake-esm, they must point it to an <em>Earth System Model (ESM) data catalog</em>.
+This is a JSON-formatted file that conforms to the ESM collection specification.</p>
+</div>
+<div class="section" id="esm-collection-specification">
+<h2>ESM Collection Specification<a class="headerlink" href="#esm-collection-specification" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="https://github.com/NCAR/esm-collection-spec">ESM collection specification</a> provides a machine-readable format for describing a wide range of climate and weather datasets, with a goal of making it easier to index and discover climate and weather data assets.
+An asset is any netCDF/HDF file or Zarr store that contains relevant data.</p>
+<p>An ESM data catalog serves as an inventory of available data, and provides information to explore the existing data assets.
+Additionally, an ESM catalog can contain information on how to aggregate compatible groups of data assets into singular xarray datasets.</p>
+</div>
+<div class="section" id="use-case-cmip6-hosted-on-google-cloud">
+<h2>Use Case: CMIP6 hosted on Google Cloud<a class="headerlink" href="#use-case-cmip6-hosted-on-google-cloud" title="Permalink to this headline">¶</a></h2>
+<p>The Coupled Model Intercomparison Project (CMIP) is an international collaborative effort to improve the knowledge about climate change and its impacts on the Earth System and on our society.
+<a class="reference external" href="https://www.wcrp-climate.org/wgcm-cmip">CMIP began in 1995</a>, and today we are in its sixth phase (CMIP6).
+The CMIP6 data archive consists of data models created across approximately 30 working groups and 1,000 researchers investigating the urgent environmental problem of climate change, and will provide a wealth of information for the next Assessment Report (AR6) of the <a class="reference external" href="https://www.ipcc.ch/">Intergovernmental Panel on Climate Change</a> (IPCC).</p>
+<p>Last year, Pangeo partnered with Google Cloud to bring CMIP6 climate data to Google Cloud’s Public Datasets program.
+You can read more about this process <a class="reference external" href="https://cloud.google.com/blog/products/data-analytics/new-climate-model-data-now-google-public-datasets">here</a>.
+For the remainder of this section, we will demonstrate intake-esm’s features using the ESM data catalog for the CMIP6 data stored on Google Cloud Storage.
+This catalog resides <a class="reference external" href="https://storage.googleapis.com/cmip6/pangeo-cmip6.json">in a dedicated CMIP6 bucket</a>.</p>
+<div class="section" id="loading-an-esm-data-catalog">
+<h3>Loading an ESM data catalog<a class="headerlink" href="#loading-an-esm-data-catalog" title="Permalink to this headline">¶</a></h3>
+<p>To load an ESM data catalog with intake-esm, the user must provide a valid ESM data catalog as input:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">intake</span>
+
+<span class="n">col</span> <span class="o">=</span> <span class="n">intake</span><span class="o">.</span><span class="n">open_esm_datastore</span><span class="p">(</span><span class="s1">&#39;https://storage.googleapis.com/cmip6/pangeo-cmip6.json&#39;</span><span class="p">)</span>
+<span class="n">col</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><p><strong>pangeo-cmip6 catalog with 3936 dataset(s) from 269868 asset(s)</strong>:</p> <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>unique</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>activity_id</th>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>institution_id</th>
+      <td>33</td>
+    </tr>
+    <tr>
+      <th>source_id</th>
+      <td>73</td>
+    </tr>
+    <tr>
+      <th>experiment_id</th>
+      <td>103</td>
+    </tr>
+    <tr>
+      <th>member_id</th>
+      <td>169</td>
+    </tr>
+    <tr>
+      <th>table_id</th>
+      <td>29</td>
+    </tr>
+    <tr>
+      <th>variable_id</th>
+      <td>370</td>
+    </tr>
+    <tr>
+      <th>grid_label</th>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>zstore</th>
+      <td>269868</td>
+    </tr>
+    <tr>
+      <th>dcpp_init_year</th>
+      <td>60</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The summary above tells us that this catalog contains over 268,000 data assets.
+We can get more information on the individual data assets contained in the catalog by calling the underlying dataframe created when it is initialized:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">col</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>activity_id</th>
+      <th>institution_id</th>
+      <th>source_id</th>
+      <th>experiment_id</th>
+      <th>member_id</th>
+      <th>table_id</th>
+      <th>variable_id</th>
+      <th>grid_label</th>
+      <th>zstore</th>
+      <th>dcpp_init_year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>AerChemMIP</td>
+      <td>AS-RCEC</td>
+      <td>TaiESM1</td>
+      <td>histSST</td>
+      <td>r1i1p1f1</td>
+      <td>AERmon</td>
+      <td>od550aer</td>
+      <td>gn</td>
+      <td>gs://cmip6/AerChemMIP/AS-RCEC/TaiESM1/histSST/...</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>AerChemMIP</td>
+      <td>BCC</td>
+      <td>BCC-ESM1</td>
+      <td>histSST</td>
+      <td>r1i1p1f1</td>
+      <td>AERmon</td>
+      <td>mmrbc</td>
+      <td>gn</td>
+      <td>gs://cmip6/AerChemMIP/BCC/BCC-ESM1/histSST/r1i...</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>AerChemMIP</td>
+      <td>BCC</td>
+      <td>BCC-ESM1</td>
+      <td>histSST</td>
+      <td>r1i1p1f1</td>
+      <td>AERmon</td>
+      <td>mmrdust</td>
+      <td>gn</td>
+      <td>gs://cmip6/AerChemMIP/BCC/BCC-ESM1/histSST/r1i...</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>AerChemMIP</td>
+      <td>BCC</td>
+      <td>BCC-ESM1</td>
+      <td>histSST</td>
+      <td>r1i1p1f1</td>
+      <td>AERmon</td>
+      <td>mmroa</td>
+      <td>gn</td>
+      <td>gs://cmip6/AerChemMIP/BCC/BCC-ESM1/histSST/r1i...</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>AerChemMIP</td>
+      <td>BCC</td>
+      <td>BCC-ESM1</td>
+      <td>histSST</td>
+      <td>r1i1p1f1</td>
+      <td>AERmon</td>
+      <td>mmrso4</td>
+      <td>gn</td>
+      <td>gs://cmip6/AerChemMIP/BCC/BCC-ESM1/histSST/r1i...</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The first data asset listed in the catalog contains:</p>
+<ul class="simple">
+<li><p>the ambient aerosol optical thickness at 550nm (<code class="docutils literal notranslate"><span class="pre">variable_id='od550aer'</span></code>), as a function of latitude, longitude, time,</p></li>
+<li><p>in an individual climate model experiment with the Taiwan Earth System Model 1.0 model (<code class="docutils literal notranslate"><span class="pre">source_id='TaiESM1'</span></code>),</p></li>
+<li><p>forced by the <em>Historical transient with SSTs prescribed from historical</em> experiment (<code class="docutils literal notranslate"><span class="pre">experiment_id='histSST'</span></code>),</p></li>
+<li><p>developed by the Taiwan Research Center for Environmental Changes (<code class="docutils literal notranslate"><span class="pre">instution_id='AS-RCEC'</span></code>),</p></li>
+<li><p>run as part of the Aerosols and Chemistry Model Intercomparison Project (<code class="docutils literal notranslate"><span class="pre">activity_id='AerChemMIP'</span></code>)</p></li>
+</ul>
+<p>And is located in Google Cloud Storage at <code class="docutils literal notranslate"><span class="pre">gs://cmip6/AerChemMIP/AS-RCEC/TaiESM1/histSST/r1i1p1f1/AERmon/od550aer/gn/</span></code>.</p>
+<p>Note: the amount of details provided in the catalog is determined by the data provider who builds the catalog.</p>
+</div>
+<div class="section" id="searching-for-datasets">
+<h3>Searching for datasets<a class="headerlink" href="#searching-for-datasets" title="Permalink to this headline">¶</a></h3>
+<p>After exploring the <a class="reference external" href="https://github.com/WCRP-CMIP/CMIP6_CVs">CMIP6 controlled vocabulary</a>, it’s straightforward to get the data assets you want using intake-esm’s <code class="docutils literal notranslate"><span class="pre">search()</span></code> method. In the example below, we are are going to search for the following:</p>
+<ul class="simple">
+<li><p>variables: <code class="docutils literal notranslate"><span class="pre">tas</span></code> which stands for near-surface air temperature</p></li>
+<li><p>experiments: <code class="docutils literal notranslate"><span class="pre">['historical',</span> <span class="pre">'ssp245',</span> <span class="pre">'ssp585']</span></code>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">historical</span></code>: all forcing of the recent past.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ssp245</span></code>: update of <a class="reference external" href="https://en.wikipedia.org/wiki/Representative_Concentration_Pathway">RCP4.5</a> based on SSP2.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ssp585</span></code>: emission-driven <a class="reference external" href="https://en.wikipedia.org/wiki/Representative_Concentration_Pathway">RCP8.5</a> based on SSP5.</p></li>
+</ul>
+</li>
+<li><p>table_id: <code class="docutils literal notranslate"><span class="pre">Amon</span></code> which stands for Monthly atmospheric data.</p></li>
+<li><p>grid_label: <code class="docutils literal notranslate"><span class="pre">gr</span></code> which stands for regridded data reported on the data provider’s preferred target grid.</p></li>
+</ul>
+<p>For more details on the CMIP6 vocabulary, please check this <a class="reference external" href="http://clipc-services.ceda.ac.uk/dreq/index.html">website</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># form query dictionary</span>
+<span class="n">query</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">experiment_id</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;historical&#39;</span><span class="p">,</span> <span class="s1">&#39;ssp245&#39;</span><span class="p">,</span> <span class="s1">&#39;ssp585&#39;</span><span class="p">],</span>
+             <span class="n">table_id</span><span class="o">=</span><span class="s1">&#39;Amon&#39;</span><span class="p">,</span>
+             <span class="n">variable_id</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;tas&#39;</span><span class="p">],</span>
+             <span class="n">member_id</span> <span class="o">=</span> <span class="s1">&#39;r1i1p1f1&#39;</span><span class="p">,</span>
+             <span class="n">grid_label</span><span class="o">=</span><span class="s1">&#39;gr&#39;</span><span class="p">)</span>
+
+<span class="c1"># subset catalog and get some metrics grouped by &#39;source_id&#39;</span>
+<span class="n">col_subset</span> <span class="o">=</span> <span class="n">col</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">require_all_on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;source_id&#39;</span><span class="p">],</span> <span class="o">**</span><span class="n">query</span><span class="p">)</span>
+<span class="n">col_subset</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;source_id&#39;</span><span class="p">)[[</span><span class="s1">&#39;experiment_id&#39;</span><span class="p">,</span> <span class="s1">&#39;variable_id&#39;</span><span class="p">,</span> <span class="s1">&#39;table_id&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>experiment_id</th>
+      <th>variable_id</th>
+      <th>table_id</th>
+    </tr>
+    <tr>
+      <th>source_id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>CIESM</th>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>EC-Earth3</th>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>EC-Earth3-Veg</th>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>FGOALS-f3-L</th>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>IPSL-CM6A-LR</th>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>KACE-1-0-G</th>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="loading-datasets">
+<h3>Loading datasets<a class="headerlink" href="#loading-datasets" title="Permalink to this headline">¶</a></h3>
+<p>Once you’ve identified data assets of interest, you can load them into xarray dataset containers using the <code class="docutils literal notranslate"><span class="pre">to_dataset_dict()</span></code> method. Invoking this method yields a Python dictionary of high-level aggregated xarray datasets.
+The logic for merging/concatenating the query results into higher level xarray datasets is provided in the input JSON file, under <code class="docutils literal notranslate"><span class="pre">aggregation_control</span></code>:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>
+&quot;aggregation_control&quot;: {
+  &quot;variable_column_name&quot;: &quot;variable_id&quot;,
+  &quot;groupby_attrs&quot;: [
+    &quot;activity_id&quot;,
+    &quot;institution_id&quot;,
+    &quot;source_id&quot;,
+    &quot;experiment_id&quot;,
+    &quot;table_id&quot;,
+    &quot;grid_label&quot;
+  ],
+  &quot;aggregations&quot;: [{
+      &quot;type&quot;: &quot;union&quot;,
+      &quot;attribute_name&quot;: &quot;variable_id&quot;
+    },
+
+    {
+      &quot;type&quot;: &quot;join_new&quot;,
+      &quot;attribute_name&quot;: &quot;member_id&quot;,
+      &quot;options&quot;: {
+        &quot;coords&quot;: &quot;minimal&quot;,
+        &quot;compat&quot;: &quot;override&quot;
+      }
+    },
+    {
+      &quot;type&quot;: &quot;join_new&quot;,
+      &quot;attribute_name&quot;: &quot;dcpp_init_year&quot;,
+      &quot;options&quot;: {
+        &quot;coords&quot;: &quot;minimal&quot;,
+        &quot;compat&quot;: &quot;override&quot;
+      }
+    }
+  ]
+}
+
+</pre></div>
+</div>
+<p>Though these aggregation specifications are sufficient to merge individual data assets into xarray datasets, sometimes additional arguments must be provided depending on the format of the data assets.
+For example, Zarr-based assets can be loaded with the option <code class="docutils literal notranslate"><span class="pre">consolidated=True</span></code>, which relies on a consolidated metadata file to describe the assets with minimal data egress.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dsets</span> <span class="o">=</span> <span class="n">col_subset</span><span class="o">.</span><span class="n">to_dataset_dict</span><span class="p">(</span><span class="n">zarr_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;consolidated&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span> <span class="n">storage_options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;token&#39;</span><span class="p">:</span> <span class="s1">&#39;anon&#39;</span><span class="p">})</span>
+
+<span class="c1"># list all merged datasets</span>
+<span class="p">[</span><span class="n">key</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">dsets</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--&gt; The keys in the returned dictionary of datasets are constructed as follows:
+	&#39;activity_id.institution_id.source_id.experiment_id.table_id.grid_label&#39;
+</pre></div>
+</div>
+<div class="output text_html">
+<div>
+    <style>
+        /* Turns off some styling */
+        progress {
+            /* gets rid of default border in Firefox and Opera. */
+            border: none;
+            /* Needs to be in here for Safari polyfill so background images work as expected. */
+            background-size: auto;
+        }
+        .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+            background: #F44336;
+        }
+    </style>
+  <progress value='18' class='' max='18' style='width:300px; height:20px; vertical-align: middle;'></progress>
+  100.00% [18/18 00:01<00:00]
+</div>
+</div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;ScenarioMIP.CAS.FGOALS-f3-L.ssp245.Amon.gr&#39;,
+ &#39;ScenarioMIP.IPSL.IPSL-CM6A-LR.ssp245.Amon.gr&#39;,
+ &#39;ScenarioMIP.EC-Earth-Consortium.EC-Earth3.ssp585.Amon.gr&#39;,
+ &#39;ScenarioMIP.IPSL.IPSL-CM6A-LR.ssp585.Amon.gr&#39;,
+ &#39;CMIP.IPSL.IPSL-CM6A-LR.historical.Amon.gr&#39;,
+ &#39;CMIP.EC-Earth-Consortium.EC-Earth3.historical.Amon.gr&#39;,
+ &#39;ScenarioMIP.NIMS-KMA.KACE-1-0-G.ssp245.Amon.gr&#39;,
+ &#39;ScenarioMIP.EC-Earth-Consortium.EC-Earth3-Veg.ssp245.Amon.gr&#39;,
+ &#39;ScenarioMIP.THU.CIESM.ssp585.Amon.gr&#39;,
+ &#39;CMIP.EC-Earth-Consortium.EC-Earth3-Veg.historical.Amon.gr&#39;,
+ &#39;ScenarioMIP.THU.CIESM.ssp245.Amon.gr&#39;,
+ &#39;ScenarioMIP.EC-Earth-Consortium.EC-Earth3.ssp245.Amon.gr&#39;,
+ &#39;ScenarioMIP.EC-Earth-Consortium.EC-Earth3-Veg.ssp585.Amon.gr&#39;,
+ &#39;CMIP.NIMS-KMA.KACE-1-0-G.historical.Amon.gr&#39;,
+ &#39;ScenarioMIP.NIMS-KMA.KACE-1-0-G.ssp585.Amon.gr&#39;,
+ &#39;ScenarioMIP.CAS.FGOALS-f3-L.ssp585.Amon.gr&#39;,
+ &#39;CMIP.CAS.FGOALS-f3-L.historical.Amon.gr&#39;,
+ &#39;CMIP.THU.CIESM.historical.Amon.gr&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>When the datasets have finished loading, we can extract any of them like we would a value in a Python dictionary:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">dsets</span><span class="p">[</span><span class="s1">&#39;ScenarioMIP.THU.CIESM.ssp585.Amon.gr&#39;</span><span class="p">]</span>
+<span class="n">ds</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<title>Show/Hide data repr</title>
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<title>Show/Hide attributes</title>
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
+
+.xr-wrap {
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 20px 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: none;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: '►';
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: '▼';
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: '(';
+}
+
+.xr-dim-list:after {
+  content: ')';
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ',';
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt, dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2 {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><div class='xr-wrap'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-4b059f92-893e-4433-99ae-d5ba031f3189' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-4b059f92-893e-4433-99ae-d5ba031f3189' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span>bnds</span>: 2</li><li><span class='xr-has-index'>lat</span>: 192</li><li><span class='xr-has-index'>lon</span>: 288</li><li><span class='xr-has-index'>member_id</span>: 1</li><li><span class='xr-has-index'>time</span>: 1032</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-81c9dee0-d588-40c2-b368-a997caf2a6ec' class='xr-section-summary-in' type='checkbox'  checked><label for='section-81c9dee0-d588-40c2-b368-a997caf2a6ec' class='xr-section-summary' >Coordinates: <span>(8)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>lon_bnds</span></div><div class='xr-var-dims'>(lon, bnds)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(288, 2), meta=np.ndarray&gt;</div><input id='attrs-4e39d0a9-44e6-41ef-8cbd-5991ef713cab' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-4e39d0a9-44e6-41ef-8cbd-5991ef713cab' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-eded6d2e-fa20-4121-9445-e0b7256ed3f4' class='xr-var-data-in' type='checkbox'><label for='data-eded6d2e-fa20-4121-9445-e0b7256ed3f4' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><pre class='xr-var-data'><table>
+<tr>
+<td>
+<table>
+  <thead>
+    <tr><td> </td><th> Array </th><th> Chunk </th></tr>
+  </thead>
+  <tbody>
+    <tr><th> Bytes </th><td> 4.61 kB </td> <td> 4.61 kB </td></tr>
+    <tr><th> Shape </th><td> (288, 2) </td> <td> (288, 2) </td></tr>
+    <tr><th> Count </th><td> 2 Tasks </td><td> 1 Chunks </td></tr>
+    <tr><th> Type </th><td> float64 </td><td> numpy.ndarray </td></tr>
+  </tbody>
+</table>
+</td>
+<td>
+<svg width="75" height="170" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="25" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="120" x2="25" y2="120" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="120" style="stroke-width:2" />
+  <line x1="25" y1="0" x2="25" y2="120" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.000000,0.000000 25.412617,0.000000 25.412617,120.000000 0.000000,120.000000" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="12.706308" y="140.000000" font-size="1.0rem" font-weight="100" text-anchor="middle" >2</text>
+  <text x="45.412617" y="60.000000" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(-90,45.412617,60.000000)">288</text>
+</svg>
+</td>
+</tr>
+</table></pre></li><li class='xr-var-item'><div class='xr-var-name'><span>lat_bnds</span></div><div class='xr-var-dims'>(lat, bnds)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(192, 2), meta=np.ndarray&gt;</div><input id='attrs-3ff82acf-6c67-42ef-ab90-ea99fd16f746' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-3ff82acf-6c67-42ef-ab90-ea99fd16f746' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-734cb37c-1d3c-4eb6-9135-3e19f4ddeef2' class='xr-var-data-in' type='checkbox'><label for='data-734cb37c-1d3c-4eb6-9135-3e19f4ddeef2' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><pre class='xr-var-data'><table>
+<tr>
+<td>
+<table>
+  <thead>
+    <tr><td> </td><th> Array </th><th> Chunk </th></tr>
+  </thead>
+  <tbody>
+    <tr><th> Bytes </th><td> 3.07 kB </td> <td> 3.07 kB </td></tr>
+    <tr><th> Shape </th><td> (192, 2) </td> <td> (192, 2) </td></tr>
+    <tr><th> Count </th><td> 2 Tasks </td><td> 1 Chunks </td></tr>
+    <tr><th> Type </th><td> float64 </td><td> numpy.ndarray </td></tr>
+  </tbody>
+</table>
+</td>
+<td>
+<svg width="75" height="170" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="25" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="120" x2="25" y2="120" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="120" style="stroke-width:2" />
+  <line x1="25" y1="0" x2="25" y2="120" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.000000,0.000000 25.609134,0.000000 25.609134,120.000000 0.000000,120.000000" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="12.804567" y="140.000000" font-size="1.0rem" font-weight="100" text-anchor="middle" >2</text>
+  <text x="45.609134" y="60.000000" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(-90,45.609134,60.000000)">192</text>
+</svg>
+</td>
+</tr>
+</table></pre></li><li class='xr-var-item'><div class='xr-var-name'><span>time_bnds</span></div><div class='xr-var-dims'>(time, bnds)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1032, 2), meta=np.ndarray&gt;</div><input id='attrs-45afe1c3-299f-4569-bfa7-88c018cac2e6' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-45afe1c3-299f-4569-bfa7-88c018cac2e6' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d2095da4-0706-47a8-970a-c82073dabfb7' class='xr-var-data-in' type='checkbox'><label for='data-d2095da4-0706-47a8-970a-c82073dabfb7' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><pre class='xr-var-data'><table>
+<tr>
+<td>
+<table>
+  <thead>
+    <tr><td> </td><th> Array </th><th> Chunk </th></tr>
+  </thead>
+  <tbody>
+    <tr><th> Bytes </th><td> 16.51 kB </td> <td> 16.51 kB </td></tr>
+    <tr><th> Shape </th><td> (1032, 2) </td> <td> (1032, 2) </td></tr>
+    <tr><th> Count </th><td> 2 Tasks </td><td> 1 Chunks </td></tr>
+    <tr><th> Type </th><td> object </td><td> numpy.ndarray </td></tr>
+  </tbody>
+</table>
+</td>
+<td>
+<svg width="75" height="170" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="25" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="120" x2="25" y2="120" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="120" style="stroke-width:2" />
+  <line x1="25" y1="0" x2="25" y2="120" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.000000,0.000000 25.412617,0.000000 25.412617,120.000000 0.000000,120.000000" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="12.706308" y="140.000000" font-size="1.0rem" font-weight="100" text-anchor="middle" >2</text>
+  <text x="45.412617" y="60.000000" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(-90,45.412617,60.000000)">1032</text>
+</svg>
+</td>
+</tr>
+</table></pre></li><li class='xr-var-item'><div class='xr-var-name'><span>height</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-05993fff-7c44-42ab-8732-39ac062c7d2f' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-05993fff-7c44-42ab-8732-39ac062c7d2f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f712f5ec-df80-443f-b207-a83fb3f48a19' class='xr-var-data-in' type='checkbox'><label for='data-f712f5ec-df80-443f-b207-a83fb3f48a19' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>Z</dd><dt><span>long_name :</span></dt><dd>height</dd><dt><span>positive :</span></dt><dd>up</dd><dt><span>standard_name :</span></dt><dd>height</dd><dt><span>units :</span></dt><dd>m</dd></dl></div><pre class='xr-var-data'>array(2.)</pre></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.0 1.25 2.5 ... 356.2 357.5 358.8</div><input id='attrs-2ecfc48b-c3a9-4b8f-9ead-a3ac8996f576' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-2ecfc48b-c3a9-4b8f-9ead-a3ac8996f576' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a12dac9c-7597-4960-9209-5713524ab0a8' class='xr-var-data-in' type='checkbox'><label for='data-a12dac9c-7597-4960-9209-5713524ab0a8' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>X</dd><dt><span>bounds :</span></dt><dd>lon_bnds</dd><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd></dl></div><pre class='xr-var-data'>array([  0.  ,   1.25,   2.5 , ..., 356.25, 357.5 , 358.75])</pre></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>2015-01-16 12:00:00 ... 2100-12-16 12:00:00</div><input id='attrs-05c9fccb-3b03-4bb4-8704-725be2d02d64' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-05c9fccb-3b03-4bb4-8704-725be2d02d64' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-76719783-750e-4aef-9cca-39573b1eed84' class='xr-var-data-in' type='checkbox'><label for='data-76719783-750e-4aef-9cca-39573b1eed84' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>T</dd><dt><span>bounds :</span></dt><dd>time_bnds</dd><dt><span>long_name :</span></dt><dd>time</dd><dt><span>standard_name :</span></dt><dd>time</dd></dl></div><pre class='xr-var-data'>array([cftime.DatetimeNoLeap(2015-01-16 12:00:00),
+       cftime.DatetimeNoLeap(2015-02-15 00:00:00),
+       cftime.DatetimeNoLeap(2015-03-16 12:00:00), ...,
+       cftime.DatetimeNoLeap(2100-10-16 12:00:00),
+       cftime.DatetimeNoLeap(2100-11-16 00:00:00),
+       cftime.DatetimeNoLeap(2100-12-16 12:00:00)], dtype=object)</pre></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-90.0 -89.06 -88.12 ... 89.06 90.0</div><input id='attrs-2e6a681e-4683-4960-962c-d30f3bf743bb' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-2e6a681e-4683-4960-962c-d30f3bf743bb' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4040c4b1-234f-4892-aade-72a9e6c3390c' class='xr-var-data-in' type='checkbox'><label for='data-4040c4b1-234f-4892-aade-72a9e6c3390c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>Y</dd><dt><span>bounds :</span></dt><dd>lat_bnds</dd><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd></dl></div><pre class='xr-var-data'>array([-90.      , -89.057592, -88.115183, -87.172775, -86.230366, -85.287958,
+       -84.34555 , -83.403141, -82.460733, -81.518325, -80.575916, -79.633508,
+       -78.691099, -77.748691, -76.806283, -75.863874, -74.921466, -73.979058,
+       -73.036649, -72.094241, -71.151832, -70.209424, -69.267016, -68.324607,
+       -67.382199, -66.439791, -65.497382, -64.554974, -63.612565, -62.670157,
+       -61.727749, -60.78534 , -59.842932, -58.900524, -57.958115, -57.015707,
+       -56.073298, -55.13089 , -54.188482, -53.246073, -52.303665, -51.361257,
+       -50.418848, -49.47644 , -48.534031, -47.591623, -46.649215, -45.706806,
+       -44.764398, -43.82199 , -42.879581, -41.937173, -40.994764, -40.052356,
+       -39.109948, -38.167539, -37.225131, -36.282723, -35.340314, -34.397906,
+       -33.455497, -32.513089, -31.570681, -30.628272, -29.685864, -28.743455,
+       -27.801047, -26.858639, -25.91623 , -24.973822, -24.031414, -23.089005,
+       -22.146597, -21.204188, -20.26178 , -19.319372, -18.376963, -17.434555,
+       -16.492147, -15.549738, -14.60733 , -13.664921, -12.722513, -11.780105,
+       -10.837696,  -9.895288,  -8.95288 ,  -8.010471,  -7.068063,  -6.125654,
+        -5.183246,  -4.240838,  -3.298429,  -2.356021,  -1.413613,  -0.471204,
+         0.471204,   1.413613,   2.356021,   3.298429,   4.240838,   5.183246,
+         6.125654,   7.068063,   8.010471,   8.95288 ,   9.895288,  10.837696,
+        11.780105,  12.722513,  13.664921,  14.60733 ,  15.549738,  16.492147,
+        17.434555,  18.376963,  19.319372,  20.26178 ,  21.204188,  22.146597,
+        23.089005,  24.031414,  24.973822,  25.91623 ,  26.858639,  27.801047,
+        28.743455,  29.685864,  30.628272,  31.570681,  32.513089,  33.455497,
+        34.397906,  35.340314,  36.282723,  37.225131,  38.167539,  39.109948,
+        40.052356,  40.994764,  41.937173,  42.879581,  43.82199 ,  44.764398,
+        45.706806,  46.649215,  47.591623,  48.534031,  49.47644 ,  50.418848,
+        51.361257,  52.303665,  53.246073,  54.188482,  55.13089 ,  56.073298,
+        57.015707,  57.958115,  58.900524,  59.842932,  60.78534 ,  61.727749,
+        62.670157,  63.612565,  64.554974,  65.497382,  66.439791,  67.382199,
+        68.324607,  69.267016,  70.209424,  71.151832,  72.094241,  73.036649,
+        73.979058,  74.921466,  75.863874,  76.806283,  77.748691,  78.691099,
+        79.633508,  80.575916,  81.518325,  82.460733,  83.403141,  84.34555 ,
+        85.287958,  86.230366,  87.172775,  88.115183,  89.057592,  90.      ])</pre></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>member_id</span></div><div class='xr-var-dims'>(member_id)</div><div class='xr-var-dtype'>&lt;U8</div><div class='xr-var-preview xr-preview'>&#x27;r1i1p1f1&#x27;</div><input id='attrs-38321934-1f4b-4e06-8929-519e2fbca1ee' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-38321934-1f4b-4e06-8929-519e2fbca1ee' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1e9d34fd-f080-4926-85ce-b65e1e6dfb4b' class='xr-var-data-in' type='checkbox'><label for='data-1e9d34fd-f080-4926-85ce-b65e1e6dfb4b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><pre class='xr-var-data'>array([&#x27;r1i1p1f1&#x27;], dtype=&#x27;&lt;U8&#x27;)</pre></li></ul></div></li><li class='xr-section-item'><input id='section-d42faf0f-6484-4134-99b3-fa742c39780f' class='xr-section-summary-in' type='checkbox'  checked><label for='section-d42faf0f-6484-4134-99b3-fa742c39780f' class='xr-section-summary' >Data variables: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>tas</span></div><div class='xr-var-dims'>(member_id, time, lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 303, 192, 288), meta=np.ndarray&gt;</div><input id='attrs-62b88aeb-535b-4f66-ba0e-dee059ee01c5' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-62b88aeb-535b-4f66-ba0e-dee059ee01c5' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-98291c38-1c9b-4040-929a-6058be949ad3' class='xr-var-data-in' type='checkbox'><label for='data-98291c38-1c9b-4040-929a-6058be949ad3' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>cell_measures :</span></dt><dd>area: areacella</dd><dt><span>cell_methods :</span></dt><dd>area: time: mean</dd><dt><span>comment :</span></dt><dd>near-surface (usually, 2 meter) air temperature</dd><dt><span>history :</span></dt><dd>2020-03-23T02:29:28Z altered by CMOR: Treated scalar dimension: &#x27;height&#x27;. 2020-03-23T02:29:28Z altered by CMOR: Converted type from &#x27;d&#x27; to &#x27;f&#x27;.</dd><dt><span>long_name :</span></dt><dd>Near-Surface Air Temperature</dd><dt><span>original_name :</span></dt><dd>TREFHT</dd><dt><span>standard_name :</span></dt><dd>air_temperature</dd><dt><span>units :</span></dt><dd>K</dd></dl></div><pre class='xr-var-data'><table>
+<tr>
+<td>
+<table>
+  <thead>
+    <tr><td> </td><th> Array </th><th> Chunk </th></tr>
+  </thead>
+  <tbody>
+    <tr><th> Bytes </th><td> 228.26 MB </td> <td> 67.02 MB </td></tr>
+    <tr><th> Shape </th><td> (1, 1032, 192, 288) </td> <td> (1, 303, 192, 288) </td></tr>
+    <tr><th> Count </th><td> 9 Tasks </td><td> 4 Chunks </td></tr>
+    <tr><th> Type </th><td> float32 </td><td> numpy.ndarray </td></tr>
+  </tbody>
+</table>
+</td>
+<td>
+<svg width="353" height="162" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="25" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="25" x2="25" y2="25" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="25" style="stroke-width:2" />
+  <line x1="25" y1="0" x2="25" y2="25" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.000000,0.000000 25.412617,0.000000 25.412617,25.412617 0.000000,25.412617" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="12.706308" y="45.412617" font-size="1.0rem" font-weight="100" text-anchor="middle" >1</text>
+  <text x="45.412617" y="12.706308" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,45.412617,12.706308)">1</text>
+
+
+  <!-- Horizontal lines -->
+  <line x1="95" y1="0" x2="165" y2="70" style="stroke-width:2" />
+  <line x1="95" y1="41" x2="165" y2="112" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="95" y1="0" x2="95" y2="41" style="stroke-width:2" />
+  <line x1="115" y1="20" x2="115" y2="62" />
+  <line x1="136" y1="41" x2="136" y2="83" />
+  <line x1="157" y1="62" x2="157" y2="103" />
+  <line x1="165" y1="70" x2="165" y2="112" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="95.000000,0.000000 165.588235,70.588235 165.588235,112.286857 95.000000,41.698621" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="95" y1="0" x2="138" y2="0" style="stroke-width:2" />
+  <line x1="115" y1="20" x2="159" y2="20" />
+  <line x1="136" y1="41" x2="179" y2="41" />
+  <line x1="157" y1="62" x2="200" y2="62" />
+  <line x1="165" y1="70" x2="208" y2="70" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="95" y1="0" x2="165" y2="70" style="stroke-width:2" />
+  <line x1="138" y1="0" x2="208" y2="70" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="95.000000,0.000000 138.297127,0.000000 208.885362,70.588235 165.588235,70.588235" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="165" y1="70" x2="208" y2="70" style="stroke-width:2" />
+  <line x1="165" y1="112" x2="208" y2="112" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="165" y1="70" x2="165" y2="112" style="stroke-width:2" />
+  <line x1="208" y1="70" x2="208" y2="112" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="165.588235,70.588235 208.885362,70.588235 208.885362,112.286857 165.588235,112.286857" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="187.236799" y="132.286857" font-size="1.0rem" font-weight="100" text-anchor="middle" >288</text>
+  <text x="228.885362" y="91.437546" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(-90,228.885362,91.437546)">192</text>
+  <text x="120.294118" y="96.992739" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(45,120.294118,96.992739)">1032</text>
+</svg>
+</td>
+</tr>
+</table></pre></li></ul></div></li><li class='xr-section-item'><input id='section-907e6efc-7018-4cc9-88e1-e8103e9429a1' class='xr-section-summary-in' type='checkbox'  ><label for='section-907e6efc-7018-4cc9-88e1-e8103e9429a1' class='xr-section-summary' >Attributes: <span>(49)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>Conventions :</span></dt><dd>CF-1.7 CMIP-6.2</dd><dt><span>activity_id :</span></dt><dd>ScenarioMIP</dd><dt><span>branch_method :</span></dt><dd>standard</dd><dt><span>branch_time_in_child :</span></dt><dd>735110.0</dd><dt><span>branch_time_in_parent :</span></dt><dd>735110.0</dd><dt><span>cmor_version :</span></dt><dd>3.5.0</dd><dt><span>contact :</span></dt><dd>yanluan@tsinghua.edu.cn</dd><dt><span>creation_date :</span></dt><dd>2020-03-23T02:29:28Z</dd><dt><span>data_specs_version :</span></dt><dd>01.00.29</dd><dt><span>experiment :</span></dt><dd>update of RCP8.5 based on SSP5</dd><dt><span>experiment_id :</span></dt><dd>ssp585</dd><dt><span>external_variables :</span></dt><dd>areacella</dd><dt><span>forcing_index :</span></dt><dd>1</dd><dt><span>frequency :</span></dt><dd>mon</dd><dt><span>further_info_url :</span></dt><dd>https://furtherinfo.es-doc.org/CMIP6.THU.CIESM.ssp585.none.r1i1p1f1</dd><dt><span>grid :</span></dt><dd>gs1x1</dd><dt><span>grid_label :</span></dt><dd>gr</dd><dt><span>history :</span></dt><dd>2020-03-23T02:29:28Z ;rewrote data to be consistent with ScenarioMIP for variable tas found in table Amon.;
+Output from CIESM</dd><dt><span>initialization_index :</span></dt><dd>1</dd><dt><span>institution :</span></dt><dd>Department of Earth System Science, Tsinghua University, Beijing 100084, China</dd><dt><span>institution_id :</span></dt><dd>THU</dd><dt><span>license :</span></dt><dd>CMIP6 model data produced by Department of Earth System Science, Tsinghua University is licensed under a Creative Commons Attribution ShareAlike 4.0 International License (https://creativecommons.org/licenses). Consult https://pcmdi.llnl.gov/CMIP6/TermsOfUse for terms of use governing CMIP6 output, including citation requirements and proper acknowledgment. Further information about this data, including some limitations, can be found via the further_info_url (recorded as a global attribute in this file). The data producers and data providers make no warranty, either express or implied, including, but not limited to, warranties of merchantability and fitness for a particular purpose. All liabilities arising from the supply of the information (including any liability arising in negligence) are excluded to the fullest extent permitted by law.</dd><dt><span>mip_era :</span></dt><dd>CMIP6</dd><dt><span>nominal_resolution :</span></dt><dd>100 km</dd><dt><span>parent_activity_id :</span></dt><dd>CMIP</dd><dt><span>parent_experiment_id :</span></dt><dd>historical</dd><dt><span>parent_mip_era :</span></dt><dd>CMIP6</dd><dt><span>parent_source_id :</span></dt><dd>CIESM</dd><dt><span>parent_time_units :</span></dt><dd>days since 0001-01-01</dd><dt><span>parent_variant_label :</span></dt><dd>r1i1p1f1</dd><dt><span>physics_index :</span></dt><dd>1</dd><dt><span>product :</span></dt><dd>model-output</dd><dt><span>realization_index :</span></dt><dd>1</dd><dt><span>realm :</span></dt><dd>atmos</dd><dt><span>run_variant :</span></dt><dd>1rd realization</dd><dt><span>source :</span></dt><dd>CIESM (2019): 
+aerosol: prescribed MACv2-SP
+atmos: CIESM-AM1.0 (Modified CAM5; 1 degree spectral element; 48602 cells; 30 levels; top level 2.255 hPa)
+atmosChem: none
+land: CIESM-LM1.0 (Modified CLM4.0)
+landIce: none
+ocean: CIESM-OM1.0 (Modified POP2; 320 x 384 longitude/latitude; 60 levels; top grid cell 0-10 m)
+ocnBgchem: none
+seaIce: CICE4</dd><dt><span>source_id :</span></dt><dd>CIESM</dd><dt><span>source_type :</span></dt><dd>AOGCM</dd><dt><span>status :</span></dt><dd>2020-05-01;created; by gcs.cmip6.ldeo@gmail.com</dd><dt><span>sub_experiment :</span></dt><dd>none</dd><dt><span>sub_experiment_id :</span></dt><dd>none</dd><dt><span>table_id :</span></dt><dd>Amon</dd><dt><span>table_info :</span></dt><dd>Creation Date:(20 February 2019) MD5:510997cd0a2c38131ae713cdf8560209</dd><dt><span>title :</span></dt><dd>CIESM output prepared for CMIP6</dd><dt><span>tracking_id :</span></dt><dd>hdl:21.14100/eba65a5e-f036-487a-a96e-757e2293ed66</dd><dt><span>variable_id :</span></dt><dd>tas</dd><dt><span>variant_label :</span></dt><dd>r1i1p1f1</dd><dt><span>intake_esm_varname :</span></dt><dd>tas</dd><dt><span>intake_esm_dataset_key :</span></dt><dd>ScenarioMIP.THU.CIESM.ssp585.Amon.gr</dd></dl></div></li></ul></div></div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let’s create a quick plot for a slice of the data:</span>
+<span class="n">ds</span><span class="o">.</span><span class="n">tas</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">90</span><span class="p">))</span>\
+      <span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">col</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">robust</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;xarray.plot.facetgrid.FacetGrid at 0x7f3f315ca1f0&gt;
+</pre></div>
+</div>
+<img alt="../../_images/intake-pangeo-catalog_12_1.png" src="../../_images/intake-pangeo-catalog_12_1.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="pangeo-catalog">
+<h2>Pangeo Catalog<a class="headerlink" href="#pangeo-catalog" title="Permalink to this headline">¶</a></h2>
+<p>Pangeo Catalog is an open-source project to enumerate and organize cloud-optimized climate data stored across a variety of providers.
+In addition to offering various useful climate datasets in a consolidated location, the project also serves as a means of accessing public ESM data catalogs.</p>
+<div class="section" id="accessing-catalogs-using-python">
+<h3>Accessing catalogs using Python<a class="headerlink" href="#accessing-catalogs-using-python" title="Permalink to this headline">¶</a></h3>
+<p>At the core of the project is a <a class="reference external" href="https://github.com/pangeo-data/pangeo-datastore">GitHub repository</a> containing several static intake catalogs in the form of YAML files.
+Thanks to plugins like intake-esm and <a class="reference external" href="https://github.com/intake/intake-xarray">intake-xarray</a>, these catalogs can contain links to ESM data catalogs or data assets that can be loaded into xarray datasets, along with the arguments required to load them.</p>
+<p>By editing these files using Git-based version control, anyone is free to contribute a dataset supported by the available <a class="reference external" href="https://intake.readthedocs.io/en/latest/plugin-directory.html">intake plugins</a>.
+Users can then browse these catalogs by providing their associated URL as input into intake’s <code class="docutils literal notranslate"><span class="pre">open_catalog()</span></code>; their tree-like structure allows a user to explore their entirety by simply opening the <a class="reference external" href="https://github.com/pangeo-data/pangeo-datastore/blob/master/intake-catalogs/master.yaml">root catalog</a> and recursively walking through it:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">=</span> <span class="n">intake</span><span class="o">.</span><span class="n">open_catalog</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/pangeo-data/pangeo-datastore/master/intake-catalogs/master.yaml&#39;</span><span class="p">)</span>
+<span class="n">entries</span> <span class="o">=</span> <span class="n">cat</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">depth</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="p">[</span><span class="n">key</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">entries</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;ocean.sea_surface_height&#39;,
+ &#39;ocean.cesm_mom6_example&#39;,
+ &#39;ocean.ECCOv4r3&#39;,
+ &#39;ocean.SOSE&#39;,
+ &#39;ocean.GODAS&#39;,
+ &#39;ocean.ECCO_layers&#39;,
+ &#39;ocean.altimetry.al&#39;,
+ &#39;ocean.altimetry.alg&#39;,
+ &#39;ocean.altimetry.c2&#39;,
+ &#39;ocean.altimetry.e1&#39;,
+ &#39;ocean.altimetry.e1g&#39;,
+ &#39;ocean.altimetry.e2&#39;,
+ &#39;ocean.altimetry.en&#39;,
+ &#39;ocean.altimetry.enn&#39;,
+ &#39;ocean.altimetry.g2&#39;,
+ &#39;ocean.altimetry.h2&#39;,
+ &#39;ocean.altimetry.j1&#39;,
+ &#39;ocean.altimetry.j1g&#39;,
+ &#39;ocean.altimetry.j1n&#39;,
+ &#39;ocean.altimetry.j2&#39;,
+ &#39;ocean.altimetry.j2g&#39;,
+ &#39;ocean.altimetry.j2n&#39;,
+ &#39;ocean.altimetry.j3&#39;,
+ &#39;ocean.altimetry.s3a&#39;,
+ &#39;ocean.altimetry.s3b&#39;,
+ &#39;ocean.altimetry.tp&#39;,
+ &#39;ocean.altimetry.tpn&#39;,
+ &#39;ocean.altimetry&#39;,
+ &#39;ocean.LLC4320.LLC4320_grid&#39;,
+ &#39;ocean.LLC4320.LLC4320_SST&#39;,
+ &#39;ocean.LLC4320.LLC4320_SSS&#39;,
+ &#39;ocean.LLC4320.LLC4320_SSH&#39;,
+ &#39;ocean.LLC4320.LLC4320_SSU&#39;,
+ &#39;ocean.LLC4320.LLC4320_SSV&#39;,
+ &#39;ocean.LLC4320&#39;,
+ &#39;ocean.GFDL_CM2_6.GFDL_CM2_6_control_ocean&#39;,
+ &#39;ocean.GFDL_CM2_6.GFDL_CM2_6_control_ocean_surface&#39;,
+ &#39;ocean.GFDL_CM2_6.GFDL_CM2_6_control_ocean_3D&#39;,
+ &#39;ocean.GFDL_CM2_6.GFDL_CM2_6_control_ocean_transport&#39;,
+ &#39;ocean.GFDL_CM2_6.GFDL_CM2_6_control_ocean_boundary_flux&#39;,
+ &#39;ocean.GFDL_CM2_6.GFDL_CM2_6_control_ocean_budgets&#39;,
+ &#39;ocean.GFDL_CM2_6.GFDL_CM2_6_one_percent_ocean&#39;,
+ &#39;ocean.GFDL_CM2_6.GFDL_CM2_6_one_percent_ocean_surface&#39;,
+ &#39;ocean.GFDL_CM2_6.GFDL_CM2_6_one_percent_ocean_3D&#39;,
+ &#39;ocean.GFDL_CM2_6.GFDL_CM2_6_one_percent_ocean_transport&#39;,
+ &#39;ocean.GFDL_CM2_6.GFDL_CM2_6_one_percent_ocean_boundary_flux&#39;,
+ &#39;ocean.GFDL_CM2_6.GFDL_CM2_6_one_percent_ocean_budgets&#39;,
+ &#39;ocean.GFDL_CM2_6.GFDL_CM2_6_grid&#39;,
+ &#39;ocean.GFDL_CM2_6&#39;,
+ &#39;ocean.CESM_POP.CESM_POP_hires_control&#39;,
+ &#39;ocean.CESM_POP.CESM_POP_hires_RCP8_5&#39;,
+ &#39;ocean.CESM_POP&#39;,
+ &#39;ocean.channel.MITgcm_channel_flatbottom_02km_run01_phys-mon&#39;,
+ &#39;ocean.channel.MITgcm_channel_flatbottom_02km_run01_phys_snap15D&#39;,
+ &#39;ocean.channel.channel_ridge_resolutions_01km&#39;,
+ &#39;ocean.channel.channel_ridge_resolutions_05km&#39;,
+ &#39;ocean.channel.channel_ridge_resolutions_20km&#39;,
+ &#39;ocean.channel.run_tracers_restored_zarr&#39;,
+ &#39;ocean.channel&#39;,
+ &#39;ocean.MEOM_NEMO.NATL60_coord&#39;,
+ &#39;ocean.MEOM_NEMO.NATL60_horizontal_grid&#39;,
+ &#39;ocean.MEOM_NEMO.NATL60_vertical_grid&#39;,
+ &#39;ocean.MEOM_NEMO.NATL60_SSH&#39;,
+ &#39;ocean.MEOM_NEMO.NATL60_SSH_1&#39;,
+ &#39;ocean.MEOM_NEMO.NATL60_SSU&#39;,
+ &#39;ocean.MEOM_NEMO.NATL60_SSV&#39;,
+ &#39;ocean.MEOM_NEMO.eNATL60_grid&#39;,
+ &#39;ocean.MEOM_NEMO.eNATL60_BLBT02_SSH&#39;,
+ &#39;ocean.MEOM_NEMO.eNATL60_BLBT02_SSU&#39;,
+ &#39;ocean.MEOM_NEMO.eNATL60_BLBT02_SSV&#39;,
+ &#39;ocean.MEOM_NEMO.eNATL60_BLB002_SSU&#39;,
+ &#39;ocean.MEOM_NEMO.eNATL60_BLB002_SSV&#39;,
+ &#39;ocean.MEOM_NEMO&#39;,
+ &#39;ocean&#39;,
+ &#39;atmosphere.gmet_v1&#39;,
+ &#39;atmosphere.trmm_3b42rt&#39;,
+ &#39;atmosphere.sam_ngaqua_qobs_eqx_3d&#39;,
+ &#39;atmosphere.sam_ngaqua_qobs_eqx_2d&#39;,
+ &#39;atmosphere.gpcp_cdr_daily_v1_3&#39;,
+ &#39;atmosphere.wrf50_erai&#39;,
+ &#39;atmosphere.era5_hourly_reanalysis_single_levels_sa&#39;,
+ &#39;atmosphere&#39;,
+ &#39;climate.cmip6_gcs&#39;,
+ &#39;climate.GFDL_CM2_6&#39;,
+ &#39;climate.tracmip&#39;,
+ &#39;climate&#39;,
+ &#39;hydro.cgiar_pet&#39;,
+ &#39;hydro.hydrosheds_dir&#39;,
+ &#39;hydro.hydrosheds_acc&#39;,
+ &#39;hydro.hydrosheds_dem&#39;,
+ &#39;hydro.soil_grids_single_level&#39;,
+ &#39;hydro.soil_grids_multi_level&#39;,
+ &#39;hydro.camels.basin_mean_forcing_gcp&#39;,
+ &#39;hydro.camels.basin_mean_forcing_aws&#39;,
+ &#39;hydro.camels.usgs_streamflow_gcp&#39;,
+ &#39;hydro.camels.usgs_streamflow_aws&#39;,
+ &#39;hydro.camels.attributes_aws&#39;,
+ &#39;hydro.camels&#39;,
+ &#39;hydro&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The catalogs can also be explored using intake’s own <code class="docutils literal notranslate"><span class="pre">search()</span></code> method:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cat_subset</span> <span class="o">=</span> <span class="n">cat</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;cmip6&#39;</span><span class="p">)</span>
+
+<span class="nb">list</span><span class="p">(</span><span class="n">cat_subset</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;climate.cmip6_gcs&#39;, &#39;climate.GFDL_CM2_6&#39;, &#39;climate.tracmip&#39;, &#39;climate&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Once we have found a dataset or collection we want to explore, we can do so without the need of any user inputted argument:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span><span class="o">.</span><span class="n">climate</span><span class="o">.</span><span class="n">tracmip</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><p><strong>pangeo-tracmip catalog with 187 dataset(s) from 7067 asset(s)</strong>:</p> <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>unique</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>frequency</th>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>experiment</th>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>model</th>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>variable</th>
+      <td>47</td>
+    </tr>
+    <tr>
+      <th>version</th>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>source</th>
+      <td>7067</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="accessing-catalogs-using-catalog-pangeo-io">
+<h3>Accessing catalogs using <a class="reference external" href="http://catalog.pangeo.io">catalog.pangeo.io</a><a class="headerlink" href="#accessing-catalogs-using-catalog-pangeo-io" title="Permalink to this headline">¶</a></h3>
+<p>For those who don’t want to initialize a Python environmemt to explore the catalogs, <a class="reference external" href="https://catalog.pangeo.io/">catalog.pangeo.io</a> offers a means of viewing them from a standalone web application.
+The website directly mirrors the catalogs in the GitHub repository, with previews of each dataset or collection loaded on the fly:</p>
+<img src="images/pangeo-catalog.png" alt="Example of an intake-esm collection on catalog.pangeo.io" width="1000">
+<p>From here, users can view the JSON input associated with an ESM collection and sort/subset its contents:</p>
+<img src="images/esm-demo.gif" alt="Example of an intake-esm collection on catalog.pangeo.io" width="800">
+</div>
+</div>
+<div class="section" id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<p>With intake-esm, much of the toil associated with discovering, loading, and consolidating data assets can be eliminated.
+In addition to making computations on huge datasets more accessible to the scientific community, the package also promotes reproducibility by providing simple methodology to create consistent datasets.
+Coupled with Pangeo Catalog (which in itself is powered by intake), intake-esm gives climate scientists the means to create and distribute large data collections with instructions on how to use them essentially written into their ESM specifications.</p>
+<p>There is still much work to be done with respect to intake-esm and Pangeo Catalog; in particular, goals include:</p>
+<ul class="simple">
+<li><p>Merging ESM collection specifications into <a class="reference external" href="https://stacspec.org/">SpatioTemporal Asset Catalog (STAC) specification</a> to offer a more universal specification standard</p></li>
+<li><p>Development of tools to verify and describe catalogued data on a regular basis</p></li>
+<li><p>Restructuring of catalogs to allow subsetting by cloud provider region</p></li>
+</ul>
+<p><a class="reference external" href="https://discourse.pangeo.io/">Please reach out</a> if you are interested in participating in any way.</p>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://intake-esm.readthedocs.io/en/latest/">intake-esm documentation</a></p></li>
+<li><p><a class="reference external" href="https://intake.readthedocs.io/en/latest/">intake documentation</a></p></li>
+<li><p><a class="reference external" href="https://github.com/pangeo-data/pangeo-datastore">Pangeo Catalog on GitHub</a></p></li>
+<li><p><a class="reference external" href="http://pangeo.io/">Pangeo documentation</a></p></li>
+<li><p><a class="reference external" href="https://intake-esm.readthedocs.io/en/latest/faq.html#is-there-a-list-of-existing-catalogs">A list of existing, “known” catalogs</a></p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./ec2020/ec20_banihirwe_etal"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="../ec20_soliman_etal/ks-preprocess-dem.html" title="previous page">Processing digital elevation data for deep learning models using Keras Spatial</a>
+    <a class='right-next' id="next-link" href="../ec20_busecke_etal/busecke_abernathey_earthcube2020.html" title="next page">CMIP6 without the interpolation: Grid-native analysis with Pangeo in the cloud</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By EarthCube Office<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

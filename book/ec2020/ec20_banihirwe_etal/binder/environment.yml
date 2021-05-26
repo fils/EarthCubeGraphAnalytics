@@ -1,0 +1,19 @@
+name: earthcube-notebook
+channels:
+  - conda-forge
+dependencies:
+  - cartopy
+  - cftime
+  - cmip6_preprocessing
+  - fsspec=0.7.3
+  - gcsfs
+  - intake-esm
+  - intake-xarray
+  - matplotlib
+  - nc-time-axis
+  - netcdf4
+  - pangeo-notebook=2020.07.18
+  - pip
+  - proplot
+  - watermark
+  - zarr

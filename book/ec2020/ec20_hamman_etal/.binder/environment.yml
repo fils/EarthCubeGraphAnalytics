@@ -1,0 +1,25 @@
+name: skdownscale
+channels:
+  - conda-forge
+dependencies:
+  - pangeo-notebook=2020.06.18
+  - pandas
+  - xarray
+  - seaborn
+  - mpl-probscale
+  - matplotlib
+  - scipy
+  - numpy
+  - scikit-learn
+  - dask
+  - distributed
+  - pydap
+  - docopt
+  - zarr
+  - netcdf4
+  - intake-esm
+  - gcsfs
+  - pip
+  - pip:
+    - git+https://github.com/pydata/xarray.git@e8bd8665e8fd762031c2d9c87987d21e113e41cc
+    - scikit-downscale

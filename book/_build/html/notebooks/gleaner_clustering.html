@@ -149,6 +149,48 @@
    </li>
   </ul>
  </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ec2020/index.html">
+   EC2020 examples
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ec2020/ec20_soliman_etal/ks-preprocess-dem.html">
+     Processing digital elevation data for deep learning models using Keras Spatial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ec2020/ec20_banihirwe_etal/intake-pangeo-catalog.html">
+     Intake / Pangeo Catalog: Making It Easier To Consume Earth’s Climate and Weather Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ec2020/ec20_busecke_etal/busecke_abernathey_earthcube2020.html">
+     CMIP6 without the interpolation: Grid-native analysis with Pangeo in the cloud
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ec2020/ec20_hamman_etal/2020ECAHM-scikit-downscale.html">
+     Scikit-downscale: an open source Python package for scalable climate downscaling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ec2020/ec20_havlin_etal/notebook/ec20_havlin_etal.html">
+     3D volume rendering of geophysical data using the yt platform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ec2020/ec20_peckham_etal/BALTO_GUI_v2.html">
+     BALTO Graphical User Interface (A Prototype)
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
     </div>
@@ -339,6 +381,7 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%capture
 !pip install -q PyLD
 !pip install -q boto3
+!pip install -q s3fs
 !pip install -q minio
 !pip install -q rdflib==4.2.2
 !pip install -q cython
@@ -450,9 +493,7 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>indexing gleaner/summoned/opentopo
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>654
+654
 </pre></div>
 </div>
 </div>
@@ -492,8 +533,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>gleaner/summoned/opentopo/abfac50b855d576239dc12d9c9dfc28837168114.jsonld
-Doc has bad encoding
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 17.9 s, sys: 384 ms, total: 18.3 s
+Wall time: 1min 1s
 </pre></div>
 </div>
 </div>
@@ -632,7 +673,7 @@ memory usage: 25.7+ KB
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f4cbaa66340&gt;
 </pre></div>
 </div>
-<img alt="_build/jupyter_execute/notebooks/gleaner_clustering_17_1.svg" src="_build/jupyter_execute/notebooks/gleaner_clustering_17_1.svg" /></div>
+<img alt="../_images/gleaner_clustering_17_1.svg" src="../_images/gleaner_clustering_17_1.svg" /></div>
 </div>
 </div>
 </div>

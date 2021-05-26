@@ -1,0 +1,965 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BALTO Graphical User Interface (A Prototype) &#8212; EarthCube GeoCODES Exploration</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="3D volume rendering of geophysical data using the yt platform" href="../ec20_havlin_etal/notebook/ec20_havlin_etal.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/logo.webp" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">EarthCube GeoCODES Exploration</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Exploring GeoCODES
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../content.html">
+   Content in Jupyter Book
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../markdown.html">
+     Markdown Files
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks.html">
+     Content with notebooks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../analysis.html">
+     Data Unit Testing, ranking, clustering
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../partfile.html">
+   Notebooks
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks/gleaner_clustering.html">
+     SciKit K-means Clustering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks/gleaner_gensim.html">
+     Gensim
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks/gleaner_txtai.html">
+     Gleaner &amp; txtai
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks/ECO_GraphAnalytics.html">
+     EarthCube Graph Analytics Exploration
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../index.html">
+   EC2020 examples
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ec20_soliman_etal/ks-preprocess-dem.html">
+     Processing digital elevation data for deep learning models using Keras Spatial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ec20_banihirwe_etal/intake-pangeo-catalog.html">
+     Intake / Pangeo Catalog: Making It Easier To Consume Earth’s Climate and Weather Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ec20_busecke_etal/busecke_abernathey_earthcube2020.html">
+     CMIP6 without the interpolation: Grid-native analysis with Pangeo in the cloud
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ec20_hamman_etal/2020ECAHM-scikit-downscale.html">
+     Scikit-downscale: an open source Python package for scalable climate downscaling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ec20_havlin_etal/notebook/ec20_havlin_etal.html">
+     3D volume rendering of geophysical data using the yt platform
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     BALTO Graphical User Interface (A Prototype)
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/ec2020/ec20_peckham_etal/BALTO_GUI_v2.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/fils/EarthCubeGraphAnalytics"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/fils/EarthCubeGraphAnalytics/issues/new?title=Issue%20on%20page%20%2Fec2020/ec20_peckham_etal/BALTO_GUI_v2.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/fils/EarthCubeGraphAnalytics/master?urlpath=lab/tree/book/ec2020/ec20_peckham_etal/BALTO_GUI_v2.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="your-hub-url/hub/user-redirect/git-pull?repo=https://github.com/fils/EarthCubeGraphAnalytics&urlpath=lab/tree/EarthCubeGraphAnalytics/book/ec2020/ec20_peckham_etal/BALTO_GUI_v2.ipynb&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/fils/EarthCubeGraphAnalytics/blob/master/book/ec2020/ec20_peckham_etal/BALTO_GUI_v2.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#table-of-contents">
+   Table of Contents
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction-a-id-intro-a">
+   Introduction
+   <a id="intro">
+   </a>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#import-and-start-the-balto-gui-a-id-start-gui-a">
+   Import and Start the BALTO GUI
+   <a id="start_gui">
+   </a>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#download-and-explore-some-data-a-id-get-data-a">
+   Download and Explore Some Data
+   <a id="get_data">
+   </a>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plot-some-data-a-id-plot-data-a">
+   Plot Some Data
+   <a id="plot_data">
+   </a>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plot-monthly-mean-sea-surface-temperature-vs-time">
+     Plot Monthly Mean Sea Surface Temperature vs. Time
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#show-color-image-of-monthly-mean-sea-surface-temperature-for-a-given-time">
+     Show Color Image of Monthly Mean Sea Surface Temperature for a Given Time
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matching-variable-names-to-standardized-names-a-id-var-match-a">
+   Matching Variable Names to Standardized Names
+   <a id="var_match">
+   </a>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#low-level-access-to-the-gui-settings-a-id-low-level-a">
+   Low-Level Access to the GUI Settings
+   <a id="low_level">
+   </a>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references-for-more-info-a-id-references-a">
+   References for More Info
+   <a id="references">
+   </a>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#appendix-1-set-up-a-conda-environment-called-balto-a-id-setup-a">
+   Appendix 1:  Set up a conda environment called “balto”
+   <a id="setup">
+   </a>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-conda-environments-b">
+     <b>
+      Conda Environments
+     </b>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-jupyter-notebook-extensions-b">
+     <b>
+      Jupyter Notebook Extensions
+     </b>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-cloning-a-conda-environment-b">
+     <b>
+      Cloning a conda Environment
+     </b>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-running-notebooks-in-the-jupyter-notebook-app-b">
+     <b>
+      Running Notebooks in the Jupyter Notebook App
+     </b>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-running-notebooks-in-the-jupyterlab-app-b">
+     <b>
+      Running Notebooks in the JupyterLab App
+     </b>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="balto-graphical-user-interface-a-prototype">
+<h1>BALTO Graphical User Interface (A Prototype)<a class="headerlink" href="#balto-graphical-user-interface-a-prototype" title="Permalink to this headline">¶</a></h1>
+<p>Scott Dale Peckham<sup>1</sup>, Maria Stoica<sup>1</sup>, D. Sarah Stamps<sup>2</sup>, James Gallagher<sup>3</sup>, Nathan Potter<sup>3</sup>, David Fulker<sup>3</sup> <br>
+<sup>1</sup>University of Colorado, Boulder, United States of America;
+<sup>2</sup>Virginia Tech;
+<sup>1</sup>OPeNDAP, Inc.<br>
+Corresponding author:  <a class="reference external" href="mailto:Scott&#46;Peckham&#37;&#52;&#48;colorado&#46;edu">Scott<span>&#46;</span>Peckham<span>&#64;</span>colorado<span>&#46;</span>edu</a></p>
+<div class="section" id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p><a href="#intro">Introduction</a> <br></p></li>
+<li><p><a href="#start_gui">Import and Start the BALTO GUI</a> <br></p></li>
+<li><p><a href="#get_data">Download and Explore Some Data</a> <br></p></li>
+<li><p><a href="#plot_data">Plot Some Data</a> <br></p></li>
+<li><p><a href="#var_match">Matching Variable Names to Standardized Names</a> <br></p></li>
+<li><p><a href="#low_level">Low-level Access to GUI Settings</a> <br></p></li>
+<li><p><a href="#references">References for More Info</a> <br></p></li>
+<li><p><a href="#setup">Appendix 1: Set up a conda environment called “balto”</a> <br></p></li>
+</ol>
+</div>
+<div class="section" id="introduction-a-id-intro-a">
+<h2>Introduction  <a id="intro"></a><a class="headerlink" href="#introduction-a-id-intro-a" title="Permalink to this headline">¶</a></h2>
+<p>This Jupyter notebook creates a GUI (graphical user interface) for the BALTO (Brokered Alignment of Long-Tail Observations) project.  BALTO is funded by the NSF EarthCube program.  The GUI aims to provide a simplified and customizable method for users to access data sets of interest on servers that support the OpenDAP data access protocol.  This interactive GUI runs within the Jupyter notebook and uses the Python packages: <b>ipywidgets</b> (for widget controls), <b>ipyleaflet</b> (for interactive maps) and <b>pydap</b> (an OpenDAP client).</p>
+<p>The Python source code to create the GUI and to process events is in a Python module called <b>balto_gui.py</b> that must be copied into the same directory as this Jupyter notebook.  A Python module to create plots and color images from data, called <b>balto_plot.py</b>, is included as well.</p>
+<p>This GUI can be toggled between an <b>accordion style</b> and a <b>tab style</b>.  Both styles allow you to switch between GUI panels without scrolling in the notebook.</p>
+<p>You can run this notebook in a browser window without installing anything on your computer, using something called <b>Binder</b>.  On GitHub, on the README page, you will see a Binder icon and a link labeled “Launch Binder”.</p>
+<p>To run this Jupyter notebook without Binder, it is recommended to install Python 3.7 from an Anaconda distribution and to then create a <b>conda environment</b> called <b>balto</b>.  Instructions for how to create a conda environment are given in Appendix 1.</p>
+<p>This GUI makes it much easier to browse, download and analyze data from servers that support the OpenDAP protocol.  Under the hood (in balto_gui.py), it performs many calculations automatically, by making use of any metadata that is available for a chosen dataset. Keep in mind, however, that this is a work in progress that will continue to be improved.</p>
+<p>The default <b>OpenDAP URL Dir</b> in the GUI is a test server with a wide variety of datasets for testing common, unusual and edge cases.</p>
+</div>
+<div class="section" id="import-and-start-the-balto-gui-a-id-start-gui-a">
+<h2>Import and Start the BALTO GUI  <a id="start_gui"></a><a class="headerlink" href="#import-and-start-the-balto-gui-a-id-start-gui-a" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">balto_gui</span> <span class="k">as</span> <span class="nn">bg</span>
+<span class="n">balto</span> <span class="o">=</span> <span class="n">bg</span><span class="o">.</span><span class="n">balto_gui</span><span class="p">()</span>
+<span class="c1"># balto.show_gui(ACC_STYLE=True)    # Use accordion style</span>
+<span class="n">balto</span><span class="o">.</span><span class="n">show_gui</span><span class="p">()</span>   <span class="c1"># Use tab style</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "d727d334726a49fa93356d967ca332e5", "version_major": 2, "version_minor": 0}
+</script><script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "bdb3f43cd7454cb1820b1d4fa1371da5", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+</div>
+<div class="section" id="download-and-explore-some-data-a-id-get-data-a">
+<h2>Download and Explore Some Data  <a id="get_data"></a><a class="headerlink" href="#download-and-explore-some-data-a-id-get-data-a" title="Permalink to this headline">¶</a></h2>
+<p>First open the <b>Browse Data</b> panel.
+If you changed the “OpenDAP URL Dir”, click the Reset button at the bottom of the Data panel to restore the defaults.  The OpenDAP URL Dir should again be: <b><a class="reference external" href="http://test.opendap.org/dap/data/nc/">http://test.opendap.org/dap/data/nc/</a></b>.</p>
+<p>Click on the Go button. <br>
+From the <b>Filename droplist</b>, choose <b>sst.mnmean.nc.gz</b>. <br>
+From the <b>Variable</b> droplist, choose <b>sst</b>.</p>
+<p>Notice that the shape of this dataset is <b>(1857, 89, 180)</b>,
+with dimensions: <b>(‘time’, ‘lat’, ‘lon’)</b>.</p>
+<p>Next, open the <b>Spatial Extent</b> panel and use the interactive map to choose a geographic bounding box for some region you are interested in.  Try choosing different basemaps from the Basemap droplist above the map.  You can also click on the Full Screen icon in the upper right corner to expand the map to the full screen of your computer.</p>
+<p>You can also type new bounding lats and lons into the text boxes and click the <b>Update</b> button.  The map will then zoom to show a bounding box that contains your bounding box.  Note, however, that the aspect ratio of the GUI’s map window may not match the shape of your bounding box.  (Sometimes you have to click the <b>Reset</b> button and retry to get it to work properly.)</p>
+<p>Now let’s zoom into the Caribbean island of Puerto Rico.  In the text boxes, enter <b>-68.2</b> for the West edge, <b>-64.7</b> for the East edge, <b>18.9</b> for the North edge and <b>17.6</b> for the South edge, then click the <b>Update</b> button.  This should zoom in to a view in which the whole island is visible in the window, with water visible all around. You can use the “minus” button (upper left) to zoom out by one click to download a larger array.</p>
+<p>Let’s now check how the monthly mean sea surface temperature has changed over the years spanned by the SST dataset we downloaded.  To see the date and time range spanned by this dataset, open the <b>Date Range</b> panel.  If you want, you can change the dates and times to restrict the data to a shorter time period.  For example, you could change the Start Date to 1908-01-01 to restrict to a 100-year time period.</p>
+<p>Next, open the <b>Download Data</b> panel and click on the <b>Download</b> button.  This causes the SST dataset — restricted to this spatial extent and date range — to be downloaded to your computer and stored in the <b>balto</b> object as <b>user_var</b>.  This may take a minute or so, before you can execute the next cell.</p>
+<p>You can now begin to work with the data in this notebook.  First, we print out some of the basic features of the variable “sst”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sst</span> <span class="o">=</span> <span class="n">balto</span><span class="o">.</span><span class="n">user_var</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;type(sst) =&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">sst</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;sst.dtype =&#39;</span><span class="p">,</span> <span class="n">sst</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;sst.shape =&#39;</span><span class="p">,</span> <span class="n">sst</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="nb">hasattr</span><span class="p">(</span><span class="n">sst</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;sst.min() =&#39;</span><span class="p">,</span> <span class="n">sst</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;sst.max() =&#39;</span><span class="p">,</span> <span class="n">sst</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>type(sst) = &lt;class &#39;numpy.ndarray&#39;&gt;
+sst.dtype = float64
+sst.shape = (608, 4, 8)
+sst.min() = 22.12999951314
+sst.max() = 30.75999932328
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># How many nodata values?</span>
+<span class="n">w1</span>  <span class="o">=</span> <span class="p">(</span><span class="n">sst</span> <span class="o">==</span> <span class="mi">32767</span><span class="p">)</span>
+<span class="n">n1</span> <span class="o">=</span> <span class="n">w1</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">n1</span><span class="p">)</span>
+<span class="n">w2</span> <span class="o">=</span> <span class="p">(</span><span class="n">sst</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">32767</span><span class="p">)</span>
+<span class="n">n2</span> <span class="o">=</span> <span class="n">w2</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">n2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Recall from the  Browse Data panel that the SST dataset has dimensions <b>(‘time’, ‘lat’, ‘lon’)</b>.  When you chose a new bounding box and time interval in the <b>Spatial Extent</b> and <b>Date Range</b> panels of the GUI, you restricted the time, lat and lon indices, resulting in a much smaller array, as seen by the new shape.  This also resulted in a much faster download.</p>
+<p>As can be seen in the <b>Browse Data</b> panel, the original SST data values were stored as 2-byte, signed integers.  However, looking at the Attributes in that panel, we see that there is a <b>scale_factor</b> attribute that we are supposed to multiply these integer values by in order to convert them to actual temperatures, with units of <b>degrees C</b>.  Some data sets also have an <b>add_offset</b> attribute.  The GUI looks for these, and if found, applies them for you.  This converts the data type from 2-byte, signed integer to a floating-point number.  If the dataset also has a <b>missing_value</b> attribute, these values are restored after applying the scale factor and offset.</p>
+<p>The GUI also retrieves and stores the restricted range of times, lats and lons associated with this variable (sea surface temperature).  You can get these as follows.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">times</span> <span class="o">=</span> <span class="n">balto</span><span class="o">.</span><span class="n">user_var_times</span>
+<span class="n">lats</span>  <span class="o">=</span> <span class="n">balto</span><span class="o">.</span><span class="n">user_var_lats</span>
+<span class="n">lons</span>  <span class="o">=</span> <span class="n">balto</span><span class="o">.</span><span class="n">user_var_lons</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;min(times), max(times) =&#39;</span><span class="p">,</span> <span class="n">times</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">times</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;min(lats),  max(lats)  =&#39;</span><span class="p">,</span> <span class="n">lats</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">lats</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;min(lons),  max(lons)  =&#39;</span><span class="p">,</span> <span class="n">lons</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">lons</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="c1"># print(&#39;lons([0:3] = &#39;, lons[0:3])</span>
+<span class="c1"># print(&#39;lats([0:3] = &#39;, lats[0:3])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>min(times), max(times) = 57708.0 76183.0
+min(lats),  max(lats)  = -20.0 -14.0
+min(lons),  max(lons)  = -76.0 -62.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that the latitudes have the wrong sign, but that is how they were stored in the original dataset.  If you choose <b>lat</b> from the <b>Variable</b> droplist, and then look at its attributes in the <b>Attributes</b> droplist, you see that the <b>actual_range</b> is <b>[88.0, -88.0]</b>, where min and max are reversed from what you would expect.</p>
+<p>You can do a variant of this exercise for comparison by choosing <b>coads_climatology2.nc</b> from the <b>Filename</b> droplist, choosing <b>SST</b> from the <b>Variable</b> droplist and repeating all of the other steps.  You can do another variant by choosing the filename from the <b>Filename</b> droplist that begins with <b>20070917-MODIS</b> and choosing <b>sea_surface_temperature</b> from the <b>Variable</b> droplist.</p>
+</div>
+<div class="section" id="plot-some-data-a-id-plot-data-a">
+<h2>Plot Some Data  <a id="plot_data"></a><a class="headerlink" href="#plot-some-data-a-id-plot-data-a" title="Permalink to this headline">¶</a></h2>
+<p>We can now examine how the sea surface temperatures around Puerto Rico have changed over the years.  Remember that the first dimension of the SST variable is time, and temperature values are monthly averages over a given grid cell.</p>
+<p>First, we will plot the monthly mean SST for a single grid cell, over the full range of times.  Here we are using the <b>plot_data</b> function defined in <b>balto_plot.py</b>.</p>
+<div class="section" id="plot-monthly-mean-sea-surface-temperature-vs-time">
+<h3>Plot Monthly Mean Sea Surface Temperature vs. Time<a class="headerlink" href="#plot-monthly-mean-sea-surface-temperature-vs-time" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">balto_plot</span> <span class="k">as</span> <span class="nn">bp</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">balto</span><span class="o">.</span><span class="n">get_years_from_time_since</span><span class="p">(</span> <span class="n">times</span> <span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">sst</span><span class="p">[:,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">bp</span><span class="o">.</span><span class="n">plot_data</span><span class="p">(</span> <span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+               <span class="n">x_name</span><span class="o">=</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="n">x_units</span><span class="o">=</span><span class="s1">&#39;days since 1800-1-1&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> 
+               <span class="n">y_name</span><span class="o">=</span><span class="s1">&#39;SST&#39;</span><span class="p">,</span> <span class="n">y_units</span><span class="o">=</span><span class="s1">&#39;deg C&#39;</span><span class="p">,</span>
+               <span class="n">x_size</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>   <span class="n">y_size</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;First year =&#39;</span><span class="p">,</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Last year  =&#39;</span><span class="p">,</span> <span class="n">t</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/BALTO_GUI_v2_17_0.png" src="../../_images/BALTO_GUI_v2_17_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>First year = 1958.0684931506848
+Last year  = 2008.6849315068494
+</pre></div>
+</div>
+</div>
+</div>
+<p>Based on this plot, it looks like sea surface temperatures in this area have been trending upward over this time period.   The oscillations are likely associated with the 12-month solar cycle.  To check this, we plot a more restricted range of values and change the marker to a plus sign.  Remember, these are monthly mean values for sea surface temperature.  Sure enough, there are 12 data points between one trough and the next.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t2</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span><span class="mi">100</span><span class="p">]</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span><span class="mi">100</span><span class="p">]</span>
+<span class="n">bp</span><span class="o">.</span><span class="n">plot_data</span><span class="p">(</span> <span class="n">t2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+               <span class="n">x_name</span><span class="o">=</span><span class="s1">&#39;Decimal Year&#39;</span><span class="p">,</span> <span class="n">x_units</span><span class="o">=</span><span class="s1">&#39;years&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">,</span> 
+               <span class="n">y_name</span><span class="o">=</span><span class="s1">&#39;SST&#39;</span><span class="p">,</span> <span class="n">y_units</span><span class="o">=</span><span class="s1">&#39;deg C&#39;</span><span class="p">,</span> <span class="n">x_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">y_size</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;First year =&#39;</span><span class="p">,</span> <span class="n">t2</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Last year  =&#39;</span><span class="p">,</span> <span class="n">t2</span><span class="p">[</span><span class="n">t2</span><span class="o">.</span><span class="n">size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/BALTO_GUI_v2_19_0.png" src="../../_images/BALTO_GUI_v2_19_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>First year = 1962.2328767123288
+Last year  = 1966.3205479452054
+</pre></div>
+</div>
+</div>
+</div>
+<p><b>Note:</b>  These warm temperatures are consistent with current sea surface temperatures around Puerto Rico, as given on <br>
+<a class="reference external" href="https://seatemperature.info/puerto-rico-water-temperature.html"><b>this website</b></a>.</p>
+</div>
+<div class="section" id="show-color-image-of-monthly-mean-sea-surface-temperature-for-a-given-time">
+<h3>Show Color Image of Monthly Mean Sea Surface Temperature for a Given Time<a class="headerlink" href="#show-color-image-of-monthly-mean-sea-surface-temperature-for-a-given-time" title="Permalink to this headline">¶</a></h3>
+<p>Next, we will create a color image that shows the monthly mean SST grid for a single time.  In this case we are using the <b>show_grid_as_image()</b> function defined in <b>balto_plot.py</b>.  Try changing the <b>time_index</b> or stretch parameters in the next cell.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Avail. color maps:  rainbow, hsv, jet, gist_rainbow, gist_ncar, gist_stern</span>
+
+<span class="c1"># Available stretches:</span>
+<span class="c1"># hist_equal, power_stretch1, power_stretch2, power_stretch3, log_stretch.</span>
+<span class="c1"># The last 4 have parameters.  See balto_plot.py.</span>
+
+<span class="n">extent</span> <span class="o">=</span> <span class="p">[</span><span class="n">lons</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">lons</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">lats</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">lats</span><span class="o">.</span><span class="n">max</span><span class="p">()]</span>
+<span class="n">time_index</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">grid</span> <span class="o">=</span> <span class="n">sst</span><span class="p">[</span><span class="n">time_index</span><span class="p">,:,:]</span>
+
+<span class="n">bp</span><span class="o">.</span><span class="n">show_grid_as_image</span><span class="p">(</span> <span class="n">grid</span><span class="p">,</span> <span class="s1">&#39;Sea Surface Temperature&#39;</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="n">extent</span><span class="p">,</span>
+                       <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;rainbow&#39;</span><span class="p">,</span> <span class="n">stretch_name</span><span class="o">=</span><span class="s1">&#39;hist_equal&#39;</span><span class="p">,</span>
+                       <span class="n">nodata_value</span><span class="o">=</span><span class="mf">32767.0</span><span class="p">,</span> <span class="n">xsize</span><span class="o">=</span><span class="mf">12.0</span><span class="p">,</span> <span class="n">ysize</span><span class="o">=</span><span class="mf">8.0</span><span class="p">,</span>
+                       <span class="n">stretch_a</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">stretch_b</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">stretch_p</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/BALTO_GUI_v2_23_0.png" src="../../_images/BALTO_GUI_v2_23_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="matching-variable-names-to-standardized-names-a-id-var-match-a">
+<h2>Matching Variable Names to Standardized Names  <a id="var_match"></a><a class="headerlink" href="#matching-variable-names-to-standardized-names-a-id-var-match-a" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="http://www.geoscienceontology.org"><b>Scientific Variables Ontology</b></a> (SVO), developed by Peckham and Stoica provides a machine-readable mechanism for the standardized, unambiguous representation of scientific variable concepts.  Developed over many years, and spanning variables across the sciences, it can be used as the “hub” in a hub-and-spoke system to map the variable names used internally by different computational models and datasets to a common representation.  For more information, see Peckham (2014) and Stoica and Peckham (2018, 2019a, 2019b).</p>
+<p>As you have seen from browsing datasets in the GUI, the names of variables used in scientific datasets are not standardized, and may simply be abbreviations.  This can make it difficult and time-consuming to find variables of interest in a collection of datasets.</p>
+<p>We have developed an experimental <b>variable name matching</b> service for SVO, that is available at: <a class="reference external" href="http://34.73.227.230:8000/match_phrase/">http://34.73.227.230:8000/match_phrase/</a>.  To use it, you simply append a variable name phrase, with separate words separated by underscores, to this URL in a browser.  This service is also embedded in the BALTO GUI object as a method called <b>get_possible_svo_names()</b>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">balto</span><span class="o">.</span><span class="n">get_possible_svo_names</span><span class="p">(</span><span class="s1">&#39;sea surface temperature&#39;</span><span class="p">,</span> <span class="n">SHOW_IRI</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Working...
+Finished.
+
+label = sea_surface_water__temperature
+rank  = 0.9
+
+label = sea_surface_air__temperature
+rank  = 0.9
+
+label = sea_surface_water__anomaly_of_temperature
+rank  = 0.875
+
+label = sea_surface_air__reference_temperature
+rank  = 0.875
+
+label = sea_ice_surface_air__temperature
+rank  = 0.857
+
+label = sea_surface_air-vs-water__difference_of_temperature
+rank  = 0.812
+
+label = sea_surface__slope
+rank  = 0.667
+
+label = sea_surface__longitude
+rank  = 0.667
+
+label = sea_surface__latitude
+rank  = 0.667
+
+label = sea_surface__elevation
+rank  = 0.667
+
+label = sea_water__temperature
+rank  = 0.625
+
+label = sea_bottom_surface__slope
+rank  = 0.625
+
+label = sea_bottom_surface__longitude
+rank  = 0.625
+
+label = sea_bottom_surface__latitude
+rank  = 0.625
+
+label = sea_bottom_surface__elevation
+rank  = 0.625
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">balto</span><span class="o">.</span><span class="n">get_possible_svo_names</span><span class="p">(</span><span class="s1">&#39;monthly mean&#39;</span><span class="p">,</span> <span class="n">SHOW_IRI</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Working...
+Finished.
+
+label = snowpack__mean_of_temperature
+rank  = 0.183
+
+label = delta_front__mean_of_slope
+rank  = 0.175
+
+label = basin~drainage__mean_of_elevation
+rank  = 0.175
+
+label = snowpack__z_mean_of_mass-per-volume_density
+rank  = 0.17
+
+label = glacier_top_surface__mean_of_elevation
+rank  = 0.17
+
+label = earth__mean_of_orbital_speed
+rank  = 0.17
+
+label = delta_front_toe__mean_of_elevation
+rank  = 0.17
+
+label = delta_beds~foreset__mean_of_slope
+rank  = 0.17
+
+label = snowpack_grains__mean_of_diameter
+rank  = 0.167
+
+label = land_surface__one-month_daily_mean_of_temperature
+rank  = 0.167
+
+label = delta_plain~upper__mean_of_slope
+rank  = 0.167
+
+label = delta_plain~subaqueous__mean_of_slope
+rank  = 0.167
+
+label = delta_plain~lower__mean_of_slope
+rank  = 0.167
+
+label = sea_bottom_sediment_grain__mean_of_diameter
+rank  = 0.164
+
+label = land_surface__third_dekad_daily_mean_of_temperature
+rank  = 0.164
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="low-level-access-to-the-gui-settings-a-id-low-level-a">
+<h2>Low-Level Access to the GUI Settings   <a id="low_level"></a><a class="headerlink" href="#low-level-access-to-the-gui-settings-a-id-low-level-a" title="Permalink to this headline">¶</a></h2>
+<p>If you have some familiarity with the Python programming language, you can browse the 3000 or so lines of source code in <b>balto_gui.py</b> and see how to access dataset information, GUI settings and class methods directly for command-line use.  Here a few simple examples.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">balto</span><span class="o">.</span><span class="n">var_short_names</span><span class="p">)</span>
+<span class="n">time</span> <span class="o">=</span> <span class="n">balto</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">time</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">actual_range</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">units</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">balto</span><span class="o">.</span><span class="n">map_minlon</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+<span class="n">extent</span> <span class="o">=</span> <span class="n">balto</span><span class="o">.</span><span class="n">get_map_bounds</span><span class="p">(</span><span class="n">FROM_MAP</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;pyplot_imshow&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;extent =&#39;</span><span class="p">,</span> <span class="n">extent</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;lat&#39;, &#39;lon&#39;, &#39;time&#39;, &#39;time_bnds&#39;, &#39;sst&#39;]
+[19723.0, 76214.0]
+days since 1800-1-1 00:00:00
+-73.4765625
+extent = [-73.47656250000001, -59.41406250000001, 15.834535741221565, 20.632784250388028]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="references-for-more-info-a-id-references-a">
+<h2>References for More Info  <a id="references"></a><a class="headerlink" href="#references-for-more-info-a-id-references-a" title="Permalink to this headline">¶</a></h2>
+<p><b>Anaconda Python Distribution</b> <br>
+<a class="reference external" href="https://www.anaconda.com/products/individual">https://www.anaconda.com/products/individual</a></p>
+<p><b>appmode</b>, a Jupyter plugin (not used here) <br>
+<a class="reference external" href="https://github.com/oschuett/appmode">https://github.com/oschuett/appmode</a> <br>
+<a class="reference external" href="https://github.com/binder-examples/appmode">https://github.com/binder-examples/appmode</a></p>
+<p><b>BALTO, an EarthCube Project</b> <br>
+<a class="reference external" href="https://www.earthcube.org/group/brokered-alignment-long-tail-observations-balto">https://www.earthcube.org/group/brokered-alignment-long-tail-observations-balto</a> <br>
+<a class="reference external" href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1740704">https://www.nsf.gov/awardsearch/showAward?AWD_ID=1740704</a> <br>
+<a class="reference external" href="http://balto.opendap.org/opendap/">http://balto.opendap.org/opendap/</a></p>
+<p><b>Binder Project</b> <br>
+<a class="reference external" href="https://mybinder.org/">https://mybinder.org/</a> <br>
+<a class="reference external" href="https://github.com/binder-examples">https://github.com/binder-examples</a></p>
+<p><b>conda</b> package manager for Anaconda<br>
+<a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html">https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html</a></p>
+<p><b>ipywidgets</b> Python package <br>
+<a class="reference external" href="https://ipywidgets.readthedocs.io/en/latest/index.html">https://ipywidgets.readthedocs.io/en/latest/index.html</a> <br>
+<a class="reference external" href="https://ipywidgets.readthedocs.io/en/latest/user_guide.html">https://ipywidgets.readthedocs.io/en/latest/user_guide.html</a> <br>
+<a class="reference external" href="https://ipywidgets.readthedocs.io/en/latest/user_install.html#installing-the-jupyterlab-extension">https://ipywidgets.readthedocs.io/en/latest/user_install.html#installing-the-jupyterlab-extension</a></p>
+<p><b>ipyleaflet</b> Python package <br>
+<a class="reference external" href="https://ipyleaflet.readthedocs.io/en/latest/">https://ipyleaflet.readthedocs.io/en/latest/</a></p>
+<p><b>Jupyter Lab Project</b> <br>
+<a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/index.html">https://jupyterlab.readthedocs.io/en/stable/index.html</a> <br>
+<a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/user/extensions.html">https://jupyterlab.readthedocs.io/en/stable/user/extensions.html</a></p>
+<p><b>Jupyter Project</b> <br>
+(Jupyter notebook and Jupyter lab) <br>
+<a class="reference external" href="https://jupyter.org/">https://jupyter.org/</a> <br>
+<a class="reference external" href="https://docs.continuum.io/anaconda/user-guide/tasks/use-jupyter-notebook-extensions/">https://docs.continuum.io/anaconda/user-guide/tasks/use-jupyter-notebook-extensions/</a></p>
+<p><b>NetCDF CF Conventions</b> <br>
+<a class="reference external" href="http://cfconventions.org/cf-conventions/cf-conventions.html">http://cfconventions.org/cf-conventions/cf-conventions.html</a></p>
+<p><b>OpenDAP Data Access Protocol</b> <br>
+<a class="reference external" href="https://www.opendap.org/">https://www.opendap.org/</a> <br>
+<a class="reference external" href="https://opendap.github.io/documentation/QuickStart.html">https://opendap.github.io/documentation/QuickStart.html</a> <br>
+<a class="reference external" href="https://www.opendap.org/support/user-documentation">https://www.opendap.org/support/user-documentation</a></p>
+<p>Peckham, S.D. (2014) The CSDMS Standard Names:  Cross-domain naming conventions for describing process models, data sets and their associated variables, Proceedings of the 7th Intl. Congress on Env. Modelling and Software, International Environmental Modelling and Software Society (iEMSs), San Diego, CA. (Eds.  D.P. Ames, N.W.T. Quinn, A.E. Rizzoli),  Paper 12.  <a class="reference external" href="http://scholarsarchive.byu.edu/iemssconference/2014/Stream-A/12/">http://scholarsarchive.byu.edu/iemssconference/2014/Stream-A/12/</a>.<img alt="image.png" src="ec2020/ec20_peckham_etal/attachment:image.png" /></p>
+<p><b>pydap</b> Python package <br>
+<a class="reference external" href="https://www.pydap.org/en/latest/">https://www.pydap.org/en/latest/</a> <br>
+<a class="reference external" href="https://github.com/pydap/pydap">https://github.com/pydap/pydap</a></p>
+<p><b>Scientific Variables Ontology</b> (SVO) <br>
+<a class="reference external" href="http://www.geoscienceontology.org/">http://www.geoscienceontology.org/</a> <br></p>
+<p>Stoica, M. and S.D. Peckham (2019a) The Scientific Variables Ontology:  A blueprint for custom manual and automated creation and alignment of machine-interpretable qualitative and quantitative variable concepts, MWS 2019: Modeling the World’s Systems, <a class="reference external" href="http://pittmodelingconference.sci.pitt.edu">http://pittmodelingconference.sci.pitt.edu</a>.<img alt="image.png" src="ec2020/ec20_peckham_etal/attachment:image.png" /></p>
+<p>Stoica, M. and S.D. Peckham (2019b) Incorporating new concepts into the Scientific Variables Ontology, Workshop on Advanced Knowledge Technologies for Science in a FAIR World, San Diego, CA, (Sept. 24, 2019) <a class="reference external" href="http://mint-project.info/assets/publications/stoica-peckham_escience19_abstract.pdf">http://mint-project.info/assets/publications/stoica-peckham_escience19_abstract.pdf</a>, <a class="reference external" href="https://www.isi.edu/ikcap/akts/akts2019/">https://www.isi.edu/ikcap/akts/akts2019/</a>.<img alt="image.png" src="ec2020/ec20_peckham_etal/attachment:image.png" /></p>
+<p>Stoica, M. and S.D. Peckham (2018) An ontology blueprint for constructing qualitative and quantitative scientific variables, ISWC 2018: The 17th International Semantic Web Conference, Monterey, CA (Oct. 8-12), <a class="reference external" href="http://ceur-ws.org/Vol-2180/paper-64.pdf">http://ceur-ws.org/Vol-2180/paper-64.pdf</a><img alt="image.png" src="ec2020/ec20_peckham_etal/attachment:image.png" /></p>
+<p><b>traitlets</b> Python package (used by ipywidgets) <br>
+<a class="reference external" href="https://traitlets.readthedocs.io/en/stable/">https://traitlets.readthedocs.io/en/stable/</a></p>
+</div>
+<div class="section" id="appendix-1-set-up-a-conda-environment-called-balto-a-id-setup-a">
+<h2>Appendix 1:  Set up a conda environment called “balto”    <a id="setup"></a><a class="headerlink" href="#appendix-1-set-up-a-conda-environment-called-balto-a-id-setup-a" title="Permalink to this headline">¶</a></h2>
+<p>To run this Jupyter notebook, it is recommended to use Python 3.7 from an Anaconda distribution and to install the required Python packages in a conda environment called <b>balto</b>.  This prevents conflicts with other Python packages you may have installed.  The Anaconda distribution includes many packages from the
+<a class="reference external" href="https://docs.python.org/3/library/"><b>Python Standard Library</b></a>.
+The BALTO GUI requires the additional packages:
+<a class="reference external" href="https://docs.anaconda.com/anaconda/user-guide/tasks/use-jupyter-notebook-extensions/"><b>nb_conda</b></a>,
+<a class="reference external" href="https://ipywidgets.readthedocs.io/en/latest/"><b>ipywidgets</b></a>,
+<a class="reference external" href="https://ipyleaflet.readthedocs.io/en/latest/"><b>ipyleaflet</b></a>,
+<a class="reference external" href="https://www.pydap.org/en/latest/"><b>pydap</b></a>, and
+<a class="reference external" href="https://matplotlib.org/"><b>matplotlib</b></a>.
+Simply type the following commands at an OS prompt after installing Anaconda.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>% conda update -n base -c defaults conda
+% conda create --name balto
+% conda activate balto
+% conda list
+% conda install -c conda-forge nb_conda
+% conda install -c conda-forge ipywidgets
+% conda install -c conda-forge ipyleaflet
+% conda install -c conda-forge pydap
+% conda install -c conda-forge matplotlib
+</pre></div>
+</div>
+<div class="section" id="b-conda-environments-b">
+<h3><b>Conda Environments</b><a class="headerlink" href="#b-conda-environments-b" title="Permalink to this headline">¶</a></h3>
+<p>Note that <b>conda</b> is the name of the package manager for the popular Anaconda Python distribution.  One feature of conda is support for multiple environments, which are isolated from one another.  When you install Anaconda, an environment called <b>base</b> is created for you and a base set of commonly-used Python packages are installed there.  However, you can (and should!) create additional, named environments and install different sets of Python packages into them without worrying about potential conflicts with packages in other environments.  You can switch to one of your other environments using the command <b>conda activate envname</b>.  (Replace “envname” with the name of an environment.) You can switch back to the base environment with the command <b>conda deactivate</b>.  It is better not to install new packages into the base environment.  See the online conda documentation on <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html"><b>Managing Environments</b></a> for more information.</p>
+<p>It is always a good idea to update conda itself before creating new environments and installing packages in them. The “-n” flag is followed by the name of the environment to update, and the “-c” flag is followed by the name of the <b>channel</b> from which to get packages.  A channel is a collection of Python packages that are provided and maintained by some group.  The word “defaults” refers to
+<a class="reference external" href="https://docs.anaconda.com/anaconda/packages/pkg-docs/"><b>Anaconda’s own collection</b></a>, while
+<a class="reference external" href="https://conda-forge.org/feedstocks/"><b>conda-forge</b></a>
+refers to another popular collection and the GitHub organization that maintains it.  Many Python packages are available from both of these channels.  (However, the ipyleaflet and pydap  packages are currently not available in the Anaconda collection.) When you are installing several packages into an environment, the potential for installation problems seems to be less if you get them all from the same channel.  Keep in mind that packages you install will likely depend on many other Python packages, so there is a potential for conflicts, usually related to different package versions.  Using conda environments helps to mitigate against this and helps with <b>reproducibility</b>.</p>
+<p>Once you’ve switched to an environment with <b>conda activate envname</b>, you can type <b>conda list</b> to see a list of packages.  If you do this right after you create a new environment you will see that it contains no packages.  If you do this right after installing each package above you will see that:</p>
+<ul>
+    <li>Installing <b>nb_conda</b> triggers installation of <b>nb_conda_kernels</b>,
+        <b>ipykernel</b> (5.3.0), <b>notebook</b> (6.0.3) and <b>traitlets</b>
+        (4.3.3), among many others.</li> 
+    <li> Installing <b>ipywidgets</b> triggers installation of 
+        <b>widgetsnbextension</b> (3.5.1).
+    <li> Installing <b>ipyleaflet</b> triggers installation of <b>branca</b> and
+        <b>traittypes</b>.
+    <li> Installing <b>pydap</b>, triggers installation of <b>numpy</b> (1.18.4),
+        <b>requests</b> (2.23.0) and <b>urllib3</b> (1.25.9), and many others.
+</ul>
+<p><b>Note:</b> Many packages depend on the <a class="reference external" href="https://numpy.org/"><b>numpy</b></a> package, so it often gets installed as a dependency. Installing either pydap or matplotlib causes numpy to get installed.</p>
+</div>
+<div class="section" id="b-jupyter-notebook-extensions-b">
+<h3><b>Jupyter Notebook Extensions</b><a class="headerlink" href="#b-jupyter-notebook-extensions-b" title="Permalink to this headline">¶</a></h3>
+<p>Note that <b>nb_conda</b> is installed first above, and triggers installation of <b>nb_conda_kernels</b> along with <b>notebook</b>.  This is important as it makes your Jupyter notebook app aware of your conda environments and available in the app as “kernels”.  Anaconda provides a helpful page on the
+<a class="reference external" href="https://docs.continuum.io/anaconda/user-guide/tasks/use-jupyter-notebook-extensions/"><b>Jupyter Notebook Extensions</b></a>.
+That page also explains how you can enable or disable these extensions individually. The command <b>jupyter nbextension list</b> shows you the extensions that are installed and whether they are enabled.  If you run the <b>jupyter notebook</b> or <b>jupyter lab</b> command in an environment that has <b>nb_conda_kernels</b> installed (see below), you will have the ability to associate one of your available conda environments with any new notebook you create.  Different environments give rise to different <b>kernels</b> in Jupyter, and the kernel name includes the environment name, e.g. <b>Python [conda env:balto]</b>.  The kernel name is displayed in the upper right corner.  Notebooks typically open with the “environment kernel” they were created with. However, there is a <b>Change Kernel</b> option in the <b>Kernel</b> menu in the Jupyter app menu bar. (After changing the kernel, you may need to choose <b>Restart</b> from the <b>Kernel</b> menu.</p>
+</div>
+<div class="section" id="b-cloning-a-conda-environment-b">
+<h3><b>Cloning a conda Environment</b><a class="headerlink" href="#b-cloning-a-conda-environment-b" title="Permalink to this headline">¶</a></h3>
+<p>If your notebook is working but then you want to import additional packages (possibly with many dependencies, and potential for problems), you can keep the first environment but clone it with
+<b><i>conda create –name clonename –copy –clone envname</i></b>,
+and then install the additional packages in the clone.  This way, you can switch to the new environment’s kernel and try to run your notebook, but if you run into any problems you can easily revert back to the original environment and functionality.</p>
+<p><b>Note:</b> Setting the “–copy” flag installs all packages using copies instead of hard or soft links.  This is necessary to avoid problems when using <b>pip</b> together with <b>conda</b> as described <a class="reference external" href="https://stackoverflow.com/questions/43879119/installing-tensorflow-in-cloned-conda-environment-breaks-conda-environment-it-wa"><b>on this page</b></a>.</p>
+</div>
+<div class="section" id="b-running-notebooks-in-the-jupyter-notebook-app-b">
+<h3><b>Running Notebooks in the Jupyter Notebook App</b><a class="headerlink" href="#b-running-notebooks-in-the-jupyter-notebook-app-b" title="Permalink to this headline">¶</a></h3>
+<p>When you want to run the notebook, type <b>conda activate balto</b> (at an OS command prompt) to activate this environment.  Then change to the directory that contains this notebook and type <b>jupyter notebook</b>.  By default, this folder is called <b>Jupyter</b> and is in your home directory.  In the app, choose this notebook by name, “BALTO_GUI.ipynb”, and make sure to choose the kernel called:  <b>Python [conda env:balto]</b>.  See the References section at the end for more info.</p>
+</div>
+<div class="section" id="b-running-notebooks-in-the-jupyterlab-app-b">
+<h3><b>Running Notebooks in the JupyterLab App</b><a class="headerlink" href="#b-running-notebooks-in-the-jupyterlab-app-b" title="Permalink to this headline">¶</a></h3>
+<p>The
+<a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/index.html"><b>JupyterLab</b></a>
+app is a cool, new successor to the Notebook app and offers many additional features.  If you want to use this notebook in JupyterLab, you need to install one more Python package and 2 extensions, as follows.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>% conda activate balto
+% conda install -c conda-forge jupyterlab
+% jupyter labextension install jupyter-leaflet
+% jupyter labextension install @jupyter-widgets/jupyterlab-manager
+</pre></div>
+</div>
+<p>The two extensions here provide support for <b>ipyleaflet</b> and <b>ipywidgets</b>.</p>
+<p>You launch the JupyterLab app by typing <b>jupyter lab</b> instead of <b>jupyter notebook</b>.  To quit, choose <b>Logout</b> or <b>Shutdown</b> from the app’s <b>File</b> menu.</p>
+<p><b>Note:</b>  At one point it was also necessary to install <b>nodejs</b> with: “% conda install -c conda-forge nodejs”, but that is no longer the case.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "conda-env-balto-py"
+        },
+        kernelOptions: {
+            kernelName: "conda-env-balto-py",
+            path: "./ec2020/ec20_peckham_etal"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'conda-env-balto-py'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="../ec20_havlin_etal/notebook/ec20_havlin_etal.html" title="previous page">3D volume rendering of geophysical data using the yt platform</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By EarthCube Office<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
