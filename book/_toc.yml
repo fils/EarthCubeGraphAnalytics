@@ -16,9 +16,15 @@
 - file: ec2020/index
   sections:
     - file: ec2020/ec20_soliman_etal/ks-preprocess-dem.ipynb
-    - file: ec2020/ec20_banihirwe_etal/intake-pangeo-catalog.ipynb
+    - file: ec2020/ec20_peckham_etal/BALTO_GUI_v2.ipynb
     - file: ec2020/ec20_busecke_etal/busecke_abernathey_earthcube2020.ipynb
     - file: ec2020/ec20_hamman_etal/2020ECAHM-scikit-downscale.ipynb
     - file: ec2020/ec20_havlin_etal/notebook/ec20_havlin_etal.ipynb
-    - file: ec2020/ec20_peckham_etal/BALTO_GUI_v2.ipynb
-
+    - file: ec2020/ec20_banihirwe_etal/intake-pangeo-catalog.ipynb
+    - file: ec2020/ec20_tucker_etal/EC2020_argovis_python_api.ipynb
+    - file: ec2020/ec20_tucker_etal/argovis_bgc_python_api.ipynb
+    - file: ec2020/ec20_abernathey_etal/cloud_storage.ipynb
+    - file: ec2020/ec20_augspurger_etal/multicloud.ipynb
+    - file: ec2020/ec20_tauxe_etal/PmagPy_online_Earthcube_conference.ipynb
+    - file: ec2020/ec20_marini_etal/ecgs.ipynb
+    - file: ec2020/ec20_jones_etal/xarrayutils_xlayers.ipynb
