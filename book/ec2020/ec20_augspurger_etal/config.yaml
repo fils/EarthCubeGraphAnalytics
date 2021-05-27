@@ -1,0 +1,30 @@
+gateway:
+  backend:
+    image:
+      name: tomaugspurger/pangeo-multicloud
+      tag: "2020.05.12.2"
+      pullPolicy: IfNotPresent
+      extraPodConfig:
+        tolerations:
+          - key: "k8s.dask.org/dedicated"
+            operator: "Equal"
+            value: "scheduler"
+            effect: "NoSchedule"
+          - key: "k8s.dask.org_dedicated"
+            operator: "Equal"
+            value: "scheduler"
+            effect: "NoSchedule"
+    worker:
+      memory:
+        request: 4G
+
+      extraPodConfig:
+        tolerations:
+          - key: "k8s.dask.org/dedicated"
+            operator: "Equal"
+            value: "worker"
+            effect: "NoSchedule"
+          - key: "k8s.dask.org_dedicated"
+            operator: "Equal"
+            value: "worker"
+            effect: "NoSchedule"

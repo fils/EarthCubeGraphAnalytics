@@ -1,0 +1,1105 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1. Get a BGC profile &#8212; EarthCube GeoCODES Exploration</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/logo.webp" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">EarthCube GeoCODES Exploration</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Exploring GeoCODES
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../content.html">
+   Content in Jupyter Book
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../markdown.html">
+     Markdown Files
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks.html">
+     Content with notebooks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../analysis.html">
+     Data Unit Testing, ranking, clustering
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../partfile.html">
+   Notebooks
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks/gleaner_clustering.html">
+     SciKit K-means Clustering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks/gleaner_gensim.html">
+     Gensim
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks/gleaner_txtai.html">
+     Gleaner &amp; txtai
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks/ECO_GraphAnalytics.html">
+     EarthCube Graph Analytics Exploration
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../index.html">
+   EC2020 examples
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ec20_soliman_etal/ks-preprocess-dem.html">
+     Processing digital elevation data for deep learning models using Keras Spatial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ec20_banihirwe_etal/intake-pangeo-catalog.html">
+     Intake / Pangeo Catalog: Making It Easier To Consume Earth’s Climate and Weather Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ec20_busecke_etal/busecke_abernathey_earthcube2020.html">
+     CMIP6 without the interpolation: Grid-native analysis with Pangeo in the cloud
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ec20_hamman_etal/2020ECAHM-scikit-downscale.html">
+     Scikit-downscale: an open source Python package for scalable climate downscaling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ec20_havlin_etal/notebook/ec20_havlin_etal.html">
+     3D volume rendering of geophysical data using the yt platform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ec20_peckham_etal/BALTO_GUI_v2.html">
+     BALTO Graphical User Interface (A Prototype)
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/ec2020/ec20_tucker_etal/argovis_bgc_python_api.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/fils/EarthCubeGraphAnalytics"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/fils/EarthCubeGraphAnalytics/issues/new?title=Issue%20on%20page%20%2Fec2020/ec20_tucker_etal/argovis_bgc_python_api.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/fils/EarthCubeGraphAnalytics/master?urlpath=lab/tree/book/ec2020/ec20_tucker_etal/argovis_bgc_python_api.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="your-hub-url/hub/user-redirect/git-pull?repo=https://github.com/fils/EarthCubeGraphAnalytics&urlpath=lab/tree/EarthCubeGraphAnalytics/book/ec2020/ec20_tucker_etal/argovis_bgc_python_api.ipynb&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/fils/EarthCubeGraphAnalytics/blob/master/book/ec2020/ec20_tucker_etal/argovis_bgc_python_api.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   1. Get a BGC profile
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-a-bgc-platform-two-variables-at-a-time">
+   2. Get a BGC Platform, two variables at a time
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-a-bgc-selection">
+   3. Get a BGC selection
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">import</span> <span class="nn">cmocean</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">griddata</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">interpolate</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">import</span> <span class="nn">pdb</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">csv</span>
+
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+<span class="kn">import</span> <span class="nn">calendar</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">font_manager</span><span class="o">.</span><span class="n">_rebuild</span><span class="p">()</span>
+
+<span class="c1">#used for map projections</span>
+<span class="kn">from</span> <span class="nn">cartopy</span> <span class="kn">import</span> <span class="n">config</span>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
+<span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="nn">mpatches</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="c1">#sets plot styles</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">rc</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">rcParams</span>
+<span class="kn">import</span> <span class="nn">matplotlib.ticker</span> <span class="k">as</span> <span class="nn">mtick</span>
+<span class="n">rc</span><span class="p">(</span><span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="n">usetex</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">rcStyle</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;font.size&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+           <span class="s2">&quot;axes.titlesize&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+           <span class="s2">&quot;axes.labelsize&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+           <span class="s1">&#39;xtick.labelsize&#39;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
+           <span class="s1">&#39;ytick.labelsize&#39;</span><span class="p">:</span> <span class="mi">16</span><span class="p">}</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s2">&quot;paper&quot;</span><span class="p">,</span> <span class="n">rc</span><span class="o">=</span><span class="n">rcStyle</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;axes.grid&#39;</span> <span class="p">:</span> <span class="kc">False</span><span class="p">})</span>
+<span class="n">myColors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;windows blue&quot;</span><span class="p">,</span> <span class="s2">&quot;amber&quot;</span><span class="p">,</span> <span class="s2">&quot;dusty rose&quot;</span><span class="p">,</span> <span class="s2">&quot;prussian blue&quot;</span><span class="p">,</span> <span class="s2">&quot;faded green&quot;</span><span class="p">,</span> <span class="s2">&quot;dusty purple&quot;</span><span class="p">,</span> <span class="s2">&quot;gold&quot;</span><span class="p">,</span> <span class="s2">&quot;dark pink&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;brown&quot;</span><span class="p">]</span>
+<span class="n">colorsBW</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="s2">&quot;grey&quot;</span><span class="p">]</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_palette</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">xkcd_palette</span><span class="p">(</span><span class="n">myColors</span><span class="p">))</span>
+
+<span class="n">curDir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<span class="n">dataDir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">curDir</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">dataDir</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">dataDir</span><span class="p">)</span>
+    
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="get-a-bgc-profile">
+<h1>1. Get a BGC profile<a class="headerlink" href="#get-a-bgc-profile" title="Permalink to this headline">¶</a></h1>
+<p>If you know that a profile contains BGC parameters, the standard profile api contains the bgc measurements under the field bgcMeas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_profile</span><span class="p">(</span><span class="n">profile_number</span><span class="p">):</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://argovis.colorado.edu/catalog/profiles/</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">profile_number</span><span class="p">)</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="c1"># Consider any status other than 2xx an error</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">resp</span><span class="o">.</span><span class="n">status_code</span> <span class="o">//</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Error: Unexpected response </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
+    <span class="n">profile</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">profile</span>
+
+<span class="k">def</span> <span class="nf">json2dataframe</span><span class="p">(</span><span class="n">profiles</span><span class="p">,</span> <span class="n">measKey</span><span class="o">=</span><span class="s1">&#39;measurements&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; convert json data to Pandas DataFrame &quot;&quot;&quot;</span>
+    <span class="c1"># Make sure we deal with a list</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">profiles</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">profiles</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">profiles</span><span class="p">]</span>
+    <span class="c1"># Transform</span>
+    <span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">profile</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+        <span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">profile</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;measurements&#39;</span><span class="p">,</span> <span class="s1">&#39;bgcMeas&#39;</span><span class="p">]]</span>
+        <span class="n">meta_row</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">((</span><span class="n">key</span><span class="p">,</span> <span class="n">profile</span><span class="p">[</span><span class="n">key</span><span class="p">])</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">profile</span><span class="p">[</span><span class="n">measKey</span><span class="p">]:</span>
+            <span class="n">row</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">meta_row</span><span class="p">)</span>
+            <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">profileId</span> <span class="o">=</span> <span class="s2">&quot;5901069_270&quot;</span>
+<span class="n">profile</span> <span class="o">=</span> <span class="n">get_profile</span><span class="p">(</span><span class="n">profileId</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">json2dataframe</span><span class="p">([</span><span class="n">profile</span><span class="p">],</span> <span class="s1">&#39;bgcMeas&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&gt; &lt;ipython-input-44-da136a77d156&gt;(20)json2dataframe()
+-&gt; for profile in data:
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(Pdb)  c
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>pres</th>
+      <th>pres_qc</th>
+      <th>psal</th>
+      <th>psal_qc</th>
+      <th>temp</th>
+      <th>temp_qc</th>
+      <th>doxy_qc</th>
+      <th>bgcMeasKeys</th>
+      <th>station_parameters</th>
+      <th>station_parameters_in_nc</th>
+      <th>...</th>
+      <th>jcommopsPlatform</th>
+      <th>euroargoPlatform</th>
+      <th>formatted_station_parameters</th>
+      <th>roundLat</th>
+      <th>roundLon</th>
+      <th>strLat</th>
+      <th>strLon</th>
+      <th>date_formatted</th>
+      <th>id</th>
+      <th>doxy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5.400000</td>
+      <td>1</td>
+      <td>35.058998</td>
+      <td>1</td>
+      <td>19.774000</td>
+      <td>1</td>
+      <td>4</td>
+      <td>[pres, psal, temp, doxy]</td>
+      <td>[pres, psal, temp]</td>
+      <td>[PRES, PSAL, TEMP, DOXY]</td>
+      <td>...</td>
+      <td>http://www.jcommops.org/board/wa/Platform?ref=...</td>
+      <td>https://fleetmonitoring.euro-argo.eu/float/590...</td>
+      <td>[ pres,  psal,  temp]</td>
+      <td>29.931</td>
+      <td>-173.291</td>
+      <td>29.931 N</td>
+      <td>173.291 W</td>
+      <td>2009-12-31</td>
+      <td>5901069_270</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>9.300000</td>
+      <td>1</td>
+      <td>35.057999</td>
+      <td>1</td>
+      <td>19.778000</td>
+      <td>1</td>
+      <td>1</td>
+      <td>[pres, psal, temp, doxy]</td>
+      <td>[pres, psal, temp]</td>
+      <td>[PRES, PSAL, TEMP, DOXY]</td>
+      <td>...</td>
+      <td>http://www.jcommops.org/board/wa/Platform?ref=...</td>
+      <td>https://fleetmonitoring.euro-argo.eu/float/590...</td>
+      <td>[ pres,  psal,  temp]</td>
+      <td>29.931</td>
+      <td>-173.291</td>
+      <td>29.931 N</td>
+      <td>173.291 W</td>
+      <td>2009-12-31</td>
+      <td>5901069_270</td>
+      <td>227.421417</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>19.500000</td>
+      <td>1</td>
+      <td>35.057999</td>
+      <td>1</td>
+      <td>19.777000</td>
+      <td>1</td>
+      <td>1</td>
+      <td>[pres, psal, temp, doxy]</td>
+      <td>[pres, psal, temp]</td>
+      <td>[PRES, PSAL, TEMP, DOXY]</td>
+      <td>...</td>
+      <td>http://www.jcommops.org/board/wa/Platform?ref=...</td>
+      <td>https://fleetmonitoring.euro-argo.eu/float/590...</td>
+      <td>[ pres,  psal,  temp]</td>
+      <td>29.931</td>
+      <td>-173.291</td>
+      <td>29.931 N</td>
+      <td>173.291 W</td>
+      <td>2009-12-31</td>
+      <td>5901069_270</td>
+      <td>222.475571</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>29.700001</td>
+      <td>1</td>
+      <td>35.056000</td>
+      <td>1</td>
+      <td>19.768999</td>
+      <td>1</td>
+      <td>1</td>
+      <td>[pres, psal, temp, doxy]</td>
+      <td>[pres, psal, temp]</td>
+      <td>[PRES, PSAL, TEMP, DOXY]</td>
+      <td>...</td>
+      <td>http://www.jcommops.org/board/wa/Platform?ref=...</td>
+      <td>https://fleetmonitoring.euro-argo.eu/float/590...</td>
+      <td>[ pres,  psal,  temp]</td>
+      <td>29.931</td>
+      <td>-173.291</td>
+      <td>29.931 N</td>
+      <td>173.291 W</td>
+      <td>2009-12-31</td>
+      <td>5901069_270</td>
+      <td>219.328979</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>39.400002</td>
+      <td>1</td>
+      <td>35.055000</td>
+      <td>1</td>
+      <td>19.768999</td>
+      <td>1</td>
+      <td>1</td>
+      <td>[pres, psal, temp, doxy]</td>
+      <td>[pres, psal, temp]</td>
+      <td>[PRES, PSAL, TEMP, DOXY]</td>
+      <td>...</td>
+      <td>http://www.jcommops.org/board/wa/Platform?ref=...</td>
+      <td>https://fleetmonitoring.euro-argo.eu/float/590...</td>
+      <td>[ pres,  psal,  temp]</td>
+      <td>29.931</td>
+      <td>-173.291</td>
+      <td>29.931 N</td>
+      <td>173.291 W</td>
+      <td>2009-12-31</td>
+      <td>5901069_270</td>
+      <td>216.657944</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 49 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="get-a-bgc-platform-two-variables-at-a-time">
+<h1>2. Get a BGC Platform, two variables at a time<a class="headerlink" href="#get-a-bgc-platform-two-variables-at-a-time" title="Permalink to this headline">¶</a></h1>
+<p>Platform metadata is queried separatly from the BGC data. This is to keep the payload small enough for the server to operate efficiently.
+Platform BGC data is queried by two parameters at a time.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_platform_profile_metadata</span><span class="p">(</span><span class="n">platform_number</span><span class="p">):</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;https://argovis.colorado.edu/catalog/platform_profile_metadata/</span><span class="si">{</span><span class="n">platform_number</span><span class="si">}</span><span class="s1">&#39;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="c1"># Consider any status other than 2xx an error</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">resp</span><span class="o">.</span><span class="n">status_code</span> <span class="o">//</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Error: Unexpected response </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
+    <span class="n">platformMetadata</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">platformMetadata</span>
+
+<span class="k">def</span> <span class="nf">get_platform_profile_data</span><span class="p">(</span><span class="n">platform_number</span><span class="p">,</span> <span class="n">xaxis</span><span class="o">=</span><span class="s1">&#39;doxy&#39;</span><span class="p">,</span> <span class="n">yaxis</span><span class="o">=</span><span class="s1">&#39;pres&#39;</span><span class="p">):</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://argovis.colorado.edu/catalog/bgc_platform_data/</span><span class="si">{0}</span><span class="s1">/?xaxis=</span><span class="si">{1}</span><span class="s1">&amp;yaxis=</span><span class="si">{2}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">platform_number</span><span class="p">,</span> <span class="n">xaxis</span><span class="p">,</span> <span class="n">yaxis</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="c1"># Consider any status other than 2xx an error</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">resp</span><span class="o">.</span><span class="n">status_code</span> <span class="o">//</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Error: Unexpected response </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
+    <span class="n">platformData</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">platformData</span>
+
+<span class="k">def</span> <span class="nf">join_platform_data</span><span class="p">(</span><span class="n">platformMetadata</span><span class="p">,</span> <span class="n">platformData</span><span class="p">):</span>
+    <span class="n">platforms</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">platform</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">platformMetadata</span><span class="p">):</span>
+        <span class="n">metadata_id</span> <span class="o">=</span> <span class="n">platform</span><span class="p">[</span><span class="s1">&#39;_id&#39;</span><span class="p">]</span>
+        <span class="n">data_id</span> <span class="o">=</span> <span class="n">platformData</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s1">&#39;_id&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">metadata_id</span> <span class="o">==</span> <span class="n">data_id</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="s1">&#39;bgcMeas&#39;</span> <span class="ow">in</span> <span class="n">platformData</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">platformData</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s1">&#39;bgcMeas&#39;</span><span class="p">],</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="n">platform</span><span class="p">[</span><span class="s1">&#39;bgcMeas&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">platformData</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s1">&#39;bgcMeas&#39;</span><span class="p">]</span>
+            <span class="n">platforms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">platform</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">platforms</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We merge the metadata and data and convert it into a dataframe</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">platformMetadata</span> <span class="o">=</span> <span class="n">get_platform_profile_metadata</span><span class="p">(</span><span class="mi">5901464</span><span class="p">)</span>
+<span class="n">platformData</span> <span class="o">=</span> <span class="n">get_platform_profile_data</span><span class="p">(</span><span class="mi">5901464</span><span class="p">,</span> <span class="s1">&#39;doxy&#39;</span><span class="p">,</span> <span class="s1">&#39;pres&#39;</span><span class="p">)</span>
+<span class="n">platforms</span> <span class="o">=</span> <span class="n">join_platform_data</span><span class="p">(</span><span class="n">platformMetadata</span><span class="p">,</span> <span class="n">platformData</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">json2dataframe</span><span class="p">(</span><span class="n">platforms</span><span class="p">,</span> <span class="s1">&#39;bgcMeas&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://argovis.colorado.edu/catalog/platform_profile_metadata/5901464
+https://argovis.colorado.edu/catalog/bgc_platform_data/5901464/?xaxis=doxy&amp;yaxis=pres
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>doxy</th>
+      <th>doxy_qc</th>
+      <th>pres</th>
+      <th>pres_qc</th>
+      <th>_id</th>
+      <th>POSITIONING_SYSTEM</th>
+      <th>DATA_CENTRE</th>
+      <th>PI_NAME</th>
+      <th>WMO_INST_TYPE</th>
+      <th>DATA_MODE</th>
+      <th>...</th>
+      <th>cycle_number</th>
+      <th>dac</th>
+      <th>platform_number</th>
+      <th>station_parameters_in_nc</th>
+      <th>nc_url</th>
+      <th>PARAMETER_DATA_MODE</th>
+      <th>bgcMeasKeys</th>
+      <th>containsBGC</th>
+      <th>DIRECTION</th>
+      <th>BASIN</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>71.110497</td>
+      <td>1</td>
+      <td>1797.489990</td>
+      <td>1</td>
+      <td>5901464_115</td>
+      <td>GPS</td>
+      <td>AO</td>
+      <td>STEPHEN RISER,</td>
+      <td>846</td>
+      <td>D</td>
+      <td>...</td>
+      <td>115</td>
+      <td>aoml</td>
+      <td>5901464</td>
+      <td>[PRES, PSAL, TEMP, DOXY]</td>
+      <td>ftp://ftp.ifremer.fr/ifremer/argo/dac/aoml/590...</td>
+      <td>[[D, D, D, D]]</td>
+      <td>[pres, psal, temp, doxy]</td>
+      <td>True</td>
+      <td>A</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>75.924095</td>
+      <td>1</td>
+      <td>1848.199951</td>
+      <td>1</td>
+      <td>5901464_115</td>
+      <td>GPS</td>
+      <td>AO</td>
+      <td>STEPHEN RISER,</td>
+      <td>846</td>
+      <td>D</td>
+      <td>...</td>
+      <td>115</td>
+      <td>aoml</td>
+      <td>5901464</td>
+      <td>[PRES, PSAL, TEMP, DOXY]</td>
+      <td>ftp://ftp.ifremer.fr/ifremer/argo/dac/aoml/590...</td>
+      <td>[[D, D, D, D]]</td>
+      <td>[pres, psal, temp, doxy]</td>
+      <td>True</td>
+      <td>A</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>79.144302</td>
+      <td>1</td>
+      <td>1897.660034</td>
+      <td>1</td>
+      <td>5901464_115</td>
+      <td>GPS</td>
+      <td>AO</td>
+      <td>STEPHEN RISER,</td>
+      <td>846</td>
+      <td>D</td>
+      <td>...</td>
+      <td>115</td>
+      <td>aoml</td>
+      <td>5901464</td>
+      <td>[PRES, PSAL, TEMP, DOXY]</td>
+      <td>ftp://ftp.ifremer.fr/ifremer/argo/dac/aoml/590...</td>
+      <td>[[D, D, D, D]]</td>
+      <td>[pres, psal, temp, doxy]</td>
+      <td>True</td>
+      <td>A</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>81.345016</td>
+      <td>1</td>
+      <td>1947.329956</td>
+      <td>1</td>
+      <td>5901464_115</td>
+      <td>GPS</td>
+      <td>AO</td>
+      <td>STEPHEN RISER,</td>
+      <td>846</td>
+      <td>D</td>
+      <td>...</td>
+      <td>115</td>
+      <td>aoml</td>
+      <td>5901464</td>
+      <td>[PRES, PSAL, TEMP, DOXY]</td>
+      <td>ftp://ftp.ifremer.fr/ifremer/argo/dac/aoml/590...</td>
+      <td>[[D, D, D, D]]</td>
+      <td>[pres, psal, temp, doxy]</td>
+      <td>True</td>
+      <td>A</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>84.040329</td>
+      <td>1</td>
+      <td>1997.800049</td>
+      <td>1</td>
+      <td>5901464_115</td>
+      <td>GPS</td>
+      <td>AO</td>
+      <td>STEPHEN RISER,</td>
+      <td>846</td>
+      <td>D</td>
+      <td>...</td>
+      <td>115</td>
+      <td>aoml</td>
+      <td>5901464</td>
+      <td>[PRES, PSAL, TEMP, DOXY]</td>
+      <td>ftp://ftp.ifremer.fr/ifremer/argo/dac/aoml/590...</td>
+      <td>[[D, D, D, D]]</td>
+      <td>[pres, psal, temp, doxy]</td>
+      <td>True</td>
+      <td>A</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 34 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="get-a-bgc-selection">
+<h1>3. Get a BGC selection<a class="headerlink" href="#get-a-bgc-selection" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://argovis.colorado.edu/selection/bgc_data_selection?xaxis=temp&amp;yaxis=pres&amp;startDate=2020-03-01&amp;endDate=2020-03-11&amp;presRange=%5B0,50%5D&amp;shape=%5B%5B%5B-155.929898,27.683528%5D,%5B-156.984448,13.752725">https://argovis.colorado.edu/selection/bgc_data_selection?xaxis=temp&amp;yaxis=pres&amp;startDate=2020-03-01&amp;endDate=2020-03-11&amp;presRange=[0,50]&amp;shape=[[[-155.929898,27.683528],[-156.984448,13.752725</a>],[-149.468316,8.819693],[-142.15318,3.741443],[-134.922845,-1.396838],[-127.660888,-6.512815],[-120.250934,-11.523088],[-110.056944,-2.811371],[-107.069051,12.039321],[-118.141833,20.303418],[-125.314828,22.509761],[-132.702476,24.389053],[-140.290513,25.90038],[-148.048372,27.007913],[-155.929898,27.683528]]]</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_bgc_selection_profiles</span><span class="p">(</span><span class="n">startDate</span><span class="p">,</span> <span class="n">endDate</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">xaxis</span><span class="p">,</span> <span class="n">yaxis</span><span class="p">,</span> <span class="n">presRange</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">printUrl</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://argovis.colorado.edu/selection/bgc_data_selection&#39;</span>
+    <span class="n">url</span> <span class="o">+=</span> <span class="s1">&#39;?startDate=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">startDate</span><span class="p">)</span>
+    <span class="n">url</span> <span class="o">+=</span> <span class="s1">&#39;&amp;endDate=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">endDate</span><span class="p">)</span>
+    <span class="n">url</span> <span class="o">+=</span> <span class="s1">&#39;&amp;shape=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">url</span> <span class="o">+=</span> <span class="s1">&#39;&amp;xaxis=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">xaxis</span><span class="p">)</span>
+    <span class="n">url</span> <span class="o">+=</span> <span class="s1">&#39;&amp;yaxis=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">yaxis</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">presRange</span><span class="p">:</span>
+        <span class="n">pressRangeQuery</span> <span class="o">=</span> <span class="s1">&#39;&amp;presRange=&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">presRange</span><span class="p">)</span>
+        <span class="n">url</span> <span class="o">+=</span> <span class="n">pressRangeQuery</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="n">url</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">printUrl</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="c1"># Consider any status other than 2xx an error</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">resp</span><span class="o">.</span><span class="n">status_code</span> <span class="o">//</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Error: Unexpected response </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
+    <span class="n">selectionProfiles</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">selectionProfiles</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">startDate</span> <span class="o">=</span> <span class="s1">&#39;2020-03-01&#39;</span>
+<span class="n">endDate</span> <span class="o">=</span> <span class="s1">&#39;2020-03-11&#39;</span>
+<span class="n">presRange</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
+<span class="n">shape</span> <span class="o">=</span> <span class="p">[[[</span><span class="o">-</span><span class="mf">155.929898</span><span class="p">,</span><span class="mf">27.683528</span><span class="p">],[</span><span class="o">-</span><span class="mf">156.984448</span><span class="p">,</span><span class="mf">13.752725</span><span class="p">],[</span><span class="o">-</span><span class="mf">149.468316</span><span class="p">,</span><span class="mf">8.819693</span><span class="p">],[</span><span class="o">-</span><span class="mf">142.15318</span><span class="p">,</span><span class="mf">3.741443</span><span class="p">],[</span><span class="o">-</span><span class="mf">134.922845</span><span class="p">,</span><span class="o">-</span><span class="mf">1.396838</span><span class="p">],</span>\
+          <span class="p">[</span><span class="o">-</span><span class="mf">127.660888</span><span class="p">,</span><span class="o">-</span><span class="mf">6.512815</span><span class="p">],[</span><span class="o">-</span><span class="mf">120.250934</span><span class="p">,</span><span class="o">-</span><span class="mf">11.523088</span><span class="p">],[</span><span class="o">-</span><span class="mf">110.056944</span><span class="p">,</span><span class="o">-</span><span class="mf">2.811371</span><span class="p">],[</span><span class="o">-</span><span class="mf">107.069051</span><span class="p">,</span><span class="mf">12.039321</span><span class="p">],[</span><span class="o">-</span><span class="mf">118.141833</span><span class="p">,</span><span class="mf">20.303418</span><span class="p">],</span>\
+          <span class="p">[</span><span class="o">-</span><span class="mf">125.314828</span><span class="p">,</span><span class="mf">22.509761</span><span class="p">],[</span><span class="o">-</span><span class="mf">132.702476</span><span class="p">,</span><span class="mf">24.389053</span><span class="p">],[</span><span class="o">-</span><span class="mf">140.290513</span><span class="p">,</span><span class="mf">25.90038</span><span class="p">],[</span><span class="o">-</span><span class="mf">148.048372</span><span class="p">,</span><span class="mf">27.007913</span><span class="p">],[</span><span class="o">-</span><span class="mf">155.929898</span><span class="p">,</span><span class="mf">27.683528</span><span class="p">]]]</span>
+<span class="n">xaxis</span><span class="o">=</span><span class="s1">&#39;doxy&#39;</span>
+<span class="n">yaxis</span><span class="o">=</span><span class="s1">&#39;pres&#39;</span>
+<span class="n">profiles</span> <span class="o">=</span> <span class="n">get_bgc_selection_profiles</span><span class="p">(</span><span class="n">startDate</span><span class="p">,</span> <span class="n">endDate</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">xaxis</span><span class="p">,</span> <span class="n">yaxis</span><span class="p">,</span> <span class="n">presRange</span><span class="p">,</span> <span class="n">printUrl</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://argovis.colorado.edu/selection/bgc_data_selection?startDate=2020-03-01&amp;endDate=2020-03-11&amp;shape=[[[-155.929898,27.683528],[-156.984448,13.752725],[-149.468316,8.819693],[-142.15318,3.741443],[-134.922845,-1.396838],[-127.660888,-6.512815],[-120.250934,-11.523088],[-110.056944,-2.811371],[-107.069051,12.039321],[-118.141833,20.303418],[-125.314828,22.509761],[-132.702476,24.389053],[-140.290513,25.90038],[-148.048372,27.007913],[-155.929898,27.683528]]]&amp;xaxis=doxy&amp;yaxis=pres&amp;presRange=
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">json2dataframe</span><span class="p">(</span><span class="n">profiles</span><span class="p">,</span> <span class="s1">&#39;bgcMeas&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>doxy</th>
+      <th>doxy_qc</th>
+      <th>pres</th>
+      <th>pres_qc</th>
+      <th>_id</th>
+      <th>POSITIONING_SYSTEM</th>
+      <th>DATA_MODE</th>
+      <th>date</th>
+      <th>lat</th>
+      <th>lon</th>
+      <th>cycle_number</th>
+      <th>bgcMeasKeys</th>
+      <th>core_data_mode</th>
+      <th>roundLat</th>
+      <th>roundLon</th>
+      <th>strLat</th>
+      <th>strLon</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>203.949081</td>
+      <td>1</td>
+      <td>7.460000</td>
+      <td>8</td>
+      <td>5906046_32</td>
+      <td>GPS</td>
+      <td>D</td>
+      <td>2020-03-10T09:12:22.000Z</td>
+      <td>-5.061</td>
+      <td>-118.6</td>
+      <td>32</td>
+      <td>[temp, nitrate, pres, psal, ph_in_situ_total, ...</td>
+      <td>D</td>
+      <td>-5.061</td>
+      <td>-118.600</td>
+      <td>5.061 S</td>
+      <td>118.600 W</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>203.940735</td>
+      <td>1</td>
+      <td>11.550000</td>
+      <td>8</td>
+      <td>5906046_32</td>
+      <td>GPS</td>
+      <td>D</td>
+      <td>2020-03-10T09:12:22.000Z</td>
+      <td>-5.061</td>
+      <td>-118.6</td>
+      <td>32</td>
+      <td>[temp, nitrate, pres, psal, ph_in_situ_total, ...</td>
+      <td>D</td>
+      <td>-5.061</td>
+      <td>-118.600</td>
+      <td>5.061 S</td>
+      <td>118.600 W</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>203.849197</td>
+      <td>1</td>
+      <td>16.520000</td>
+      <td>8</td>
+      <td>5906046_32</td>
+      <td>GPS</td>
+      <td>D</td>
+      <td>2020-03-10T09:12:22.000Z</td>
+      <td>-5.061</td>
+      <td>-118.6</td>
+      <td>32</td>
+      <td>[temp, nitrate, pres, psal, ph_in_situ_total, ...</td>
+      <td>D</td>
+      <td>-5.061</td>
+      <td>-118.600</td>
+      <td>5.061 S</td>
+      <td>118.600 W</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>203.733582</td>
+      <td>1</td>
+      <td>21.540001</td>
+      <td>8</td>
+      <td>5906046_32</td>
+      <td>GPS</td>
+      <td>D</td>
+      <td>2020-03-10T09:12:22.000Z</td>
+      <td>-5.061</td>
+      <td>-118.6</td>
+      <td>32</td>
+      <td>[temp, nitrate, pres, psal, ph_in_situ_total, ...</td>
+      <td>D</td>
+      <td>-5.061</td>
+      <td>-118.600</td>
+      <td>5.061 S</td>
+      <td>118.600 W</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>203.752197</td>
+      <td>1</td>
+      <td>26.670000</td>
+      <td>8</td>
+      <td>5906046_32</td>
+      <td>GPS</td>
+      <td>D</td>
+      <td>2020-03-10T09:12:22.000Z</td>
+      <td>-5.061</td>
+      <td>-118.6</td>
+      <td>32</td>
+      <td>[temp, nitrate, pres, psal, ph_in_situ_total, ...</td>
+      <td>D</td>
+      <td>-5.061</td>
+      <td>-118.600</td>
+      <td>5.061 S</td>
+      <td>118.600 W</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "av_py_env"
+        },
+        kernelOptions: {
+            kernelName: "av_py_env",
+            path: "./ec2020/ec20_tucker_etal"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'av_py_env'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By EarthCube Office<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

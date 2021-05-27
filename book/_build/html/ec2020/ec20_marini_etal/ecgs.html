@@ -1,0 +1,1652 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Semantic Annotation of Data using JSON Linked Data &#8212; EarthCube GeoCODES Exploration</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/logo.webp" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">EarthCube GeoCODES Exploration</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Exploring GeoCODES
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../content.html">
+   Content in Jupyter Book
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../markdown.html">
+     Markdown Files
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks.html">
+     Content with notebooks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../analysis.html">
+     Data Unit Testing, ranking, clustering
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../partfile.html">
+   Notebooks
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks/gleaner_clustering.html">
+     SciKit K-means Clustering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks/gleaner_gensim.html">
+     Gensim
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks/gleaner_txtai.html">
+     Gleaner &amp; txtai
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks/ECO_GraphAnalytics.html">
+     EarthCube Graph Analytics Exploration
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../index.html">
+   EC2020 examples
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ec20_soliman_etal/ks-preprocess-dem.html">
+     Processing digital elevation data for deep learning models using Keras Spatial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ec20_banihirwe_etal/intake-pangeo-catalog.html">
+     Intake / Pangeo Catalog: Making It Easier To Consume Earth’s Climate and Weather Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ec20_busecke_etal/busecke_abernathey_earthcube2020.html">
+     CMIP6 without the interpolation: Grid-native analysis with Pangeo in the cloud
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ec20_hamman_etal/2020ECAHM-scikit-downscale.html">
+     Scikit-downscale: an open source Python package for scalable climate downscaling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ec20_havlin_etal/notebook/ec20_havlin_etal.html">
+     3D volume rendering of geophysical data using the yt platform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ec20_peckham_etal/BALTO_GUI_v2.html">
+     BALTO Graphical User Interface (A Prototype)
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/ec2020/ec20_marini_etal/ecgs.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/fils/EarthCubeGraphAnalytics"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/fils/EarthCubeGraphAnalytics/issues/new?title=Issue%20on%20page%20%2Fec2020/ec20_marini_etal/ecgs.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/fils/EarthCubeGraphAnalytics/master?urlpath=lab/tree/book/ec2020/ec20_marini_etal/ecgs.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="your-hub-url/hub/user-redirect/git-pull?repo=https://github.com/fils/EarthCubeGraphAnalytics&urlpath=lab/tree/EarthCubeGraphAnalytics/book/ec2020/ec20_marini_etal/ecgs.ipynb&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/fils/EarthCubeGraphAnalytics/blob/master/book/ec2020/ec20_marini_etal/ecgs.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#abstract">
+   Abstract
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#table-of-contents">
+   Table of contents
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-requirements">
+   Basic Requirements
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#geosemantics-integration-service-gsis">
+   Geosemantics Integration Service (GSIS)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rdf-graphs">
+     RDF Graphs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#standard-vocabularies">
+     Standard Vocabularies
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#list-of-csdms-standard-names-and-odm2-as-json-arrays">
+     List of CSDMS Standard Names and ODM2 as JSON Arrays
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#crosswalks-between-standard-vocabularies">
+     Crosswalks Between Standard Vocabularies
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#units">
+     Units
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#temporal-annotation">
+     Temporal Annotation
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#time-instant-annotation">
+       Time Instant Annotation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#time-interval-annotation">
+       Time Interval Annotation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#time-series-annotation">
+       Time Series Annotation
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#annotating-data-in-the-imlczo-data-management-system">
+   Annotating Data in the IMLCZO Data Management System
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#register-an-account-on-imlczo">
+     Register an account on IMLCZO
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#generate-and-use-an-api-key">
+     Generate and use an API Key
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setting-api-key-and-request-headers">
+     Setting API key and request headers
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#search-by-generic-search-query">
+     Search by generic search query
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#search-by-metadata-field">
+     Search by metadata field
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-new-dataset">
+     Create new dataset
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#upload-file-to-new-dataset">
+     Upload file to new dataset
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#add-metadata-to-new-file">
+     Add metadata to new file
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#matching-models-with-data">
+     Matching Models with Data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusions">
+   Conclusions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#license">
+   License
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="semantic-annotation-of-data-using-json-linked-data">
+<h1>Semantic Annotation of Data using JSON Linked Data<a class="headerlink" href="#semantic-annotation-of-data-using-json-linked-data" title="Permalink to this headline">¶</a></h1>
+<p>Luigi Marini (<a class="reference external" href="mailto:lmarini&#37;&#52;&#48;illinois&#46;edu">lmarini<span>&#64;</span>illinois<span>&#46;</span>edu</a>), Diego Calderon (<a class="reference external" href="mailto:diegoac2&#37;&#52;&#48;illinois&#46;edu">diegoac2<span>&#64;</span>illinois<span>&#46;</span>edu</a>), Praveen Kumar (<a class="reference external" href="mailto:kumar1&#37;&#52;&#48;illinois&#46;edu">kumar1<span>&#64;</span>illinois<span>&#46;</span>edu</a>)</p>
+<p>University of Illinois at Urbana-Champaign</p>
+<div class="section" id="abstract">
+<h2>Abstract<a class="headerlink" href="#abstract" title="Permalink to this headline">¶</a></h2>
+<p>The Earthcube Geosemantics Framework (<a class="reference external" href="https://ecgs.ncsa.illinois.edu/">https://ecgs.ncsa.illinois.edu/</a>) developed a prototype of a decentralized framework that combines the Linked Data and RESTful web services to annotate, connect, integrate, and reason about integration of geoscience resources. The framework allows the semantic enrichment of web resources and semantic mediation among heterogeneous geoscience resources, such as models and data.</p>
+<p>This notebook provides examples on how the Semantic Annotation Service can be used to manage linked controlled vocabularies using JSON Linked Data (JSON-LD), including how to query the built-in RDF graphs for existing linked standard vocabularies based on the Community Surface Dynamics Modeling System (CSDMS), Observations Data Model (ODM2) and Unidata udunits2 vocabularies, how to query build-in crosswalks between CSDMS and ODM2 vocabularies using SKOS, and how to add new linked vocabularies to the service. JSON-LD based definitions provided by these endpoints will be used to annotate sample data available within the IML Critical Zone Observatory data repository using the Clowder Web Service API (<a class="reference external" href="https://data.imlczo.org/">https://data.imlczo.org/</a>). By supporting JSON-LD, the Semantic Annotation Service and the Clowder framework provide examples on how portable and semantically defined metadata can be used to better annotate data across repositories and services.</p>
+</div>
+<div class="section" id="table-of-contents">
+<h2>Table of contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p><a class="reference external" href="#Introduction">Introduction</a></p></li>
+<li><p><a class="reference external" href="#Basic-Requirements">Basic requirements</a></p></li>
+<li><p><a class="reference external" href="#Geosemantics-Integration-Service-(GSIS)">Geosemantics Integration Service</a></p></li>
+<li><p><a class="reference external" href="#RDF-Graphs">RDF Graphs</a></p></li>
+<li><p><a class="reference external" href="#Standard-Vocabularies">Standard Vocabularies</a></p></li>
+<li><p><a class="reference external" href="#List-of-CSDMS-Standard-Names-and-ODM2-as-JSON-Arrays">List of CSDMS Standard Names and ODM2 as JSON Arrays</a></p></li>
+<li><p><a class="reference external" href="#Crosswalks-Between-Standard-Vocabularies">Crosswalks Between Standard Vocabularies</a></p></li>
+<li><p><a class="reference external" href="#Units">Units</a></p></li>
+<li><p><a class="reference external" href="#Temporal-Annotation">Temporal Annotation</a></p></li>
+<li><p><a class="reference external" href="#Annotating-Data-in-the-IMLCZO-Data-Management-System">Annotating Data in the IMLCZO Data Management System</a></p></li>
+<li><p><a class="reference external" href="#Setting-API-key-and-request-headers">Setting API key and request headers</a></p></li>
+<li><p><a class="reference external" href="#Search-by-generic-search-query">Search by generic search query</a></p></li>
+<li><p><a class="reference external" href="#Search-by-metadata-field">Search by metadata field</a></p></li>
+<li><p><a class="reference external" href="#Create-new-dataset">Create new dataset</a></p></li>
+<li><p><a class="reference external" href="#Upload-file-to-new-dataset">Upload file to new dataset</a></p></li>
+<li><p><a class="reference external" href="#Add-metadata-to-new-file">Add metadata to new file</a></p></li>
+<li><p><a class="reference external" href="#Matching-Models-with-Data">Matching Models with Data</a></p></li>
+<li><p><a class="reference external" href="#Conclusions">Conclusions</a></p></li>
+<li><p><a class="reference external" href="#References">References</a></p></li>
+<li><p><a class="reference external" href="#License">License</a></p></li>
+</ol>
+</div>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>We face many challenges in the process of extracting meaningful information from data. Frequently, these obstacle  compel scientists to perform the integration of models with data manually. Manual integration becomes exponentially difficult when a user aims to integrate long-tail data (data collected by individual researchers or small research groups) and long-tail models (models developed by individuals or small modeling communities). We focus on these long-tail resources because despite their often-narrow scope, they have significant impacts in scientific studies and present an opportunity for addressing critical gaps through automated integration. The goal of the Goesemantics Framework is to provide a framework rooted in semantic techniques and approaches to support “long-tail” models and data integration.</p>
+<p>The Linked Data paradigm emerged in the context of Semantic Web technologies for publishing and sharing data over the Web. It connects related individual Web resources in a Graph database, where resources represent the graph nodes, and an edge connects a pair of nodes. Publishing and linking scientific resources using Semantic Web technologies require that the user community follows the three principles of Linked Data:</p>
+<ol class="simple">
+<li><p>Each resource needs to be represented using a unique Uniform Resource Identifier (URI), which consists of: (i) A Uniform Resource Locator (URL) to define the server path over the Web, and (ii) A Uniform Resource Name (URN) to describe the exact name of the resource.</p></li>
+<li><p>The relationships between resources are described using the triple format, where a subject S has a predicate P with an object O. A predicate is either an undirected relationship (bi-directional), where it connects two entities in both ways or a directed relationship (uni-directional), where the presence of a relationship between two entities in one direction does not imply the presence of a reverse relationship. The triple format is the structure unit for the Linked Data system.</p></li>
+<li><p>The HyperText Transfer Protocol (HTTP) is used as a universal access mechanism for resources on the Web.</p></li>
+</ol>
+<p>For more information about linked data, please visit <a class="reference external" href="https://www.w3.org/standards/semanticweb/data">https://www.w3.org/standards/semanticweb/data</a>.</p>
+<p>The Geosemantics Integration Service (GSIS) is a playground to show a lot of these principles in practice with respect to Earth science. Below we show many of the endpoints available in the GSIS and how they can enable new ways to manage metadata about data and models. By virtue of leveraging Semntic Web Technologies, the approaches below are compatible with other efforts such as the <a class="reference external" href="https://github.com/ESIPFed/science-on-schema.org">ESIP science-on-schema</a> effort. Some of the endpoints shown below are currently used in production, others are proof of concept developement. The goal of this notebook is to show what is possible when using Linked Data approaches.</p>
+</div>
+<div class="section" id="basic-requirements">
+<h2>Basic Requirements<a class="headerlink" href="#basic-requirements" title="Permalink to this headline">¶</a></h2>
+<p>We will be interacting with two web services. The first is the Geosemantics Integration Service (GSIS) available at <a class="reference external" href="http://hcgs.ncsa.illinois.edu">http://hcgs.ncsa.illinois.edu</a>. This service provides support for standandard vocabularies and methods for transforming typical strings used for tracking time, space and physical variables into well formed Linked Data documents. The second service is the <a class="reference external" href="http://criticalzone.org/iml/">NSF Intensively Managed Landscape Critical Zone Observatory</a> data management system (<a class="reference external" href="https://data.imlczo.org/">https://data.imlczo.org/</a>). We will be retrieving data from it and uploading data and metadata back to it using the Clowder web service API. Clowder is a customizable and scalable data management system to support any data format (Marini et al. 2018). It is under active development and deployed for a variety of research projects. For more information about Clowder please visit <a class="reference external" href="https://clowderframework.org/">https://clowderframework.org/</a>.</p>
+<p>We first setup some basic requirements used throughout the notebook. We use the ubiqutous <a class="reference external" href="https://requests.readthedocs.io/">Requests</a> Python library to intereact with both APIs.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">gsis_host</span> <span class="o">=</span> <span class="s1">&#39;https://ecgs.ncsa.illinois.edu&#39;</span>
+
+<span class="n">clowder_host</span> <span class="o">=</span> <span class="s1">&#39;https://data.imlczo.org/clowder&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="geosemantics-integration-service-gsis">
+<h2>Geosemantics Integration Service (GSIS)<a class="headerlink" href="#geosemantics-integration-service-gsis" title="Permalink to this headline">¶</a></h2>
+<p>Since geospatial data comes in many formats, from shapefiles to geotiffs to comma-delimited text files, it is often helpfull to annotate the files with portable metadata that can be used to identify what each files contains. For geospatial data the temporal, spatial, and physical properties dimensions are important and often used to search over a large collection of data. The Geosemantics Integration Service (GSIS) provides a series of endpoints to simplify annotating geospatial data. It includes temporal endpoints so that generic formats for date and times can be translated to well formted JSON-LD formats (Elag et al. 2015). It includes the ability to store standard vocabularies as generic RDF graphs and retrieve those as simple JSON documents for easy integration in external services (for example Clowder). It also includes the ability to make links between terms from two different standard vocabularies using SKOS and OWN same as predicates.</p>
+<div class="section" id="rdf-graphs">
+<h3>RDF Graphs<a class="headerlink" href="#rdf-graphs" title="Permalink to this headline">¶</a></h3>
+<p>All information stored in the GSIS is stored in the form of RDF graphs using <a class="reference external" href="https://jena.apache.org/">Apache Jena</a>. The following endpoints list all know RDF graphs and let the client retrieve each graph as JSON-LD. The content of these graphs can vary greatly, from standardad vocabularies to definitions of computational models. For a full list of methods please see the documentation available at <a class="reference external" href="http://hcgs.ncsa.illinois.edu/">http://hcgs.ncsa.illinois.edu/</a>. New RDF graphs can be added to the system using private HTTP POST endpoints which accept RDF graphs serialized as JSON-LD or Turtle format.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get a lists of the names of all graphs in the Knowledge base</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">gsis_host</span><span class="si">}</span><span class="s2">/gsis/listGraphNames&quot;</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;graph_names&#39;: [&#39;csdms&#39;,
+  &#39;odm2-vars&#39;,
+  &#39;udunits2-base&#39;,
+  &#39;udunits2-derived&#39;,
+  &#39;udunits2-accepted&#39;,
+  &#39;udunits2-prefix&#39;,
+  &#39;google-unit&#39;,
+  &#39;model-2&#39;,
+  &#39;model-3&#39;,
+  &#39;data-1&#39;,
+  &#39;data-2&#39;,
+  &#39;data-3&#39;,
+  &#39;variable_name_crosswalk&#39;,
+  &#39;variable_name_crosswalk-owl&#39;,
+  &#39;variable_name_crosswalk-skos&#39;,
+  &#39;model_test&#39;,
+  &#39;model_test11&#39;,
+  &#39;config_vars.ttl&#39;,
+  &#39;model-x&#39;,
+  &#39;Info&#39;,
+  &#39;Inf&#39;,
+  &#39;demo-model&#39;,
+  &#39;csv-mappings&#39;,
+  &#39;models_graph9d7d400f53864989a05d3ae539f30a78&#39;,
+  &#39;models_graph37baec3114d74ca6abd72cce75f966db&#39;,
+  &#39;models_graphe604316f14334985aaf4ebd6fe220e77&#39;,
+  &#39;models_graph26e29f5026664f11b244072bf6956f74&#39;]}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># List the content of the  Graph (for example, CSDMS Standard Names)</span>
+<span class="n">graph</span> <span class="o">=</span> <span class="s1">&#39;csdms&#39;</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">gsis_host</span><span class="si">}</span><span class="s2">/gsis/read?graph=</span><span class="si">{</span><span class="n">graph</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;@graph&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="c1"># We just show the top 10 results, to see all results remove the slice operator [0:5]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;@id&#39;: &#39;csn:air__dielectric_constant&#39;,
+  &#39;@type&#39;: &#39;csn:name&#39;,
+  &#39;csn:base_object&#39;: &#39;air&#39;,
+  &#39;csn:base_quantity&#39;: &#39;constant&#39;,
+  &#39;csn:object_fullname&#39;: &#39;air&#39;,
+  &#39;csn:object_part&#39;: &#39;air&#39;,
+  &#39;csn:quantity_fullname&#39;: &#39;dielectric_constant&#39;,
+  &#39;csn:quantity_part&#39;: [&#39;dielectric&#39;, &#39;constant&#39;]},
+ {&#39;@id&#39;: &#39;csn:air__dynamic_shear_viscosity&#39;,
+  &#39;@type&#39;: &#39;csn:name&#39;,
+  &#39;csn:base_object&#39;: &#39;air&#39;,
+  &#39;csn:base_quantity&#39;: &#39;viscosity&#39;,
+  &#39;csn:object_fullname&#39;: &#39;air&#39;,
+  &#39;csn:object_part&#39;: &#39;air&#39;,
+  &#39;csn:quantity_fullname&#39;: &#39;dynamic_shear_viscosity&#39;,
+  &#39;csn:quantity_part&#39;: [&#39;dynamic&#39;, &#39;shear&#39;, &#39;viscosity&#39;]},
+ {&#39;@id&#39;: &#39;csn:air__dynamic_volume_viscosity&#39;,
+  &#39;@type&#39;: &#39;csn:name&#39;,
+  &#39;csn:base_object&#39;: &#39;air&#39;,
+  &#39;csn:base_quantity&#39;: &#39;viscosity&#39;,
+  &#39;csn:object_fullname&#39;: &#39;air&#39;,
+  &#39;csn:object_part&#39;: &#39;air&#39;,
+  &#39;csn:quantity_fullname&#39;: &#39;dynamic_volume_viscosity&#39;,
+  &#39;csn:quantity_part&#39;: [&#39;dynamic&#39;, &#39;viscosity&#39;, &#39;volume&#39;]},
+ {&#39;@id&#39;: &#39;csn:air__kinematic_shear_viscosity&#39;,
+  &#39;@type&#39;: &#39;csn:name&#39;,
+  &#39;csn:base_object&#39;: &#39;air&#39;,
+  &#39;csn:base_quantity&#39;: &#39;viscosity&#39;,
+  &#39;csn:object_fullname&#39;: &#39;air&#39;,
+  &#39;csn:object_part&#39;: &#39;air&#39;,
+  &#39;csn:quantity_fullname&#39;: &#39;kinematic_shear_viscosity&#39;,
+  &#39;csn:quantity_part&#39;: [&#39;shear&#39;, &#39;viscosity&#39;, &#39;kinematic&#39;]},
+ {&#39;@id&#39;: &#39;csn:air__kinematic_volume_viscosity&#39;,
+  &#39;@type&#39;: &#39;csn:name&#39;,
+  &#39;csn:base_object&#39;: &#39;air&#39;,
+  &#39;csn:base_quantity&#39;: &#39;viscosity&#39;,
+  &#39;csn:object_fullname&#39;: &#39;air&#39;,
+  &#39;csn:object_part&#39;: &#39;air&#39;,
+  &#39;csn:quantity_fullname&#39;: &#39;kinematic_volume_viscosity&#39;,
+  &#39;csn:quantity_part&#39;: [&#39;viscosity&#39;, &#39;volume&#39;, &#39;kinematic&#39;]}]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="standard-vocabularies">
+<h3>Standard Vocabularies<a class="headerlink" href="#standard-vocabularies" title="Permalink to this headline">¶</a></h3>
+<p>Two RDF graphs in the GSIS store two external standard vocabularies in RDF. The first one is the <a class="reference external" href="https://csdms.colorado.edu/wiki/CSDMS_Standard_Names">CSDMS Standard Terms (CSN)</a> (Peckham et al. 2014). The second is the <a class="reference external" href="http://vocabulary.odm2.org/variablename/">ODM2 Variable Name Vocabulary</a> (Horsburgh et al. 2016). To make it easier to query these RDF by graphs, the GSIS provide simplified methods to search across standard vocabularies by label and look attributes of a specific term in a vocabulary.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Search standard vocabularies by search query</span>
+<span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;wind speed&#39;</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">gsis_host</span><span class="si">}</span><span class="s1">/gsis/sas/vars/list?term=</span><span class="si">{</span><span class="n">query</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;csn:earth_surface_wind__range_of_speed&#39;,
+ &#39;csn:land_surface_wind__reference_height_speed&#39;,
+ &#39;csn:land_surface_wind__speed_reference_height&#39;,
+ &#39;csn:projectile_origin_wind__speed&#39;,
+ &#39;odm2:windGustSpeed&#39;,
+ &#39;odm2:windSpeed&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get all properties of a given CSDMS Standard Name from a specific graph</span>
+<span class="n">graph</span> <span class="o">=</span> <span class="s1">&#39;csdms&#39;</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;air__dynamic_shear_viscosity&#39;</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">gsis_host</span><span class="si">}</span><span class="s2">/gsis/CSNqueryName?graph=</span><span class="si">{</span><span class="n">graph</span><span class="si">}</span><span class="s2">&amp;name=</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;name&#39;: &#39;air__dynamic_shear_viscosity&#39;,
+ &#39;type&#39;: &#39;http://ecgs.ncsa.illinois.edu/2015/csn/name&#39;,
+ &#39;object_fullname&#39;: &#39;air&#39;,
+ &#39;quantity_fullname&#39;: &#39;dynamic_shear_viscosity&#39;,
+ &#39;base_object&#39;: &#39;air&#39;,
+ &#39;base_quantity&#39;: &#39;viscosity&#39;,
+ &#39;object_part&#39;: [&#39;air&#39;],
+ &#39;quantity_part&#39;: [&#39;dynamic&#39;, &#39;shear&#39;, &#39;viscosity&#39;]}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="list-of-csdms-standard-names-and-odm2-as-json-arrays">
+<h3>List of CSDMS Standard Names and ODM2 as JSON Arrays<a class="headerlink" href="#list-of-csdms-standard-names-and-odm2-as-json-arrays" title="Permalink to this headline">¶</a></h3>
+<p>To simplify clients’ ability to parse these standard vocabularies, the GSIS provides ways to list all unique identifiers from both vocabularies as play JSON arrays. This for example is used by Clowder to show a list of standard term for each vocabulary in its interface. It is worth noting that Clowder lets users define these lists through its GUI both as local list, but more importantly as remote JSON endpoints so that, as lists are updated, the latest version is always shown to the user. Here is an example from the IMLCZO instance.</p>
+<p>This is what a user sees when manually adding metadata to a file or dataset. The list is dynamically loaded at run time.</p>
+<p><img alt="Add metadata" src="../../_images/metadata-add.png" /></p>
+<p>This is what an adminstrator of the system or a data sharing space see when adding more options to what users can defined from the GUI. This is only for metadata added by users from the GUI. Later we will show how to programmatically add any type of metadata to a file or dataset using the web service API.</p>
+<p><img alt="Define metadata" src="../../_images/metadata-define.png" /></p>
+<p>The widget listing options above is populated by calling the endpoints below. The <code class="docutils literal notranslate"><span class="pre">Definitions</span> <span class="pre">URL</span></code> is how the system is aware of which external endpoint to call. Any service providing the same interface can be utilized.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the CSDMS Standard Names as a flat list.</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">gsis_host</span><span class="si">}</span><span class="s2">/gsis/sas/sn/csn&quot;</span><span class="p">)</span>
+<span class="n">csn_terms</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">csn_terms</span><span class="p">)</span><span class="si">}</span><span class="s1"> terms. Showing top 20 results:&#39;</span><span class="p">)</span>
+<span class="n">csn_terms</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">20</span><span class="p">]</span> <span class="c1"># We just show the top 20 results, to see all results remove the slice operator [0:20]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Found 2573 terms. Showing top 20 results:
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;air__dielectric_constant&#39;,
+ &#39;air__dynamic_shear_viscosity&#39;,
+ &#39;air__dynamic_volume_viscosity&#39;,
+ &#39;air__kinematic_shear_viscosity&#39;,
+ &#39;air__kinematic_volume_viscosity&#39;,
+ &#39;air__volume-specific_isochoric_heat_capacity&#39;,
+ &#39;air_helium-plume__richardson_number&#39;,
+ &#39;air_radiation~visible__speed&#39;,
+ &#39;air_water~vapor__dew_point_temperature&#39;,
+ &#39;air_water~vapor__saturated_partial_pressure&#39;,
+ &#39;aircraft__flight_duration&#39;,
+ &#39;airfoil__drag_coefficient&#39;,
+ &#39;airfoil__lift_coefficient&#39;,
+ &#39;airfoil_curve~enclosing__circulation&#39;,
+ &#39;airplane__altitude&#39;,
+ &#39;airplane__mach_number&#39;,
+ &#39;airplane_wing__span&#39;,
+ &#39;air~dry__mass-specific_gas_constant&#39;,
+ &#39;air~dry_water~vapor__gas_constant_ratio&#39;,
+ &#39;aluminum__mass-specific_isobaric_heat_capacity&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the ODM2 Variable Names as a flat list.</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">gsis_host</span><span class="si">}</span><span class="s2">/gsis/sas/sn/odm2&quot;</span><span class="p">)</span>
+<span class="n">odm2_terms</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">odm2_terms</span><span class="p">)</span><span class="si">}</span><span class="s1"> terms. Showing top 20 results:&#39;</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="mi">0</span><span class="p">:</span><span class="mi">20</span><span class="p">]</span> <span class="c1"># We just show the top 20 results, to see all results remove the slice operator [0:20]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Found 792 terms. Showing top 20 results:
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;19_Hexanoyloxyfucoxanthin&#39;,
+ &#39;1_1_1_Trichloroethane&#39;,
+ &#39;1_1_2_2_Tetrachloroethane&#39;,
+ &#39;1_1_2_Trichloroethane&#39;,
+ &#39;1_1_Dichloroethane&#39;,
+ &#39;1_1_Dichloroethene&#39;,
+ &#39;1_2_3_Trimethylbenzene&#39;,
+ &#39;1_2_4_5_Tetrachlorobenzene&#39;,
+ &#39;1_2_4_Trichlorobenzene&#39;,
+ &#39;1_2_4_Trimethylbenzene&#39;,
+ &#39;1_2_Dibromo_3_Chloropropane&#39;,
+ &#39;1_2_Dichlorobenzene&#39;,
+ &#39;1_2_Dichloroethane&#39;,
+ &#39;1_2_Dichloropropane&#39;,
+ &#39;1_2_Dimethylnaphthalene&#39;,
+ &#39;1_2_Dinitrobenzene&#39;,
+ &#39;1_2_Diphenylhydrazine&#39;,
+ &#39;1_3_5_Trimethylbenzene&#39;,
+ &#39;1_3_Dichlorobenzene&#39;,
+ &#39;1_3_Dimethyladamantane&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>With some simple Python we can search specific substrings from these lists.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">csn_terms</span> <span class="k">if</span> <span class="s1">&#39;temperature&#39;</span> <span class="ow">in</span> <span class="n">i</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;air_water~vapor__dew_point_temperature&#39;,
+ &#39;atmosphere_air__anomaly_of_temperature&#39;,
+ &#39;atmosphere_air__azimuth_angle_of_gradient_of_temperature&#39;,
+ &#39;atmosphere_air__east_derivative_of_temperature&#39;,
+ &#39;atmosphere_air__elevation_angle_of_gradient_of_temperature&#39;,
+ &#39;atmosphere_air__equivalent_potential_temperature&#39;,
+ &#39;atmosphere_air__equivalent_temperature&#39;,
+ &#39;atmosphere_air__increment_of_temperature&#39;,
+ &#39;atmosphere_air__magnitude_of_gradient_of_temperature&#39;,
+ &#39;atmosphere_air__north_derivative_of_temperature&#39;,
+ &#39;atmosphere_air__potential_temperature&#39;,
+ &#39;atmosphere_air__temperature&#39;,
+ &#39;atmosphere_air__temperature_dry_adiabatic_lapse_rate&#39;,
+ &#39;atmosphere_air__temperature_environmental_lapse_rate&#39;,
+ &#39;atmosphere_air__temperature_lapse_rate&#39;,
+ &#39;atmosphere_air__temperature_saturated_adiabatic_lapse_rate&#39;,
+ &#39;atmosphere_air__x_derivative_of_temperature&#39;,
+ &#39;atmosphere_air__y_derivative_of_temperature&#39;,
+ &#39;atmosphere_air__z_derivative_of_temperature&#39;,
+ &#39;atmosphere_air_water~vapor__bubble_point_temperature&#39;,
+ &#39;atmosphere_air_water~vapor__dew_point_temperature&#39;,
+ &#39;atmosphere_air_water~vapor__frost_point_temperature&#39;,
+ &#39;atmosphere_air_water~vapor__virtual_potential_temperature&#39;,
+ &#39;atmosphere_air_water~vapor__virtual_temperature&#39;,
+ &#39;atmosphere_bottom_air__temperature&#39;,
+ &#39;atmosphere_bottom_air_water~vapor__dew_point_temperature&#39;,
+ &#39;atmosphere_bottom_air_water~vapor__frost_point_temperature&#39;,
+ &#39;atmosphere_top_air__temperature&#39;,
+ &#39;atmosphere_water~vapor__dew_point_temperature&#39;,
+ &#39;atmosphere_water~vapor__frost_point_temperature&#39;,
+ &#39;channel_bottom_water__temperature&#39;,
+ &#39;channel_water__temperature&#39;,
+ &#39;channel_water_surface_air__temperature&#39;,
+ &#39;channel_water_surface_water__temperature&#39;,
+ &#39;chocolate__melting_point_temperature&#39;,
+ &#39;earth_black-body__temperature&#39;,
+ &#39;earth_equator__average_temperature&#39;,
+ &#39;earth_interior__down_z_derivative_of_temperature&#39;,
+ &#39;earth_surface__average_temperature&#39;,
+ &#39;earth_surface__range_of_diurnal_temperature&#39;,
+ &#39;glacier_bed__down_z_derivative_of_temperature&#39;,
+ &#39;glacier_bottom_ice__temperature&#39;,
+ &#39;glacier_ice__azimuth_angle_of_gradient_of_temperature&#39;,
+ &#39;glacier_ice__depression_of_melting_point_temperature&#39;,
+ &#39;glacier_ice__down_derivative_of_temperature&#39;,
+ &#39;glacier_ice__east_derivative_of_temperature&#39;,
+ &#39;glacier_ice__elevation_angle_of_gradient_of_temperature&#39;,
+ &#39;glacier_ice__magnitude_of_gradient_of_temperature&#39;,
+ &#39;glacier_ice__melting_point_temperature&#39;,
+ &#39;glacier_ice__north_derivative_of_temperature&#39;,
+ &#39;glacier_ice__pressure_melting_point_temperature&#39;,
+ &#39;glacier_ice__temperature&#39;,
+ &#39;glacier_ice__x_derivative_of_temperature&#39;,
+ &#39;glacier_ice__y_derivative_of_temperature&#39;,
+ &#39;glacier_ice__z_derivative_of_temperature&#39;,
+ &#39;glacier_top__temperature&#39;,
+ &#39;glacier_top_ice__temperature&#39;,
+ &#39;glacier_top_ice__time_derivative_of_temperature&#39;,
+ &#39;glacier_top_surface__temperature&#39;,
+ &#39;hydrometeor__temperature&#39;,
+ &#39;ice__melting_point_temperature&#39;,
+ &#39;iron__melting_point_temperature&#39;,
+ &#39;land_surface__anomaly_of_temperature&#39;,
+ &#39;land_surface__temperature&#39;,
+ &#39;land_surface_air__temperature&#39;,
+ &#39;land_surface~10m-above_air__temperature&#39;,
+ &#39;sea_bottom_water__temperature&#39;,
+ &#39;sea_ice__depression_of_melting_point_temperature&#39;,
+ &#39;sea_ice__melting_point_temperature&#39;,
+ &#39;sea_ice_bottom_water__temperature&#39;,
+ &#39;sea_ice_surface_air__temperature&#39;,
+ &#39;sea_surface_air-vs-water__difference_of_temperature&#39;,
+ &#39;sea_surface_air__reference_temperature&#39;,
+ &#39;sea_surface_air__temperature&#39;,
+ &#39;sea_surface_water__anomaly_of_temperature&#39;,
+ &#39;sea_surface_water__temperature&#39;,
+ &#39;sea_water__azimuth_angle_of_gradient_of_temperature&#39;,
+ &#39;sea_water__east_derivative_of_temperature&#39;,
+ &#39;sea_water__elevation_angle_of_gradient_of_temperature&#39;,
+ &#39;sea_water__magnitude_of_gradient_of_temperature&#39;,
+ &#39;sea_water__north_derivative_of_temperature&#39;,
+ &#39;sea_water__potential_temperature&#39;,
+ &#39;sea_water__temperature&#39;,
+ &#39;sea_water__time_average_of_square_of_potential_temperature&#39;,
+ &#39;sea_water__time_derivative_of_temperature&#39;,
+ &#39;sea_water__x_derivative_of_temperature&#39;,
+ &#39;sea_water__y_derivative_of_temperature&#39;,
+ &#39;sea_water__z_derivative_of_temperature&#39;,
+ &#39;snow__temperature&#39;,
+ &#39;snow__threshold_of_degree-day-temperature&#39;,
+ &#39;snowpack__degree-day_threshold_temperature&#39;,
+ &#39;snowpack__diurnal_max_of_temperature&#39;,
+ &#39;snowpack__diurnal_min_of_temperature&#39;,
+ &#39;snowpack__diurnal_range_of_temperature&#39;,
+ &#39;snowpack__mean_of_temperature&#39;,
+ &#39;snowpack__time_derivative_of_temperature&#39;,
+ &#39;snowpack_bottom__temperature&#39;,
+ &#39;snowpack_top__temperature&#39;,
+ &#39;snowpack_top_air__temperature&#39;,
+ &#39;soil__reference_depth_temperature&#39;,
+ &#39;soil__temperature&#39;,
+ &#39;soil__temperature_reference_depth&#39;,
+ &#39;water__boiling_point_temperature&#39;,
+ &#39;water__freezing_point_temperature&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="crosswalks-between-standard-vocabularies">
+<h3>Crosswalks Between Standard Vocabularies<a class="headerlink" href="#crosswalks-between-standard-vocabularies" title="Permalink to this headline">¶</a></h3>
+<p>With so many standard vocabularies available, it is helpful to defined equivalency between terms from separate vocabularies. To this end, the GSIS provides the ability to establish mappings between terms in different graphs using the <code class="docutils literal notranslate"><span class="pre">skos:sameAs</span></code> predicate. The user can the query this graph of relationships using the following endpoint.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Given a term from one vocabulary, find equivalent ones in other vocabularies.</span>
+<span class="n">var</span> <span class="o">=</span> <span class="s1">&#39;http://vocabulary.odm2.org/variablename/windSpeed&#39;</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">gsis_host</span><span class="si">}</span><span class="s1">/gsis/var/sameAs/skos?varName=</span><span class="si">{</span><span class="n">var</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;http://csdms.colorado.edu/wiki/CSN_Searchable_List/land_surface_air_flow__speed&#39;,
+ &#39;http://vocabulary.odm2.org/variablename/windSpeed&#39;,
+ &#39;http://vocabulary.odm2.org/variablename/windGustSpeed&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="units">
+<h3>Units<a class="headerlink" href="#units" title="Permalink to this headline">¶</a></h3>
+<p>Physical variables are not the only type of standard vocabularies the GSIS stores. Following are examples of two different lists of standard units imported in the GSIS, <a class="reference external" href="https://www.unidata.ucar.edu/software/udunits/">Unidata udunits2</a> and <a class="reference external" href="https://support.google.com/websearch/answer/3284611?hl=en">Google Units</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the list of udunits2 units in JSON format.</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">gsis_host</span><span class="si">}</span><span class="s2">/gsis/sas/unit/udunits2&quot;</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="mi">0</span><span class="p">:</span><span class="mi">20</span><span class="p">]</span> <span class="c1"># We just show the top 20 results, to see all results remove the slice operator [0:20]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;ampere&#39;,
+ &#39;arc_degree&#39;,
+ &#39;arc_minute&#39;,
+ &#39;arc_second&#39;,
+ &#39;candela&#39;,
+ &#39;coulomb&#39;,
+ &#39;day&#39;,
+ &#39;degree_Celsius&#39;,
+ &#39;electronvolt&#39;,
+ &#39;farad&#39;,
+ &#39;gram&#39;,
+ &#39;gray&#39;,
+ &#39;henry&#39;,
+ &#39;hertz&#39;,
+ &#39;hour&#39;,
+ &#39;joule&#39;,
+ &#39;katal&#39;,
+ &#39;kelvin&#39;,
+ &#39;kilogram&#39;,
+ &#39;liter&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Get the list of Google units in JSON format.</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">gsis_host</span> <span class="o">+</span> <span class="s2">&quot;/gsis/sas/unit/google&quot;</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="mi">0</span><span class="p">:</span><span class="mi">20</span><span class="p">]</span> <span class="c1"># We just show the top 20 results, to see all results remove the slice operator [0:20]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;acre&#39;,
+ &#39;acre-foot&#39;,
+ &#39;Algerian dinar&#39;,
+ &#39;ampere&#39;,
+ &#39;ampere hour&#39;,
+ &#39;amu&#39;,
+ &#39;arc minute&#39;,
+ &#39;arc second&#39;,
+ &#39;are&#39;,
+ &#39;Argentine peso&#39;,
+ &#39;Astronomical Unit&#39;,
+ &#39;ATA pica&#39;,
+ &#39;ATA point&#39;,
+ &#39;atmosphere&#39;,
+ &#39;atomic mass unit&#39;,
+ &#39;Australian cent&#39;,
+ &#39;Australian dollar&#39;,
+ &#39;Bahrain dinar&#39;,
+ &quot;baker&#39;s dozen&quot;,
+ &#39;bar&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="temporal-annotation">
+<h3>Temporal Annotation<a class="headerlink" href="#temporal-annotation" title="Permalink to this headline">¶</a></h3>
+<p>To convert from strings representing time to a more formal definition, the GSIS provides three endpoints to represent instant, interval, and time series. Time values are represented in UTC (Coordinated Universal Time) format. Times are expressed in local time, together with a time zone offset in hours and minutes. For more information about date and time formats, please visit <a class="reference external" href="https://www.w3.org/TR/NOTE-datetime">https://www.w3.org/TR/NOTE-datetime</a>.</p>
+<div class="section" id="time-instant-annotation">
+<h4>Time Instant Annotation<a class="headerlink" href="#time-instant-annotation" title="Permalink to this headline">¶</a></h4>
+<p>Query parameters:</p>
+<ul class="simple">
+<li><p><strong>time</strong> (string): time value in UTC format</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get a temporal annotation for a time instant in a JSON-LD format.</span>
+<span class="n">time</span> <span class="o">=</span> <span class="s1">&#39;2014-01-01T08:01:01-09:00&#39;</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">gsis_host</span><span class="si">}</span><span class="s2">/gsis/sas/temporal?time=</span><span class="si">{</span><span class="n">time</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;@context&#39;: {&#39;dc&#39;: &#39;http://purl.org/dc/elements/1.1/&#39;,
+  &#39;dcterms&#39;: &#39;http://purl.org/dc/terms/&#39;,
+  &#39;xsd&#39;: &#39;http://www.w3.org/2001/XMLSchema#&#39;,
+  &#39;time&#39;: &#39;http://www.w3.org/2006/time#&#39;,
+  &#39;tzont&#39;: &#39;http://www.w3.org/2006/timezone-us&#39;},
+ &#39;@id&#39;: &#39;http://ecgs.ncsa.illinois.edu/time_instant&#39;,
+ &#39;@type&#39;: &#39;time:Instant&#39;,
+ &#39;dc:date&#39;: &quot;yyyy-MM-dd&#39;T&#39;HH:mm:ssZ&quot;,
+ &#39;time:DateTimeDescription&#39;: {&#39;time:year&#39;: &#39;2014&#39;,
+  &#39;time:month&#39;: &#39;1&#39;,
+  &#39;time:day&#39;: &#39;1&#39;,
+  &#39;tzont&#39;: &#39;-09:00&#39;,
+  &#39;time:hours&#39;: &#39;8&#39;,
+  &#39;time:minutes&#39;: &#39;1&#39;,
+  &#39;time:seconds&#39;: &#39;1&#39;}}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="time-interval-annotation">
+<h4>Time Interval Annotation<a class="headerlink" href="#time-interval-annotation" title="Permalink to this headline">¶</a></h4>
+<p>Query parameters:</p>
+<ul class="simple">
+<li><p><strong>beginning</strong> (string): time value in UTC format.</p></li>
+<li><p><strong>end</strong> (string): time value in UTC format.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get a temporal annotation for a time interval in a JSON-LD format.</span>
+<span class="n">beginning</span> <span class="o">=</span> <span class="s1">&#39;2014-01-01T08:01:01-10:00&#39;</span>
+<span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;2014-12-31T08:01:01-10:00&#39;</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">gsis_host</span><span class="si">}</span><span class="s2">/gsis/sas/temporal?beginning=</span><span class="si">{</span><span class="n">beginning</span><span class="si">}</span><span class="s2">&amp;end=</span><span class="si">{</span><span class="n">end</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;@context&#39;: {&#39;dc&#39;: &#39;http://purl.org/dc/elements/1.1/&#39;,
+  &#39;dcterms&#39;: &#39;http://purl.org/dc/terms/&#39;,
+  &#39;xsd&#39;: &#39;http://www.w3.org/2001/XMLSchema#&#39;,
+  &#39;time&#39;: &#39;http://www.w3.org/2006/time#&#39;,
+  &#39;tzont&#39;: &#39;http://www.w3.org/2006/timezone-us&#39;},
+ &#39;@id&#39;: &#39;http://ecgs.ncsa.illinois.edu/time_interval&#39;,
+ &#39;@type&#39;: &#39;time:Interval&#39;,
+ &#39;time:Duration&#39;: {&#39;time:hasBeginning&#39;: {&#39;dc:date&#39;: &quot;yyyy-MM-dd&#39;T&#39;HH:mm:ssZ&quot;,
+   &#39;time:DateTimeDescription&#39;: {&#39;time:year&#39;: 2014,
+    &#39;time:month&#39;: 1,
+    &#39;time:day&#39;: 1,
+    &#39;tzont&#39;: &#39;-10:00&#39;,
+    &#39;time:hours&#39;: 8,
+    &#39;time:minutes&#39;: 1,
+    &#39;time:seconds&#39;: 1}},
+  &#39;time:hasEnd&#39;: {&#39;dc:date&#39;: &quot;yyyy-MM-dd&#39;T&#39;HH:mm:ssZ&quot;,
+   &#39;time:DateTimeDescription&#39;: {&#39;time:year&#39;: 2014,
+    &#39;time:month&#39;: 12,
+    &#39;time:day&#39;: 31,
+    &#39;tzont&#39;: &#39;-10:00&#39;,
+    &#39;time:hours&#39;: 8,
+    &#39;time:minutes&#39;: 1,
+    &#39;time:seconds&#39;: 1}}}}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="time-series-annotation">
+<h4>Time Series Annotation<a class="headerlink" href="#time-series-annotation" title="Permalink to this headline">¶</a></h4>
+<p>Query parameters:</p>
+<ul class="simple">
+<li><p><strong>beginning</strong> (string): time value in UTC format.</p></li>
+<li><p><strong>end</strong> (string): time value in UTC format.</p></li>
+<li><p><strong>interval</strong> (float): time step.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get a temporal annotation for a time series in a JSON-LD format.</span>
+<span class="n">beginning</span> <span class="o">=</span> <span class="s1">&#39;2014-01-01T08:01:01-10:00&#39;</span>
+<span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;2014-03-01T08:01:01-10:00&#39;</span>
+<span class="n">interval</span> <span class="o">=</span> <span class="s1">&#39;4&#39;</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">gsis_host</span><span class="si">}</span><span class="s2">/gsis/sas/temporal?beginning=</span><span class="si">{</span><span class="n">beginning</span><span class="si">}</span><span class="s2">&amp;end=</span><span class="si">{</span><span class="n">end</span><span class="si">}</span><span class="s2">&amp;interval=</span><span class="si">{</span><span class="n">interval</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;@context&#39;: {&#39;dc&#39;: &#39;http://purl.org/dc/elements/1.1/&#39;,
+  &#39;dcterms&#39;: &#39;http://purl.org/dc/terms/&#39;,
+  &#39;xsd&#39;: &#39;http://www.w3.org/2001/XMLSchema#&#39;,
+  &#39;time&#39;: &#39;http://www.w3.org/2006/time#&#39;,
+  &#39;tzont&#39;: &#39;http://www.w3.org/2006/timezone-us&#39;},
+ &#39;@id&#39;: &#39;http://ecgs.ncsa.illinois.edu/time_series&#39;,
+ &#39;time:Duration&#39;: {&#39;time:hasBeginning&#39;: {&#39;dc:date&#39;: &quot;yyyy-MM-dd&#39;T&#39;HH:mm:ssZ&quot;,
+   &#39;time:DateTimeDescription&#39;: {&#39;time:year&#39;: 2014,
+    &#39;time:month&#39;: 1,
+    &#39;time:day&#39;: 1,
+    &#39;tzont&#39;: &#39;-10:00&#39;,
+    &#39;time:hours&#39;: 8,
+    &#39;time:minutes&#39;: 1,
+    &#39;time:seconds&#39;: 1}},
+  &#39;time:hasEnd&#39;: {&#39;dc:date&#39;: &quot;yyyy-MM-dd&#39;T&#39;HH:mm:ssZ&quot;,
+   &#39;time:DateTimeDescription&#39;: {&#39;time:year&#39;: 2014,
+    &#39;time:month&#39;: 3,
+    &#39;time:day&#39;: 1,
+    &#39;tzont&#39;: &#39;-10:00&#39;,
+    &#39;time:hours&#39;: 8,
+    &#39;time:minutes&#39;: 1,
+    &#39;time:seconds&#39;: 1}},
+  &#39;time:temporalUnit&#39;: {&#39;@type&#39;: &#39;time:unitSecond&#39;, &#39;@value&#39;: 4}}}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="annotating-data-in-the-imlczo-data-management-system">
+<h2>Annotating Data in the IMLCZO Data Management System<a class="headerlink" href="#annotating-data-in-the-imlczo-data-management-system" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="https://data.imlczo.org/">IMLCZO data management system</a> is comprised of two different services. A Clowder instance stores raw data streaming in from sensors, manually uploaded by users, collected in the lab or in the field. A Geodashboard including a subset of all the data collected and presented using interactive maps and graphs. We will focus on the Clowder service and how users can store arbitrary metadata as JSON-LD on datasets and files stored within. We will leverage the GSIS to make sure that our metadata is based on existing standards.</p>
+<p>Because we will be adding information to the Clowder instance, we will be required to register an account on the IMLCZO Clowder instance and create an API key and added to the cell below.</p>
+<div class="section" id="register-an-account-on-imlczo">
+<h3>Register an account on IMLCZO<a class="headerlink" href="#register-an-account-on-imlczo" title="Permalink to this headline">¶</a></h3>
+<p>To register an account on the IMLCZO Clowder instance, please go to <a class="reference external" href="https://data.imlczo.org/clowder/signup">https://data.imlczo.org/clowder/signup</a> and enter your email. You will receive an email from us. To activate your account, please reply back to the email saying you are using the ecgs jupyter notebook.
+Once your account is activated, you can generate an API key.</p>
+</div>
+<div class="section" id="generate-and-use-an-api-key">
+<h3>Generate and use an API Key<a class="headerlink" href="#generate-and-use-an-api-key" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Login to <a class="reference external" href="https://data.imlczo.org/clowder/login">https://data.imlczo.org/clowder/login</a> and navigate to your profile (click on the icon in the top right and select “View Profile”).
+<img alt="profile" src="../../_images/profile.png" /></p></li>
+<li><p>Add a name to your key and hit the “Add” button. In the example below, we created a test_key.
+<img alt="profile" src="../../_images/added_key.png" /></p></li>
+<li><p>Copy your key from step 2.</p></li>
+<li><p>If you are running this notebook in your machine, create a .env file in the same directory as this notebook and, using your favorite text editor, add the following line:
+<code class="docutils literal notranslate"><span class="pre">CLOWDER-KEY=paste-your-key-here</span></code>.</p></li>
+<li><p>If you are running the notebook in Binder, uncomment and paste the key in line 5, <code class="docutils literal notranslate"><span class="pre">%env</span> <span class="pre">CLOWDER-KEY=</span></code> in the block below.</p></li>
+<li><p>Run the following block.</p></li>
+</ol>
+</div>
+<div class="section" id="setting-api-key-and-request-headers">
+<h3>Setting API key and request headers<a class="headerlink" href="#setting-api-key-and-request-headers" title="Permalink to this headline">¶</a></h3>
+<p>We use <a class="reference external" href="https://github.com/theskumar/python-dotenv">python-dotenv</a> to set the Clowder API key for this session (you can also just manually set it in the notebook if you prefer). We also set the headers for most requests here and set the default content type to JSON and the Clowder API key to the one we just created. All calls will only provide information based on the user making the request. This means that the quality of the results could vary greatly. We will be creating a dataset and adding a file to it to make sure that the user can make the appropriate against this specific resource.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Please create an API key as described above</span>
+<span class="o">%</span><span class="k">load_ext</span> dotenv
+<span class="o">%</span><span class="k">dotenv</span>
+<span class="c1"># If using Binder, uncomment and paste your key below</span>
+<span class="c1"># %env CLOWDER-KEY=paste your key here</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">clowder_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;CLOWDER-KEY&quot;</span><span class="p">)</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Content-type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">,</span> <span class="s1">&#39;X-API-Key&#39;</span><span class="p">:</span> <span class="n">clowder_key</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="search-by-generic-search-query">
+<h3>Search by generic search query<a class="headerlink" href="#search-by-generic-search-query" title="Permalink to this headline">¶</a></h3>
+<p>We will start by searching the system for a generic string <code class="docutils literal notranslate"><span class="pre">precipitation</span></code>. Depending on your permissions you might be able to see around 11 results. The results of this query are based on any information available on the resource (dataset, file, or collection).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;precipitation&#39;</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">/api/search?query=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">clowder_host</span><span class="p">,</span> <span class="n">query</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;count&#39;: 10,
+ &#39;size&#39;: 10,
+ &#39;scanned_size&#39;: 240,
+ &#39;results&#39;: [{&#39;id&#39;: &#39;596faa3b4f0c0b1c81fa42de&#39;,
+   &#39;name&#39;: &#39;Trimpe East Site (Precip tipping bucket site)&#39;,
+   &#39;description&#39;: &#39;Precipitation, temperature and solar radiation sensor (E-P) at Trimpe Farm on the east end of the farm. Installed on 7/11/17. Precip array was moved from the west end of the farm and relocated on the east end. Precip records before 7/11/17 can be found in the Trimpe West dataset.Trimpe East Deep Well has a decagon well transducer measuring hydraulic head and specific conductivity; the transducer has a depth of (6.2m - .73m well casing length = 5.47m). Trimpe East Shallow Well has a decagon well transducer measuring hydraulic head and specific conductivty; the transducer has a depth of (4.57m -1.3m well casing = 3.27m). These well files are denoted as Trimpe_E-W . &#39;,
+   &#39;created&#39;: &#39;Wed Jul 19 13:51:39 CDT 2017&#39;,
+   &#39;thumbnail&#39;: &#39;596fade24f0c0b1c81fa4414&#39;,
+   &#39;authorId&#39;: &#39;58b05a8c5792756cf490e664&#39;,
+   &#39;spaces&#39;: [&#39;5967f7004f0c0b1c81f8654a&#39;],
+   &#39;resource_type&#39;: &#39;dataset&#39;},
+  {&#39;id&#39;: &#39;59444c82e4b001915f9624ee&#39;,
+   &#39;collectionname&#39;: &#39;Precipitation&#39;,
+   &#39;description&#39;: &#39;&#39;,
+   &#39;created&#39;: &#39;Fri Jun 16 16:24:18 CDT 2017&#39;,
+   &#39;thumbnail&#39;: &#39;58ff9534e4b0ed131b4cb554&#39;,
+   &#39;authorId&#39;: &#39;587e90a7a3ad2109e72c8651&#39;,
+   &#39;resource_type&#39;: &#39;collection&#39;},
+  {&#39;id&#39;: &#39;59444cebe4b001915f96254f&#39;,
+   &#39;name&#39;: &#39;C-1-1&#39;,
+   &#39;description&#39;: &#39;Climate - Precipitation&#39;,
+   &#39;created&#39;: &#39;Fri Jun 16 16:26:03 CDT 2017&#39;,
+   &#39;thumbnail&#39;: None,
+   &#39;authorId&#39;: &#39;587e90a7a3ad2109e72c8651&#39;,
+   &#39;spaces&#39;: [&#39;594441eae4b001915f96205c&#39;],
+   &#39;resource_type&#39;: &#39;dataset&#39;},
+  {&#39;id&#39;: &#39;59444cf6e4b001915f962553&#39;,
+   &#39;name&#39;: &#39;C-1-2&#39;,
+   &#39;description&#39;: &#39;Climate - Precipitation&#39;,
+   &#39;created&#39;: &#39;Fri Jun 16 16:26:14 CDT 2017&#39;,
+   &#39;thumbnail&#39;: None,
+   &#39;authorId&#39;: &#39;587e90a7a3ad2109e72c8651&#39;,
+   &#39;spaces&#39;: [&#39;594441eae4b001915f96205c&#39;],
+   &#39;resource_type&#39;: &#39;dataset&#39;},
+  {&#39;id&#39;: &#39;5500f526e4b0feb5ae15458d&#39;,
+   &#39;name&#39;: &#39;ClearCreekIA_HistoricalClimateData.xlsx&#39;,
+   &#39;description&#39;: &#39;Historical climate data for Clear Creek Temperature, Precipitation, Snowfall, Snow Depth, Wind Speed, Pan Evaporation&#39;,
+   &#39;created&#39;: &#39;Thu Oct 24 23:21:16 CDT 2013&#39;,
+   &#39;thumbnail&#39;: None,
+   &#39;authorId&#39;: &#39;5500f508e4b0feb5ae154555&#39;,
+   &#39;spaces&#39;: [&#39;594441eae4b001915f96205c&#39;],
+   &#39;resource_type&#39;: &#39;dataset&#39;},
+  {&#39;id&#39;: &#39;564a0843e4b0b6c112b46cac&#39;,
+   &#39;name&#39;: &#39;Clear Creek IA - WA_RAW_Maas_6&#39;,
+   &#39;description&#39;: &#39;Clear Creek, IA\nZone I Site 1-1\nWeathering Array EM30136\nAnemometer, Precipitation&#39;,
+   &#39;created&#39;: &#39;Mon Nov 16 10:45:55 CST 2015&#39;,
+   &#39;thumbnail&#39;: &#39;57bc65cfe4b0b805e47a37a8&#39;,
+   &#39;authorId&#39;: &#39;577bfd99e4b054f1fa78f685&#39;,
+   &#39;spaces&#39;: [&#39;594441f6e4b001915f96206f&#39;],
+   &#39;resource_type&#39;: &#39;dataset&#39;},
+  {&#39;id&#39;: &#39;596fadd04f0c0b1c81fa4405&#39;,
+   &#39;name&#39;: &#39;WA_RAW_Trimpe_E-P_2017-7-17.xls&#39;,
+   &#39;status&#39;: &#39;PROCESSED&#39;,
+   &#39;thumbnail&#39;: &#39;596fade24f0c0b1c81fa4414&#39;,
+   &#39;created&#39;: &#39;Wed Jul 19 14:06:56 CDT 2017&#39;,
+   &#39;resource_type&#39;: &#39;file&#39;},
+  {&#39;id&#39;: &#39;5a32c7674f0c6b32ffa397e7&#39;,
+   &#39;name&#39;: &#39;S-Fowler Farm Weather Station (CZO_FF1)&#39;,
+   &#39;description&#39;: &#39;Site #151\nLocation: 40°09\&#39;02.6&quot; N -88°19\&#39;52.1&quot; W\nSite/Logger Name: CZO_FF1\nDate deployed: 03/29/2017\nSensors: PYR pyranometer, ECRN-100 rain gauge, VP-4 RH/Temp/AtmP, LWS leaf wetness, and Davis Cup anemometer. DS-2 sonic anemometer used from 03/29/2017-01/31/2018.\nLogger(s): METER Group EM60G, SN: 06-01890 (06/28/2018-current)\nDecagon EM50G, SN: 5G106751 (used 11/14/2017-06/28/2018)\nDecagon EM50G; SN: 5G106590 (used 03/29/2017-10/14/2017)\n\nData collection frequency: 1-min\nData collected: solar radiation (W/m^2), precipitation (mm), relative humidity (%), temperature (*C), atmospheric pressure (kPa), LWS minutes wet (min) and count, wind speed (m/s), wind direction (degree), and maximum wind speed (m/s)&#39;,
+   &#39;created&#39;: &#39;Thu Dec 14 12:48:07 CST 2017&#39;,
+   &#39;thumbnail&#39;: None,
+   &#39;authorId&#39;: &#39;57222685a30d71e0572adf99&#39;,
+   &#39;spaces&#39;: [&#39;594441eae4b001915f96205c&#39;],
+   &#39;resource_type&#39;: &#39;dataset&#39;},
+  {&#39;id&#39;: &#39;5a32e5094f0c6b32ffa39e86&#39;,
+   &#39;name&#39;: &#39;S-River Bend Weather Station (CZO_RB1)&#39;,
+   &#39;description&#39;: &#39;Site #149\nLocation: 40°10\&#39;49.1&quot; N -88°26\&#39;00.0&quot; W\nSite/Logger Name: CZO_RB1\nDate deployed: 09/15/2016\nSensors: PYR pyranometer, ECRN-100 rain gauge, VP-4 RH/Temp/AtmP, LWS leaf wetness, and Davis Cup anemometer. DS-2 sonic anemometer was used from 09/15/2016-2/22/2018.\nLogger(s): METER Group EM60G, SN: 06-01883 (06/14/2018-current)\nDecagon EM50, SN: EM20692 (used 04/30/2018-06/14/2018)\nDecagon EM50G, SN: 5G106588 (used 09/15/2016-04/30/2018)\n\nMeasurement Interval: 1-min\nData collected: solar radiation (W/m^2), precipitation (mm), relative humidity (%), temperature (*C), atmospheric pressure (kPa), LWS minutes wet (min) and count, wind speed (m/s), wind direction (degree), and maximum wind speed (m/s)&#39;,
+   &#39;created&#39;: &#39;Thu Dec 14 14:54:33 CST 2017&#39;,
+   &#39;thumbnail&#39;: None,
+   &#39;authorId&#39;: &#39;57222685a30d71e0572adf99&#39;,
+   &#39;spaces&#39;: [&#39;594441eae4b001915f96205c&#39;],
+   &#39;resource_type&#39;: &#39;dataset&#39;},
+  {&#39;id&#39;: &#39;57c0b485e4b0b805e47b3df8&#39;,
+   &#39;name&#39;: &#39;Previous measurement station&#39;,
+   &#39;description&#39;: &#39;These sensor locations are previously installed inside USRB, including precipitation stations, sediment station, USGS stream station, Ameriflux tower, ISWS Stream and nutrient station, etc.&#39;,
+   &#39;created&#39;: &#39;Fri Aug 26 16:28:37 CDT 2016&#39;,
+   &#39;thumbnail&#39;: None,
+   &#39;authorId&#39;: &#39;5500f508e4b0feb5ae15455e&#39;,
+   &#39;spaces&#39;: [&#39;5953ba884f0c5558e1684bf4&#39;],
+   &#39;resource_type&#39;: &#39;dataset&#39;}],
+ &#39;from&#39;: 0,
+ &#39;total_size&#39;: 12}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="search-by-metadata-field">
+<h3>Search by metadata field<a class="headerlink" href="#search-by-metadata-field" title="Permalink to this headline">¶</a></h3>
+<p>To be more specific, we will search for any resource which contains metadata for <code class="docutils literal notranslate"><span class="pre">ODM2</span> <span class="pre">Variable</span> <span class="pre">Name</span></code> that is equal to <code class="docutils literal notranslate"><span class="pre">precipitation</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;&quot;ODM2 Variable Name&quot;:&quot;precipitation&quot;&#39;</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">/api/search?query=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">clowder_host</span><span class="p">,</span> <span class="n">query</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="n">datasets</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;results&#39;</span><span class="p">)</span>
+
+<span class="n">dataset</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">datasets</span> <span class="k">if</span> <span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;Trimpe East Site (Precip tipping bucket site)&#39;</span><span class="p">]</span>
+
+<span class="n">datasetId</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
+
+<span class="n">dataset</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;id&#39;: &#39;596faa3b4f0c0b1c81fa42de&#39;,
+ &#39;name&#39;: &#39;Trimpe East Site (Precip tipping bucket site)&#39;,
+ &#39;description&#39;: &#39;Precipitation, temperature and solar radiation sensor (E-P) at Trimpe Farm on the east end of the farm. Installed on 7/11/17. Precip array was moved from the west end of the farm and relocated on the east end. Precip records before 7/11/17 can be found in the Trimpe West dataset.Trimpe East Deep Well has a decagon well transducer measuring hydraulic head and specific conductivity; the transducer has a depth of (6.2m - .73m well casing length = 5.47m). Trimpe East Shallow Well has a decagon well transducer measuring hydraulic head and specific conductivty; the transducer has a depth of (4.57m -1.3m well casing = 3.27m). These well files are denoted as Trimpe_E-W . &#39;,
+ &#39;created&#39;: &#39;Wed Jul 19 13:51:39 CDT 2017&#39;,
+ &#39;thumbnail&#39;: &#39;596fade24f0c0b1c81fa4414&#39;,
+ &#39;authorId&#39;: &#39;58b05a8c5792756cf490e664&#39;,
+ &#39;spaces&#39;: [&#39;5967f7004f0c0b1c81f8654a&#39;],
+ &#39;resource_type&#39;: &#39;dataset&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>We list all files in the dataset and download the first in the list. This is just to provide us with a relevant file locally but if you prefer you can ignore this step and later on upload your own file to the system.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># List files in dataset</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">/api/datasets/</span><span class="si">{}</span><span class="s2">/files&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">clowder_host</span><span class="p">,</span> <span class="n">datasetId</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">files</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="c1"># Download the first file</span>
+<span class="n">file_id</span> <span class="o">=</span> <span class="n">files</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
+<span class="n">file_name</span> <span class="o">=</span> <span class="n">files</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;filename&#39;</span><span class="p">)</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">/api/files/</span><span class="si">{}</span><span class="s2">/blob&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">clowder_host</span><span class="p">,</span> <span class="n">file_id</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Downloaded file </span><span class="si">{</span><span class="n">file_name</span><span class="si">}</span><span class="s1"> to local disk&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded file WA_RAW_Trimpe_E-P_2017-7-17.xls to local disk
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="create-new-dataset">
+<h3>Create new dataset<a class="headerlink" href="#create-new-dataset" title="Permalink to this headline">¶</a></h3>
+<p>Create a new dataset to contain the file we just downloaded (or a new one) and metadata.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">/api/datasets/createempty&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">clowder_host</span><span class="p">)</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Geosemantics Demo&#39;</span><span class="p">,</span> 
+                      <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s1">&#39;A dataset used for demoing basic metadata annotation functionality&#39;</span><span class="p">,</span>
+                      <span class="s1">&#39;access&#39;</span><span class="p">:</span> <span class="s1">&#39;PRIVATE&#39;</span><span class="p">,</span>
+                      <span class="s1">&#39;space&#39;</span><span class="p">:</span> <span class="p">[],</span>
+                      <span class="s1">&#39;collection&#39;</span><span class="p">:</span> <span class="p">[]})</span> 
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="n">new_dataset</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">new_dataset_id</span> <span class="o">=</span> <span class="n">new_dataset</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Created new dataset </span><span class="si">{</span><span class="n">clowder_host</span><span class="si">}</span><span class="s1">/datasets/</span><span class="si">{</span><span class="n">new_dataset_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created new dataset https://data.imlczo.org/clowder/datasets/5ee7d6a64f0ccc5274e45431
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="upload-file-to-new-dataset">
+<h3>Upload file to new dataset<a class="headerlink" href="#upload-file-to-new-dataset" title="Permalink to this headline">¶</a></h3>
+<p>We now upload a file to the dataset that we just created. If you prefer uploading a different file, change the file name below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">/api/uploadToDataset/</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">clowder_host</span><span class="p">,</span> <span class="n">new_dataset_id</span><span class="p">)</span>
+<span class="c1"># change file_name if you prefer uploading a different file from your local directory</span>
+<span class="n">files</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;file&#39;</span><span class="p">:</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)}</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">files</span><span class="o">=</span><span class="n">files</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;X-API-Key&#39;</span><span class="p">:</span> <span class="n">clowder_key</span><span class="p">})</span>
+<span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="n">uploaded_file_id</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Uploaded file </span><span class="si">{</span><span class="n">clowder_host</span><span class="si">}</span><span class="s1">/files/</span><span class="si">{</span><span class="n">uploaded_file_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Uploaded file https://data.imlczo.org/clowder/files/5ee7d6a94f0ccc5274e45437
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="add-metadata-to-new-file">
+<h3>Add metadata to new file<a class="headerlink" href="#add-metadata-to-new-file" title="Permalink to this headline">¶</a></h3>
+<p>We now upload metadata to the file we have just uploaded. Note that this operation can be executed multiple times with different payloads. Every time a new entry is added to the list of metadata documents associated with a file or dataset. The same user can update multiple values of a specific entry or different users can specify alternative values of the same metadata types. It is is up to the client to decide which version is the most accurate. Users can delete entries that are not valid anymore. This type of generic metadata is compatible to the <a class="reference external" href="https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md#advanced-publishing-techniques">advanced publishing techniquies described in the ESIP science-on-schema.org</a> and could be added to a DCAT Dataset as described there.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">/api/files/</span><span class="si">{}</span><span class="s2">/metadata.jsonld&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">clowder_host</span><span class="p">,</span> <span class="n">uploaded_file_id</span><span class="p">)</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;@context&quot;</span><span class="p">:[</span>
+        <span class="s2">&quot;https://clowder.ncsa.illinois.edu/contexts/metadata.jsonld&quot;</span><span class="p">,</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;CSDMS Standard Name&quot;</span><span class="p">:</span> <span class="s2">&quot;http://csdms.colorado.edu/wiki/CSN_Searchable_List#atmosphere_air__temperature&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;http://ecgs.ncsa.illinois.edu/gsis/sas/unit/udunits2#degree_Celsius&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;agent&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;@type&quot;</span><span class="p">:</span><span class="s2">&quot;cat:extractor&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;ECGS Notebook&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;extractor_id&quot;</span><span class="p">:</span><span class="s2">&quot;https://clowder.ncsa.illinois.edu/api/extractors/ecgs&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;CSDMS Standard Name&quot;</span><span class="p">:</span> <span class="s2">&quot;atmosphere_air__temperature&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;degree_Celsius&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">payload</span><span class="p">))</span>
+<span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Response &#39;</span> <span class="o">+</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;View metadata you have just uploaded on the file page </span><span class="si">{</span><span class="n">clowder_host</span><span class="si">}</span><span class="s1">/files/</span><span class="si">{</span><span class="n">uploaded_file_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Response Metadata successfully added to db
+View metadata you have just uploaded on the file page https://data.imlczo.org/clowder/files/5ee7d6a94f0ccc5274e45437
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also retrieve all the metadata available on the file, including metadata automatically created by the system.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">/api/files/</span><span class="si">{}</span><span class="s2">/metadata.jsonld&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">clowder_host</span><span class="p">,</span> <span class="n">uploaded_file_id</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;@context&#39;: [&#39;https://clowder.ncsa.illinois.edu/contexts/metadata.jsonld&#39;,
+   {&#39;CSDMS Standard Name&#39;: &#39;http://csdms.colorado.edu/wiki/CSN_Searchable_List#atmosphere_air__temperature&#39;,
+    &#39;Unit&#39;: &#39;http://ecgs.ncsa.illinois.edu/gsis/sas/unit/udunits2#degree_Celsius&#39;}],
+  &#39;attached_to&#39;: {&#39;resource_type&#39;: &#39;cat:file&#39;,
+   &#39;url&#39;: &#39;https://data.imlczo.org/clowder/files/5ee7d6a94f0ccc5274e45437&#39;},
+  &#39;created_at&#39;: &#39;Mon Jun 15 15:14:33 CDT 2020&#39;,
+  &#39;agent&#39;: {&#39;@type&#39;: &#39;cat:extractor&#39;,
+   &#39;name&#39;: &#39;ECGS Notebook&#39;,
+   &#39;extractor_id&#39;: &#39;https://clowder.ncsa.illinois.edu/api/extractors/ecgs&#39;},
+  &#39;content&#39;: {&#39;CSDMS Standard Name&#39;: &#39;atmosphere_air__temperature&#39;,
+   &#39;Unit&#39;: &#39;degree_Celsius&#39;}}]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We have defined the context by including an external one that contains the basic elements of any Clowder metadata document such as <code class="docutils literal notranslate"><span class="pre">agent</span></code> as well as specific ones for the two entries in <code class="docutils literal notranslate"><span class="pre">content</span></code>. We can view the rest of the context here:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The context file describes the basic elements of a Clowder metadata document</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://clowder.ncsa.illinois.edu/contexts/metadata.jsonld&#39;</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;@context&#39;: {&#39;cat&#39;: &#39;https://clowder.ncsa.illinois.edu/#&#39;,
+  &#39;extractor_id&#39;: {&#39;@id&#39;: &#39;cat:extractor/id&#39;, &#39;@type&#39;: &#39;@id&#39;},
+  &#39;user_id&#39;: {&#39;@id&#39;: &#39;cat:user/id&#39;, &#39;@type&#39;: &#39;@id&#39;},
+  &#39;created_at&#39;: {&#39;@id&#39;: &#39;http://purl.org/dc/terms/created&#39;,
+   &#39;@type&#39;: &#39;http://www.w3.org/2001/XMLSchema#dateTime&#39;},
+  &#39;agent&#39;: {&#39;@id&#39;: &#39;http://www.w3.org/ns/prov#Agent&#39;},
+  &#39;user&#39;: &#39;cat:user&#39;,
+  &#39;extractor&#39;: &#39;cat:extractor&#39;,
+  &#39;content&#39;: {&#39;@id&#39;: &#39;https://clowder.ncsa.illinois.edu/metadata#content&#39;}}}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="matching-models-with-data">
+<h3>Matching Models with Data<a class="headerlink" href="#matching-models-with-data" title="Permalink to this headline">¶</a></h3>
+<p>The GSIS also prototyped a method to match simulations models developed using the Basic Model Interface (BMI) (Jiang et al. 2017) to input datasets. Given definitions for both, the system checks if a specific variable is compatible between data and model. The user provides the id of an RDF graph representing a model, one of an RDF graph representing a dataset, and the RDF predicates used to identify the variables in each graph. It then tries to match the two lists leveraging the <code class="docutils literal notranslate"><span class="pre">skos:sameAs</span></code> crosswalks defined above. The results includes whether a match was found, what variables are missing if so, and what variables will require a crosswalk and potentially a conversion.</p>
+<p>For example, in the case below a match was found but the crosswalk between <code class="docutils literal notranslate"><span class="pre">http://vocabulary.odm2.org/variablename/windSpeed</span></code> and <code class="docutils literal notranslate"><span class="pre">http://csdms.colorado.edu/wiki/CSN_Searchable_List/land_surface_air_flow__speed</span></code> was required.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_id</span> <span class="o">=</span> <span class="s1">&#39;model-3&#39;</span>
+<span class="n">model_var_property_name</span> <span class="o">=</span> <span class="s1">&#39;http://ecgs.ncsa.illinois.edu/bmi_models/temp/hasStandardName&#39;</span>
+<span class="n">data_id</span> <span class="o">=</span> <span class="s1">&#39;data-3&#39;</span>
+<span class="n">data_var_property_name</span> <span class="o">=</span> <span class="s1">&#39;http://ecgs.ncsa.illinois.edu/gsis/sas/vars&#39;</span>
+        
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">gsis_host</span><span class="si">}</span><span class="s1">/gsis/modelDataMatches?model=</span><span class="si">{</span><span class="n">model_id</span><span class="si">}</span><span class="s1">&amp;modelVarPropertyName=</span><span class="si">{</span><span class="n">model_var_property_name</span><span class="si">}</span><span class="s1">&amp;data=</span><span class="si">{</span><span class="n">data_id</span><span class="si">}</span><span class="s1">&amp;dataVarPropertyName=</span><span class="si">{</span><span class="n">data_var_property_name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Matching status&#39;: &#39;true&#39;,
+ &#39;missing variables&#39;: &#39;&#39;,
+ &#39;model variables&#39;: &#39;http://vocabulary.odm2.org/variablename/windSpeed,http://csdms.colorado.edu/wiki/CSN_Searchable_List/atmosphere_bottom_air__brutsaert_emissivity_canopy_factor&#39;,
+ &#39;data variables, original&#39;: &#39;http://csdms.colorado.edu/wiki/CSN_Searchable_List/atmosphere_bottom_air__brutsaert_emissivity_canopy_factor,http://csdms.colorado.edu/wiki/CSN_Searchable_List/land_surface_air_flow__speed&#39;,
+ &#39;data variables, with inference&#39;: &#39;http://csdms.colorado.edu/wiki/CSN_Searchable_List/atmosphere_bottom_air__brutsaert_emissivity_canopy_factor,http://csdms.colorado.edu/wiki/CSN_Searchable_List/land_surface_air_flow__speed,http://vocabulary.odm2.org/variablename/windGustSpeed,http://vocabulary.odm2.org/variablename/windSpeed&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>For reference here are the two RDF graphs being compared:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">gsis_host</span><span class="si">}</span><span class="s2">/gsis/read?graph=</span><span class="si">{</span><span class="n">model_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;@graph&#39;: [{&#39;@id&#39;: &#39;_:b0&#39;,
+   &#39;@type&#39;: &#39;ns1:variable&#39;,
+   &#39;ns1:hasScriptName&#39;: &#39;beta&#39;,
+   &#39;hasSpatialProperties&#39;: &#39;_:b2&#39;,
+   &#39;hasStandardName&#39;: &#39;odm2:windSpeed&#39;,
+   &#39;hasTemporalProperties&#39;: &#39;_:b3&#39;,
+   &#39;ns1:hasUnits&#39;: &#39;radians&#39;,
+   &#39;hasValueType&#39;: &#39;xsd:double&#39;},
+  {&#39;@id&#39;: &#39;_:b1&#39;,
+   &#39;@type&#39;: &#39;ns1:variable&#39;,
+   &#39;ns1:hasScriptName&#39;: &#39;canopy_factor&#39;,
+   &#39;hasSpatialProperties&#39;: &#39;_:b6&#39;,
+   &#39;hasStandardName&#39;: &#39;csn:atmosphere_bottom_air__brutsaert_emissivity_canopy_factor&#39;,
+   &#39;hasTemporalProperties&#39;: &#39;_:b7&#39;,
+   &#39;ns1:hasUnits&#39;: &#39;1&#39;,
+   &#39;hasValueType&#39;: &#39;xsd:double&#39;},
+  {&#39;@id&#39;: &#39;_:b2&#39;,
+   &#39;hasGridNumberInX&#39;: &#39;ns1:unknown&#39;,
+   &#39;hasGridNumberInY&#39;: &#39;ns1:unknown&#39;,
+   &#39;hasGridSpacingX&#39;: &#39;_:b4&#39;,
+   &#39;hasGridSpacingY&#39;: &#39;_:b5&#39;,
+   &#39;ns1:hasGridType&#39;: &#39;uniform&#39;,
+   &#39;hasSouthBounding&#39;: &#39;ns1:unknown&#39;,
+   &#39;hasWestBounding&#39;: &#39;ns1:unknown&#39;},
+  {&#39;@id&#39;: &#39;_:b3&#39;,
+   &#39;hasTimeStep&#39;: &#39;ns1:unknown&#39;,
+   &#39;hasTimeStep:Type&#39;: &#39;fixed&#39;,
+   &#39;ns1:hasTimeUnits&#39;: &#39;seconds&#39;},
+  {&#39;@id&#39;: &#39;_:b4&#39;, &#39;ns1:hasUnits&#39;: &#39;meters&#39;, &#39;hasValue&#39;: &#39;ns1:unknown&#39;},
+  {&#39;@id&#39;: &#39;_:b5&#39;, &#39;ns1:hasUnits&#39;: &#39;meters&#39;, &#39;hasValue&#39;: &#39;ns1:unknown&#39;},
+  {&#39;@id&#39;: &#39;_:b6&#39;,
+   &#39;hasGridNumberInX&#39;: &#39;ns1:unknown&#39;,
+   &#39;hasGridNumberInY&#39;: &#39;ns1:unknown&#39;,
+   &#39;hasGridSpacingX&#39;: &#39;_:b8&#39;,
+   &#39;hasGridSpacingY&#39;: &#39;_:b9&#39;,
+   &#39;ns1:hasGridType&#39;: &#39;uniform&#39;,
+   &#39;hasSouthBounding&#39;: &#39;ns1:unknown&#39;,
+   &#39;hasWestBounding&#39;: &#39;ns1:unknown&#39;},
+  {&#39;@id&#39;: &#39;_:b7&#39;,
+   &#39;hasTimeStep&#39;: &#39;ns1:unknown&#39;,
+   &#39;hasTimeStep:Type&#39;: &#39;fixed&#39;,
+   &#39;ns1:hasTimeUnits&#39;: &#39;seconds&#39;},
+  {&#39;@id&#39;: &#39;_:b8&#39;, &#39;ns1:hasUnits&#39;: &#39;meters&#39;, &#39;hasValue&#39;: &#39;ns1:unknown&#39;},
+  {&#39;@id&#39;: &#39;_:b9&#39;, &#39;ns1:hasUnits&#39;: &#39;meters&#39;, &#39;hasValue&#39;: &#39;ns1:unknown&#39;},
+  {&#39;@id&#39;: &#39;ns1:TopoFlow_Meteorology&#39;,
+   &#39;@type&#39;: &#39;ns1:model&#39;,
+   &#39;hasInput&#39;: [&#39;_:b0&#39;, &#39;_:b1&#39;]}],
+ &#39;@context&#39;: {&#39;hasInput&#39;: {&#39;@id&#39;: &#39;http://ecgs.ncsa.illinois.edu/bmi_models/temp/hasInput&#39;,
+   &#39;@type&#39;: &#39;@id&#39;},
+  &#39;hasScriptName&#39;: {&#39;@id&#39;: &#39;http://ecgs.ncsa.illinois.edu/bmi_models/temp/hasScriptName&#39;,
+   &#39;@type&#39;: &#39;http://www.w3.org/2001/XMLSchema#string&#39;},
+  &#39;hasUnits&#39;: {&#39;@id&#39;: &#39;http://ecgs.ncsa.illinois.edu/bmi_models/temp/hasUnits&#39;,
+   &#39;@type&#39;: &#39;http://www.w3.org/2001/XMLSchema#string&#39;},
+  &#39;hasSpatialProperties&#39;: {&#39;@id&#39;: &#39;http://ecgs.ncsa.illinois.edu/bmi_models/temp/hasSpatialProperties&#39;,
+   &#39;@type&#39;: &#39;@id&#39;},
+  &#39;hasStandardName&#39;: {&#39;@id&#39;: &#39;http://ecgs.ncsa.illinois.edu/bmi_models/temp/hasStandardName&#39;,
+   &#39;@type&#39;: &#39;@id&#39;},
+  &#39;hasTemporalProperties&#39;: {&#39;@id&#39;: &#39;http://ecgs.ncsa.illinois.edu/bmi_models/temp/hasTemporalProperties&#39;,
+   &#39;@type&#39;: &#39;@id&#39;},
+  &#39;hasValueType&#39;: {&#39;@id&#39;: &#39;http://ecgs.ncsa.illinois.edu/bmi_models/temp/hasValueType&#39;,
+   &#39;@type&#39;: &#39;@id&#39;},
+  &#39;hasGridNumberInX&#39;: {&#39;@id&#39;: &#39;http://ecgs.ncsa.illinois.edu/bmi_models/temp/hasGridNumberInX&#39;,
+   &#39;@type&#39;: &#39;@id&#39;},
+  &#39;hasGridNumberInY&#39;: {&#39;@id&#39;: &#39;http://ecgs.ncsa.illinois.edu/bmi_models/temp/hasGridNumberInY&#39;,
+   &#39;@type&#39;: &#39;@id&#39;},
+  &#39;hasGridSpacingX&#39;: {&#39;@id&#39;: &#39;http://ecgs.ncsa.illinois.edu/bmi_models/temp/hasGridSpacingX&#39;,
+   &#39;@type&#39;: &#39;@id&#39;},
+  &#39;hasGridSpacingY&#39;: {&#39;@id&#39;: &#39;http://ecgs.ncsa.illinois.edu/bmi_models/temp/hasGridSpacingY&#39;,
+   &#39;@type&#39;: &#39;@id&#39;},
+  &#39;hasGridType&#39;: {&#39;@id&#39;: &#39;http://ecgs.ncsa.illinois.edu/bmi_models/temp/hasGridType&#39;,
+   &#39;@type&#39;: &#39;http://www.w3.org/2001/XMLSchema#string&#39;},
+  &#39;hasSouthBounding&#39;: {&#39;@id&#39;: &#39;http://ecgs.ncsa.illinois.edu/bmi_models/temp/hasSouthBounding&#39;,
+   &#39;@type&#39;: &#39;@id&#39;},
+  &#39;hasWestBounding&#39;: {&#39;@id&#39;: &#39;http://ecgs.ncsa.illinois.edu/bmi_models/temp/hasWestBounding&#39;,
+   &#39;@type&#39;: &#39;@id&#39;},
+  &#39;hasValue&#39;: {&#39;@id&#39;: &#39;http://ecgs.ncsa.illinois.edu/bmi_models/temp/hasValue&#39;,
+   &#39;@type&#39;: &#39;@id&#39;},
+  &#39;hasTimeStep&#39;: {&#39;@id&#39;: &#39;http://ecgs.ncsa.illinois.edu/bmi_models/temp/hasTimeStep&#39;,
+   &#39;@type&#39;: &#39;@id&#39;},
+  &#39;hasTimeStepType&#39;: {&#39;@id&#39;: &#39;http://ecgs.ncsa.illinois.edu/bmi_models/temp/hasTimeStepType&#39;,
+   &#39;@type&#39;: &#39;http://www.w3.org/2001/XMLSchema#string&#39;},
+  &#39;hasTimeUnits&#39;: {&#39;@id&#39;: &#39;http://ecgs.ncsa.illinois.edu/bmi_models/temp/hasTimeUnits&#39;,
+   &#39;@type&#39;: &#39;http://www.w3.org/2001/XMLSchema#string&#39;},
+  &#39;rdf&#39;: &#39;http://www.w3.org/1999/02/22-rdf-syntax-ns#&#39;,
+  &#39;xml&#39;: &#39;http://www.w3.org/XML/1998/namespace&#39;,
+  &#39;xsd&#39;: &#39;http://www.w3.org/2001/XMLSchema#&#39;,
+  &#39;odm2&#39;: &#39;http://vocabulary.odm2.org/variablename/&#39;,
+  &#39;rdfs&#39;: &#39;http://www.w3.org/2000/01/rdf-schema#&#39;,
+  &#39;ns1&#39;: &#39;http://ecgs.ncsa.illinois.edu/bmi_models/temp/&#39;,
+  &#39;csn&#39;: &#39;http://csdms.colorado.edu/wiki/CSN_Searchable_List/&#39;}}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">gsis_host</span><span class="si">}</span><span class="s2">/gsis/read?graph=</span><span class="si">{</span><span class="n">data_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;@id&#39;: &#39;_:b0&#39;,
+ &#39;http://ecgs.ncsa.illinois.edu/gsis/sas/unit&#39;: &#39;degree&#39;,
+ &#39;vars&#39;: [&#39;csn:atmosphere_bottom_air__brutsaert_emissivity_canopy_factor&#39;,
+  &#39;csn:land_surface_air_flow__speed&#39;],
+ &#39;@context&#39;: {&#39;vars&#39;: {&#39;@id&#39;: &#39;http://ecgs.ncsa.illinois.edu/gsis/sas/vars&#39;,
+   &#39;@type&#39;: &#39;@id&#39;},
+  &#39;unit&#39;: {&#39;@id&#39;: &#39;http://ecgs.ncsa.illinois.edu/gsis/sas/unit&#39;,
+   &#39;@type&#39;: &#39;http://www.w3.org/2001/XMLSchema#string&#39;},
+  &#39;csn&#39;: &#39;http://csdms.colorado.edu/wiki/CSN_Searchable_List/&#39;}}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="conclusions">
+<h2>Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this headline">¶</a></h2>
+<p>This short notebook provides a few simple examples of developing web applications around the principles of Linked Data. By developing services built around interoperability, we hope it will be easier in the future to build services that can easily interoperate. Earth sciences provide unique challenges in that the way researchers store their data can vary greatly. The Linked Data approach can be useful in overcoming some of these challenges even thought it provides its own technical challenges in terms of adoption. Over time efforts like <a class="reference external" href="https://schema.org/">Schema.org</a> are showing that the principles of Linked Data are important but that simplifying some of their approaches might be the key to widespread adoption. Even though the GSIS stores information as RDF graphs, it provides simple HTTP web services to make it easier to be used in the existing ecosystem of tools. Furthermore, the Clowder data framework provides simple GUI and APIs to store rich metadata documents next to the raw bytes, but it tries to find a good compromise between expressivenes of the metadata and simplicity of use.</p>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Marini, L., I. Gutierrez-Polo, R. Kooper, S. Puthanveetil Satheesan, M. Burnette, J. Lee, T. Nicholson, Y. Zhao, and K. McHenry. 2018. Clowder: Open Source Data Management for Long Tail Data. In Proceedings of the Practice and Experience on Advanced Research Computing (PEARC ‘18). ACM, New York, NY, USA, Article 40, 8 pages. DOI: <a class="reference external" href="https://doi.org/10.1145/3219104.3219159">https://doi.org/10.1145/3219104.3219159</a></p></li>
+<li><p>Jiang, Peishi and Elag, Mostaf and Kumar, Praveen and Peckham, Scott and Marini, Luigi and Liu, Rui, “A service-oriented architecture for coupling web service models using the Basic Model Interface (BMI)”, Environmental Modelling &amp; Software, 2017</p></li>
+<li><p>Elag, M.M., P. Kumar, L. Marini, S.D. Peckham (2015) Semantic interoperability of long-tail geoscience resources over the Web, In: Large-Scale Machine Learning in the Earth Sciences, Eds. A.N. Srivastava, R. Nemani and K. Steinhaeuser, Taylor and Francis</p></li>
+<li><p>Peckham, S.D. (2014a) The CSDMS Standard Names: Cross-domain naming conventions for describing process models, data sets and their associated variables, Proceedings of the 7th Intl. Congress on Env. Modelling and Software, International Environmental Modelling and Software Society (iEMSs), San Diego, CA. (Eds. D.P. Ames, N.W.T. Quinn, A.E. Rizzoli)</p></li>
+<li><p>Horsburgh, J. S., Aufdenkampe, A. K., Mayorga, E., Lehnert, K. A., Hsu, L., Song, L., Spackman Jones, A., Damiano, S. G., Tarboton, D. G., Valentine, D., Zaslavsky, I., Whitenack, T. (2016). Observations Data Model 2: A community information model for spatially discrete Earth observations, Environmental Modelling &amp; Software, 79, 55-74, <a class="reference external" href="http://dx.doi.org/10.1016/j.envsoft.2016.01.010">http://dx.doi.org/10.1016/j.envsoft.2016.01.010</a></p></li>
+</ol>
+</div>
+<div class="section" id="license">
+<h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
+<p>This notebook is licensed under the <a class="reference external" href="http://www.apache.org/licenses/LICENSE-2.0">Apache License</a>.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./ec2020/ec20_marini_etal"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By EarthCube Office<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

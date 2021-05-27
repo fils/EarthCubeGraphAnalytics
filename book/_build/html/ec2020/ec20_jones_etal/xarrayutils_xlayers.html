@@ -1,0 +1,1084 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vertical regridding and remapping of CMIP6 ocean data in the cloud &#8212; EarthCube GeoCODES Exploration</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/logo.webp" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">EarthCube GeoCODES Exploration</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Exploring GeoCODES
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../content.html">
+   Content in Jupyter Book
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../markdown.html">
+     Markdown Files
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks.html">
+     Content with notebooks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../analysis.html">
+     Data Unit Testing, ranking, clustering
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../partfile.html">
+   Notebooks
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks/gleaner_clustering.html">
+     SciKit K-means Clustering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks/gleaner_gensim.html">
+     Gensim
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks/gleaner_txtai.html">
+     Gleaner &amp; txtai
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks/ECO_GraphAnalytics.html">
+     EarthCube Graph Analytics Exploration
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../index.html">
+   EC2020 examples
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ec20_soliman_etal/ks-preprocess-dem.html">
+     Processing digital elevation data for deep learning models using Keras Spatial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ec20_banihirwe_etal/intake-pangeo-catalog.html">
+     Intake / Pangeo Catalog: Making It Easier To Consume Earth’s Climate and Weather Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ec20_busecke_etal/busecke_abernathey_earthcube2020.html">
+     CMIP6 without the interpolation: Grid-native analysis with Pangeo in the cloud
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ec20_hamman_etal/2020ECAHM-scikit-downscale.html">
+     Scikit-downscale: an open source Python package for scalable climate downscaling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ec20_havlin_etal/notebook/ec20_havlin_etal.html">
+     3D volume rendering of geophysical data using the yt platform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ec20_peckham_etal/BALTO_GUI_v2.html">
+     BALTO Graphical User Interface (A Prototype)
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/ec2020/ec20_jones_etal/xarrayutils_xlayers.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/fils/EarthCubeGraphAnalytics"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/fils/EarthCubeGraphAnalytics/issues/new?title=Issue%20on%20page%20%2Fec2020/ec20_jones_etal/xarrayutils_xlayers.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/fils/EarthCubeGraphAnalytics/master?urlpath=lab/tree/book/ec2020/ec20_jones_etal/xarrayutils_xlayers.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="your-hub-url/hub/user-redirect/git-pull?repo=https://github.com/fils/EarthCubeGraphAnalytics&urlpath=lab/tree/EarthCubeGraphAnalytics/book/ec2020/ec20_jones_etal/xarrayutils_xlayers.ipynb&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/fils/EarthCubeGraphAnalytics/blob/master/book/ec2020/ec20_jones_etal/xarrayutils_xlayers.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#c-spencer-jones-julius-busecke-takaya-uchida-and-ryan-abernathey">
+   C Spencer Jones, Julius Busecke, Takaya Uchida and Ryan Abernathey
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#introduction">
+     1. Introduction
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#loading-cmip-6-data">
+     2. Loading CMIP-6 data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#preparing-data-for-plotting-in-density-coordinates">
+     3. Preparing data for plotting in density coordinates
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#evaluating-the-performance-of-xarrayutils">
+     4. Evaluating the performance of xarrayutils
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#evaluating-the-performance-of-xlayers">
+     5. Evaluating the performance of xlayers
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-a-cluster-to-examine-wet-gets-wetter-dry-gets-drier-pattern-in-density-coordinates">
+   6. Using a cluster to examine  “wet gets wetter, dry gets drier” pattern in density coordinates
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conclusions">
+     7. Conclusions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#acknowledgements">
+     8. Acknowledgements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#references">
+     9. References
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="vertical-regridding-and-remapping-of-cmip6-ocean-data-in-the-cloud">
+<h1>Vertical regridding and remapping of CMIP6 ocean data in the cloud<a class="headerlink" href="#vertical-regridding-and-remapping-of-cmip6-ocean-data-in-the-cloud" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="c-spencer-jones-julius-busecke-takaya-uchida-and-ryan-abernathey">
+<h2>C Spencer Jones, Julius Busecke, Takaya Uchida and Ryan Abernathey<a class="headerlink" href="#c-spencer-jones-julius-busecke-takaya-uchida-and-ryan-abernathey" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="introduction">
+<h3>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h3>
+<p>Many ocean and climate models output ocean variables (like velocity, temperature, oxygen concentration etc.) in depth space. Property transport in the ocean generally follows isopycnals, but isopycnals often move up and down in depth space. A small difference in the vertical location of isopycnals between experiments can cause a large apparent difference in ocean properties when the experiments are compared in depth space. As a result, it is often useful to compare ocean variables in density space.</p>
+<p>This work compares two algorithms for plotting ocean properties in density coordinates, one written in FORTRAN with a python wrapper (<a class="reference external" href="https://github.com/cspencerjones/xlayers">xlayers</a>), and one written in xarray (<a class="reference external" href="https://github.com/jbusecke/xarrayutils">xarrayutils</a>). Both algorithms conserve total salt content in the vertical, and both algorithms are easily parallelizable to enable plotting large datasets in density coordinates. As shown here, xlayers is a faster algorithm, but on some machines it requires more setup due to its reliance on a FORTRAN compiler.</p>
+<p>Here, we apply these algorithms to plot salinity in density space in one of the Coupled Model Intercomparison Project Phase 6 (CMIP-6) models. We compare the salinity as a function of density in  two future greenhouse-gas scenarios. In general, areas with net precipitation today are getting fresher and areas with net evaporation today are getting saltier (<a class="reference external" href="https://doi.org/10.1175/2010JCLI3377.1">Durack and Wijffels, 2010</a>). In climate models with a 1% per year CO<span class="math notranslate nohighlight">\(_2\)</span> increase, areas with net precipitation today experience increasing precipitation, and areas with net evaporation today experience a further reduction in precipitation in higher greenhouse-gas scenarios (<a class="reference external" href="https://doi.org/10.1002/qj.2456">Vallis et al. 2015</a>). Here we compare two different greenhouse gas scenarios in the Shared Socioeconomic Pathways experiments. By plotting salinity in density space, we visualize how changes in salinity at the surface propagate along isopycnals to influence salinity concentrations in the ocean interior.</p>
+</div>
+<div class="section" id="loading-cmip-6-data">
+<h3>2. Loading CMIP-6 data<a class="headerlink" href="#loading-cmip-6-data" title="Permalink to this headline">¶</a></h3>
+<p>We choose to load temperature and salinity data from the <a class="reference external" href="https://doi.org/10.22499/2.6301.004">ACCESS-ESM1-5 model</a>, but this calculation can be performed on almost any CMIP-6 model currently available through <a class="reference external" href="https://cloud.google.com/blog/products/data-analytics/new-climate-model-data-now-google-public-datasets">Google’s public datasets program</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Load the packages needed</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">import</span> <span class="nn">xesmf</span> <span class="k">as</span> <span class="nn">xe</span>
+<span class="kn">import</span> <span class="nn">cartopy</span>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
+<span class="kn">import</span> <span class="nn">zarr</span>
+<span class="kn">import</span> <span class="nn">gcsfs</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="c1"># suppress warnings to improve readability</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Access the catalog of available CMIP-6 data</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://storage.googleapis.com/cmip6/cmip6-zarr-consolidated-stores.csv&#39;</span><span class="p">)</span>
+<span class="c1"># Connect to google cloud storage (this only needs to be created once)</span>
+<span class="n">gcs</span> <span class="o">=</span> <span class="n">gcsfs</span><span class="o">.</span><span class="n">GCSFileSystem</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;anon&#39;</span><span class="p">)</span>
+
+<span class="c1"># Write a query to find temperature (thetao) and salinity (so) in the ACCESS model</span>
+<span class="n">df_sub</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;source_id == &#39;ACCESS-ESM1-5&#39; and member_id==&#39;r1i1p1f1&#39; and table_id==&#39;Omon&#39; </span><span class="se">\</span>
+<span class="s2">                            and (experiment_id==&#39;ssp126&#39; or experiment_id==&#39;ssp585&#39;)   </span><span class="se">\</span>
+<span class="s2">                             and (variable_id==&#39;thetao&#39; or variable_id==&#39;so&#39;)&quot;</span><span class="p">)</span>
+<span class="n">google_cloud_stores</span> <span class="o">=</span> <span class="n">df_sub</span><span class="o">.</span><span class="n">zstore</span><span class="o">.</span><span class="n">values</span>
+<span class="n">google_cloud_stores</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;gs://cmip6/ScenarioMIP/CSIRO/ACCESS-ESM1-5/ssp126/r1i1p1f1/Omon/so/gn/&#39;,
+       &#39;gs://cmip6/ScenarioMIP/CSIRO/ACCESS-ESM1-5/ssp126/r1i1p1f1/Omon/thetao/gn/&#39;,
+       &#39;gs://cmip6/ScenarioMIP/CSIRO/ACCESS-ESM1-5/ssp585/r1i1p1f1/Omon/so/gn/&#39;,
+       &#39;gs://cmip6/ScenarioMIP/CSIRO/ACCESS-ESM1-5/ssp585/r1i1p1f1/Omon/thetao/gn/&#39;],
+      dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We choose to compare properties for two future greenhouse gas scenarios, sometimes called <a class="reference external" href="https://doi.org/10.1016/j.gloenvcha.2016.05.009">Shared Soceioeconomic Pathways</a>. The first is a lower-emissions scenario, SSP1-2.6, and the second is a higher-emissions scenario, SSP5-8.5. The following code accesses the specific zarr stores that contain temperature and salinity data for these two pathways and sets up pointers to this data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read the metadata from the cloud</span>
+<span class="n">datasets</span> <span class="o">=</span> <span class="p">[</span><span class="n">xr</span><span class="o">.</span><span class="n">open_zarr</span><span class="p">(</span><span class="n">gcs</span><span class="o">.</span><span class="n">get_mapper</span><span class="p">(</span><span class="n">zstore</span><span class="p">),</span> <span class="n">consolidated</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">zstore</span> <span class="ow">in</span> <span class="n">google_cloud_stores</span><span class="p">]</span>
+
+<span class="c1"># fix vertices coordinate</span>
+<span class="n">dsets_fixed</span> <span class="o">=</span> <span class="p">[</span><span class="n">ds</span><span class="o">.</span><span class="n">set_coords</span><span class="p">([</span><span class="s1">&#39;vertices_latitude&#39;</span><span class="p">,</span> <span class="s1">&#39;vertices_longitude&#39;</span><span class="p">])</span>
+                  <span class="k">for</span> <span class="n">ds</span> <span class="ow">in</span> <span class="n">datasets</span><span class="p">]</span>
+
+<span class="c1"># separate data so we can merge it more sensibly</span>
+<span class="n">ds_so_ssp126</span><span class="p">,</span> <span class="n">ds_thetao_ssp126</span><span class="p">,</span> <span class="n">ds_so_ssp585</span><span class="p">,</span> <span class="n">ds_thetao_ssp585</span> <span class="o">=</span> <span class="n">datasets</span>
+
+<span class="c1"># merge temperature and salinity</span>
+<span class="n">ds_ssp126</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">merge</span><span class="p">([</span><span class="n">dsets_fixed</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dsets_fixed</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">compat</span><span class="o">=</span><span class="s1">&#39;identical&#39;</span><span class="p">)</span>
+<span class="n">ds_ssp126</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s1">&#39;experiment_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;experiment_id&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ssp126&#39;</span><span class="p">]</span>
+<span class="n">ds_ssp585</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">merge</span><span class="p">([</span><span class="n">dsets_fixed</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">dsets_fixed</span><span class="p">[</span><span class="mi">3</span><span class="p">]],</span> <span class="n">compat</span><span class="o">=</span><span class="s1">&#39;identical&#39;</span><span class="p">)</span>
+<span class="n">ds_ssp585</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s1">&#39;experiment_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;experiment_id&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ssp585&#39;</span><span class="p">]</span>
+ 
+<span class="c1"># merge SSP1-2.6 with SSP5-8.5</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">ds_ssp126</span><span class="p">,</span> <span class="n">ds_ssp585</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="s1">&#39;experiment_id&#39;</span><span class="p">,</span> <span class="n">compat</span><span class="o">=</span><span class="s1">&#39;identical&#39;</span><span class="p">)</span>
+<span class="n">ds</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre>&lt;xarray.Dataset&gt;
+Dimensions:             (bnds: 2, experiment_id: 2, i: 360, j: 300, lev: 50, time: 1032, vertices: 4)
+Coordinates:
+    vertices_longitude  (j, i, vertices) float64 80.0 81.0 81.0 ... 80.0 80.0
+    time_bnds           (time, bnds) datetime64[ns] 2015-01-01 ... 2101-01-01
+    lev_bnds            (lev, bnds) float64 0.0 10.0 10.0 ... 5.665e+03 6e+03
+    longitude           (j, i) float64 80.5 81.5 82.5 83.5 ... 79.96 79.97 79.99
+    vertices_latitude   (j, i, vertices) float64 -78.0 -78.0 ... 65.0 65.42
+    latitude            (j, i) float64 -77.88 -77.88 -77.88 ... 65.63 65.21
+  * j                   (j) int32 0 1 2 3 4 5 6 ... 293 294 295 296 297 298 299
+  * i                   (i) int32 0 1 2 3 4 5 6 ... 353 354 355 356 357 358 359
+  * time                (time) datetime64[ns] 2015-01-16T12:00:00 ... 2100-12-16T12:00:00
+  * lev                 (lev) float64 5.0 15.0 25.0 ... 5.499e+03 5.831e+03
+  * experiment_id       (experiment_id) object &#x27;ssp126&#x27; &#x27;ssp585&#x27;
+Dimensions without coordinates: bnds, vertices
+Data variables:
+    so                  (experiment_id, time, lev, j, i) float32 dask.array&lt;chunksize=(1, 6, 50, 300, 360), meta=np.ndarray&gt;
+    thetao              (experiment_id, time, lev, j, i) float32 dask.array&lt;chunksize=(1, 5, 50, 300, 360), meta=np.ndarray&gt;</pre></div></div>
+</div>
+</div>
+<div class="section" id="preparing-data-for-plotting-in-density-coordinates">
+<h3>3. Preparing data for plotting in density coordinates<a class="headerlink" href="#preparing-data-for-plotting-in-density-coordinates" title="Permalink to this headline">¶</a></h3>
+<p>The data in these stores is given in depth space. In order to plot the salinity in potential density coordinates, we need the potential density field in depth space. In the cell below, the gibbs seawater toolbox is applied to find the surface-referenced potential density from the temperature and salinity. The <a class="reference external" href="https://doi.org/10.22499/2.6301.004">ACCESS</a> model actually uses the <a class="reference external" href="https://doi.org/10.1175/JTECH1946.1">Jackett et al 2006</a> equation of state, but the density calculated here is a good approximation of the density in the ACCESS model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gsw</span>
+
+<span class="c1"># calculate potential density from temperature and salinity</span>
+<span class="n">ds</span><span class="p">[</span><span class="s1">&#39;dens&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">apply_ufunc</span><span class="p">(</span><span class="n">gsw</span><span class="o">.</span><span class="n">density</span><span class="o">.</span><span class="n">sigma0</span><span class="p">,</span> <span class="n">ds</span><span class="o">.</span><span class="n">so</span><span class="p">,</span> <span class="n">ds</span><span class="o">.</span><span class="n">thetao</span><span class="p">,</span>
+                            <span class="n">dask</span><span class="o">=</span><span class="s1">&#39;parallelized&#39;</span><span class="p">,</span> <span class="n">output_dtypes</span><span class="o">=</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;dens&#39;</span><span class="p">)</span>
+<span class="n">ds</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre>&lt;xarray.Dataset&gt;
+Dimensions:             (bnds: 2, experiment_id: 2, i: 360, j: 300, lev: 50, time: 1032, vertices: 4)
+Coordinates:
+    vertices_longitude  (j, i, vertices) float64 80.0 81.0 81.0 ... 80.0 80.0
+    time_bnds           (time, bnds) datetime64[ns] 2015-01-01 ... 2101-01-01
+    lev_bnds            (lev, bnds) float64 0.0 10.0 10.0 ... 5.665e+03 6e+03
+    longitude           (j, i) float64 80.5 81.5 82.5 83.5 ... 79.96 79.97 79.99
+    vertices_latitude   (j, i, vertices) float64 -78.0 -78.0 ... 65.0 65.42
+    latitude            (j, i) float64 -77.88 -77.88 -77.88 ... 65.63 65.21
+  * j                   (j) int32 0 1 2 3 4 5 6 ... 293 294 295 296 297 298 299
+  * i                   (i) int32 0 1 2 3 4 5 6 ... 353 354 355 356 357 358 359
+  * time                (time) datetime64[ns] 2015-01-16T12:00:00 ... 2100-12-16T12:00:00
+  * lev                 (lev) float64 5.0 15.0 25.0 ... 5.499e+03 5.831e+03
+  * experiment_id       (experiment_id) object &#x27;ssp126&#x27; &#x27;ssp585&#x27;
+Dimensions without coordinates: bnds, vertices
+Data variables:
+    so                  (experiment_id, time, lev, j, i) float32 dask.array&lt;chunksize=(1, 6, 50, 300, 360), meta=np.ndarray&gt;
+    thetao              (experiment_id, time, lev, j, i) float32 dask.array&lt;chunksize=(1, 5, 50, 300, 360), meta=np.ndarray&gt;
+    dens                (experiment_id, time, lev, j, i) float64 dask.array&lt;chunksize=(1, 5, 50, 300, 360), meta=np.ndarray&gt;</pre></div></div>
+</div>
+<p>Here, we plot sea surface salinity in 2015 (white contours in the figure below). Surface salinity tends to be lower in areas of high net precipitation and higher in areas of low net precipitation. Hence, if wet areas get wetter and dry areas get drier, we expect to see salty areas get saltier and fresh areas get fresher.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># find sea surface properties for SSP1-2.6 in 2015</span>
+<span class="n">ds_to_plot</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">experiment_id</span><span class="o">=</span><span class="s1">&#39;ssp126&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">lev</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s1">&#39;2015&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+
+<span class="c1"># Define sea-surface salinity and sea-surface density</span>
+<span class="n">ssd</span> <span class="o">=</span> <span class="n">ds_to_plot</span><span class="o">.</span><span class="n">dens</span>
+<span class="n">sss</span> <span class="o">=</span> <span class="n">ds_to_plot</span><span class="o">.</span><span class="n">so</span>
+
+<span class="c1"># regrid sss for plotting</span>
+<span class="n">ds_out</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">({</span><span class="s1">&#39;lat&#39;</span><span class="p">:</span> <span class="p">([</span><span class="s1">&#39;lat&#39;</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">80</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)),</span>
+                     <span class="s1">&#39;lon&#39;</span><span class="p">:</span> <span class="p">([</span><span class="s1">&#39;lon&#39;</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">360</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)),</span>
+                    <span class="p">})</span>
+<span class="n">regridder</span> <span class="o">=</span> <span class="n">xe</span><span class="o">.</span><span class="n">Regridder</span><span class="p">(</span><span class="n">sss</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;longitude&#39;</span><span class="p">:</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span><span class="s1">&#39;latitude&#39;</span><span class="p">:</span><span class="s1">&#39;lat&#39;</span><span class="p">}),</span> <span class="n">ds_out</span><span class="p">,</span> <span class="s1">&#39;bilinear&#39;</span><span class="p">);</span>
+<span class="n">sss_regrid</span> <span class="o">=</span> <span class="n">regridder</span><span class="p">(</span><span class="n">sss</span><span class="p">);</span>
+
+
+<span class="c1"># plot sea-surface salinity, sea-surface density and chosen section for performance plots</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">Robinson</span><span class="p">())</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">gridlines</span><span class="p">()</span>
+<span class="n">ssd</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;latitude&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span>
+         <span class="n">vmin</span><span class="o">=</span><span class="mi">21</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">cbar_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;shrink&#39;</span><span class="p">:</span> <span class="mf">0.4</span><span class="p">,</span> <span class="s1">&#39;label&#39;</span><span class="p">:</span><span class="s1">&#39;potential density&#39;</span><span class="p">})</span>
+<span class="n">CS</span> <span class="o">=</span> <span class="n">sss_regrid</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">levels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">38</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">CL</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">clabel</span><span class="p">(</span><span class="n">CS</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># note that the section location is i=255, j=0,250</span>
+<span class="n">lat_sec</span><span class="o">=</span><span class="n">ssd</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">255</span><span class="p">,</span> <span class="n">j</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">250</span><span class="p">))</span><span class="o">.</span><span class="n">latitude</span>
+<span class="n">lat_sec</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:orange&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> Sea surface salinity (psu, white contours),  sea surface density (kg/m$^3$, shading),</span><span class="se">\</span>
+<span class="s1">                           </span><span class="se">\n</span><span class="s1"> and section chosen for performance plots (orange line)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overwrite existing file: bilinear_300x360_160x240.nc 
+ You can set reuse_weights=True to save computing time.
+</pre></div>
+</div>
+<img alt="../../_images/xarrayutils_xlayers_11_1.png" src="../../_images/xarrayutils_xlayers_11_1.png" />
+</div>
+</div>
+<p>These simulations begin in 2015. We choose to compare salinities in 2100, the final year of the simulation. In the parts 4 and 5 of this notebook, we assess the performance of the two packages by plotting salinity in density space on a single section, which is shown by the orange line in the plot above.</p>
+<p>In order to do this, we load a small amount of data in the cell below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the densities used in the new coordinate system</span>
+<span class="n">t_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">20.4</span><span class="p">,</span> <span class="mf">28.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+
+
+<span class="c1"># Define lev_bounds to be the cell edges in the vertical</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">lev_bounds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">ds</span><span class="o">.</span><span class="n">lev_bnds</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="p">[</span><span class="mi">6000</span><span class="p">]]),</span> <span class="n">dims</span><span class="o">=</span><span class="s1">&#39;lev_bounds&#39;</span><span class="p">);</span>
+
+<span class="c1"># fill nans in the salinity with zeros</span>
+<span class="n">ds</span><span class="p">[</span><span class="s1">&#39;so&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;so&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># load density and salinity on the chosen section in January 2100, </span>
+<span class="c1"># so that both methods are on a level playing field for benchmarking</span>
+<span class="n">ds_slice</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">255</span><span class="p">,</span> <span class="n">j</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">250</span><span class="p">),</span> <span class="n">time</span><span class="o">=</span><span class="s1">&#39;2100-01&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">experiment_id</span><span class="o">=</span><span class="s1">&#39;ssp126&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+<span class="n">ds_slice</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre>&lt;xarray.Dataset&gt;
+Dimensions:             (bnds: 2, j: 251, lev: 50, lev_bounds: 51, time: 1, vertices: 4)
+Coordinates:
+    vertices_longitude  (j, vertices) float64 335.0 336.0 336.0 ... 335.9 334.9
+    time_bnds           (time, bnds) datetime64[ns] 2100-01-01 2100-02-01
+    lev_bnds            (lev, bnds) float64 0.0 10.0 10.0 ... 5.665e+03 6e+03
+    longitude           (j) float64 335.5 335.5 335.5 ... 335.5 335.4 335.4
+    vertices_latitude   (j, vertices) float64 -78.0 -78.0 -77.75 ... 67.67 67.66
+    latitude            (j) float64 -77.88 -77.63 -77.38 ... 66.55 67.0 67.44
+  * j                   (j) int32 0 1 2 3 4 5 6 ... 244 245 246 247 248 249 250
+    i                   int32 255
+  * time                (time) datetime64[ns] 2100-01-16T12:00:00
+  * lev                 (lev) float64 5.0 15.0 25.0 ... 5.499e+03 5.831e+03
+    experiment_id       &lt;U6 &#x27;ssp126&#x27;
+  * lev_bounds          (lev_bounds) float64 0.0 10.0 20.0 ... 5.665e+03 6e+03
+    dims                &lt;U10 &#x27;lev_bounds&#x27;
+Dimensions without coordinates: bnds, vertices
+Data variables:
+    so                  (time, lev, j) float32 0.0 0.0 0.0 0.0 ... 0.0 0.0 0.0
+    thetao              (time, lev, j) float32 nan nan nan nan ... nan nan nan
+    dens                (time, lev, j) float64 nan nan nan nan ... nan nan nan</pre></div></div>
+</div>
+</div>
+<div class="section" id="evaluating-the-performance-of-xarrayutils">
+<h3>4. Evaluating the performance of xarrayutils<a class="headerlink" href="#evaluating-the-performance-of-xarrayutils" title="Permalink to this headline">¶</a></h3>
+<p>In this section, we use xarrayutils to transform salinity into density space.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import xarrayutils</span>
+<span class="kn">from</span> <span class="nn">xarrayutils.vertical_coordinates</span> <span class="kn">import</span> <span class="n">conservative_remap</span>
+<span class="kn">from</span> <span class="nn">xarrayutils.vertical_coordinates</span> <span class="kn">import</span> <span class="n">linear_interpolation_regrid</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>xarrayutils transforms salinity into density space in two steps. First, there is a regridding step, in which the depths of the density surfaces are found. Then there is a remapping step, in which the salinity is remapped onto these new depth levels. Below, we perform both steps on the loaded section in order to assess the performance of the package.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># here, we define  a function that applies the xarrayutils package to the data</span>
+<span class="k">def</span> <span class="nf">apply_xarrayutils</span><span class="p">(</span><span class="n">ds_slice</span><span class="p">,</span> <span class="n">t_vals</span><span class="p">):</span>
+    <span class="c1"># define the new density grid</span>
+    <span class="n">density_values</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">t_vals</span><span class="p">,</span> <span class="n">coords</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="n">t_vals</span><span class="p">)])</span> 
+
+    <span class="c1"># Find the depth of these surfaces </span>
+    <span class="n">z_dens_bounds</span> <span class="o">=</span> <span class="n">linear_interpolation_regrid</span><span class="p">(</span><span class="n">ds_slice</span><span class="o">.</span><span class="n">lev</span><span class="p">,</span> <span class="n">ds_slice</span><span class="o">.</span><span class="n">dens</span><span class="p">,</span> <span class="n">density_values</span><span class="p">,</span> <span class="n">z_bounds</span><span class="o">=</span><span class="n">ds_slice</span><span class="o">.</span><span class="n">lev_bounds</span> <span class="p">,</span><span class="n">target_value_dim</span><span class="o">=</span><span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="n">z_bounds_dim</span><span class="o">=</span><span class="s1">&#39;lev_bounds&#39;</span><span class="p">)</span>
+
+    <span class="c1"># define the cell boundaries in the original salinity field</span>
+    <span class="n">bounds_original</span> <span class="o">=</span> <span class="n">ds_slice</span><span class="o">.</span><span class="n">lev_bounds</span>
+
+    <span class="c1"># Remap salinity into density space</span>
+    <span class="n">ds_dens_cons</span> <span class="o">=</span> <span class="n">conservative_remap</span><span class="p">(</span><span class="n">ds_slice</span><span class="o">.</span><span class="n">so</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(),</span> <span class="n">bounds_original</span><span class="p">,</span> <span class="n">z_dens_bounds</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(),</span>
+                                   <span class="n">z_dim</span><span class="o">=</span><span class="s1">&#39;lev&#39;</span><span class="p">,</span> <span class="n">z_bnd_dim</span><span class="o">=</span><span class="s1">&#39;lev_bounds&#39;</span><span class="p">,</span> <span class="n">z_bnd_dim_target</span><span class="o">=</span><span class="s1">&#39;regridded&#39;</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="kc">True</span>
+                                    <span class="p">)</span> <span class="c1"># the associated depth dimensions for each array</span>
+
+    <span class="c1"># replace the new depth dimension values with the appropriate depth (here the middle of the density cell bounds)</span>
+    <span class="n">t_vals</span> <span class="o">=</span> <span class="n">z_dens_bounds</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s1">&#39;regridded&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+    <span class="n">t_vals</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">t_vals</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">t_vals</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="n">ds_dens_cons</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s1">&#39;remapped&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">t_vals</span><span class="p">,</span> <span class="n">coords</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;remapped&#39;</span><span class="p">,</span> <span class="n">t_vals</span><span class="p">)])</span>
+    <span class="k">return</span> <span class="n">ds_dens_cons</span><span class="p">,</span> <span class="n">z_dens_bounds</span>
+
+
+<span class="c1"># here we apply the function to the loaded data</span>
+<span class="c1"># start the timer</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="c1"># apply xarrayutils to a single slice of salinity data</span>
+<span class="n">ds_dens_cons</span><span class="p">,</span> <span class="n">z_dens_bounds</span><span class="o">=</span><span class="n">apply_xarrayutils</span><span class="p">(</span><span class="n">ds_slice</span><span class="p">,</span> <span class="n">t_vals</span><span class="p">)</span>
+
+<span class="c1"># stop the timer</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="c1">#print how long this took</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;It takes </span><span class="si">{:.2f}</span><span class="s1"> seconds to perform this transformation using xarrayutils&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">end</span><span class="o">-</span><span class="n">start</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>It takes 0.15 seconds to perform this transformation using xarrayutils
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, we check that the depth-integrated salinity of the water column before the transformation is equal to the depth-integrated salinity of the column after the transformation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># find the height of the grid cells in density space</span>
+<span class="n">dz_remapped</span> <span class="o">=</span> <span class="n">z_dens_bounds</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="s1">&#39;regridded&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;regridded&#39;</span><span class="p">:</span><span class="s1">&#39;remapped&#39;</span><span class="p">})</span>
+<span class="n">dz_remapped</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s1">&#39;remapped&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds_dens_cons</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s1">&#39;remapped&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1"># find the depth integrated salinity in depth space (blue line) for a single experiment for easy comparison</span>
+<span class="n">sal_depth</span> <span class="o">=</span> <span class="p">((</span><span class="n">ds_slice</span><span class="o">.</span><span class="n">so</span><span class="o">*</span><span class="n">ds</span><span class="o">.</span><span class="n">lev_bnds</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="s1">&#39;bnds&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="s1">&#39;lev&#39;</span><span class="p">))</span>
+
+<span class="c1"># find the depth integrated salinity in density space (orange dashed line)</span>
+<span class="n">sal_dens</span> <span class="o">=</span> <span class="p">(</span><span class="n">ds_dens_cons</span><span class="o">*</span><span class="n">dz_remapped</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="s1">&#39;remapped&#39;</span><span class="p">)</span>
+
+<span class="c1"># plot the depth-integrated salinity before and after transformation</span>
+<span class="n">sal_depth</span><span class="o">.</span><span class="n">swap_dims</span><span class="p">({</span><span class="s1">&#39;j&#39;</span><span class="p">:</span><span class="s1">&#39;latitude&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">sal_dens</span><span class="o">.</span><span class="n">swap_dims</span><span class="p">({</span><span class="s1">&#39;j&#39;</span><span class="p">:</span><span class="s1">&#39;latitude&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Depth-integrated salinity (psu m)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">((</span><span class="s1">&#39;Integrated in depth space&#39;</span><span class="p">,</span> <span class="s1">&#39;Integrated in density space&#39;</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Depth-integrated salinity of the water column:</span><span class="se">\</span>
+<span class="s1">             </span><span class="se">\n</span><span class="s1">depth space vs density space from xarrayutils&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/xarrayutils_xlayers_19_0.png" src="../../_images/xarrayutils_xlayers_19_0.png" />
+</div>
+</div>
+<p>Note that the two lines in this figure are on top of each other: the total salt content of the water column before transformation equals the total salt content of the water column after transformation.</p>
+<p>Next, we plot the difference in the salinity in January of 2100.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># find the salinity in density space</span>
+<span class="n">sal_dens</span> <span class="o">=</span> <span class="n">ds_dens_cons</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">dz_remapped</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># plot salinity in density space</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="p">(</span><span class="n">sal_dens</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span><span class="o">.</span><span class="n">swap_dims</span><span class="p">({</span><span class="s1">&#39;j&#39;</span><span class="p">:</span><span class="s1">&#39;latitude&#39;</span><span class="p">})</span>
+                      <span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;latitude&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;remapped&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">33</span><span class="p">,</span> <span class="mi">39</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Salinity </span><span class="se">\n</span><span class="s1"> Jan 2100, SSP1-2.6&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;latitude&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;density&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span> <span class="mi">21</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">80</span><span class="p">,</span> <span class="mi">67</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/xarrayutils_xlayers_21_0.png" src="../../_images/xarrayutils_xlayers_21_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="evaluating-the-performance-of-xlayers">
+<h3>5. Evaluating the performance of xlayers<a class="headerlink" href="#evaluating-the-performance-of-xlayers" title="Permalink to this headline">¶</a></h3>
+<p>xlayers uses a different algorithm from xarrayutils to transform data in one vertical coordinate system into another coordinate system. Here, we apply xlayers to the same dataset in order to compare its performance and results with those of xarrayutils.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load xlayers</span>
+<span class="kn">from</span> <span class="nn">xlayers</span> <span class="kn">import</span> <span class="n">finegrid</span><span class="p">,</span> <span class="n">layers</span>
+<span class="kn">from</span> <span class="nn">xlayers.core</span> <span class="kn">import</span> <span class="n">layers_apply</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># xlayers takes the locations of cell edges in a particular format, as calculated here</span>
+<span class="k">def</span> <span class="nf">finegrid_metrics</span><span class="p">(</span><span class="n">levs</span><span class="p">,</span> <span class="n">lev_bnds</span><span class="p">):</span>
+    <span class="n">drF</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">lev_bnds</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">drC</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">levs</span><span class="p">[</span><span class="mi">0</span><span class="p">]]),</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">levs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">lev_bnds</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">levs</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]])))</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">drF</span><span class="p">,</span> <span class="n">drC</span><span class="p">)</span>
+
+<span class="c1"># fine_drf is the depth of cells in the vertical and fine_drc is the height difference</span>
+<span class="c1"># between cell centers in the vertical</span>
+<span class="n">fine_drf</span><span class="p">,</span> <span class="n">fine_drc</span> <span class="o">=</span> <span class="n">finegrid_metrics</span><span class="p">(</span><span class="n">ds_slice</span><span class="o">.</span><span class="n">lev</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">ds</span><span class="o">.</span><span class="n">lev_bnds</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>xlayers does both regridding and remapping all in one step, but requires an initial calculation of various indices needed for binning. The output of <code class="docutils literal notranslate"><span class="pre">layers_apply</span></code> is thickness weighted i.e.
+\begin{equation}
+O(\rho_1 \mbox{ to } \rho_2)=\int_{z(\rho_1)}^{z(\rho_2)} I(z) dz , ,
+\end{equation}
+where <span class="math notranslate nohighlight">\(I(z)\)</span> is the input and <span class="math notranslate nohighlight">\(O(\rho_1 \mbox{ to } \rho_2)\)</span> is the output in the layer between <span class="math notranslate nohighlight">\(\rho_1\)</span> and <span class="math notranslate nohighlight">\(\rho_2\)</span>.</p>
+<p>Now, we time the calculation of the thickness-weighted salinity, <code class="docutils literal notranslate"><span class="pre">sal_lay</span></code> and the thickness of each layer, <code class="docutils literal notranslate"><span class="pre">th_lay</span></code>, in density space using xlayers.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># start the timer</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="c1"># Calculated the thickness-weighted salinity using xlayers</span>
+<span class="n">sal_lay</span> <span class="o">=</span> <span class="n">layers_apply</span><span class="p">(</span><span class="n">ds_slice</span><span class="o">.</span><span class="n">so</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(),</span> <span class="n">ds_slice</span><span class="o">.</span><span class="n">dens</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(),</span> <span class="n">t_vals</span><span class="p">,</span> 
+                           <span class="n">fine_drf</span><span class="p">,</span> <span class="n">fine_drc</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;lev&#39;</span><span class="p">,</span> <span class="s1">&#39;Tlev&#39;</span><span class="p">)</span>
+
+
+<span class="c1"># Calculated the thickness of each new layer (needed to back out the real salinity)</span>
+<span class="c1"># using xlayers</span>
+<span class="n">th_lay</span> <span class="o">=</span> <span class="n">layers_apply</span><span class="p">(</span><span class="n">xr</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">ds_slice</span><span class="o">.</span><span class="n">so</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()),</span> <span class="n">ds_slice</span><span class="o">.</span><span class="n">dens</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(),</span> <span class="n">t_vals</span><span class="p">,</span> 
+                           <span class="n">fine_drf</span><span class="p">,</span> <span class="n">fine_drc</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;lev&#39;</span><span class="p">,</span> <span class="s1">&#39;Tlev&#39;</span><span class="p">)</span>
+
+<span class="c1"># stop the timer</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="c1">#print how long this took</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;It takes </span><span class="si">{:.5f}</span><span class="s1"> seconds to perform this transformation using xlayers&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">end</span><span class="o">-</span><span class="n">start</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning: theta_in may not be monotonically ascending/descending
+Warning: theta_in may not be monotonically ascending/descending
+It takes 0.06132 seconds to perform this transformation using xlayers
+</pre></div>
+</div>
+</div>
+</div>
+<p>xlayers generally takes about 0.05 seconds to transform this salinity field into density coordinates. In other words xlayers is at least 2x faster than xarrayutils.</p>
+<p>Again, we confirm that this algorithm conserves ocean properties by checking that the depth-integrated salinity before transformation is equal to the depth-integrated salinity after the transformation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># find the depth integrated salinity in depth space (blue line)</span>
+<span class="n">sal_depth</span> <span class="o">=</span> <span class="p">((</span><span class="n">ds_slice</span><span class="o">.</span><span class="n">so</span><span class="o">*</span><span class="n">ds</span><span class="o">.</span><span class="n">lev_bnds</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="s1">&#39;bnds&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="s1">&#39;lev&#39;</span><span class="p">))</span>
+
+<span class="c1"># find the depth integrated salinity in density space (orange dashed line)</span>
+<span class="n">sal_dens</span> <span class="o">=</span> <span class="n">sal_lay</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="s1">&#39;Tlev&#39;</span><span class="p">)</span>
+
+
+<span class="c1"># plot as a function of latitude</span>
+<span class="n">sal_depth</span><span class="o">.</span><span class="n">swap_dims</span><span class="p">({</span><span class="s1">&#39;j&#39;</span><span class="p">:</span><span class="s1">&#39;latitude&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">sal_dens</span><span class="o">.</span><span class="n">swap_dims</span><span class="p">({</span><span class="s1">&#39;j&#39;</span><span class="p">:</span><span class="s1">&#39;latitude&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Salt content of the water column&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Depth-integrated salinity (psu m)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">((</span><span class="s1">&#39;Integrated in depth space&#39;</span><span class="p">,</span><span class="s1">&#39;Integrated in density space&#39;</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Depth-integrated salinity of the water column&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/xarrayutils_xlayers_28_0.png" src="../../_images/xarrayutils_xlayers_28_0.png" />
+</div>
+</div>
+<p>The orange dashed line is on top of the blue line, indicating that the total salt content of the water column before the transformation into density space equals the total salt content of the water column after transformation into density space.</p>
+<p>We plot the difference in salinity in January 2100.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find the salinity in density space</span>
+<span class="n">sal_dens</span> <span class="o">=</span> <span class="n">sal_lay</span><span class="o">/</span><span class="n">th_lay</span>
+
+<span class="c1"># Plot the salinity in density space</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">sal_dens</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;latitude&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;Tlev&#39;</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">33</span><span class="p">,</span> <span class="mi">39</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Salinity </span><span class="se">\n</span><span class="s1"> Jan 2100, SSP1-2.6&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;potential density&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;latitude&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">80</span> <span class="p">,</span><span class="mi">67</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/xarrayutils_xlayers_30_0.png" src="../../_images/xarrayutils_xlayers_30_0.png" />
+</div>
+</div>
+<p>Note that xarrayutils and xlayers produce very similar results, but xlayers generally produces more sensible values for salinity at the deepest density levels.</p>
+</div>
+</div>
+<div class="section" id="using-a-cluster-to-examine-wet-gets-wetter-dry-gets-drier-pattern-in-density-coordinates">
+<h2>6. Using a cluster to examine  “wet gets wetter, dry gets drier” pattern in density coordinates<a class="headerlink" href="#using-a-cluster-to-examine-wet-gets-wetter-dry-gets-drier-pattern-in-density-coordinates" title="Permalink to this headline">¶</a></h2>
+<p>The two scenarios begin from identical initial conditions, with greenhouse gas emissions growing faster in SSP5-8.5 than in SSP1-2.6. Hence we expect that wet regions will be wetter dry regions will be drier to a greater extent in SSP5-8.5 than in SSP1-2.6.</p>
+<p>We want to compare our salinity in density space to sea surface salinity at the beginning of the simulation, in order to find out whether salty regions are getting saltier and fresh regions are getting fresher. Below, we calculate surface salinity as a function of density in the year 2015.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This calculation is performed using the xhistogram package </span>
+<span class="kn">from</span> <span class="nn">xhistogram.xarray</span> <span class="kn">import</span> <span class="n">histogram</span>
+
+<span class="c1"># Define density bins</span>
+<span class="n">bins1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">20.4</span><span class="p">,</span> <span class="mf">28.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)])</span>
+<span class="n">bins2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+
+<span class="c1"># define salinity at the surface in 2015</span>
+<span class="n">sss15</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">so</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">experiment_id</span><span class="o">=</span><span class="s1">&#39;ssp126&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">lev</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s1">&#39;2015&#39;</span><span class="p">)</span>
+
+<span class="c1"># define density at the surface in 2015</span>
+<span class="n">ssd15</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">dens</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">experiment_id</span><span class="o">=</span><span class="s1">&#39;ssp126&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">lev</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s1">&#39;2015&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">chunk</span><span class="p">({</span><span class="s1">&#39;time&#39;</span><span class="p">:</span><span class="mi">6</span><span class="p">})</span>
+
+<span class="c1">#histogram of density at surface in 2015, weighted by salinity</span>
+<span class="n">hist_sal</span> <span class="o">=</span> <span class="n">histogram</span><span class="p">(</span><span class="n">ssd15</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="p">[</span><span class="n">bins1</span><span class="p">],</span> <span class="n">weights</span><span class="o">=</span><span class="n">sss15</span><span class="p">)</span>
+        
+<span class="c1">#histogram of density at surface in 2015</span>
+<span class="n">hist_dens</span> <span class="o">=</span> <span class="n">histogram</span><span class="p">(</span><span class="n">ssd15</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="p">[</span><span class="n">bins1</span><span class="p">])</span>
+
+<span class="c1">#mean sea-surface salinity as a function of density</span>
+<span class="n">mean_sal</span> <span class="o">=</span> <span class="n">hist_sal</span><span class="o">/</span><span class="n">hist_dens</span>
+                   
+<span class="c1"># plot</span>
+<span class="n">mean_sal</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;dens_bin&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Salinity&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Potential Density (kg/m$^3$)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Mean sea-surface salinity near section in 2015 as a function of density&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/xarrayutils_xlayers_34_0.png" src="../../_images/xarrayutils_xlayers_34_0.png" />
+</div>
+</div>
+<p>Surface salinities on isopycnals lighter than 24kg/m<span class="math notranslate nohighlight">\(^3\)</span> and heavier than 27kg/m<span class="math notranslate nohighlight">\(^3\)</span> are generally salty and surface salinities on isopycnals between 24kg/m<span class="math notranslate nohighlight">\(^3\)</span> and 27kg/m<span class="math notranslate nohighlight">\(^3\)</span> are generally fresh. Based on this plot, we expect isopycnals with densities less than 24kg/m<span class="math notranslate nohighlight">\(^3\)</span> to get saltier and isopycnals with densities between 24kg/m<span class="math notranslate nohighlight">\(^3\)</span> and 27kg/m<span class="math notranslate nohighlight">\(^3\)</span> to get fresher.</p>
+<p>We would like to compare the salinities for the globe the whole year. However, in order to find the mean salinity in density space over the whole year, we must take the thickness-weighted average. Described in <a class="reference external" href="https://doi.org/10.1175/JPO-D-11-0102.1">Young 2012</a>, thickness weighting is important for preventing relatively thin isopycnal layers from disproportionately affecting the mean salinity. In discretized form it follows
+\begin{equation}
+\tilde{S}(\rho_1 \mbox{ to } \rho_2)=\frac{\int_{t_1}^{t_2}\int_{z(\rho_1)}^{z(\rho_2)} S(z) dz , dt}{\int_{t_1}^{t_2}\int_{z(\rho_1)}^{z(\rho_2)} dz, dt} , ,
+\end{equation}
+where <span class="math notranslate nohighlight">\(\rho_1\)</span> and <span class="math notranslate nohighlight">\(\rho_2\)</span> are the bounds of the isopycnal layer, and <span class="math notranslate nohighlight">\(\tilde{S}\)</span> is the thickness weighted average salinity in the density layer between <span class="math notranslate nohighlight">\(\rho_1\)</span> and <span class="math notranslate nohighlight">\(\rho_2\)</span>. The thickness-weighted time and zonal average salinity for the year 2100 is plotted below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up a cluster using dask</span>
+<span class="kn">from</span> <span class="nn">dask_gateway</span> <span class="kn">import</span> <span class="n">Gateway</span>
+<span class="kn">from</span> <span class="nn">dask.distributed</span> <span class="kn">import</span> <span class="n">Client</span>
+
+<span class="n">gateway</span> <span class="o">=</span> <span class="n">Gateway</span><span class="p">()</span>
+<span class="n">cluster</span> <span class="o">=</span> <span class="n">gateway</span><span class="o">.</span><span class="n">new_cluster</span><span class="p">()</span>
+
+<span class="n">cluster</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">cluster</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "336d33a35d184a5eb9cc904ecf68fa16", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Make a client so you can see the progress of tasks (click the link that appears below)</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span><span class="n">cluster</span><span class="p">)</span>
+<span class="n">client</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table style="border: 2px solid white;">
+<tr>
+<td style="vertical-align: top; border: 0px solid white">
+<h3 style="text-align: left;">Client</h3>
+<ul style="text-align: left; list-style: none; margin: 0; padding: 0;">
+  <li><b>Scheduler: </b>gateway://traefik-prod-dask-gateway.prod:80/prod.783b554396454767af7d5d3e8e0f0e16</li>
+  <li><b>Dashboard: </b><a href='https://hub.binder.pangeo.io/services/dask-gateway/clusters/prod.783b554396454767af7d5d3e8e0f0e16/status' target='_blank'>https://hub.binder.pangeo.io/services/dask-gateway/clusters/prod.783b554396454767af7d5d3e8e0f0e16/status</a></li>
+</ul>
+</td>
+<td style="vertical-align: top; border: 0px solid white">
+<h3 style="text-align: left;">Cluster</h3>
+<ul style="text-align: left; list-style:none; margin: 0; padding: 0;">
+  <li><b>Workers: </b>0</li>
+  <li><b>Cores: </b>0</li>
+  <li><b>Memory: </b>0 B</li>
+</ul>
+</td>
+</tr>
+</table></div></div>
+</div>
+<p>First, we plot the mean for the year 2100 using xarrayutils.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define section for the year 2100</span>
+<span class="n">ds_glob</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">255</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="s1">&#39;2100&#39;</span><span class="p">,</span> <span class="n">j</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">250</span><span class="p">))</span>
+
+<span class="c1"># calculate the salinity in density space</span>
+<span class="n">ds_dens_cons</span><span class="p">,</span> <span class="n">z_dens_bounds</span> <span class="o">=</span> <span class="n">apply_xarrayutils</span><span class="p">(</span><span class="n">ds_glob</span><span class="p">,</span> <span class="n">t_vals</span><span class="p">)</span>
+
+<span class="c1"># find thickness weighting</span>
+<span class="n">dz_remapped</span> <span class="o">=</span> <span class="n">z_dens_bounds</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="s1">&#39;regridded&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;regridded&#39;</span><span class="p">:</span><span class="s1">&#39;remapped&#39;</span><span class="p">})</span>
+<span class="n">dz_remapped</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s1">&#39;remapped&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds_dens_cons</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s1">&#39;remapped&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1"># Find thickness weighted salinity, averaged in time</span>
+<span class="n">tw_xau2100</span> <span class="o">=</span> <span class="p">(</span><span class="n">ds_dens_cons</span><span class="o">*</span><span class="n">dz_remapped</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">/</span><span class="n">dz_remapped</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+
+<span class="c1"># Find difference between experiments SSP5-8.5 and SSP1-2.6</span>
+<span class="n">difference</span> <span class="o">=</span> <span class="n">tw_xau2100</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">experiment_id</span><span class="o">=</span><span class="s1">&#39;ssp585&#39;</span><span class="p">)</span><span class="o">-</span><span class="n">tw_xau2100</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">experiment_id</span><span class="o">=</span><span class="s1">&#39;ssp126&#39;</span><span class="p">)</span>
+
+<span class="c1"># plot difference</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">difference</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;j&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;remapped&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;RdBu_r&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Salinity </span><span class="se">\n</span><span class="s1"> 2100, SSP5-8.5 minus SSP1-2.6 (created with xarrayutils)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;density&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;latitude&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span> <span class="mi">21</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/xarrayutils_xlayers_40_0.png" src="../../_images/xarrayutils_xlayers_40_0.png" />
+</div>
+</div>
+<p>We can plot the global and year average with xlayers though:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define gloabel dataset for the year 2100</span>
+<span class="n">ds_glob</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">j</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">250</span><span class="p">),</span> <span class="n">time</span><span class="o">=</span><span class="s1">&#39;2100&#39;</span><span class="p">)</span>
+
+<span class="c1"># prepare inputs for xarrayutils</span>
+<span class="n">salinity_in</span> <span class="o">=</span> <span class="n">ds_glob</span><span class="o">.</span><span class="n">so</span><span class="o">.</span><span class="n">chunk</span><span class="p">({</span><span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+<span class="n">density_in</span> <span class="o">=</span> <span class="n">ds_glob</span><span class="o">.</span><span class="n">dens</span><span class="o">.</span><span class="n">chunk</span><span class="p">({</span><span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+
+<span class="c1"># Redefine density coords (the global ocean has some water that is lighter than the lightest water in our section)</span>
+<span class="n">denslayers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mf">28.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)])</span>
+
+<span class="c1"># find thicknes-weighted salinity</span>
+<span class="n">sal_lay</span> <span class="o">=</span> <span class="n">layers_apply</span><span class="p">(</span><span class="n">salinity_in</span><span class="p">,</span> <span class="n">density_in</span><span class="p">,</span> <span class="n">denslayers</span><span class="p">,</span> 
+                           <span class="n">fine_drf</span><span class="p">,</span> <span class="n">fine_drc</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;lev&#39;</span><span class="p">,</span> <span class="s1">&#39;Tlev&#39;</span><span class="p">)</span>
+
+
+<span class="c1"># Calculated the thickness of each new layer (needed to back out the real salinity)</span>
+<span class="n">th_lay</span> <span class="o">=</span> <span class="n">layers_apply</span><span class="p">(</span><span class="n">xr</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">salinity_in</span><span class="p">),</span> <span class="n">density_in</span><span class="p">,</span> <span class="n">denslayers</span><span class="p">,</span> 
+                           <span class="n">fine_drf</span><span class="p">,</span> <span class="n">fine_drc</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;lev&#39;</span><span class="p">,</span> <span class="s1">&#39;Tlev&#39;</span><span class="p">)</span>
+
+
+<span class="c1"># Find thickness-weighted average salinity, over the whole globe for the year 2100</span>
+<span class="n">tw_xlay</span> <span class="o">=</span> <span class="p">(</span><span class="n">sal_lay</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">)</span><span class="o">/</span><span class="n">th_lay</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">))</span>
+
+<span class="c1"># Find the difference between experiments SSP5-8.5 and SSP1-2.6</span>
+<span class="n">difference</span> <span class="o">=</span> <span class="n">tw_xlay</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">experiment_id</span><span class="o">=</span><span class="s1">&#39;ssp585&#39;</span><span class="p">)</span><span class="o">-</span><span class="n">tw_xlay</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">experiment_id</span><span class="o">=</span><span class="s1">&#39;ssp126&#39;</span><span class="p">)</span>
+
+<span class="c1">#define latitude for plotting (at the latitudes chosen, latitude is constant in i)</span>
+<span class="n">difference</span><span class="p">[</span><span class="s1">&#39;mlatitude&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">salinity_in</span><span class="p">[</span><span class="s1">&#39;latitude&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">)</span>
+
+<span class="c1"># plot difference</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">difference</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;mlatitude&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;Tlev&#39;</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;2100, SSP5-8.5 minus SSP1-2.6 (created with xlayers)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;potential density&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;latitude&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span> <span class="mi">15</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/xarrayutils_xlayers_42_0.png" src="../../_images/xarrayutils_xlayers_42_0.png" />
+</div>
+</div>
+<p>The above plot is the zonal average for the whole globe.  In general the salinity appears to be increasing for densities greater than 24kg/m<span class="math notranslate nohighlight">\(^3\)</span> and decreasing for densities between 24kg/m<span class="math notranslate nohighlight">\(^3\)</span> and 27kg/m<span class="math notranslate nohighlight">\(^3\)</span>, as predicted by “wet gets wetter, dry gets drier”. However, between 20N and 40N, there is a lot of freshening at lighter densities: further investigation of this is needed.</p>
+<div class="section" id="conclusions">
+<h3>7. Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this headline">¶</a></h3>
+<p>We transform salinity from the ACCESS model into density coordinates using two different property-conserving algorithms, xarrayutils and xlayers. Xlayers is about 2x faster than xarrayutils, but xarrayutils is easier to set up on some systems because it does not require a FORTRAN compiler. The salinity in isopycnal space is similar between the two algorithms. We plan to continue to refine these algorithms and perhaps combine them into a single package in future.</p>
+<p>In general the subtropics has net evaporation, i.e. it is a dry region, and the subpolar region has net precipitation, i.e. it is a wetter region. As greenhouse gas levels increase, wet regions are generally thought to get wetter and dry regions are thought to get drier (see e.g. <a class="reference external" href="https://doi.org/10.1002/qj.2456">Vallis et al. 2015</a>). Using output from two scenarios in the ACCESS model, we show here that the salinity in density space is consistent with this “wet gets wetter and dry gets drier” hypothesis: for scenarios with more greenhouse gases in the atmosphere, higher salinities are seen in the tropics and lower salinities are seen in the subtropics.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cluster</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="acknowledgements">
+<h3>8. Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permalink to this headline">¶</a></h3>
+<p>Parts of this notebook were originally developed as part of the CMIP6 Hackathon, which was supported by funding from <a class="reference external" href="https://usclivar.org/">US-CLIVAR</a> and <a class="reference external" href="https://www.us-ocb.org/">OCB</a>. We acknowledge support from Pangeo (NSF award 1740648).</p>
+</div>
+<div class="section" id="references">
+<h3>9. References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h3>
+<p>Durack, P. J. and Wijffels, S. E., 2010: Fifty-Year Trends in Global Ocean Salinities and Their Relationship to Broad-Scale Warming. <em>J. Clim.</em>, <strong>23</strong>, 4342–4362, doi: 10.1175/2010JCLI3377.1</p>
+<p>Vallis, G. K., Zurita-Gotor, P., Cairns, C., and Kidston, J., 2014: Response of the large‐scale structure of the atmosphere to global warming. <em>Q. J. R. Meteorol. Soc</em>, <strong>141</strong>, 1479-1501, doi:10.1002/qj.2456</p>
+<p>Bi, D., Dix, M., Marsland, S. J., O’Farrell, S., Rashid, H., Uotila, P., … and Yan, H. 2013., The ACCESS coupled model: description, control climate and evaluation. <em>Aust. Meteorol. Oceanogr. J</em>, <strong>63</strong>(1), 41-64.</p>
+<p>Riahi, K., Van Vuuren, D. P., Kriegler, E., Edmonds, J., O’neill, B. C., Fujimori, S., … and Lutz, W., 2017. The shared socioeconomic pathways and their energy, land use, and greenhouse gas emissions implications: an overview. <em>Global Environmental Change</em>, <strong>42</strong>, 153-168.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./ec2020/ec20_jones_etal"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By EarthCube Office<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

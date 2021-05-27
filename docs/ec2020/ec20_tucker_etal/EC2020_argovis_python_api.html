@@ -1,0 +1,2094 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Python API to argovis.colorado.edu &#8212; EarthCube GeoCODES Exploration</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/logo.webp" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">EarthCube GeoCODES Exploration</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Exploring GeoCODES
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../content.html">
+   Content in Jupyter Book
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../markdown.html">
+     Markdown Files
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks.html">
+     Content with notebooks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../analysis.html">
+     Data Unit Testing, ranking, clustering
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../partfile.html">
+   Notebooks
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks/gleaner_clustering.html">
+     SciKit K-means Clustering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks/gleaner_gensim.html">
+     Gensim
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks/gleaner_txtai.html">
+     Gleaner &amp; txtai
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks/ECO_GraphAnalytics.html">
+     EarthCube Graph Analytics Exploration
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../index.html">
+   EC2020 examples
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ec20_soliman_etal/ks-preprocess-dem.html">
+     Processing digital elevation data for deep learning models using Keras Spatial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ec20_banihirwe_etal/intake-pangeo-catalog.html">
+     Intake / Pangeo Catalog: Making It Easier To Consume Earth’s Climate and Weather Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ec20_busecke_etal/busecke_abernathey_earthcube2020.html">
+     CMIP6 without the interpolation: Grid-native analysis with Pangeo in the cloud
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ec20_hamman_etal/2020ECAHM-scikit-downscale.html">
+     Scikit-downscale: an open source Python package for scalable climate downscaling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ec20_havlin_etal/notebook/ec20_havlin_etal.html">
+     3D volume rendering of geophysical data using the yt platform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ec20_peckham_etal/BALTO_GUI_v2.html">
+     BALTO Graphical User Interface (A Prototype)
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/ec2020/ec20_tucker_etal/EC2020_argovis_python_api.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/fils/EarthCubeGraphAnalytics"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/fils/EarthCubeGraphAnalytics/issues/new?title=Issue%20on%20page%20%2Fec2020/ec20_tucker_etal/EC2020_argovis_python_api.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/fils/EarthCubeGraphAnalytics/master?urlpath=lab/tree/book/ec2020/ec20_tucker_etal/EC2020_argovis_python_api.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="your-hub-url/hub/user-redirect/git-pull?repo=https://github.com/fils/EarthCubeGraphAnalytics&urlpath=lab/tree/EarthCubeGraphAnalytics/book/ec2020/ec20_tucker_etal/EC2020_argovis_python_api.ipynb&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/fils/EarthCubeGraphAnalytics/blob/master/book/ec2020/ec20_tucker_etal/EC2020_argovis_python_api.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Python API to argovis.colorado.edu
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-short-summary-of-the-background-and-of-argovis-goals">
+     A short summary of the background and of Argovis’ goals:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#citation-for-the-argovis-web-app-and-the-argovis-database">
+     Citation for the Argovis web app and the Argovis database:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#acknowledgements">
+     Acknowledgements:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#description-of-this-notebook">
+     Description of this notebook:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-a-profile">
+   1. Get A Profile
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-a-platform">
+   2. Get A Platform
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-a-space-time-selection">
+   3.1 Get A Space-Time Selection
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metadata-selection-for-month-and-year">
+     3.2 Metadata selection for month and year
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#gathering-metadata-globally-in-a-period-of-interest">
+       Gathering metadata globally in a period of interest
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plotting-metadata-results">
+   4. Plotting metadata results
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#time-series-for-the-average-of-the-data-in-a-region-interpolated-on-pressure-levels-of-interest">
+   5. Time series for the average of the data in a region (interpolated on pressure levels of interest)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#query-globally-within-thin-slice-of-pressure">
+   6. Query globally within thin slice of pressure
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overlay-atmospheric-rivers-on-the-map">
+   7. Overlay Atmospheric Rivers on the map
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="python-api-to-argovis-colorado-edu">
+<h1>Python API to <a class="reference external" href="http://argovis.colorado.edu">argovis.colorado.edu</a><a class="headerlink" href="#python-api-to-argovis-colorado-edu" title="Permalink to this headline">¶</a></h1>
+<p>The about page of the web app <a class="reference external" href="http://argovis.colorado.edu">argovis.colorado.edu</a> introduces the web app website and links to other useful information (e.g. FAQs, tutorials). The Argovis tutorials page provides more information about available APIs, along with sample code in different programming languages (e.g. Python, Matlab). Supplementary tutorial videos are found <a class="reference external" href="https://www.youtube.com/watch?v=UOjSV4EIy00&amp;list=PLJQE6R74BkyVV3PeTRdGh-W5llAY4XJ8v">here</a>.</p>
+<p>Running this notebook requires some setup, installing several libraries and creating a separate python environment. A docker container has been created to run this noteobook in a separate environment. Further instructions are found at <a class="reference external" href="https://github.com/tylertucker202/EC-Argovis-API-Demo">this Github repository</a>.</p>
+<div class="section" id="a-short-summary-of-the-background-and-of-argovis-goals">
+<h2>A short summary of the background and of Argovis’ goals:<a class="headerlink" href="#a-short-summary-of-the-background-and-of-argovis-goals" title="Permalink to this headline">¶</a></h2>
+<p>For the first time in history, the [Argo] (<a class="reference external" href="http://www.argo.ucsd.edu/index.html">http://www.argo.ucsd.edu/index.html</a>) network of profiling floats provides real-time data of temperature T, salinity S, and pressure P for the global ocean to a depth of 2000 dbar, with Deep Argo floats going down to 6000-dbar depth. Argo floats have been deployed since the early 2000s and reached the expected spatial distribution in 2007 (Roemmich et al. 2009). Nearly 4000 floats are currently operating in the global ocean and provide a profile every 10 days, that is, measurements from a vertical column of the ocean as a single float ascends to the surface. The four-dimensional (4D) space-time Argo data have many scientific and technological advantages, two of which are 1) unprecedented spatial and temporal resolution over the global ocean and 2) no seasonal bias (Roemmich et al. 2009). More than two million T/S/P profiles have been collected through the Argo Program.</p>
+<p>The web app <a class="reference external" href="http://argovis.colorado.edu">argovis.colorado.edu</a> aims to improve visualization and data retrieval of the Argo dataset. This web app is a maintainable, scalable, and portable tool written with representational state transfer (REST) architecture. The RESTful design offers us the opportunity to feature cloud computing applications; chiefly, map comparison from existing gridded Argo products, as well as parameter estimation such as basin mean T/S/P.</p>
+<p>Currently, Argovis is expanding to co-locate Argo data with weather events, satellite, and other Earth science datasets.</p>
+</div>
+<div class="section" id="citation-for-the-argovis-web-app-and-the-argovis-database">
+<h2>Citation for the Argovis web app and the Argovis database:<a class="headerlink" href="#citation-for-the-argovis-web-app-and-the-argovis-database" title="Permalink to this headline">¶</a></h2>
+<p>Tucker, T., D. Giglio, M. Scanderbeg, and S.S.P. Shen, 0: Argovis: A Web Application for Fast Delivery, Visualization, and Analysis of Argo Data. J. Atmos. Oceanic Technol., 37, 401–416, [<a class="reference external" href="https://doi.org/10.1175/JTECH-D-19-0041.1">https://doi.org/10.1175/JTECH-D-19-0041.1</a>] (<a class="reference external" href="https://doi.org/10.1175/JTECH-D-19-0041.1">https://doi.org/10.1175/JTECH-D-19-0041.1</a>)</p>
+<p>If using data from Argovis in publications, please cite both the above Argovis web application paper and the original Argo data source reference in your paper:</p>
+<p>” These data were collected and made freely available by the International Argo Program and the national programs that contribute to it. (<a class="reference external" href="http://www.argo.ucsd.edu">http://www.argo.ucsd.edu</a>, <a class="reference external" href="http://argo.jcommops.org">http://argo.jcommops.org</a>). The Argo Program is part of the Global Ocean Observing System. “
+Argo (2000). Argo float data and metadata from the Global Data Assembly Centre (Argo GDAC). SEANOE. <a class="reference external" href="http://doi.org/10.17882/42182">http://doi.org/10.17882/42182</a></p>
+</div>
+<div class="section" id="acknowledgements">
+<h2>Acknowledgements:<a class="headerlink" href="#acknowledgements" title="Permalink to this headline">¶</a></h2>
+<p>Argovis is hosted on a server of the Department of Atmospheric and Oceanic Sciences (ATOC) at the University of Colorado Boulder. Currently, Argovis is funded by the NSF Earthcube program (Award <a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928305&amp;HistoricalAwards=false">#1928305</a>).</p>
+<p>In the past, Argovis has been funded by (starting with the most recent):</p>
+<ul class="simple">
+<li><p>Giglio’s research funds provided by University of Colorado Boulder</p></li>
+<li><p>the SOCCOM Project through grant number NSF PLR-1425989</p></li>
+<li><p>the US Argo Program through NOAA Grant NA15OAR4320071 (CIMEC)</p></li>
+<li><p>the National Oceanic and Atmospheric Administration – Cooperative Science Center for Earth System Sciences and - Remote Sensing Technologies (NOAA-CREST) under the Cooperative Agreement Grant #: NA16SEC4810008</p></li>
+<li><p>the U.S. NOAA Cooperative Institute for Climate Science (Award No. 13342-Z7812001)</p></li>
+<li><p>The City College of New York, NOAA-CREST program and NOAA Office of Education, Educational Partnership Program which provided full fellowship support to Tyler Tucker at San Diego State University</p></li>
+</ul>
+<p>The initial development of Argovis referenced the codes and ideas of the 4-Dimensional Visual Delivery (4DVD) technology developed at the Climate Informatics Lab, San Diego State University. The computer code for 4DVD is at <a class="reference external" href="https://github.com/dafrenchyman/4dvd">https://github.com/dafrenchyman/4dvd</a> and is available for download under the GNU General Public License open source license. All applicable restrictions, disclaimers of warranties, and limitations of liability in the GNU General Public License also apply to uses of 4DVD on this website.</p>
+</div>
+<div class="section" id="description-of-this-notebook">
+<h2>Description of this notebook:<a class="headerlink" href="#description-of-this-notebook" title="Permalink to this headline">¶</a></h2>
+<p>The following code is a way to get ocean data stored on Argovis. HTTP ‘get’ requests access the web app’s database; however, without a browser. Essentially, this interface is used to query the same database that builds the website.</p>
+<p>Citation:</p>
+<p>Tucker, T., D. Giglio, M. Scanderbeg, and S.S.P. Shen, 0: Argovis: A Web Application for Fast Delivery, Visualization, and Analysis of Argo Data. J. Atmos. Oceanic Technol., 37, 401–416, [<a class="reference external" href="https://doi.org/10.1175/JTECH-D-19-0041.1">https://doi.org/10.1175/JTECH-D-19-0041.1</a>] (<a class="reference external" href="https://doi.org/10.1175/JTECH-D-19-0041.1">https://doi.org/10.1175/JTECH-D-19-0041.1</a>)</p>
+<p>This notebook will guide a python user to:</p>
+<p><a class="reference external" href="#section_one">1. Query a specific profile using its id, designated by its platform (WMO) number with its cycle number, connected by an underscore. For example ‘3900737_9’</a></p>
+<p><a class="reference external" href="#section_two">2. Query a specified platform by number. Example ‘3900737’.</a></p>
+<p><a class="reference external" href="#section_three">3.1 Query profiles within a given shape, date range, and pressure range.</a></p>
+<p><a class="reference external" href="#section_three_two">3.2 Query profiles position, date, and cycle number within month and year (globally).</a></p>
+<p><a class="reference external" href="#section_four">4. Plot query results</a></p>
+<p><a class="reference external" href="#section_five">5. Create time series for a selected region and set of dates.</a></p>
+<p><a class="reference external" href="#section_six">6. Query database using a gridded scheme</a></p>
+<p><a class="reference external" href="#section_seven">7. Overlay Atmospheric Rivers on the map</a></p>
+<p>Firstly, the following libraries are called and styles are set.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">import</span> <span class="nn">cmocean</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">griddata</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">interpolate</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">import</span> <span class="nn">pdb</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">csv</span>
+
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+<span class="kn">import</span> <span class="nn">calendar</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">font_manager</span><span class="o">.</span><span class="n">_rebuild</span><span class="p">()</span>
+
+<span class="c1">#used for map projections</span>
+<span class="kn">from</span> <span class="nn">cartopy</span> <span class="kn">import</span> <span class="n">config</span>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
+<span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="nn">mpatches</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="c1">#sets plot styles</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">rc</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">rcParams</span>
+<span class="kn">import</span> <span class="nn">matplotlib.ticker</span> <span class="k">as</span> <span class="nn">mtick</span>
+<span class="n">rc</span><span class="p">(</span><span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="n">usetex</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">rcStyle</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;font.size&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+           <span class="s2">&quot;axes.titlesize&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+           <span class="s2">&quot;axes.labelsize&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+           <span class="s1">&#39;xtick.labelsize&#39;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
+           <span class="s1">&#39;ytick.labelsize&#39;</span><span class="p">:</span> <span class="mi">16</span><span class="p">}</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s2">&quot;paper&quot;</span><span class="p">,</span> <span class="n">rc</span><span class="o">=</span><span class="n">rcStyle</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;axes.grid&#39;</span> <span class="p">:</span> <span class="kc">False</span><span class="p">})</span>
+<span class="n">myColors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;windows blue&quot;</span><span class="p">,</span> <span class="s2">&quot;amber&quot;</span><span class="p">,</span> <span class="s2">&quot;dusty rose&quot;</span><span class="p">,</span> <span class="s2">&quot;prussian blue&quot;</span><span class="p">,</span> <span class="s2">&quot;faded green&quot;</span><span class="p">,</span> <span class="s2">&quot;dusty purple&quot;</span><span class="p">,</span> <span class="s2">&quot;gold&quot;</span><span class="p">,</span> <span class="s2">&quot;dark pink&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;brown&quot;</span><span class="p">]</span>
+<span class="n">colorsBW</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="s2">&quot;grey&quot;</span><span class="p">]</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_palette</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">xkcd_palette</span><span class="p">(</span><span class="n">myColors</span><span class="p">))</span>
+
+<span class="n">curDir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<span class="n">dataDir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">curDir</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">dataDir</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">dataDir</span><span class="p">)</span>
+    
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a name="section_one"/> </a></p>
+</div>
+</div>
+<div class="section" id="get-a-profile">
+<h1>1. Get A Profile<a class="headerlink" href="#get-a-profile" title="Permalink to this headline">¶</a></h1>
+<p>The requests library handles the HTTP getting and receiving. If the message is received and the profile exists Argovis will return a JSON object. Python casts a JSON object as a native dictionary type.</p>
+<p>in this example, we are going to access the profile from float 3900737 cycle 279. The function below builds the following URL, requests JSON data, and returns it in python.</p>
+<p><a class="reference external" href="https://argovis.colorado.edu/catalog/profiles/3900737_279">https://argovis.colorado.edu/catalog/profiles/3900737_279</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_profile</span><span class="p">(</span><span class="n">profile_number</span><span class="p">):</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://argovis.colorado.edu/catalog/profiles/</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">profile_number</span><span class="p">)</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="c1"># Consider any status other than 2xx an error</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">resp</span><span class="o">.</span><span class="n">status_code</span> <span class="o">//</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Error: Unexpected response </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
+    <span class="n">profile</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">profile</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">profileDict</span> <span class="o">=</span> <span class="n">get_profile</span><span class="p">(</span><span class="s1">&#39;3900737_279&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">profileDict</span></code> is a set of key:value pairs enclosed by curly brackets. These are profile objects stored in the Argovis Database, imported in a Python environment. We expose the keys with the command <code class="docutils literal notranslate"><span class="pre">profileDict.keys()</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">profileDict</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;bgcMeasKeys&#39;, &#39;station_parameters&#39;, &#39;station_parameters_in_nc&#39;, &#39;PARAMETER_DATA_MODE&#39;, &#39;_id&#39;, &#39;POSITIONING_SYSTEM&#39;, &#39;DATA_CENTRE&#39;, &#39;PI_NAME&#39;, &#39;WMO_INST_TYPE&#39;, &#39;VERTICAL_SAMPLING_SCHEME&#39;, &#39;DATA_MODE&#39;, &#39;PLATFORM_TYPE&#39;, &#39;measurements&#39;, &#39;pres_max_for_TEMP&#39;, &#39;pres_min_for_TEMP&#39;, &#39;pres_max_for_PSAL&#39;, &#39;pres_min_for_PSAL&#39;, &#39;max_pres&#39;, &#39;date&#39;, &#39;date_added&#39;, &#39;date_qc&#39;, &#39;lat&#39;, &#39;lon&#39;, &#39;geoLocation&#39;, &#39;position_qc&#39;, &#39;cycle_number&#39;, &#39;dac&#39;, &#39;platform_number&#39;, &#39;nc_url&#39;, &#39;DIRECTION&#39;, &#39;BASIN&#39;, &#39;bgcMeas&#39;, &#39;url&#39;, &#39;core_data_mode&#39;, &#39;jcommopsPlatform&#39;, &#39;euroargoPlatform&#39;, &#39;formatted_station_parameters&#39;, &#39;roundLat&#39;, &#39;roundLon&#39;, &#39;strLat&#39;, &#39;strLon&#39;, &#39;date_formatted&#39;, &#39;id&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Core measuremenent data is stored in the field ‘measurements’. Its a list of dictionary objects, indexed by pressure. Each row is a pressure level and each key is a column. We can convert this tabular like data into a pandas dataframe. Essentially it is a spreadsheet table.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">profileDict</span> <span class="o">=</span> <span class="n">get_profile</span><span class="p">(</span><span class="s1">&#39;3900737_279&#39;</span><span class="p">)</span>
+<span class="n">profileDf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">profileDict</span><span class="p">[</span><span class="s1">&#39;measurements&#39;</span><span class="p">])</span>
+<span class="n">profileDf</span><span class="p">[</span><span class="s1">&#39;cycle_number&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">profileDict</span><span class="p">[</span><span class="s1">&#39;cycle_number&#39;</span><span class="p">]</span>
+<span class="n">profileDf</span><span class="p">[</span><span class="s1">&#39;profile_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">profileDict</span><span class="p">[</span><span class="s1">&#39;_id&#39;</span><span class="p">]</span>
+<span class="n">profileDf</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>temp</th>
+      <th>psal</th>
+      <th>pres</th>
+      <th>cycle_number</th>
+      <th>profile_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>27.165</td>
+      <td>35.421</td>
+      <td>4.4</td>
+      <td>279</td>
+      <td>3900737_279</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>27.063</td>
+      <td>35.421</td>
+      <td>10.0</td>
+      <td>279</td>
+      <td>3900737_279</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>27.055</td>
+      <td>35.422</td>
+      <td>16.9</td>
+      <td>279</td>
+      <td>3900737_279</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>27.048</td>
+      <td>35.422</td>
+      <td>23.7</td>
+      <td>279</td>
+      <td>3900737_279</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>27.046</td>
+      <td>35.421</td>
+      <td>30.9</td>
+      <td>279</td>
+      <td>3900737_279</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>With the data in this form, we can plot it with our favorite library, matplotlib. Try different styles.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">plt</span><span class="o">.</span><span class="n">xkcd</span><span class="p">():</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">((</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
+
+    <span class="n">dataX</span> <span class="o">=</span> <span class="n">profileDf</span><span class="o">.</span><span class="n">pres</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">dataY</span> <span class="o">=</span> <span class="n">profileDf</span><span class="o">.</span><span class="n">temp</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dataY</span><span class="p">,</span> <span class="n">dataX</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;An Argo Profile </span><span class="se">\n</span><span class="s1"> in the style of XKCD&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Temperature [C]&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Pressure [dbar]&#39;</span><span class="p">)</span>
+    
+    <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span>
+    <span class="s1">&#39;We can make annotations!&#39;</span><span class="p">,</span>
+    <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">dataY</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">dataX</span><span class="p">[</span><span class="mi">12</span><span class="p">]</span><span class="o">+</span><span class="mi">10</span><span class="p">),</span> \
+        <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">arrowstyle</span><span class="o">=</span><span class="s1">&#39;-&gt;&#39;</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">1100</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/EC2020_argovis_python_api_10_0.png" src="../../_images/EC2020_argovis_python_api_10_0.png" />
+</div>
+</div>
+<p><a name="section_two"/> </a></p>
+</div>
+<div class="section" id="get-a-platform">
+<h1>2. Get A Platform<a class="headerlink" href="#get-a-platform" title="Permalink to this headline">¶</a></h1>
+<p>A platform consists of a list of profiles. An additional function ‘parse_into_df’ appends each profile to one data frame.</p>
+<p>In this example we are constructing the url:
+<a class="reference external" href="https://argovis.colorado.edu/catalog/platforms/3900737">https://argovis.colorado.edu/catalog/platforms/3900737</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_platform_profiles</span><span class="p">(</span><span class="n">platform_number</span><span class="p">):</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://argovis.colorado.edu/catalog/platforms/</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">platform_number</span><span class="p">)</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="c1"># Consider any status other than 2xx an error</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">resp</span><span class="o">.</span><span class="n">status_code</span> <span class="o">//</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Error: Unexpected response </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
+    <span class="n">platformProfiles</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">platformProfiles</span>
+
+<span class="k">def</span> <span class="nf">parse_into_df</span><span class="p">(</span><span class="n">profiles</span><span class="p">):</span>
+    <span class="n">meas_keys</span> <span class="o">=</span> <span class="n">profiles</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;measurements&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">meas_keys</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">profile</span> <span class="ow">in</span> <span class="n">profiles</span><span class="p">:</span>
+        <span class="n">profileDf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">profile</span><span class="p">[</span><span class="s1">&#39;measurements&#39;</span><span class="p">])</span>
+        <span class="n">profileDf</span><span class="p">[</span><span class="s1">&#39;cycle_number&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">profile</span><span class="p">[</span><span class="s1">&#39;cycle_number&#39;</span><span class="p">]</span>
+        <span class="n">profileDf</span><span class="p">[</span><span class="s1">&#39;profile_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">profile</span><span class="p">[</span><span class="s1">&#39;_id&#39;</span><span class="p">]</span>
+        <span class="n">profileDf</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">profile</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">]</span>
+        <span class="n">profileDf</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">profile</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">]</span>
+        <span class="n">profileDf</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">profile</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span> <span class="n">profileDf</span><span class="p">],</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">platformProfiles</span> <span class="o">=</span> <span class="n">get_platform_profiles</span><span class="p">(</span><span class="s1">&#39;3900737&#39;</span><span class="p">)</span><span class="c1">#(&#39;5904684&#39;)</span>
+<span class="n">platformDf</span> <span class="o">=</span> <span class="n">parse_into_df</span><span class="p">(</span><span class="n">platformProfiles</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;number of measurements </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">platformDf</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>number of measurements 25609
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">platformDf</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>temp</th>
+      <th>psal</th>
+      <th>pres</th>
+      <th>cycle_number</th>
+      <th>profile_id</th>
+      <th>lat</th>
+      <th>lon</th>
+      <th>date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>26.349</td>
+      <td>33.770</td>
+      <td>4.4</td>
+      <td>1.0</td>
+      <td>3900737_1</td>
+      <td>0.931</td>
+      <td>-84.083</td>
+      <td>2009-06-15T11:13:53.000Z</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>26.356</td>
+      <td>33.781</td>
+      <td>10.5</td>
+      <td>1.0</td>
+      <td>3900737_1</td>
+      <td>0.931</td>
+      <td>-84.083</td>
+      <td>2009-06-15T11:13:53.000Z</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>26.294</td>
+      <td>33.894</td>
+      <td>17.7</td>
+      <td>1.0</td>
+      <td>3900737_1</td>
+      <td>0.931</td>
+      <td>-84.083</td>
+      <td>2009-06-15T11:13:53.000Z</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>26.014</td>
+      <td>34.198</td>
+      <td>24.6</td>
+      <td>1.0</td>
+      <td>3900737_1</td>
+      <td>0.931</td>
+      <td>-84.083</td>
+      <td>2009-06-15T11:13:53.000Z</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>24.573</td>
+      <td>34.716</td>
+      <td>31.6</td>
+      <td>1.0</td>
+      <td>3900737_1</td>
+      <td>0.931</td>
+      <td>-84.083</td>
+      <td>2009-06-15T11:13:53.000Z</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>By the way, Pandas dataframes can handle large arrays efficiently, thanks to the underlying numpy library. Pandas allow for easy and quick computations, such as taking the mean of the measurements.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">platformDf</span><span class="p">[[</span><span class="s1">&#39;pres&#39;</span><span class="p">,</span> <span class="s1">&#39;psal&#39;</span><span class="p">,</span> <span class="s1">&#39;temp&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pres    539.346652
+psal     34.905583
+temp     12.602862
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, we shall plot these profiles’ temperature at a level of interest. The function below calculates a linear interpolation of temperature and salinity.         # Note that some of the profiles in Argovis may not have salinity (either because there is no salinity value in the original Argo file or the quality is bad)</p>
+<p>A simple script then plots a scatter chart with the color set to temperature. Let’s also use the <a class="reference external" href="https://scitools.org.uk/cartopy/docs/latest/">Cartopy</a> library for base layers and projections.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">parse_into_df_plev</span><span class="p">(</span><span class="n">profiles</span><span class="p">,</span> <span class="n">plev</span><span class="p">):</span>
+    <span class="n">plevProfileList</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">profile</span> <span class="ow">in</span> <span class="n">profiles</span><span class="p">:</span>
+        <span class="n">profileDf_bfr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">profile</span><span class="p">[</span><span class="s1">&#39;measurements&#39;</span><span class="p">])</span>
+        <span class="n">plevProfile</span> <span class="o">=</span> <span class="n">profile</span>
+        <span class="n">fT</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">interp1d</span><span class="p">(</span><span class="n">profileDf_bfr</span><span class="p">[</span><span class="s1">&#39;pres&#39;</span><span class="p">],</span> <span class="n">profileDf_bfr</span><span class="p">[</span><span class="s1">&#39;temp&#39;</span><span class="p">],</span> <span class="n">bounds_error</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">plevProfile</span><span class="p">[</span><span class="s1">&#39;temp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fT</span><span class="p">(</span><span class="n">plev</span><span class="p">)</span>
+        <span class="c1"># some of the profiles in Argovis may not have salinity </span>
+        <span class="c1"># (either because there is no salinity value in the original Argo file or the quality is bad)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">fS</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">interp1d</span><span class="p">(</span><span class="n">profileDf_bfr</span><span class="p">[</span><span class="s1">&#39;pres&#39;</span><span class="p">],</span> <span class="n">profileDf_bfr</span><span class="p">[</span><span class="s1">&#39;psal&#39;</span><span class="p">],</span> <span class="n">bounds_error</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">plevProfile</span><span class="p">[</span><span class="s1">&#39;psal&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fS</span><span class="p">(</span><span class="n">plev</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="n">plevProfile</span><span class="p">[</span><span class="s1">&#39;psal&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span> <span class="c1">#  No salinity found in profile</span>
+        <span class="n">plevProfile</span><span class="p">[</span><span class="s1">&#39;pres&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">plev</span>
+        <span class="n">plevProfileList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">plevProfile</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">plevProfileList</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;cycle_number&#39;</span><span class="p">])</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;cycle_number&#39;</span><span class="p">,</span><span class="s1">&#39;_id&#39;</span><span class="p">,</span><span class="s1">&#39;date&#39;</span><span class="p">,</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span><span class="s1">&#39;pres&#39;</span><span class="p">,</span><span class="s1">&#39;temp&#39;</span><span class="p">,</span><span class="s1">&#39;psal&#39;</span><span class="p">]]</span>
+    <span class="k">return</span> <span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_pmesh</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">measName</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">24</span><span class="p">),</span> <span class="n">shrinkcbar</span><span class="o">=.</span><span class="mi">1</span><span class="p">,</span> \
+               <span class="n">delta_lon</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">delta_lat</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">map_proj</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span> \
+               <span class="n">xlims</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">points</span> <span class="o">=</span> <span class="n">map_proj</span><span class="o">.</span><span class="n">transform_points</span><span class="p">(</span><span class="n">ccrs</span><span class="o">.</span><span class="n">Geodetic</span><span class="p">(),</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">points</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">points</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+
+    <span class="n">z</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">measName</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">map_proj</span><span class="o">.</span><span class="n">_threshold</span> <span class="o">/=</span> <span class="mf">100.</span>  <span class="c1"># the default values is bad, users need to set them manually</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">map_proj</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;long&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;lats&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">measName</span> <span class="o">+</span> <span class="s1">&#39; on a map&#39;</span><span class="p">)</span>
+    
+    <span class="n">sct</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">z</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmocean</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">dense</span><span class="p">,</span><span class="n">zorder</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">cbar</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">sct</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmocean</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">dense</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="n">shrinkcbar</span><span class="p">)</span>
+     
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">xlims</span><span class="p">:</span>
+        <span class="n">xlims</span> <span class="o">=</span> <span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="n">delta_lon</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">-</span> <span class="n">delta_lon</span><span class="p">]</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">xlims</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">xlims</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">])</span> <span class="o">-</span> <span class="n">delta_lat</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">])</span> <span class="o">+</span> <span class="n">delta_lat</span><span class="p">)</span>
+    
+    <span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">(</span><span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">stock_img</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">gridlines</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">fig</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plevIntp</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">platformDf_plev</span> <span class="o">=</span> <span class="n">parse_into_df_plev</span><span class="p">(</span><span class="n">platformProfiles</span><span class="p">,</span> <span class="n">plevIntp</span><span class="p">)</span>
+<span class="n">platformDf_plev</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cycle_number</th>
+      <th>_id</th>
+      <th>date</th>
+      <th>lon</th>
+      <th>lat</th>
+      <th>pres</th>
+      <th>temp</th>
+      <th>psal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>3900737_1</td>
+      <td>2009-06-15T11:13:53.000Z</td>
+      <td>-84.083000</td>
+      <td>0.931</td>
+      <td>20</td>
+      <td>26.200666666666667</td>
+      <td>33.995333333333335</td>
+    </tr>
+    <tr>
+      <th>111</th>
+      <td>2</td>
+      <td>3900737_2</td>
+      <td>2009-06-26T07:03:40.999Z</td>
+      <td>-84.698997</td>
+      <td>1.070</td>
+      <td>20</td>
+      <td>26.89818918918919</td>
+      <td>33.319783783783784</td>
+    </tr>
+    <tr>
+      <th>220</th>
+      <td>3</td>
+      <td>3900737_3</td>
+      <td>2009-07-06T23:34:37.001Z</td>
+      <td>-85.484001</td>
+      <td>0.789</td>
+      <td>20</td>
+      <td>26.35662162162162</td>
+      <td>33.82286486486487</td>
+    </tr>
+    <tr>
+      <th>288</th>
+      <td>4</td>
+      <td>3900737_4</td>
+      <td>2009-07-17T23:01:22.998Z</td>
+      <td>-86.365997</td>
+      <td>0.333</td>
+      <td>20</td>
+      <td>25.8478</td>
+      <td>33.88562666666667</td>
+    </tr>
+    <tr>
+      <th>299</th>
+      <td>5</td>
+      <td>3900737_5</td>
+      <td>2009-07-28T15:05:59.000Z</td>
+      <td>-87.029999</td>
+      <td>0.245</td>
+      <td>20</td>
+      <td>26.111179104477614</td>
+      <td>33.86576119402985</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pmeshfig</span> <span class="o">=</span> <span class="n">plot_pmesh</span><span class="p">(</span><span class="n">platformDf_plev</span><span class="p">,</span><span class="s1">&#39;temp&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/EC2020_argovis_python_api_21_0.png" src="../../_images/EC2020_argovis_python_api_21_0.png" />
+</div>
+</div>
+<p><a name="section_three"/> </a></p>
+</div>
+<div class="section" id="get-a-space-time-selection">
+<h1>3.1 Get A Space-Time Selection<a class="headerlink" href="#get-a-space-time-selection" title="Permalink to this headline">¶</a></h1>
+<p>This query retrieves profiles within a given shape, date range, and optional depth range.</p>
+<p><a class="reference external" href="https://argovis.colorado.edu/selection/profiles/page?startDate=2017-9-15&amp;endDate=2017-10-31&amp;shape=%5B%5B%5B-18.6,31.7%5D,%5B-18.6,37.7%5D,%5B-5.9,37.7%5D,%5B-5.9,31.7%5D,%5B-18.6,31.7%5D%5D%5D&amp;presRange=%5B0,30%5D">This region’s</a> data will be queried and plotted in Python.</p>
+<ul class="simple">
+<li><p>start date: string formatted as ‘YYYY-MM-DD’</p></li>
+<li><p>end date: string formatted as ‘YYYY-MM-DD’</p></li>
+<li><p>pressure range (optional): string formatted as ‘[lowerPressure,upperPressure]’. No Spaces!</p></li>
+<li><p>shape: a list of lists containing [lng, lat] coordinates.</p></li>
+</ul>
+<p>It is worth mentioning some information regarding how profiles are stored in Argovis. First, know that latitude lines are drawn on a map typically appear to be the shortest distance. Indeed this would be the case on a flat plane; however, for spherical-like objects like the Earth, Geodesic lines are shorter. Argovis indexes its coordinates on a sphere, thus takes spherical geometry when making spatial selections. Not only does this allow a more accurate representation of how a shape on a map behaves, but it also allows us to query profiles that fall in shapes that cross the antimeridian.</p>
+<p>We can see an example of a shape in the yellow region below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shape</span> <span class="o">=</span> <span class="p">[[[</span><span class="mf">168.6</span><span class="p">,</span><span class="mf">21.7</span><span class="p">],[</span><span class="mf">168.6</span><span class="p">,</span><span class="mf">37.7</span><span class="p">],[</span><span class="o">-</span><span class="mf">145.9</span><span class="p">,</span><span class="mf">37.7</span><span class="p">],[</span><span class="o">-</span><span class="mf">145.9</span><span class="p">,</span><span class="mf">21.7</span><span class="p">],[</span><span class="mf">168.6</span><span class="p">,</span><span class="mf">21.7</span><span class="p">]]]</span>
+<span class="n">lat_corners</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">lnglat</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">lnglat</span> <span class="ow">in</span> <span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+<span class="n">lon_corners</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">lnglat</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">lnglat</span> <span class="ow">in</span> <span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+<span class="n">poly_corners</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">lat_corners</span><span class="p">),</span> <span class="mi">2</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+<span class="n">poly_corners</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">lon_corners</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">poly_corners</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">lat_corners</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">delta</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">poly</span> <span class="o">=</span> <span class="n">mpatches</span><span class="o">.</span><span class="n">Polygon</span><span class="p">(</span><span class="n">poly_corners</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="s2">&quot;yellow&quot;</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">Geodetic</span><span class="p">())</span>
+<span class="n">central_longitude</span> <span class="o">=</span> <span class="o">-</span><span class="mi">180</span>
+<span class="n">map_proj</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(</span><span class="n">central_longitude</span><span class="o">=</span><span class="n">central_longitude</span><span class="p">)</span>
+<span class="n">map_proj</span><span class="o">.</span><span class="n">_threshold</span> <span class="o">/=</span> <span class="mf">100.</span>  <span class="c1"># the default values is bad, users need to set them manually</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="n">map_proj</span><span class="p">)</span>
+<span class="c1">#ax.set_global()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">poly</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">gridlines</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">lat_corners</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="n">delta</span><span class="p">,</span> <span class="n">lat_corners</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="n">delta</span><span class="p">)</span>
+<span class="n">xrange</span> <span class="o">=</span> <span class="p">[</span><span class="n">lon_corners</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="n">delta</span><span class="p">,</span> <span class="n">lon_corners</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="n">delta</span><span class="p">]</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/EC2020_argovis_python_api_23_0.png" src="../../_images/EC2020_argovis_python_api_23_0.png" />
+</div>
+</div>
+<p>We should expect profiles made using the function <code class="docutils literal notranslate"><span class="pre">get_selection_profiles()</span></code> to fall within this region.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_selection_profiles</span><span class="p">(</span><span class="n">startDate</span><span class="p">,</span> <span class="n">endDate</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">presRange</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">printUrl</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://argovis.colorado.edu/selection/profiles&#39;</span>
+    <span class="n">url</span> <span class="o">+=</span> <span class="s1">&#39;?startDate=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">startDate</span><span class="p">)</span>
+    <span class="n">url</span> <span class="o">+=</span> <span class="s1">&#39;&amp;endDate=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">endDate</span><span class="p">)</span>
+    <span class="n">url</span> <span class="o">+=</span> <span class="s1">&#39;&amp;shape=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">presRange</span><span class="p">:</span>
+        <span class="n">pressRangeQuery</span> <span class="o">=</span> <span class="s1">&#39;&amp;presRange=&#39;</span> <span class="o">+</span> <span class="n">presRange</span>
+        <span class="n">url</span> <span class="o">+=</span> <span class="n">pressRangeQuery</span>
+    <span class="k">if</span> <span class="n">printUrl</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="c1"># Consider any status other than 2xx an error</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">resp</span><span class="o">.</span><span class="n">status_code</span> <span class="o">//</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Error: Unexpected response </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
+    <span class="n">selectionProfiles</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">selectionProfiles</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">startDate</span><span class="o">=</span><span class="s1">&#39;2017-9-15&#39;</span>
+<span class="n">endDate</span><span class="o">=</span><span class="s1">&#39;2017-9-30&#39;</span>
+<span class="n">strShape</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="n">presRange</span><span class="o">=</span><span class="s1">&#39;[0,50]&#39;</span>
+<span class="n">selectionProfiles</span> <span class="o">=</span> <span class="n">get_selection_profiles</span><span class="p">(</span><span class="n">startDate</span><span class="p">,</span> <span class="n">endDate</span><span class="p">,</span> <span class="n">strShape</span><span class="p">,</span> <span class="n">presRange</span><span class="p">)</span>
+<span class="n">selectionProfiles_raw</span> <span class="o">=</span> <span class="n">selectionProfiles</span>
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">selectionProfiles</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">selectionDf</span> <span class="o">=</span> <span class="n">parse_into_df</span><span class="p">(</span><span class="n">selectionProfiles</span><span class="p">)</span>
+<span class="n">selectionDf</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="o">-</span><span class="mi">999</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://argovis.colorado.edu/selection/profiles?startDate=2017-9-15&amp;endDate=2017-9-30&amp;shape=[[[168.6,21.7],[168.6,37.7],[-145.9,37.7],[-145.9,21.7],[168.6,21.7]]]&amp;presRange=[0,50]
+</pre></div>
+</div>
+</div>
+</div>
+<p>As we did with the platform page, we interpolate the profiles to a pressure level of interest and plot the values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">selectionDf_plev</span> <span class="o">=</span> <span class="n">parse_into_df_plev</span><span class="p">(</span><span class="n">selectionProfiles_raw</span><span class="p">,</span> <span class="n">plevIntp</span><span class="p">)</span>
+<span class="n">selectionDf_plev</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cycle_number</th>
+      <th>_id</th>
+      <th>date</th>
+      <th>lon</th>
+      <th>lat</th>
+      <th>pres</th>
+      <th>temp</th>
+      <th>psal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>147</th>
+      <td>1</td>
+      <td>5905137_1</td>
+      <td>2017-09-20T14:17:14.001Z</td>
+      <td>-158.0020</td>
+      <td>38.0210</td>
+      <td>20</td>
+      <td>19.72884</td>
+      <td>33.58356</td>
+    </tr>
+    <tr>
+      <th>136</th>
+      <td>1</td>
+      <td>5905060_1</td>
+      <td>2017-09-21T12:04:44.999Z</td>
+      <td>169.9325</td>
+      <td>23.0209</td>
+      <td>20</td>
+      <td>29.251</td>
+      <td>35.08</td>
+    </tr>
+    <tr>
+      <th>65</th>
+      <td>2</td>
+      <td>5905060_2</td>
+      <td>2017-09-25T17:00:17.999Z</td>
+      <td>169.8303</td>
+      <td>22.9688</td>
+      <td>20</td>
+      <td>29.40672</td>
+      <td>35.11416</td>
+    </tr>
+    <tr>
+      <th>146</th>
+      <td>2</td>
+      <td>5905137_2</td>
+      <td>2017-09-20T16:53:13.001Z</td>
+      <td>-158.0000</td>
+      <td>38.0170</td>
+      <td>20</td>
+      <td>20.39128</td>
+      <td>33.647920000000006</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>5905060_3</td>
+      <td>2017-09-29T21:53:56.999Z</td>
+      <td>169.7212</td>
+      <td>22.9206</td>
+      <td>20</td>
+      <td>29.537879999999998</td>
+      <td>35.152519999999996</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pmeshfig</span> <span class="o">=</span> <span class="n">plot_pmesh</span><span class="p">(</span><span class="n">selectionDf_plev</span><span class="p">,</span><span class="s1">&#39;temp&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">map_proj</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">])</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">pmeshfig</span><span class="o">.</span><span class="n">get_axes</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">poly</span> <span class="o">=</span> <span class="n">mpatches</span><span class="o">.</span><span class="n">Polygon</span><span class="p">(</span><span class="n">poly_corners</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">Geodetic</span><span class="p">())</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">poly</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/EC2020_argovis_python_api_29_0.png" src="../../_images/EC2020_argovis_python_api_29_0.png" />
+</div>
+</div>
+<p><a name="section_three_two"/> </a></p>
+<div class="section" id="metadata-selection-for-month-and-year">
+<h2>3.2 Metadata selection for month and year<a class="headerlink" href="#metadata-selection-for-month-and-year" title="Permalink to this headline">¶</a></h2>
+<p>For profile metadata, data can be accessed quickly with the following API.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_monthly_profile_pos</span><span class="p">(</span><span class="n">month</span><span class="p">,</span> <span class="n">year</span><span class="p">):</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://argovis.colorado.edu/selection/profiles&#39;</span>
+    <span class="n">url</span> <span class="o">+=</span> <span class="s1">&#39;/</span><span class="si">{0}</span><span class="s1">/</span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">month</span><span class="p">,</span> <span class="n">year</span><span class="p">)</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">resp</span><span class="o">.</span><span class="n">status_code</span> <span class="o">//</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Error: Unexpected response </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
+    <span class="n">monthlyProfilePos</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">monthlyProfilePos</span>
+
+<span class="n">month</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># January</span>
+<span class="n">year</span> <span class="o">=</span> <span class="mi">2019</span> <span class="c1"># Year 2019</span>
+<span class="n">monthlyProfilePos</span> <span class="o">=</span> <span class="n">get_monthly_profile_pos</span><span class="p">(</span><span class="n">month</span><span class="p">,</span> <span class="n">year</span><span class="p">)</span>
+<span class="k">assert</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">monthlyProfilePos</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+<span class="n">monthlyDf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">monthlyProfilePos</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">monthlyDf</span><span class="p">[[</span><span class="s1">&#39;_id&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;POSITIONING_SYSTEM&#39;</span><span class="p">,</span> <span class="s1">&#39;DATA_MODE&#39;</span><span class="p">,</span> \
+           <span class="s1">&#39;dac&#39;</span><span class="p">,</span> <span class="s1">&#39;PLATFORM_TYPE&#39;</span><span class="p">,</span> <span class="s1">&#39;lat&#39;</span><span class="p">,</span> <span class="s1">&#39;lon&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>_id</th>
+      <th>date</th>
+      <th>POSITIONING_SYSTEM</th>
+      <th>DATA_MODE</th>
+      <th>dac</th>
+      <th>PLATFORM_TYPE</th>
+      <th>lat</th>
+      <th>lon</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5904229_226</td>
+      <td>2019-01-31T23:58:35.000Z</td>
+      <td>GPS</td>
+      <td>D</td>
+      <td>csiro</td>
+      <td>APEX</td>
+      <td>-64.13300</td>
+      <td>-108.81600</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2902585_166</td>
+      <td>2019-01-31T23:57:33.999Z</td>
+      <td>ARGOS</td>
+      <td>A</td>
+      <td>csio</td>
+      <td>PROVOR</td>
+      <td>43.36300</td>
+      <td>139.44400</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>5905234_39D</td>
+      <td>2019-01-31T23:56:48.192Z</td>
+      <td>GPS</td>
+      <td>D</td>
+      <td>aoml</td>
+      <td>SOLO_D</td>
+      <td>-44.05055</td>
+      <td>-148.28209</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5902387_140</td>
+      <td>2019-01-31T23:49:51.744Z</td>
+      <td>GPS</td>
+      <td>D</td>
+      <td>aoml</td>
+      <td>SOLO_II</td>
+      <td>-43.89198</td>
+      <td>153.50472</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5904899_157</td>
+      <td>2019-01-31T23:46:43.000Z</td>
+      <td>GPS</td>
+      <td>D</td>
+      <td>csiro</td>
+      <td>APEX</td>
+      <td>-44.96800</td>
+      <td>106.87900</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="section" id="gathering-metadata-globally-in-a-period-of-interest">
+<h3>Gathering metadata globally in a period of interest<a class="headerlink" href="#gathering-metadata-globally-in-a-period-of-interest" title="Permalink to this headline">¶</a></h3>
+<p>We can loop over months, saving the results as CSV files.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">progress_ind</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">maxIdx</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> percent complete&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="nb">round</span><span class="p">(</span><span class="n">idx</span><span class="o">/</span><span class="n">maxIdx</span><span class="p">,</span> <span class="mi">3</span><span class="p">)),</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\r</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">make_grouped_meta_data</span><span class="p">(</span><span class="n">dataDir</span><span class="p">,</span> <span class="n">dateRange</span><span class="p">):</span>
+    <span class="n">profTimeSeries</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">typeTimeSeries</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">psTimeSeries</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">dacTimeSeries</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">maxIdx</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dateRange</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">date</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">dateRange</span><span class="p">):</span>
+        <span class="n">progress_ind</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">maxIdx</span><span class="p">)</span>
+        <span class="n">month</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">to_pydatetime</span><span class="p">()</span><span class="o">.</span><span class="n">month</span>
+        <span class="n">year</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">to_pydatetime</span><span class="p">()</span><span class="o">.</span><span class="n">year</span>
+        <span class="n">monthlyProfilePos</span> <span class="o">=</span> <span class="n">get_monthly_profile_pos</span><span class="p">(</span><span class="n">month</span><span class="p">,</span> <span class="n">year</span><span class="p">)</span>
+        <span class="n">monthlyDf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">monthlyProfilePos</span><span class="p">)</span>
+        <span class="n">monthDict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="n">date</span><span class="p">,</span> <span class="s1">&#39;nProf&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">monthlyProfilePos</span><span class="p">)}</span>
+
+        <span class="n">allDict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">allDict</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">monthDict</span><span class="p">)</span>
+
+        <span class="n">platformType</span> <span class="o">=</span> <span class="n">monthlyDf</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;PLATFORM_TYPE&#39;</span><span class="p">)[</span><span class="s1">&#39;_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+        <span class="n">platformType</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">monthDict</span><span class="p">)</span>
+        <span class="n">typeTimeSeries</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">platformType</span><span class="p">)</span>
+        <span class="n">allDict</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">platformType</span><span class="p">)</span>
+
+        <span class="n">ps</span> <span class="o">=</span> <span class="n">monthlyDf</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;POSITIONING_SYSTEM&#39;</span><span class="p">)[</span><span class="s1">&#39;_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+        <span class="n">ps</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">monthDict</span><span class="p">)</span>
+        <span class="n">psTimeSeries</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ps</span><span class="p">)</span>
+        <span class="n">allDict</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">ps</span><span class="p">)</span>
+
+        <span class="n">dac</span> <span class="o">=</span> <span class="n">monthlyDf</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;dac&#39;</span><span class="p">)[</span><span class="s1">&#39;_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+        <span class="n">dac</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">monthDict</span><span class="p">)</span>
+        <span class="n">dacTimeSeries</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dac</span><span class="p">)</span>
+        <span class="n">allDict</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">dac</span><span class="p">)</span>
+
+        <span class="n">profTimeSeries</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">allDict</span><span class="p">)</span>
+    <span class="n">progress_ind</span><span class="p">(</span><span class="n">maxIdx</span><span class="p">,</span> <span class="n">maxIdx</span><span class="p">)</span>
+    <span class="n">save_metadata_time_series</span><span class="p">(</span><span class="n">dataDir</span><span class="p">,</span> <span class="s1">&#39;groupedProfileTimeSeries.csv&#39;</span><span class="p">,</span> <span class="n">profTimeSeries</span><span class="p">)</span>
+    <span class="n">save_metadata_time_series</span><span class="p">(</span><span class="n">dataDir</span><span class="p">,</span> <span class="s1">&#39;groupedProfilePositioningSystemTimeSeries.csv&#39;</span><span class="p">,</span> <span class="n">psTimeSeries</span><span class="p">)</span>
+    <span class="n">save_metadata_time_series</span><span class="p">(</span><span class="n">dataDir</span><span class="p">,</span> <span class="s1">&#39;groupedProfileTypeTimeSeries.csv&#39;</span><span class="p">,</span> <span class="n">typeTimeSeries</span><span class="p">)</span>
+    <span class="n">save_metadata_time_series</span><span class="p">(</span><span class="n">dataDir</span><span class="p">,</span> <span class="s1">&#39;groupedDacTimeSeries.csv&#39;</span><span class="p">,</span> <span class="n">dacTimeSeries</span><span class="p">)</span> 
+
+<span class="k">def</span> <span class="nf">save_metadata_time_series</span><span class="p">(</span><span class="n">dataDir</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">metadataDict</span><span class="p">):</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dataDir</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">metadataDict</span><span class="p">)</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    
+<span class="k">def</span> <span class="nf">get_grouped_metadata</span><span class="p">(</span><span class="n">dataDir</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dataDir</span><span class="p">,</span><span class="n">filename</span><span class="p">))</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dateRange</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;2015-01-01&#39;</span><span class="p">,</span> <span class="s1">&#39;2016-06-01&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;M&#39;</span><span class="p">)</span>
+<span class="n">make_grouped_meta_data</span><span class="p">(</span><span class="n">dataDir</span><span class="p">,</span> <span class="n">dateRange</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100.0 percent completeent completee
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">profTimeSeriesDf</span> <span class="o">=</span> <span class="n">get_grouped_metadata</span><span class="p">(</span><span class="n">dataDir</span><span class="p">,</span> <span class="s1">&#39;groupedProfileTimeSeries.csv&#39;</span><span class="p">)</span>
+<span class="n">psTimeSeriesDf</span> <span class="o">=</span> <span class="n">get_grouped_metadata</span><span class="p">(</span><span class="n">dataDir</span><span class="p">,</span> <span class="s1">&#39;groupedProfilePositioningSystemTimeSeries.csv&#39;</span><span class="p">)</span>
+<span class="n">typeTimeSeriesDf</span> <span class="o">=</span> <span class="n">get_grouped_metadata</span><span class="p">(</span><span class="n">dataDir</span><span class="p">,</span> <span class="s1">&#39;groupedProfileTypeTimeSeries.csv&#39;</span><span class="p">)</span>
+<span class="n">dacTimeSeriesDf</span> <span class="o">=</span> <span class="n">get_grouped_metadata</span><span class="p">(</span><span class="n">dataDir</span><span class="p">,</span> <span class="s1">&#39;groupedDacTimeSeries.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dacTimeSeriesDf</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>aoml</th>
+      <th>bodc</th>
+      <th>coriolis</th>
+      <th>csio</th>
+      <th>csiro</th>
+      <th>incois</th>
+      <th>jma</th>
+      <th>kma</th>
+      <th>kordi</th>
+      <th>meds</th>
+      <th>nmdis</th>
+      <th>date</th>
+      <th>nProf</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>7332</td>
+      <td>529</td>
+      <td>2055</td>
+      <td>833</td>
+      <td>1062</td>
+      <td>376</td>
+      <td>731</td>
+      <td>109</td>
+      <td>22</td>
+      <td>146</td>
+      <td>34.0</td>
+      <td>2015-01-31</td>
+      <td>13229</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>6846</td>
+      <td>497</td>
+      <td>1944</td>
+      <td>762</td>
+      <td>993</td>
+      <td>575</td>
+      <td>684</td>
+      <td>71</td>
+      <td>23</td>
+      <td>127</td>
+      <td>31.0</td>
+      <td>2015-02-28</td>
+      <td>12553</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>7389</td>
+      <td>556</td>
+      <td>2134</td>
+      <td>837</td>
+      <td>1070</td>
+      <td>440</td>
+      <td>787</td>
+      <td>86</td>
+      <td>19</td>
+      <td>139</td>
+      <td>34.0</td>
+      <td>2015-03-31</td>
+      <td>13491</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>7227</td>
+      <td>535</td>
+      <td>2149</td>
+      <td>804</td>
+      <td>1033</td>
+      <td>396</td>
+      <td>850</td>
+      <td>86</td>
+      <td>21</td>
+      <td>141</td>
+      <td>29.0</td>
+      <td>2015-04-30</td>
+      <td>13271</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>7752</td>
+      <td>541</td>
+      <td>2499</td>
+      <td>708</td>
+      <td>1058</td>
+      <td>408</td>
+      <td>945</td>
+      <td>76</td>
+      <td>22</td>
+      <td>154</td>
+      <td>28.0</td>
+      <td>2015-05-31</td>
+      <td>14191</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><a name="section_four"/> </a></p>
+</div>
+</div>
+</div>
+<div class="section" id="plotting-metadata-results">
+<h1>4. Plotting metadata results<a class="headerlink" href="#plotting-metadata-results" title="Permalink to this headline">¶</a></h1>
+<p>Argovis’s plotting capabilities are limited to what is coded in JavaScript. There are many plotting libraries out there, but in this example we can create plots on our machine, thereby allowing customization.</p>
+<p>We just made some dataframes containing profile metadata. We can plot these time series with the following function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_stack_plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">)):</span>
+    <span class="n">dataDf</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;nProf&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">)</span>
+    <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">()</span>
+    <span class="n">axes</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Number of profiles per month vs. time&#39;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;# profiles/month&#39;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="o">.</span><span class="n">stackplot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">dataDf</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">dataDf</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+    <span class="n">axes</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">fig</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">make_stack_plot</span><span class="p">(</span><span class="n">dacTimeSeriesDf</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">()</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.19</span><span class="p">,</span> <span class="mf">1.00</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f74c28038e0&gt;
+</pre></div>
+</div>
+<img alt="../../_images/EC2020_argovis_python_api_40_1.png" src="../../_images/EC2020_argovis_python_api_40_1.png" />
+</div>
+</div>
+<p>Here we can see which DACS release profile data over time. The next plot shows which transmission system the profiles are using. I lumped GPS into Iridium. They are essentially equivalent.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">psdf</span><span class="o">=</span><span class="n">psTimeSeriesDf</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="k">if</span> <span class="s1">&#39;IRIDIUM&#39;</span> <span class="ow">in</span> <span class="n">psTimeSeriesDf</span><span class="p">:</span>
+    <span class="n">psdf</span><span class="p">[</span><span class="s1">&#39;IRIDIUM&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">psTimeSeriesDf</span><span class="p">[</span><span class="s1">&#39;GPS&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">psTimeSeriesDf</span><span class="p">[</span><span class="s1">&#39;IRIDIUM&#39;</span><span class="p">]</span>
+    <span class="n">psdf</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;GPS&#39;</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">make_stack_plot</span><span class="p">(</span><span class="n">psdf</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/EC2020_argovis_python_api_42_0.png" src="../../_images/EC2020_argovis_python_api_42_0.png" />
+</div>
+</div>
+<p><a name="section_five"/> </a></p>
+</div>
+<div class="section" id="time-series-for-the-average-of-the-data-in-a-region-interpolated-on-pressure-levels-of-interest">
+<h1>5. Time series for the average of the data in a region (interpolated on pressure levels of interest)<a class="headerlink" href="#time-series-for-the-average-of-the-data-in-a-region-interpolated-on-pressure-levels-of-interest" title="Permalink to this headline">¶</a></h1>
+<p>We build a time series by stacking selection queries on top of each other. In this example, we average interpolated temperature data from profiles in a region of interest in monthly aggregates. We starting with January in <code class="docutils literal notranslate"><span class="pre">startYear</span></code> and ending in December of <code class="docutils literal notranslate"><span class="pre">endYear</span></code>.</p>
+<p>In other words, we are using <code class="docutils literal notranslate"><span class="pre">get_selection_profiles</span></code> from [#section_three](section 3.1). and taking the mean of all the points of a given month. Note that we ought to take a <em>spatially</em> averaged mean if we were to put this into practice.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_month_day_range</span><span class="p">(</span><span class="n">date</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;gets first day and last day of the month a given month-year datetime object&#39;&#39;&#39;</span>
+    <span class="n">first_day</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">day</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">last_day</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">day</span><span class="o">=</span><span class="n">calendar</span><span class="o">.</span><span class="n">monthrange</span><span class="p">(</span><span class="n">date</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="n">date</span><span class="o">.</span><span class="n">month</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">first_day</span><span class="p">,</span> <span class="n">last_day</span>
+
+<span class="c1"># set region and pressure range of interest</span>
+<span class="n">shape</span> <span class="o">=</span> <span class="s1">&#39;[[[-65,20],[-65,25],[-60,25],[-60,20],[-65,20]]]&#39;</span>
+<span class="n">presRange</span> <span class="o">=</span><span class="s1">&#39;[0,50]&#39;</span>
+<span class="n">startYear</span> <span class="o">=</span> <span class="mi">2019</span>
+<span class="n">endYear</span> <span class="o">=</span> <span class="mi">2020</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">time_series</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">presRange</span><span class="p">,</span> <span class="n">startYear</span><span class="o">=</span><span class="mi">2019</span><span class="p">,</span> <span class="n">endYear</span><span class="o">=</span><span class="mi">2020</span><span class="p">,</span> <span class="n">plevIntp</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">)):</span>
+    <span class="n">tempMean</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">times</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">yearRange</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">startYear</span><span class="p">,</span><span class="n">endYear</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">maxYdx</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">yearRange</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">ydx</span><span class="p">,</span> <span class="n">yy</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">yearRange</span><span class="p">):</span>
+        <span class="n">progress_ind</span><span class="p">(</span><span class="n">ydx</span><span class="p">,</span> <span class="n">maxYdx</span><span class="p">)</span>
+        <span class="n">monthRange</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">13</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">mm</span> <span class="ow">in</span> <span class="n">monthRange</span><span class="p">:</span>
+            <span class="n">times</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="n">yy</span><span class="p">,</span> <span class="n">mm</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>
+            <span class="p">[</span><span class="n">startDate</span><span class="p">,</span> <span class="n">endDate</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_month_day_range</span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="n">yy</span><span class="p">,</span> <span class="n">mm</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>
+            <span class="n">profiles</span> <span class="o">=</span> <span class="n">get_selection_profiles</span><span class="p">(</span><span class="n">startDate</span><span class="p">,</span> <span class="n">endDate</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">presRange</span><span class="p">,</span> <span class="n">printUrl</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="c1">#pdb.set_trace()</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">profiles</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">df</span> <span class="o">=</span> <span class="n">parse_into_df_plev</span><span class="p">(</span><span class="n">profiles</span><span class="p">,</span> <span class="n">plevIntp</span><span class="p">)</span>
+                <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;temp&#39;</span><span class="p">])</span>
+                <span class="n">mean</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;temp&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+                <span class="n">tempMean</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mean</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">tempMean</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+    <span class="n">progress_ind</span><span class="p">(</span><span class="n">maxYdx</span><span class="p">,</span> <span class="n">maxYdx</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">tempMean</span><span class="p">,</span> <span class="n">times</span>
+
+<span class="n">tempMean</span><span class="p">,</span> <span class="n">times</span> <span class="o">=</span> <span class="n">time_series</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">presRange</span><span class="p">,</span> <span class="n">startYear</span><span class="p">,</span> <span class="n">endYear</span><span class="p">,</span> <span class="n">plevIntp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100.0 percent complete
+</pre></div>
+</div>
+</div>
+</div>
+<p>Once again, we save our output to a csv.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dataDir</span><span class="p">,</span> <span class="s1">&#39;time_series.csv&#39;</span><span class="p">)</span>
+<span class="n">strTimes</span> <span class="o">=</span> <span class="p">[</span><span class="n">datetime</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">times</span><span class="p">]</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">myfile</span><span class="p">:</span>
+    <span class="n">wr</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">myfile</span><span class="p">,</span> <span class="n">quoting</span><span class="o">=</span><span class="n">csv</span><span class="o">.</span><span class="n">QUOTE_ALL</span><span class="p">)</span>
+    <span class="n">wr</span><span class="o">.</span><span class="n">writerow</span><span class="p">((</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;tempMean&#39;</span><span class="p">))</span>
+    <span class="n">wr</span><span class="o">.</span><span class="n">writerows</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">strTimes</span><span class="p">,</span> <span class="n">tempMean</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tsdf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="n">tsdf</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tsdf</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">999</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tsdf</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">],</span> <span class="n">tsdf</span><span class="p">[</span><span class="s1">&#39;tempMean&#39;</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Monthly average for a region and pressure </span><span class="se">\n</span><span class="s1"> level of intrest (average of all available profiles)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$T\ [degC]$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;date&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/EC2020_argovis_python_api_49_1.png" src="../../_images/EC2020_argovis_python_api_49_1.png" />
+</div>
+</div>
+<p>Large aggregations such as those seen in this section require multiple queries. The database that stores profiles can at most return 16MB for one query. Users attempting to query over too large an area or time range will receive an error message instead of the expected JSON. Hence, we segmented the routine in a loop, where each month/year is queried at one time.</p>
+<p><a name="section_six"/> </a></p>
+</div>
+<div class="section" id="query-globally-within-thin-slice-of-pressure">
+<h1>6. Query globally within thin slice of pressure<a class="headerlink" href="#query-globally-within-thin-slice-of-pressure" title="Permalink to this headline">¶</a></h1>
+<p>In this section, we query all the data globally within a very short time and for a pressure range of interest. How small a query? Consider the following guidelines:</p>
+<ul class="simple">
+<li><p>Pressure range is no more than 50 dbar</p></li>
+<li><p>The date range is no more than 3 days
+This will ensure that JSON is returned instead of an unexpected error message.</p></li>
+</ul>
+<p>We then interpolate each profile to a pressure level of interest and plot the temperature using our <code class="docutils literal notranslate"><span class="pre">plot_pmesh()</span></code> function back from <a class="reference external" href="#section_two">section 2</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_ocean_slice</span><span class="p">(</span><span class="n">startDate</span><span class="p">,</span> <span class="n">endDate</span><span class="p">,</span> <span class="n">presRange</span><span class="o">=</span><span class="s1">&#39;[5,15]&#39;</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    query horizontal slice of ocean for a specified time range</span>
+<span class="sd">    startDate and endDate should be a string formated like so: &#39;YYYY-MM-DD&#39;</span>
+<span class="sd">    presRange should comprise of a string formatted to be: &#39;[lowPres,highPres]&#39;</span>
+<span class="sd">    Try to make the query small enough so as to not pass the 16 MB limit set by the database.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">baseURL</span> <span class="o">=</span> <span class="s1">&#39;https://argovis.colorado.edu/gridding/presSlice/&#39;</span>
+    <span class="n">startDateQuery</span> <span class="o">=</span> <span class="s1">&#39;?startDate=&#39;</span> <span class="o">+</span> <span class="n">startDate</span>
+    <span class="n">endDateQuery</span> <span class="o">=</span> <span class="s1">&#39;&amp;endDate=&#39;</span> <span class="o">+</span> <span class="n">endDate</span>
+    <span class="n">presRangeQuery</span> <span class="o">=</span> <span class="s1">&#39;&amp;presRange=&#39;</span> <span class="o">+</span> <span class="n">presRange</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="n">baseURL</span> <span class="o">+</span> <span class="n">startDateQuery</span> <span class="o">+</span> <span class="n">endDateQuery</span> <span class="o">+</span> <span class="n">presRangeQuery</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="c1"># Consider any status other than 2xx an error</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">resp</span><span class="o">.</span><span class="n">status_code</span> <span class="o">//</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Error: Unexpected response </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
+    <span class="n">profiles</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">profiles</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">presRange</span> <span class="o">=</span> <span class="s1">&#39;[0, 50]&#39;</span> <span class="c1">#  used to query database</span>
+<span class="n">date</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2010</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># this date will be used later for ARs</span>
+<span class="n">startDate</span><span class="o">=</span><span class="s1">&#39;2010-1-1&#39;</span>
+<span class="n">endDate</span><span class="o">=</span><span class="s1">&#39;2010-1-2&#39;</span>
+<span class="n">sliceProfiles</span> <span class="o">=</span> <span class="n">get_ocean_slice</span><span class="p">(</span><span class="n">startDate</span><span class="p">,</span> <span class="n">endDate</span><span class="p">,</span> <span class="n">presRange</span><span class="p">)</span>
+<span class="n">sliceDf</span> <span class="o">=</span> <span class="n">parse_into_df_plev</span><span class="p">(</span><span class="n">sliceProfiles</span><span class="p">,</span> <span class="n">plevIntp</span><span class="p">)</span>
+<span class="n">sliceDf</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cycle_number</th>
+      <th>_id</th>
+      <th>date</th>
+      <th>lon</th>
+      <th>lat</th>
+      <th>pres</th>
+      <th>temp</th>
+      <th>psal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>67</th>
+      <td>0</td>
+      <td>1901426_0</td>
+      <td>2010-01-01T15:47:12.192Z</td>
+      <td>42.499</td>
+      <td>-29.988</td>
+      <td>20</td>
+      <td>24.323666666666668</td>
+      <td>35.338166666666666</td>
+    </tr>
+    <tr>
+      <th>238</th>
+      <td>1</td>
+      <td>1900870_1</td>
+      <td>2010-01-01T03:08:44.000Z</td>
+      <td>64.854</td>
+      <td>-30.061</td>
+      <td>20</td>
+      <td>22.404916666666665</td>
+      <td>35.46291666666667</td>
+    </tr>
+    <tr>
+      <th>255</th>
+      <td>1</td>
+      <td>1901400_1</td>
+      <td>2010-01-01T01:33:58.000Z</td>
+      <td>47.850</td>
+      <td>-29.065</td>
+      <td>20</td>
+      <td>22.962849462365593</td>
+      <td>35.467666666666666</td>
+    </tr>
+    <tr>
+      <th>51</th>
+      <td>1</td>
+      <td>5903310_1</td>
+      <td>2010-01-01T18:14:36.095Z</td>
+      <td>80.669</td>
+      <td>-23.328</td>
+      <td>20</td>
+      <td>24.52</td>
+      <td>35.384</td>
+    </tr>
+    <tr>
+      <th>63</th>
+      <td>1</td>
+      <td>5901928_1</td>
+      <td>2010-01-01T16:39:14.999Z</td>
+      <td>99.993</td>
+      <td>-23.271</td>
+      <td>20</td>
+      <td>23.011072727272726</td>
+      <td>35.29003636363636</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pmeshfig</span> <span class="o">=</span> <span class="n">plot_pmesh</span><span class="p">(</span><span class="n">sliceDf</span><span class="p">,</span><span class="s1">&#39;temp&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/EC2020_argovis_python_api_53_0.png" src="../../_images/EC2020_argovis_python_api_53_0.png" />
+</div>
+</div>
+<p>Taking a step back, we can see several possibilities of using this API such as:</p>
+<ul class="simple">
+<li><p>Generate a global/regional daily state of the ocean, generated with a simple function call.</p></li>
+<li><p>Track a single platform throughout its history.</p></li>
+<li><p>Make historical time series for a region.</p></li>
+</ul>
+<p>In addition to these items, Argovis is a tool for incorporating other data sets. A recent interest of Argovis is to include data other than Argo, I.E. hurricane track data, or satellite data. Even data generated from computer simulation or statistical mapping can be compared to argo profiles.</p>
+<p>While still in its infancy, we have added some tools and features in the form of modules that explore the interaction between different data. One such module is mentioned in the next section.</p>
+<p><a name="section_seven"/> </a></p>
+</div>
+<div class="section" id="overlay-atmospheric-rivers-on-the-map">
+<h1>7. Overlay Atmospheric Rivers on the map<a class="headerlink" href="#overlay-atmospheric-rivers-on-the-map" title="Permalink to this headline">¶</a></h1>
+<p>Atmospheric rivers (AR) are bodies of moisture in the atmosphere. They are responsible for localized heavy rainfall such as the Pineapple express on the west coast of North America. Argovis has recently included an AR data set taken from by <a class="reference external" href="https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2015JD024257">Guan and Walister</a>. The dataset is comprised of shapes representing atmospheric rivers at a given time. Argovis charts these shapes and uses them to query for profiles. The module is located <a class="reference external" href="https://argovis.colorado.edu/ng/ar">Here</a>.</p>
+<p>The following code shall query atmospheric rivers, and co-locate them with argo profiles.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_ar_by_date</span><span class="p">(</span><span class="n">date</span><span class="p">):</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://argovis.colorado.edu/arShapes/findByDate?date=&quot;</span>
+    <span class="n">url</span> <span class="o">+=</span> <span class="n">date</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">resp</span><span class="o">.</span><span class="n">status_code</span> <span class="o">//</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Error: Unexpected response </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
+    <span class="n">ars</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">ars</span>
+
+<span class="k">def</span> <span class="nf">format_ars</span><span class="p">(</span><span class="n">ars</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">ar</span> <span class="ow">in</span> <span class="n">ars</span><span class="p">:</span>
+        <span class="n">coords</span> <span class="o">=</span> <span class="n">ar</span><span class="p">[</span><span class="s1">&#39;geoLocation&#39;</span><span class="p">][</span><span class="s1">&#39;coordinates&#39;</span><span class="p">]</span>
+        <span class="k">del</span> <span class="n">ar</span><span class="p">[</span><span class="s1">&#39;geoLocation&#39;</span><span class="p">]</span>
+        <span class="n">longs</span><span class="p">,</span> <span class="n">lats</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">coords</span><span class="p">))</span>
+        <span class="n">ar</span><span class="p">[</span><span class="s1">&#39;coords&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">coords</span>
+        <span class="n">ar</span><span class="p">[</span><span class="s1">&#39;longs&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">longs</span><span class="p">)</span>
+        <span class="n">ar</span><span class="p">[</span><span class="s1">&#39;lats&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">lats</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ars</span>
+
+<span class="n">format_date_api</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">date</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">T%H:%M:%SZ&quot;</span><span class="p">)</span>
+<span class="n">stringify_array</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">arr</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dateStr</span> <span class="o">=</span> <span class="n">format_date_api</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
+<span class="n">ars</span> <span class="o">=</span> <span class="n">get_ar_by_date</span><span class="p">(</span><span class="n">dateStr</span><span class="p">)</span>
+<span class="n">ars</span> <span class="o">=</span> <span class="n">format_ars</span><span class="p">(</span><span class="n">ars</span><span class="p">)</span>
+<span class="n">arDf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">ars</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">presRange</span><span class="o">=</span><span class="s1">&#39;[0,30]&#39;</span>
+<span class="n">startDate</span> <span class="o">=</span> <span class="n">format_date_api</span><span class="p">(</span><span class="n">date</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">endDate</span> <span class="o">=</span> <span class="n">format_date_api</span><span class="p">(</span><span class="n">date</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">ar</span> <span class="o">=</span> <span class="n">arDf</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">coords</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">ar</span><span class="o">.</span><span class="n">longs</span><span class="p">,</span><span class="n">ar</span><span class="o">.</span><span class="n">lats</span><span class="p">))</span>
+<span class="n">coords</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span> <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">coords</span><span class="p">]</span>
+<span class="n">shape</span> <span class="o">=</span> <span class="n">stringify_array</span><span class="p">([</span><span class="n">coords</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The following chart takes one AR shape queried from Argovis and plots it with our slice query from <a class="reference external" href="#section_six">section six</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_ar_over_profile_map</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">var</span><span class="p">,</span><span class="n">ar</span><span class="p">):</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">var</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">(</span><span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">(</span><span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">sct</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">z</span><span class="p">,</span><span class="n">s</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmocean</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">dense</span><span class="p">,</span><span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">cbar</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">sct</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmocean</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">dense</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=.</span><span class="mi">25</span><span class="p">)</span>
+
+    <span class="n">ARy</span><span class="p">,</span> <span class="n">ARx</span> <span class="o">=</span> <span class="n">ar</span><span class="o">.</span><span class="n">lats</span><span class="p">,</span> <span class="n">ar</span><span class="o">.</span><span class="n">longs</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">ARx</span><span class="p">,</span><span class="n">ARy</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">s</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;latitude&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">fig</span>
+
+<span class="n">plot_ar_over_profile_map</span><span class="p">(</span><span class="n">sliceDf</span><span class="p">,</span><span class="s1">&#39;temp&#39;</span><span class="p">,</span><span class="n">ar</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/EC2020_argovis_python_api_59_0.png" src="../../_images/EC2020_argovis_python_api_59_0.png" />
+</div>
+</div>
+<p>Going even further, we can take AR shapes and make profile selections with them.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">profiles</span> <span class="o">=</span> <span class="n">get_selection_profiles</span><span class="p">(</span><span class="n">startDate</span><span class="p">,</span> <span class="n">endDate</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">presRange</span><span class="p">)</span>
+<span class="n">profileDf</span> <span class="o">=</span> <span class="n">parse_into_df</span><span class="p">(</span><span class="n">profiles</span><span class="p">)</span>
+<span class="n">pdf</span> <span class="o">=</span> <span class="n">profileDf</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="s1">&#39;profile_id&#39;</span><span class="p">)</span>
+<span class="n">pdf</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://argovis.colorado.edu/selection/profiles?startDate=2009-12-29T00:00:00Z&amp;endDate=2010-01-04T00:00:00Z&amp;shape=[[[-115.625,37],[-118.125,36],[-118.75,37],[-119.375,38],[-122.5,39.5],[-123.125,39.5],[-124.375,39],[-125,38.5],[-125.625,38],[-126.25,37.5],[-126.875,37],[-127.5,37],[-128.75,36.5],[-129.375,36],[-130,35.5],[-130.625,35],[-131.875,33],[-133.125,32.5],[-134.375,32],[-135.625,31.5],[-136.25,31],[-136.875,31],[-137.5,31],[-138.75,30.5],[-139.375,30],[-140,30],[-140.625,30],[-141.875,29.5],[-142.5,29],[-143.125,28.5],[-143.75,28],[-145,27.5],[-146.25,27],[-146.875,26.5],[-148.125,26],[-148.75,25.5],[-149.375,25],[-150.625,24.5],[-151.875,24],[-152.5,24],[-153.75,23.5],[-154.375,23.5],[-155.625,23],[-156.875,22],[-157.5,21.5],[-158.125,21.5],[-159.375,21.5],[-160,21.5],[-160.625,21.5],[-161.25,21.5],[-162.5,23],[-163.125,24],[-163.125,24.5],[-163.125,25],[-163.125,25.5],[-162.5,26],[-161.875,26.5],[-160,27.5],[-160,30],[-160,30.5],[-159.375,30.5],[-158.75,30.5],[-157.5,29.5],[-156.875,29],[-155.625,28.5],[-155,28],[-154.375,27.5],[-153.75,27],[-151.875,27],[-150.625,27.5],[-150,27.5],[-149.375,27.5],[-148.75,27.5],[-148.125,27.5],[-146.875,28],[-145.625,28.5],[-144.375,29],[-143.75,29.5],[-143.125,30],[-142.5,30.5],[-141.875,31],[-141.25,31.5],[-140.625,32],[-140,32.5],[-138.75,33],[-138.125,33.5],[-137.5,34],[-136.25,34.5],[-135.625,35],[-135,35.5],[-134.375,36],[-133.75,36.5],[-132.5,37],[-131.25,39.5],[-130.625,40.5],[-130,41],[-129.375,42],[-128.75,42.5],[-128.125,43],[-127.5,44],[-126.875,44.5],[-126.25,45],[-125.625,45.5],[-125,46],[-123.75,46.5],[-123.125,47],[-122.5,47.5],[-121.875,48.5],[-121.25,49],[-120.625,49],[-120,49],[-118.75,48.5],[-118.125,47.5],[-117.5,47],[-116.25,46.5],[-115,46],[-114.375,46],[-113.75,46],[-112.5,45.5],[-111.875,45],[-111.25,44.5],[-110,44],[-110,43.5],[-110.625,42],[-110.625,41],[-111.25,40.5],[-112.5,40],[-113.125,39],[-113.75,38.5],[-114.375,37.5],[-115,37],[-115.625,37]]]&amp;presRange=[0,30]
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>pres</th>
+      <th>psal</th>
+      <th>temp</th>
+      <th>cycle_number</th>
+      <th>profile_id</th>
+      <th>lat</th>
+      <th>lon</th>
+      <th>date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5.5</td>
+      <td>35.392</td>
+      <td>21.512</td>
+      <td>97.0</td>
+      <td>5901759_97</td>
+      <td>27.448</td>
+      <td>-145.995</td>
+      <td>2010-01-02T19:31:48.000Z</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>5.7</td>
+      <td>35.511</td>
+      <td>22.681</td>
+      <td>122.0</td>
+      <td>5901336_122</td>
+      <td>25.165</td>
+      <td>-158.639</td>
+      <td>2010-01-02T12:35:27.000Z</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>5.5</td>
+      <td>35.488</td>
+      <td>22.040</td>
+      <td>97.0</td>
+      <td>5901757_97</td>
+      <td>25.868</td>
+      <td>-154.894</td>
+      <td>2010-01-02T02:22:05.088Z</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>5.5</td>
+      <td>35.448</td>
+      <td>21.640</td>
+      <td>97.0</td>
+      <td>5901756_97</td>
+      <td>26.966</td>
+      <td>-148.599</td>
+      <td>2010-01-02T00:39:58.464Z</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>5.5</td>
+      <td>34.832</td>
+      <td>19.976</td>
+      <td>46.0</td>
+      <td>5902210_46</td>
+      <td>28.997</td>
+      <td>-143.873</td>
+      <td>2010-01-01T21:54:46.656Z</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_profiles_and_ar</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="n">ar</span><span class="p">,</span> <span class="n">central_longitude</span><span class="o">=-</span><span class="mi">180</span><span class="p">):</span>
+    <span class="n">map_proj</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(</span><span class="n">central_longitude</span><span class="o">=</span><span class="n">central_longitude</span><span class="p">)</span>
+    <span class="n">map_proj</span><span class="o">.</span><span class="n">_threshold</span> <span class="o">/=</span> <span class="mf">100.</span>  <span class="c1"># the default values is bad, users need to set them manually</span>
+    <span class="c1">#fig = plt.figure(projection=map_proj)</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;latitude&#39;</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="n">map_proj</span><span class="p">)</span>
+    <span class="n">py</span><span class="p">,</span> <span class="n">px</span> <span class="o">=</span> <span class="n">pdf</span><span class="o">.</span><span class="n">lat</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">pdf</span><span class="o">.</span><span class="n">lon</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">ary</span><span class="p">,</span> <span class="n">arx</span> <span class="o">=</span> <span class="n">ar</span><span class="o">.</span><span class="n">lats</span><span class="p">,</span> <span class="n">ar</span><span class="o">.</span><span class="n">longs</span>
+    <span class="n">profax</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">px</span><span class="p">,</span><span class="n">py</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">s</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;profiles&#39;</span><span class="p">)</span>
+    <span class="n">arax</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">arx</span><span class="p">,</span><span class="n">ary</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">s</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;AR shape&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;AR shape with Argo profiles&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="p">[</span><span class="n">profax</span><span class="p">,</span> <span class="n">arax</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">fig</span>
+
+<span class="n">fig1</span> <span class="o">=</span> <span class="n">plot_profiles_and_ar</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="n">ar</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/EC2020_argovis_python_api_62_0.png" src="../../_images/EC2020_argovis_python_api_62_0.png" />
+</div>
+</div>
+<p>As of the writing of this notebook, our only external data remains the <a class="reference external" href="https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2015JD024257">Guan-Walister</a> AR dataset. In time we intend to include tropical cyclone data and hurricane shapes which will be co-located in a similar fashion to the methods shown by this AR API.</p>
+</div>
+<div class="section" id="conclusion">
+<h1>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h1>
+<p>We hope that you found these API functions usefull. Argovis itself uses them on its front-end interface. At its core, its API is a series of <code class="docutils literal notranslate"><span class="pre">get</span></code> requests that can be written in a number or languages, such as R, Matlab. Some Matlab scripts are provided <a class="reference external" href="http://www.argo.ucsd.edu/Argovis/Argovis_Tutorials.html">here</a>.</p>
+<p>This project is still new, and will continue to evolve and improve. Feel free to email <a class="reference external" href="mailto:tyler&#46;tucker&#37;&#52;&#48;colorado&#46;edu">tyler<span>&#46;</span>tucker<span>&#64;</span>colorado<span>&#46;</span>edu</a> for questions/requests. Thanks!</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "av_py_env"
+        },
+        kernelOptions: {
+            kernelName: "av_py_env",
+            path: "./ec2020/ec20_tucker_etal"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'av_py_env'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By EarthCube Office<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

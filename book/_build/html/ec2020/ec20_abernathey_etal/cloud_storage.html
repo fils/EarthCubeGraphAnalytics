@@ -1,0 +1,1026 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Big Arrays, Fast: Profiling Cloud Storage Read Throughput &#8212; EarthCube GeoCODES Exploration</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/logo.webp" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">EarthCube GeoCODES Exploration</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Exploring GeoCODES
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../content.html">
+   Content in Jupyter Book
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../markdown.html">
+     Markdown Files
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks.html">
+     Content with notebooks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../analysis.html">
+     Data Unit Testing, ranking, clustering
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../partfile.html">
+   Notebooks
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks/gleaner_clustering.html">
+     SciKit K-means Clustering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks/gleaner_gensim.html">
+     Gensim
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks/gleaner_txtai.html">
+     Gleaner &amp; txtai
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks/ECO_GraphAnalytics.html">
+     EarthCube Graph Analytics Exploration
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../index.html">
+   EC2020 examples
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ec20_soliman_etal/ks-preprocess-dem.html">
+     Processing digital elevation data for deep learning models using Keras Spatial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ec20_banihirwe_etal/intake-pangeo-catalog.html">
+     Intake / Pangeo Catalog: Making It Easier To Consume Earth’s Climate and Weather Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ec20_busecke_etal/busecke_abernathey_earthcube2020.html">
+     CMIP6 without the interpolation: Grid-native analysis with Pangeo in the cloud
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ec20_hamman_etal/2020ECAHM-scikit-downscale.html">
+     Scikit-downscale: an open source Python package for scalable climate downscaling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ec20_havlin_etal/notebook/ec20_havlin_etal.html">
+     3D volume rendering of geophysical data using the yt platform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ec20_peckham_etal/BALTO_GUI_v2.html">
+     BALTO Graphical User Interface (A Prototype)
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/ec2020/ec20_abernathey_etal/cloud_storage.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/fils/EarthCubeGraphAnalytics"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/fils/EarthCubeGraphAnalytics/issues/new?title=Issue%20on%20page%20%2Fec2020/ec20_abernathey_etal/cloud_storage.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/fils/EarthCubeGraphAnalytics/master?urlpath=lab/tree/book/ec2020/ec20_abernathey_etal/cloud_storage.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="your-hub-url/hub/user-redirect/git-pull?repo=https://github.com/fils/EarthCubeGraphAnalytics&urlpath=lab/tree/EarthCubeGraphAnalytics/book/ec2020/ec20_abernathey_etal/cloud_storage.ipynb&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/fils/EarthCubeGraphAnalytics/blob/master/book/ec2020/ec20_abernathey_etal/cloud_storage.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#accessing-the-data">
+   Accessing the Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#set-up-benchmarking">
+   Set Up Benchmarking
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#do-benchmarking">
+   Do Benchmarking
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compare-many-results">
+   Compare Many Results
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#discussion">
+   Discussion
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#zarr-is-about-10x-faster-than-netcdf-in-cloud-object-storage">
+     Zarr is about 10x faster than NetCDF in Cloud Object Storage
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#google-cloud-storage-scales">
+     Google Cloud Storage Scales
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#external-cloud-storage-providers-scale-then-saturate">
+     External Cloud Storage Providers Scale…then Saturate
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#opendap-is-slow">
+     OPeNDAP is Slow
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusions">
+   Conclusions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#future-work">
+     Future Work
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#notebook-reviews">
+   Notebook Reviews
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#review-1">
+     Review 1
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#evaluation-of-the-contribution">
+       Evaluation of the Contribution
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#comments-for-the-authors">
+       Comments for the Authors
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#review-2">
+     Review 2
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       Evaluation of the Contribution
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Comments for the Authors
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="big-arrays-fast-profiling-cloud-storage-read-throughput">
+<h1>Big Arrays, Fast: Profiling Cloud Storage Read Throughput<a class="headerlink" href="#big-arrays-fast-profiling-cloud-storage-read-throughput" title="Permalink to this headline">¶</a></h1>
+<p>By <a class="reference external" href="https://github.com/rabernat">Ryan Abernathey</a></p>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Many geoscience problems involve analyzing hundreds of Gigabytes (GB), many Terabytes (TB = 100 GB), or even a Petabyte (PB = 1000 TB) of data.
+For such data volumes, downloading data to personal computers is inefficient.
+Data-proximate computing, possibly using a parallel computing cluster, is one way to overcome this challenge.
+With data-proximate computing, a user access a remote computer which is connected tightly to shared, high-performance storage, enabling rapid processing without the need for a download step.</p>
+<img width="400px" src="https://ndownloader.figshare.com/files/22017009/preview/22017009/preview.jpg"/>
+<p>Figure from <em>Data Access Modes in Science</em>, by Ryan Abernathey. <a class="reference external" href="http://dx.doi.org/10.6084/M9.FIGSHARE.11987466.V1">http://dx.doi.org/10.6084/M9.FIGSHARE.11987466.V1</a></p>
+<p>The cloud offers many exciting new possibilities for scientific data analysis.
+It also brings new technical challenges.
+Many scientific users are accustomed to the environments found on High-Performance Computing (HPC) systems, such as NSF’s XSEDE Computers or NCAR’s Cheyenne system.
+These systems combine parallel computing with a high-performance shared filesystem, enabling massively parallel data analytics.
+When shifting workloads to the cloud, one of the biggest challenges is how to store data: <em>cloud computing does not easily support large shared filesystems, as commonly found on HPC systems</em>.
+The preferred way to store data in the cloud is using <em>cloud object storage</em>, such as Amazon S3 or Google Cloud Storage.</p>
+<img width="400px" src="https://assets.ubuntu.com/v1/09b510e0-UAS_storage_options.png">
+<p><em>Image via <a class="reference external" href="https://ubuntu.com/blog/what-are-the-different-types-of-storage-block-object-and-file">Ubuntu Website</a>, ©2020 Canonical Ltd. Ubuntu, Used with Permission</em></p>
+<p>Cloud object storage is essentially a key/value storage system.
+They keys are strings, and the values are bytes of data.
+Data is read and written using HTTP calls.
+The performance of object storage is very different from file storage.
+On one hand, each individual read / write to object storage has a high overhead (10-100 ms), since it has to go over the network.
+On the other hand, object storage “scales out” nearly infinitely, meaning that we can make hundreds, thousands, or millions of concurrent reads / writes.
+This makes object storage well suited for distributed data analytics.
+However, the software architecture of a data analysis system must be adapted to take advantage of these properties.</p>
+<p>The goal of this notebook is to demonstrate one software stack that can effectively exploit the scalable nature of cloud storage and computing for data processing. There are three key elements:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://zarr.readthedocs.io/">Zarr</a> - a library for the storage of multi-dimensional arrays using compressed chunks.</p></li>
+<li><p><a class="reference external" href="https://filesystem-spec.readthedocs.io/">Filesystem Spec</a> - an abstraction layer for working with different storage technologies. Specific implementations of filesystem spec (e.g. <a class="reference external" href="https://gcsfs.readthedocs.io/">gcsfs</a>, Google Cloud Storage Filesystem) allow Zarr to read and write data from object storage.</p></li>
+<li><p><a class="reference external" href="http://dask.pydata.org/">Dask</a> - a distributed computing framework that allows us to read and write data in parallel asynchronously.</p></li>
+</ul>
+</div>
+<div class="section" id="accessing-the-data">
+<h2>Accessing the Data<a class="headerlink" href="#accessing-the-data" title="Permalink to this headline">¶</a></h2>
+<p>For this demonstration, we will use data stored in Google Cloud Storage.
+The data come from the <a class="reference external" href="https://www.gfdl.noaa.gov/cm2-6/">GFDL CM2.6 high-resolution climate model</a>.
+They are catalogged on the Pangeo Cloud Data Catalog here:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://catalog.pangeo.io/browse/master/ocean/GFDL_CM2_6/">https://catalog.pangeo.io/browse/master/ocean/GFDL_CM2_6/</a></p></li>
+</ul>
+<p>The catalog returns an <span class="xref myst">http://xarray.pydata.org/</span> object pointing to the data on google cloud:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dask.array</span> <span class="k">as</span> <span class="nn">dsa</span>
+<span class="kn">import</span> <span class="nn">fsspec</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">contextmanager</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">intake</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">dask</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">intake</span> <span class="kn">import</span> <span class="n">open_catalog</span>
+<span class="n">cat</span> <span class="o">=</span> <span class="n">open_catalog</span><span class="p">(</span><span class="s2">&quot;https://raw.githubusercontent.com/pangeo-data/pangeo-datastore/master/intake-catalogs/ocean/GFDL_CM2.6.yaml&quot;</span><span class="p">)</span>
+<span class="n">item</span> <span class="o">=</span> <span class="n">cat</span><span class="p">[</span><span class="s2">&quot;GFDL_CM2_6_control_ocean&quot;</span><span class="p">]</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">to_dask</span><span class="p">()</span>
+<span class="n">ds</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For this example, we are not interested in Xarray’s advanced data analytics features, so we will work directly with the raw array data. Here we examine the data from the <code class="docutils literal notranslate"><span class="pre">temp</span></code> variable (ocean temperature):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">temp</span><span class="o">.</span><span class="n">data</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Before dropping down to the dask level, we take a quick peek at the data using Xarray’s built-in visualization capabilities.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">temp</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">center</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">robust</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><em>Side note:</em> We can open this array directly with dask, bypassing xarray, if we know the path on the object store.
+(These give identical results.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">item</span><span class="o">.</span><span class="n">urlpath</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dsa</span><span class="o">.</span><span class="n">from_zarr</span><span class="p">(</span><span class="n">fsspec</span><span class="o">.</span><span class="n">get_mapper</span><span class="p">(</span><span class="s2">&quot;gs://cmip6/GFDL_CM2_6/control/ocean/temp&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Some important observations:</p>
+<ul class="simple">
+<li><p>The data is organized into 2400 distinct chunks–each one corresponds to an individual object in Google Cloud Storage</p></li>
+<li><p>The in-memory size of each chunk is 194.4 MB</p></li>
+<li><p>The chunks are contiguous across the latitude and longitude dimensions (axes 2 and 3) and span 5 vertical levels (axis 1). Each timestep (axis 0) is in a different chunk.</p></li>
+<li><p>Zarr + Dask know how to virtually combine these chunks into a single 4-dimensional array.</p></li>
+</ul>
+</div>
+<div class="section" id="set-up-benchmarking">
+<h2>Set Up Benchmarking<a class="headerlink" href="#set-up-benchmarking" title="Permalink to this headline">¶</a></h2>
+<p>Now we want to see how fast we can load data from the object store. <em>We are not interested in any computations.</em> Here the goal is simply to measure read performance and how it scales. In order to do this, we  employ a trick: we  store the data into a virtual storage target that simply discards the data, similar to piping data to <code class="docutils literal notranslate"><span class="pre">/dev/null</span></code> on a filesystem.</p>
+<p>To do this, we define the following storage class:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">DevNullStore</span><span class="p">:</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+    
+    <span class="k">def</span> <span class="fm">__setitem__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is basically a dictionary that forgets whatever you put in it:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">null_store</span> <span class="o">=</span> <span class="n">DevNullStore</span><span class="p">()</span>
+<span class="c1"># this line produces no error but actually does nothing</span>
+<span class="n">null_store</span><span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;bar&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s see how long it takes to store one chunk of data into this null storage target.
+This essentially measures the read time.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">time</span> dsa.store(data[0, :5], null_store, lock=False)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we want to scale this out to see how the read time scales as a function of number of parallel reads.
+For this, we need a Dask cluster.
+In our Pangeo environment, we can use <a class="reference external" href="https://medium.com/pangeo/pangeo-with-dask-gateway-4b638825f105">Dask Gateway</a> to create a Dask cluster.
+But there is an analogous way to do this on nearly any distributed computing environment.
+HPC-style environments (PBS, Slurm, etc.) are supported via <a class="reference external" href="http://jobqueue.dask.org/en/latest/">Dask Jobqueue</a>.
+Most cloud environments can work with <a class="reference external" href="https://kubernetes.dask.org/en/latest/">Dask Kubernetes</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dask_gateway</span> <span class="kn">import</span> <span class="n">Gateway</span>
+<span class="kn">from</span> <span class="nn">dask.distributed</span> <span class="kn">import</span> <span class="n">Client</span>
+
+<span class="n">gateway</span> <span class="o">=</span> <span class="n">Gateway</span><span class="p">()</span>
+<span class="n">cluster</span> <span class="o">=</span> <span class="n">gateway</span><span class="o">.</span><span class="n">new_cluster</span><span class="p">()</span>
+<span class="n">cluster</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span><span class="n">cluster</span><span class="p">)</span>
+<span class="n">client</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally we create a context manager to help us keep track of the results of our benchmarking</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">DiagnosticTimer</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">diagnostics</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="nd">@contextmanager</span>
+    <span class="k">def</span> <span class="nf">time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">tic</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="k">yield</span>
+        <span class="n">toc</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;runtime&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">toc</span> <span class="o">-</span> <span class="n">tic</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">diagnostics</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">dataframe</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">diagnostics</span><span class="p">)</span>
+    
+<span class="n">diag_timer</span> <span class="o">=</span> <span class="n">DiagnosticTimer</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="do-benchmarking">
+<h2>Do Benchmarking<a class="headerlink" href="#do-benchmarking" title="Permalink to this headline">¶</a></h2>
+<p>We want to keep track of some information about our array.
+Here we figure out the size (in bytes) of the chunks.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chunksize</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">chunksize</span><span class="p">)</span> <span class="o">*</span> <span class="n">data</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">itemsize</span>
+<span class="n">chunksize</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And about how many workers / threads are in the cluster.
+The current cluster setup uses two threads and approximately 4 GB of memory per worker.
+These settings are the defaults for the current Pangeo environment and have not been explored extensively.
+We do not expect high sensitivity to these parameters here, as the task is I/O limited, not CPU limited.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">total_nthreads</span><span class="p">():</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">([</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">client</span><span class="o">.</span><span class="n">nthreads</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">()])</span>
+
+<span class="k">def</span> <span class="nf">total_ncores</span><span class="p">():</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">([</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">client</span><span class="o">.</span><span class="n">ncores</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">()])</span>
+
+<span class="k">def</span> <span class="nf">total_workers</span><span class="p">():</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">ncores</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is the main loop where we time a distributed read for different numbers of worker counts.
+We also keep track of some other metadata about our testing conditions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diag_kwargs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">nbytes</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">nbytes</span><span class="p">,</span> <span class="n">chunksize</span><span class="o">=</span><span class="n">chunksize</span><span class="p">,</span>
+                   <span class="n">cloud</span><span class="o">=</span><span class="s1">&#39;gcloud&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;zarr&#39;</span><span class="p">)</span>
+
+
+<span class="k">for</span> <span class="n">nworkers</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">]:</span>
+    <span class="n">cluster</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">nworkers</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">client</span><span class="o">.</span><span class="n">wait_for_workers</span><span class="p">(</span><span class="n">nworkers</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">nworkers</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">diag_timer</span><span class="o">.</span><span class="n">time</span><span class="p">(</span><span class="n">nthreads</span><span class="o">=</span><span class="n">total_nthreads</span><span class="p">(),</span>
+                         <span class="n">ncores</span><span class="o">=</span><span class="n">total_ncores</span><span class="p">(),</span>
+                         <span class="n">nworkers</span><span class="o">=</span><span class="n">total_workers</span><span class="p">(),</span>
+                         <span class="o">**</span><span class="n">diag_kwargs</span><span class="p">):</span>
+        
+        <span class="n">future</span> <span class="o">=</span> <span class="n">dsa</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">null_store</span><span class="p">,</span> <span class="n">lock</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">compute</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">dask</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="n">future</span><span class="p">,</span> <span class="n">retries</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">cluster</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">diag_timer</span><span class="o">.</span><span class="n">dataframe</span><span class="p">()</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;ncores&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;runtime&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;throughput_MBps&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">nbytes</span> <span class="o">/</span> <span class="mf">1e6</span> <span class="o">/</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;runtime&#39;</span><span class="p">]</span>
+<span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;ncores&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;throughput_MBps&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;throughput_MBps_per_thread&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">throughput_MBps</span> <span class="o">/</span> <span class="n">df</span><span class="o">.</span><span class="n">nthreads</span>
+<span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;nthreads&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;throughput_MBps_per_thread&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="compare-many-results">
+<h2>Compare Many Results<a class="headerlink" href="#compare-many-results" title="Permalink to this headline">¶</a></h2>
+<p>Similar tests to the one above were performed with many different cloud storage technologies and data formats:</p>
+<ul class="simple">
+<li><p>Google Cloud Storage + Zarr Format (like the example above)</p></li>
+<li><p>Google Cloud Storage + NetCDF Format (NetCDF files were opened directly from object storage using <code class="docutils literal notranslate"><span class="pre">gcsfs</span></code> to provide file-like objects to <code class="docutils literal notranslate"><span class="pre">h5py</span></code>)</p></li>
+<li><p><a class="reference external" href="https://wasabi.com/">Wasabi Cloud</a> + Zarr Format (A discount cloud-storage vendor)</p></li>
+<li><p><a class="reference external" href="http://jetstream-cloud.org/">Jetstream Cloud</a> + Zarr Format (NSF’s Cloud)</p></li>
+<li><p><a class="reference external" href="https://www.openstoragenetwork.org/">Open Storage Network</a> (OSN) NCSA Storage Pod + Zarr Format</p></li>
+<li><p>The <a class="reference external" href="https://data.nas.nasa.gov/ecco">NASA ECCO Data Portal</a> (data read using <a class="reference external" href="https://xmitgcm.readthedocs.io/en/latest/llcreader.html"><code class="docutils literal notranslate"><span class="pre">xmitgcm.llcreader</span></code></a>)</p></li>
+<li><p>Various OPeNDAP Servers, including:</p>
+<ul>
+<li><p>The <a class="reference external" href="https://esgf-data.ucar.edu/thredds/catalog/catalog.html">UCAR ESGF Node</a> TDS Server</p></li>
+<li><p><a class="reference external" href="https://psl.noaa.gov/thredds/catalog.html">NOAA ESRL PSL</a> TDS Server</p></li>
+</ul>
+</li>
+</ul>
+<p>The results have been archived on Zenodo:
+<a class="reference external" href="https://doi.org/10.5281/zenodo.3829032"><img alt="DOI" src="https://zenodo.org/badge/DOI/10.5281/zenodo.3829032.svg" /></a></p>
+<p>Despite the different sources and formats, all tests were conducted in the same basic manner:</p>
+<ol class="simple">
+<li><p>A “lazy” dask array referencing the source data was created</p></li>
+<li><p>A dask cluster was scaled up to different sizes</p></li>
+<li><p>The array was “stored” into the <code class="docutils literal notranslate"><span class="pre">NullStore</span></code>, forcing all data to read from the source</p></li>
+</ol>
+<p><em>Note:</em> All computing was done in Google Cloud.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url_base</span> <span class="o">=</span> <span class="s1">&#39;https://zenodo.org/record/3829032/files/&#39;</span>
+<span class="n">files</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;GCS Zarr&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;gcloud-test-1.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;gcloud-test-3.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;gcloud-test-4.csv&#39;</span><span class="p">,</span>
+                      <span class="s1">&#39;gcloud-test-5.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;gcloud-test-6.csv&#39;</span><span class="p">],</span>
+         <span class="s1">&#39;GCS NetCDF&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;netcdf-test-1.csv&#39;</span><span class="p">],</span>
+         <span class="s1">&#39;Wasabi Zarr&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;wasabi-test-1.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;wasabi-test-2.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;wasabi-test-3.csv&#39;</span><span class="p">],</span>
+         <span class="s1">&#39;Jetstream Zarr&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;jetstream-1.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;jetstream-2.csv&#39;</span><span class="p">],</span>
+         <span class="s1">&#39;ECCO Data Portal&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;ecco-data-portal-1.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;ecco-data-portal-2.csv&#39;</span><span class="p">],</span>
+         <span class="s1">&#39;ESGF UCAR OPeNDAP&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;esgf-ucar-1.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;esgf-ucar-2.csv&#39;</span><span class="p">],</span>
+         <span class="s1">&#39;NOAA ESRL OPeNDAP&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;noaa-esrl-1.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;noaa-esrl-2.csv&#39;</span><span class="p">],</span>
+         <span class="s1">&#39;OSN Zarr&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;OSN-test-1.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;OSN-test-2.csv&#39;</span><span class="p">]</span>
+        <span class="p">}</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">fnames</span> <span class="ow">in</span> <span class="n">files</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">data</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">url_base</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">fname</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">fnames</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;OSN Zarr&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig0</span><span class="p">,</span> <span class="n">ax0</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">fig1</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">palette</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s1">&#39;colorblind&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">files</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">df</span><span class="p">),</span> <span class="n">color</span><span class="p">,</span> <span class="n">ax1</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">palette</span><span class="p">,</span> <span class="n">axs</span><span class="o">.</span><span class="n">flat</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="p">[</span><span class="n">ax0</span><span class="p">,</span> <span class="n">ax1</span><span class="p">]:</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;scatter&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;ncores&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;throughput_MBps&#39;</span><span class="p">,</span>
+                  <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="p">[</span><span class="n">color</span><span class="p">],</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+<span class="n">ax0</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+
+<span class="n">fig0</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">fig1</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="discussion">
+<h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h2>
+<p>The figure above shows a wide range of throughput rates and scaling behavior.
+There are a great many factors which might influence the results, including:</p>
+<ul class="simple">
+<li><p>The structure of the source data (e.g. data format, chunk size, compression, etc.)</p></li>
+<li><p>The rate at which the storage service can read and process data from its own disks</p></li>
+<li><p>The transport protocol and encoding (compression, etc.)</p></li>
+<li><p>The network bandwidth between the source and Google Cloud US-CENTRAL1 region</p></li>
+<li><p>The overhead of the dask cluster in computing many tasks simultaneously</p></li>
+</ul>
+<p>The comparison is far from “fair”: it is clearly biased towards Google Cloud Storage, which has optimum network proximity to the compute location. Nevertheless, we make the following observations.</p>
+<div class="section" id="zarr-is-about-10x-faster-than-netcdf-in-cloud-object-storage">
+<h3>Zarr is about 10x faster than NetCDF in Cloud Object Storage<a class="headerlink" href="#zarr-is-about-10x-faster-than-netcdf-in-cloud-object-storage" title="Permalink to this headline">¶</a></h3>
+<p>Using 40 cores (20 dask workers), we were able to pull netCDF data from Google Cloud Storage at a rate of about 500 MB/s.
+Using the Zarr format, we could get to 5000 MB/s (5 GB/s) for the same number of dask workers.</p>
+</div>
+<div class="section" id="google-cloud-storage-scales">
+<h3>Google Cloud Storage Scales<a class="headerlink" href="#google-cloud-storage-scales" title="Permalink to this headline">¶</a></h3>
+<p>Both formats, however, showed good scaling, with throughput increasingly nearly linearly with the size of the cluster.
+The largest experiment we attempted used nearly 400 cores: we were able to pull data from GCS at roughly 20 GB/s.
+That’s pretty fast! At this rate, we could process a Petebyte of data in about 14 hours.
+However, there is a knee in the GCS-Zarr curve around 150 cores, with the scaling becoming slightly poorer above that value.
+We hypothesize that this is due to Dask’s overhead from handling a very large task graph.</p>
+</div>
+<div class="section" id="external-cloud-storage-providers-scale-then-saturate">
+<h3>External Cloud Storage Providers Scale…then Saturate<a class="headerlink" href="#external-cloud-storage-providers-scale-then-saturate" title="Permalink to this headline">¶</a></h3>
+<p>We tested three cloud storage providers <em>outside</em> of Google Cloud: Wasabi (a commercial service), Jetstream (an NSF-operated cloud), and OSN (an NSF-sponsored storage provider).
+These curves all show a similar pattern: good scaling for low worker counts, then a plateau.
+We interpret this a saturation of the network bandwidth between the data and the compute location.
+Of these three, Jetstream saturated at the lowest value (2 GB/s), then Wasabi (3.5 GB/s, but possibly not fully saturated yet), then OSN (5.5 GB/s).
+Also noteworthy is the fact that, for smaller core counts, OSN was actually <em>faster</em> than GCS <em>within Google Cloud</em>.
+These results are likely highly sensitive to network topology.
+However, they show unambiguously that OSN is an attractive choice for cloud-style storage and on-demand big-data processing.</p>
+</div>
+<div class="section" id="opendap-is-slow">
+<h3>OPeNDAP is Slow<a class="headerlink" href="#opendap-is-slow" title="Permalink to this headline">¶</a></h3>
+<p>The fastest we could get data out of an OPeNDAP server was 100 MB/s (UCAR ESGF Node).
+The NOAA ESRL server was more like 20 MB/s.
+These rates are many orders of magnitude than cloud storage.
+Perhaps these servers have throttling in place to limit their total bandwidth.
+Or perhaps the OPeNDAP protocol itself has some fundamental inefficiencies.
+OPeNDAP remains a very convenient protocol for remote data access; if we wish to use it for Big Data and distributed processing, data providers need to find some way to speed it up.</p>
+</div>
+</div>
+<div class="section" id="conclusions">
+<h2>Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this headline">¶</a></h2>
+<p>We demonstrated a protocol for testing the throughput and scalability Array data storage with the Dask computing framework.
+Using Google Cloud as our compute platform, we found, unsurprisingly, that a cloud-optimized storage format (Zarr), used with in-region cloud storage, provided the best raw throughput (up to 20 GB/s in our test) and scalability.
+We found that the same storage format also allowed us to transfer data on-demand from other clouds at reasonable rates (5 GB/s) for modest levels of parallelism.
+(Care must be taken in this case, however, because many cloud providers charge egress fees for data leaving their network.)
+Combined with Zarr, all of the cloud object storage platforms were able to deliver data orders of magnitude faster than traditional OPeNDAP servers, the standard remote-data-access protocol for the geosciences.</p>
+<div class="section" id="future-work">
+<h3>Future Work<a class="headerlink" href="#future-work" title="Permalink to this headline">¶</a></h3>
+<p>This analysis could be improved in numerous ways. In the future we would like to</p>
+<ul class="simple">
+<li><p>Investigate other cloud-native storage formats, such as TileDB and Cloud-Optimized Geotiff</p></li>
+<li><p>Perform deeper analysis of parameter sensitivity (chunk size, compression, etc.)</p></li>
+<li><p>Explore other clouds (e.g. AWS, Microstoft Azure)</p></li>
+</ul>
+<p>Finally, we did not attempt to assess the relative costs associated with cloud vs. on-premises data storage, as this involves difficult questions related to total cost of ownership.
+However, we hope these results are useful for data providers in deciding how to provision future infrastructure for data-intensive geoscience.</p>
+</div>
+</div>
+<div class="section" id="notebook-reviews">
+<h2>Notebook Reviews<a class="headerlink" href="#notebook-reviews" title="Permalink to this headline">¶</a></h2>
+<p>Here we include the review of the original version of this notebook and our replies.</p>
+<div class="section" id="review-1">
+<h3>Review 1<a class="headerlink" href="#review-1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="evaluation-of-the-contribution">
+<h4>Evaluation of the Contribution<a class="headerlink" href="#evaluation-of-the-contribution" title="Permalink to this headline">¶</a></h4>
+<p>Overall Recommendation (100%): 9
+Total points (out of 10)    : 9</p>
+</div>
+<div class="section" id="comments-for-the-authors">
+<h4>Comments for the Authors<a class="headerlink" href="#comments-for-the-authors" title="Permalink to this headline">¶</a></h4>
+<p>“Big Arrays, Fast: Profiling Cloud Storage Read Throughput” is a good quality
+and, most of all, interesting science meets computer science notebook. It
+addresses important issues relevant to this scientific arena. The problem
+statement, discussion and conclusions are all compelling and pertinent to this
+area of inquiry.</p>
+<p>The most important criterion “does it run” is satisfied as I was able to run
+the notebook to completion on <a class="reference external" href="https://ocean.pangeo.io">https://ocean.pangeo.io</a> (though I could not run
+it on Binder for some reason, “KeyError: ‘GFDL_CM2_6_control_ocean’”).</p>
+<blockquote>
+<div><p>The error has been corrected in the current version.</p>
+</div></blockquote>
+<p>I especially liked this notebook for the following reason:</p>
+<ul class="simple">
+<li><p>The “computational essay” aspect receives high marks for having expository
+prose and computation work together to build a logical conclusion.</p></li>
+<li><p>Figures are generated inline with matplotlib</p></li>
+<li><p>Figures are easy to understand and interesting (e.g., the set of throughput
+figures at the end of the notebook).</p></li>
+<li><p>The xarray.Dataset meta data allows for inspection via the attributes and
+data representation icons.</p></li>
+<li><p>Computational cells are small and intermixed with expository prose.</p></li>
+</ul>
+<p>Problems with this notebook:</p>
+<ul class="simple">
+<li><p>Quite a few distracting spelling errors: Benachmarks, analagous, simultaneouslly, slighly, saturdation</p></li>
+</ul>
+<blockquote>
+<div><p>Unfortunately, JupyterLab has no spell checker, a feature I have obviously become to reliant upon.</p>
+</div></blockquote>
+<p>A suggestion for improvement would be to include a reference section with HTML
+linked DOIs for further inquiry and background material, and perhaps also a
+future work section.</p>
+<blockquote>
+<div><p>A future work section has been included.</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="review-2">
+<h3>Review 2<a class="headerlink" href="#review-2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h4>Evaluation of the Contribution<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>Overall Recommendation (100%): 8
+Total points (out of 10)    : 8</p>
+</div>
+<div class="section" id="id2">
+<h4>Comments for the Authors<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>the author should add to the discussion a reason for the choice of threads,
+cores and workers in the ‘do benchmarking’ section</p></li>
+</ul>
+<blockquote>
+<div><p>This has been done</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>while the analysis is designed to provide a coarse grain view of the speed
+of zarr, it might be a valuable exercise to break the scales down to segments
+where they can be compared; e.g. of the four zarr tests, the n_cores scales
+vary from 0..400 (gcs), 0..60 (wasabi, jetstream) and 0..175 (osn) and thus
+these scales make it difficult to compare them when we do not have data past
+n_cores=60 and again n_cores=175</p></li>
+</ul>
+<blockquote>
+<div><p>This a reasonable suggestion but beyond what we could accomplish in a brief revision period.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>though the authors acknowledge the tests are not ‘fair’, indeed it would be
+more valuable to compare various configurations of netcdf to make such
+comparisons more easily interpretable</p></li>
+</ul>
+<blockquote>
+<div><p>It’s not clear what other “configurations” of netCDF are being suggested here.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>typo: change to “saturation” &gt; We interpret this a saturdation of the
+network bandwidth between the data and the compute location.</p></li>
+</ul>
+<blockquote>
+<div><p>Thanks, done.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>the abstract should include “preliminary” to situate this work as
+in-progress and not a full quantitative exploration and assessment of
+accessing data</p></li>
+</ul>
+<blockquote>
+<div><p>Given the combinatoric explosion of possible configuration choices, is a comprehensive “full quantitative exploration” even possible?</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>if at all possible the author should provide instructions for how to execute
+elsewhere outside the pangeo platform</p></li>
+</ul>
+<blockquote>
+<div><p>We have included some new links to how to deploy dask in other environments.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>licensing information as well as notebook requirements should also be
+provided with the notebook (or a link to the GH repo if one exists for the
+notebook)</p></li>
+</ul>
+<blockquote>
+<div><p>This was all included in the original submission.</p>
+</div></blockquote>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./ec2020/ec20_abernathey_etal"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By EarthCube Office<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
